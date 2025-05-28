@@ -48,7 +48,7 @@ body {
 
 /*Main*/
 
-.main-titulo{
+.login-titulo, .register-titulo{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,69 +57,17 @@ body {
     width: 100%;
 }
 
-.main-titulo h1{
-    font-family: var(--font-titulo);
-    font-size: 3vw;
-    color: var(--cor-titulo);
-    height: 2vh
-}
-.main-titulo p{
+.login-titulo h6{
     font-family: var(--font-titulo);
     font-size: 1vw;
-    color: #000000;
+    color: rgb(0, 0, 0);
+    height: 1vh ;
+    
 }
 
-.main-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 60vh;
-    width: 100%;
-}
-
-.main-body-left, .main-body-right{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 50%;
-    height: 100%;
-    gap: 3vh;
-}
-
-.main-body-right h1{
+.register-titulo h1{
     font-family: var(--font-titulo);
-    font-size: 1.5vw;
-    color: var(--cor-titulo);
+    font-size: 3vw;
+    color: black;
     height: 6vh;
 }
-
-.main-body-right p{
-    font-family: var(--font-titulo);
-    font-size: 1.8vw;
-    color: #000000;
-    padding-right: 10vh;
-}
-
-.btn-main-login, .btn-main-register{
-    border: none;
-    height: 8vh;
-    width: 15vw;
-    border-radius: 1.8vh;
-    font-family: var(--font-titulo);
-    font-size: 1.6vw;
-}
-
-.btn-main-login a, .btn-main-register a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    text-decoration: none;
-    color: black;
-    max-width: 100%;
-}
-
-
-
