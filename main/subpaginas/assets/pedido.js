@@ -4,7 +4,7 @@ const popup = document.getElementById('popup');
 // Alterna visibilidade ao clicar no botão
 btn.addEventListener('click', (e) => {
   e.stopPropagation();
-  popup.style.display = popup.style.display === 'block ' ? 'none' : 'block';
+  popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
 });
 
 // Impede que clique dentro da popup feche ela

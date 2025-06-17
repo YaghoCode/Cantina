@@ -61,7 +61,9 @@ body {
 /*pop up*/
 
 .popup { 
-  position: relative;
+  position: absolute;
+  top: 7vh;
+  left: 2vh;
   height: 23vh;
   width: 15vw;
   background-color: white;
@@ -104,6 +106,7 @@ body {
     font-size: 1.2vw;
     border: 1px solid black;
     gap: 1vh;
+    cursor: pointer;
 }
 
 /* "Restante da navbar" */
