@@ -13,4 +13,4 @@ correção de bugs na popup da pagina PEDIDOS
 
 # 05 e 6 atualização (continuação) e correção de bugs 17/06/25 - Caio 
 
-...
+Nova pagina admin e cardapip, terminar o dropdow do sub menu da pagina cardapio

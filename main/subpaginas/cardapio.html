@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="./assets/cardapio.css">
+    <title>Cardapio</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-account">
+                <button class="btn-nav-account" id="btn-nav-account" aria-label="Minha conta">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+            </div>
+              <div class="nav-links">
+                    <ul>
+                        <li>
+                            <h1>Lanches</h1>
+                        </li>
+                        <li>
+                            <h1>Bebidas</h1>
+                        </li>
+                        <li class="dropdown">
+                            <h1>
+                                Especiais
+                                <i class="fa-solid fa-sort-down" style="color: #ffffff; cursor: pointer;"></i>
+                            </h1> 
+                            <ul class="submenu-dropdown">
+                                <li>
+                                    
+                                </li>
+                                <li>
+
+                                </li>
+                            </ul>                    
+                        </li>
+                    </ul>
+               </div>
+
+                <!--Mini janela-->
+
+            <div class="popup" id="popup">
+                <ul> 
+                    <li>
+                        <img src="./assets/img/usuario-login.png" alt="" height="50vh" width="50vw" style="border: 1px solid black;">
+                    </li>
+                    <li>
+                        <a href="#">Nome: Miguel Altoe</a>
+                    </li>
+                    <li>
+                        <a href="#">Turno: 3 Ds</a>
+                    </li>
+                    <li>
+                        <button class="btn-popup-logout" id="btn-popup-logout">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            Sair
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+    </header>
+
+<script type="module" src="./assets/cardapio.js"></script>
