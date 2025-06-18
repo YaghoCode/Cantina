@@ -12,10 +12,9 @@
     --font-titulo: 'Poppins', sans-serif;
 }
 
-body {
+*{
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
 }
 
 /*Header - Navbar*/
@@ -56,6 +55,25 @@ body {
 .btn-nav-account i {
     font-size: 2rem;
     color: #ffffff;
+}
+
+.nav-logo{
+    width: 1vw;
+    display: flex;
+}
+
+.nav-links{
+    display: flex;
+    list-style: none;
+    padding-right: 5vh;
+    gap: 1vh;
+}
+
+.btn-nav-1, .btn-nav-2, .btn-nav-3{
+    border: none;
+    height: 2.5vh;
+    width: 1.5vw;
+    border-radius: 1.8vh;
 }
 
 /*pop up*/
@@ -109,31 +127,7 @@ body {
     cursor: pointer;
 }
 
-/* "Restante da navbar" */
-
-.nav-logo{
-    width: 1vw;
-    display: flex;
-}
-
-.nav-links{
-    display: flex;
-    list-style: none;
-    padding-right: 5vh;
-    gap: 1vh;
-}
-
-.btn-nav-1, .btn-nav-2, .btn-nav-3{
-    border: none;
-    height: 2.5vh;
-    width: 1.5vw;
-    border-radius: 1.8vh;
-}
-
-
 /*Main*/
- 
-/*Pedido styles*/
 
 .pedido-titulo{
     display: flex;

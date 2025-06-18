@@ -56,6 +56,33 @@
     color: #ffffff;
 }
 
+.nav-links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 6vh;
+}
+
+.nav-links ul{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20vh;
+    padding-right: 4%;
+}
+
+.nav-links ul h1{
+    color: white;
+    font-family: var(--font-titulo);
+    cursor: pointer;
+}
+
+.nav-links ul i{
+    font-size: 1rem;
+}
+
 /*pop up*/
 
 .popup { 
@@ -107,43 +134,6 @@
     cursor: pointer;
 }
 
-/* "Restante da navbar" */
-
-.nav-links{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 6vh;
-}
-
-.nav-links ul{
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 20vh;
-    padding-right: 8vw;
-}
-
-.nav-links ul h1{
-    color: white;
-    font-family: var(--font-titulo);
-}
-
-.nav-links ul i{
-    font-size: 1rem;
-}
-
-
-
-.btn-nav-1, .btn-nav-2, .btn-nav-3{
-    border: none;
-    height: 2.5vh;
-    width: 1.5vw;
-    border-radius: 1.8vh;
-}
-
 /*Main*/
 
 .container-banner{
@@ -171,15 +161,17 @@
     background-color: #ffffff;
 }
 
-.content-destaque{
+.titulo-destaques{
     width: 80%;
-    height: auto;
-    
+    height: 30%;
+    display: flex;
+    align-items: center;
 }
 
-.container-destaques h1{
+.titulo-destaques h1{
     color: black;
     font-family: var(--font-titulo);
+    font-size: 1.2rem;
 }
 
 .content-destaques{
@@ -198,43 +190,55 @@
     border-radius: 2vh;
     border: 1px solid black;
     box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
-
-    
 }
 
 .card-img{
-    height: 50%;
+    height: 40%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: rgb(158, 158, 158);
+}
+
+.card-img img{
+    height: 80%;
+    width: 80%;
+    overflow: hidden;
+    border: 0px solid;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: rgb(231, 231, 231);
 }
 
 .card-text{
-    height: 25%;
+    height: 42%;
     width: 100%;
     font-family: var(--font-titulo);
     text-align: center;
 }
 
 .card-text h5{
-    height: 1vh;
+    height: 5vh;
+    font-weight: 500;
     margin: 0;
     padding: 0;
-    font-size: 2.5vh;
+    font-size: 1.2rem;
+}
+
+.card-text p{
+    height: 15vh;
+    width: 100%;
+    font-size: 0.9rem;
 }
 
 .card-preco{
     width: 100%;
     height: 1vh;
     font-size: 2rem;
-    color: rgb(171, 216, 104);
-
+    color: rgb(136, 199, 41);
+    padding-left: 2%;
+    font-family: var(--font-titulo);
 }
 
-.items-destaques img{
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    border: 0px solid;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-}
 

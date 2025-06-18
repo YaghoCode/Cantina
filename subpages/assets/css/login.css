@@ -10,10 +10,9 @@
     --font-titulo: 'Poppins', sans-serif;
 }
 
-body {
+*{
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
 }
 
 /*Header - Navbar*/
@@ -65,7 +64,6 @@ body {
     font-size: 1vw;
     color: rgb(0, 0, 0);
     height: 1vh ;
-    
 }
 
 
