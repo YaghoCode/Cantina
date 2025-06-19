@@ -141,6 +141,8 @@
 
 /*Main*/
 
+    /*Main Banner*/
+
 .container-banner{
     display: flex;
     justify-content: center ;
@@ -156,6 +158,8 @@
     background-color: #ccc;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+    /*Main destaques*/
 
 .container-destaques{
     display: flex;
@@ -196,6 +200,8 @@
     border-radius: 2vh;
     box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
 }
+
+/*Styles padrão items/cards cardapio*/
 
 .card-img{
     height: 40%;
@@ -280,9 +286,64 @@
     cursor: pointer;
 }
 
-.section{
-    height: 40vh;
+/*Section - Bebidas*/
+
+.container-bebidas{
+    display: flex;
+    justify-content: center ;
+    flex-direction: column;
+    align-items: center;
+    height: 55vh;
     width: 100%;
+    background-color: #ffffff;
 }
 
+.titulo-bebidas{
+    width: 80%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.titulo-bebidas h1{
+    color: black;
+    font-family: var(--font-titulo);
+    font-size: 1.2rem;
+}
+
+.content-bebidas{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40vh;
+    width: 80%;
+    background-color: #ffffff;
+}
+
+.items-bebidas{
+    width: 30%;
+    background-color: #ffffff;
+    height: 100%;
+    border-radius: 2vh;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-b{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: rgb(158, 158, 158);
+}
+
+.card-img-b img{
+    height: 80%;
+    width: 40%;
+    overflow: hidden;
+    border: 0px solid;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: rgb(231, 231, 231);
+}
 

@@ -18,3 +18,7 @@ Nova pagina admin e cardapio, terminar o dropdow do sub menu da pagina cardapio
 # 07 e 08 atualização 18/06/25, correção de bugs a aprimoramento da pagina cardapio - Caio
 
 correção de bugs a aprimoramento da pagina cardapio, mudança em pedidos e admin. Exclui os dados hmtl e css das paginas login e cadastro porque vão ser subestituidas pelo Miguel. Estetica geral do site mudou ( estilização)
+
+# 09 atualização 19/06/25, correção de bugs a aprimoramento da pagina cardapio - Caio
+
+correção de bugs a aprimoramento da pagina cardapio, mudança em pedidos e admin. Exclui os dados hmtl e css das paginas login e cadastro porque vão ser subestituidas pelo Miguel. Estetica geral do site mudou ( estilização)
