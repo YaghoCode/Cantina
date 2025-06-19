@@ -4,62 +4,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-    --cor-primaria: #ff4d69;
-    --cor-titulo: #ffa100;
+    --cor-primaria: rgb(231, 231, 231);
+    --cor-secundaria: #ff4d69;
+    --cor-titulo-principal: #000000;
+    --cor-titulo-secundaria: #ffa100;
     --cor--botao-accept: #93c293;
+    --cor--botao-reject: #dd3e56;
+    --cor-elementos-navbar: red;
     --font-titulo: 'Poppins', sans-serif;
 }
 
 *{
     margin: 0;
     padding: 0;
-}
-
-/*Header - Navbar*/
-
-.navbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 6vh;
-    background-color:  var(--cor-primaria);
-}
-
-.nav-logo{
-    width: 1vw;
-    display: flex;
-    padding-left: 78vh;
-}
-
-.nav-links{
-    display: flex;
-    list-style: none;
-    padding-right: 5vh;
-    gap: 1vh;
-}
-
-.btn-nav-1, .btn-nav-2, .btn-nav-3{
-    border: none;
-    height: 2.5vh;
-    width: 1.5vw;
-    border-radius: 1.8vh;
-}
-
-/*Main*/
-
-.register-titulo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 20vh;
-    width: 100%;
-}
-
-.register-titulo h1{
-    font-family: var(--font-titulo);
-    font-size: 3vw;
-    color: rgb(0, 0, 0);
-    height: 1vh ;
 }
