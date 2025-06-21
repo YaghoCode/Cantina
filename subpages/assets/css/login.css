@@ -44,7 +44,7 @@ html{
 
 .circle{
   width: 1.6vw;
-  height: 3.8vh;
+  height: 3.2vh;
   background-color: white;
   border-radius: 50%;
 }
@@ -75,7 +75,7 @@ html{
   padding: 20px;
   font-family: var(--font-titulo);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transform: translateY(-10%);
+  transform: translateY(-60%);
   border: 2px solid black;
 }
 
@@ -101,7 +101,7 @@ html{
   width: 23.2vw;
   height: 0.3vh;
   background-color: black;
-  transform: translateY(-500%) translateX(-7%);
+  transform: translateY(-500%) translateX(-5%);
 }
 
 .login-form {
