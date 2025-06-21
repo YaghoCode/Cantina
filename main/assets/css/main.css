@@ -48,7 +48,7 @@ html{
 
 .circle{
   width: 1.6vw;
-  height: 3.8vh;
+  height: 3.2vh;
   background-color: var(--cor-primaria);
   border-radius: 50%;
 }

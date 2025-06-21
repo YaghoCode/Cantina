@@ -20,6 +20,10 @@ html{
 
 
 /* NAVBAR */
+header {
+  height: 10vh;
+}
+
 .navbar-conteiner{
     background-color: var(--cor-primaria);
     width: 100vw;
@@ -40,7 +44,7 @@ html{
 
 .circle{
   width: 1.6vw;
-  height: 3.8vh;
+  height: 3.2vh;
   background-color: white;
   border-radius: 50%;
 }
@@ -136,35 +140,35 @@ select {
 
 .circle1 {
   width: 4.4vw;  /* 50px */
-  height: 10vh;
+  height: 8.8vh;
   background-color: #a2ffd1;
   transform: translate(530%, -270%);
 }
 
 .circle2 {
   width: 2.7vw;
-  height: 6vh;
+  height: 5.4vh;
   background-color: #00d084;
   transform: translate(980%, 250%);
 }
 
 .circle3 {
   width: 2vw;
-  height: 4.5vh;
+  height: 4vh;
   background-color: #ffa500;
   transform: translate(3500%, -390%);
 }
 
 .circle4 {
   width: 2.3vw;
-  height: 5vh;
+  height: 4.6vh;
   background-color: #ff4d6d;
   transform: translate(4100%, 550%);
 }
 
 .circle5 {
   width: 2.7vw;
-  height: 6vh;
+  height: 5.4vh;
   background-color: #f4a259;
 transform: translate(3400%, 620%);
 }
