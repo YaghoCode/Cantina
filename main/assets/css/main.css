@@ -1,125 +1,204 @@
-/* Sets padrões */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-    --cor-primaria: rgb(231, 231, 231);
-    --cor-secundaria: #ff4d69;
-    --cor-titulo-principal: #000000;
-    --cor-titulo-secundaria: #ffa100;
+    --cor-primaria: #e50d2d;
+    --cor-titulo: #ffa200;
+    --grey: #f4f1f1;
     --cor--botao-accept: #93c293;
     --cor--botao-reject: #dd3e56;
-    --cor-elementos-navbar: red;
     --font-titulo: 'Poppins', sans-serif;
 }
 
+html{
+    font-size: 16px;
+}
+
 *{
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    outline: 0px;
+    border: 0px;
+}
+/*Ajutes gerais*/
+
+
+
+
+/*Navbar*/
+
+.navbar-conteiner{
+    background-color: var(--grey);
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 12vh;
+    position: fixed;
+    z-index: 1000;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/*Header - Navbar*/
+.circles-navbar{
+      display: flex;
+      gap: 10px;
+      position: relative;
+      left: -5vw;
+}
 
-.navbar{
+.circle{
+  width: 1.6vw;
+  height: 3.8vh;
+  background-color: var(--cor-primaria);
+  border-radius: 50%;
+}
+
+
+/*Parte principal do site*/
+
+.hero {
+    background-image: url('https://www.ifood.com.br/static/images/groceries-landing-page/desktop-background.webp');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    transform: translateY(7%);
+  }
+  
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 8vh;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .content-hero {
+    position: relative;
+    z-index: 2; /* garante que fique acima do escurecimento */
+    max-width: 800px;
+    padding: 20px;
+    transform: translateY(-45%);
+  }
+
+  .content-hero h1{
+    display: block;
+    font-family: var(--font-titulo);
+    color: black;
+    font-weight: 500;
+    font-size: 1.8rem;
+    transform: translateY(90%);
+  }
+
+  .content-hero h2{
+    display: block;
+    color: var(--colorforletter);
+    font-weight: 300;
+    font-size: 1.3rem;
+  }
+   
+  .btn-loginsignup{
+    display: flex;
+    justify-content: center;
+    margin-top: 15vh;
+    gap: 2%;
+  }
+
+  .btnsignup{
     background-color: var(--cor-primaria);
+    font-weight: 400;
+    color: var(--colorforletter);
+    opacity: 0.9;
+    height: 8.5vh;
+    padding: 0px 1.8%;
+    border-radius: 15px;
+  }
+
+  .btnlogin{
+    background-color: var(--cor-titulo);
+    font-weight: 400;
+    color: var(--white);
+    opacity: 0.9;
+    height: 8.5vh;
+    padding: 0px 1.8%;
+    border-radius: 15px;
+}
+ 
+
+/*Footer*/
+.containerfooter{
+    background-color: rgb(240, 238, 238);
+    width: 100%;
+    height: 24vh;
+    text-align: center;
 }
 
-.nav-logo{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   width: 100%;
+.contentfooter{
+    position: relative;
+    top: 7%;
+    transition: all 0.5s;
 }
 
-/*Main*/
+.h1footer{
+    color: var(--red);
+    font-size: 1.5rem;
+    font-family: var(--font-titulo);
+    font-weight: bold;
+}
 
-.container-main-titulo{
+.p-section{
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    height: 20vh;
-    width: 100%;
 }
 
-.content-main-titulo{
+.pfooter{
+    color: var(--font-titulo);
+    opacity: 0.9;
+    font-weight: 300;
+    font-size: 0.9rem;
+    margin-left: 27.3%;
+    margin-right: 27.3%;
+}
+
+.footer-socialmidia{
+    position: relative;
+    top: 17%;
+    display: flex;
+    gap: 3%;
+    justify-content: center;
+}
+
+.socialmidia-icons{
+    height: 1.5rem;
+    width: 1.5rem;
+    color: white;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    gap: 1vh;
+    transition: all 0.5s;
+    font-size: 0.9rem;
+    background-color: var(--red);
 }
 
-.container-main-titulo h1{
-    font-family: var(--font-titulo);
-    font-size: 2.5rem;
-    color: var(--cor-titulo-secundaria);
-    height: 40%;
-}
-.container-main-titulo p{
-    font-family: var(--font-titulo);
-    font-size: 1rem;
-    color: #000000;
-}
-
-.main-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 60vh;
-    width: 100%;
-}
-
-.main-body-left, .main-body-right{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 50%;
-    height: 100%;
-    gap: 3vh;
-}
-
-.main-body-right h1{
-    font-family: var(--font-titulo);
-    font-size: 1.5vw;
-    color: black;
-    height: 20%;
-}
-
-.main-body-right p{
-    font-family: var(--font-titulo);
-    font-size: 1.8vw;
-    color: #000000;
-    padding-right: 12%;
-}
-
-.btn-main-login, .btn-main-register{
-    border: none;
-    height: 8vh;
-    width: 15vw;
-    border-radius: 1.8vh;
-    font-family: var(--font-titulo);
-    font-size: 1.6vw;
-}
-
-.btn-main-login a, .btn-main-register a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
+.socialmidia-icons:hover{
     text-decoration: none;
-    color: black;
-    max-width: 100%;
 }
 
 
-
+.copyrightfooter{
+    display: flex;
+    justify-content: center;
+    background-color: var(--red);
+    font-size: 0.9rem;
+    padding: 0.7rem;
+    font-weight: 500;
+    transform: translateY(40%);
+    color: white;
+}

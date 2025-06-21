@@ -1,20 +1,170 @@
-/* Arquivo: register.css*/
-/* Sets padrões */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-    --cor-primaria: rgb(231, 231, 231);
-    --cor-secundaria: #ff4d69;
-    --cor-titulo-principal: #000000;
-    --cor-titulo-secundaria: #ffa100;
+    --cor-primaria: #ff4d69;
+    --cor-titulo: #ffa100;
     --cor--botao-accept: #93c293;
     --cor--botao-reject: #dd3e56;
-    --cor-elementos-navbar: red;
     --font-titulo: 'Poppins', sans-serif;
 }
 
+html{
+    font-size: 16px;
+}
+
 *{
-    margin: 0;
     padding: 0;
+    margin: 0;
+}
+/* Ajustes gerais */
+
+
+/* NAVBAR */
+.navbar-conteiner{
+    background-color: var(--cor-primaria);
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 10vh;
+    position: fixed;
+    z-index: 1000;
+}
+
+.circles-navbar{
+      display: flex;
+      gap: 10px;
+      position: relative;
+      left: -5vw;
+}
+
+.circle{
+  width: 1.6vw;
+  height: 3.8vh;
+  background-color: white;
+  border-radius: 50%;
+}
+
+
+/*Conteúdo principal*/
+
+
+.main-content h1{
+  font-family: var(--font-titulo);
+  color: black;
+  font-size: 3em;
+  transform: translate(83%, 84%);
+  width: 40vw;
+} 
+
+.form-grid {
+  display: flex;
+  justify-content: center;
+  gap: 130px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  transform: translateY(120%);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+input[type="text"] {
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 2px solid black;
+  font-size: 1rem;
+}
+
+
+select {
+  width: 15vw;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 2px solid black;
+  font-size: 1rem;
+  appearance: none;
+  background-color: white;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.file-upload {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transform: translateX(10%);
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-upload img {
+  width: 5vw;
+  height: 7vh;
+}
+
+.confirm-button {
+  background-color: var(--cor-titulo);
+  color: black;
+  border: none;
+  height: 10vh;
+  width: 15vw;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-family: var(--font-titulo);
+  transform: translate(285%, 325%);
+}
+
+
+
+
+/* Circulos Espalhados */
+.decor-circle {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle1 {
+  width: 4.4vw;  /* 50px */
+  height: 10vh;
+  background-color: #a2ffd1;
+  transform: translate(530%, -270%);
+}
+
+.circle2 {
+  width: 2.7vw;
+  height: 6vh;
+  background-color: #00d084;
+  transform: translate(980%, 250%);
+}
+
+.circle3 {
+  width: 2vw;
+  height: 4.5vh;
+  background-color: #ffa500;
+  transform: translate(3500%, -390%);
+}
+
+.circle4 {
+  width: 2.3vw;
+  height: 5vh;
+  background-color: #ff4d6d;
+  transform: translate(4100%, 550%);
+}
+
+.circle5 {
+  width: 2.7vw;
+  height: 6vh;
+  background-color: #f4a259;
+transform: translate(3400%, 620%);
 }

@@ -1,21 +1,166 @@
-/* Arquivo: login.css */
-/* Sets padrões */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-    --cor-primaria: rgb(231, 231, 231);
-    --cor-secundaria: #ff4d69;
-    --cor-titulo-principal: #000000;
-    --cor-titulo-secundaria: #ffa100;
+    --cor-primaria: #ff4d69;
+    --cor-titulo: #ffa100;
     --cor--botao-accept: #93c293;
     --cor--botao-reject: #dd3e56;
-    --cor-elementos-navbar: red;
     --font-titulo: 'Poppins', sans-serif;
 }
 
-*{
-    margin: 0;
-    padding: 0;
+html{
+    font-size: 16px;
 }
 
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    outline: 0px;
+    border: 0px;
+}
+
+/* Ajustes gerais */
+
+/* NAVBAR */
+
+.navbar-conteiner{
+    background-color: var(--cor-primaria);
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 10vh;
+    position: fixed;
+    z-index: 1000;
+}
+
+.circles-navbar{
+      display: flex;
+      gap: 10px;
+      position: relative;
+      left: -5vw;
+}
+
+.circle{
+  width: 1.6vw;
+  height: 3.8vh;
+  background-color: white;
+  border-radius: 50%;
+}
+
+
+/* CONTEÚDO PRINCIPAL */
+
+.main{
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+/* Paragrafo central */
+.main-p {
+  font-family: var(--font-titulo);
+  font-size: 1.2rem;
+  color: black;
+  transform: translateY(180%);
+}
+
+/* login */
+.login-conteiner {
+  width: 23.3vw;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  font-family: var(--font-titulo);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-10%);
+  border: 2px solid black;
+}
+
+.login-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.login-header h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.icon-left,
+.icon-right {
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.divisao{
+  width: 23.2vw;
+  height: 0.3vh;
+  background-color: black;
+  transform: translateY(-500%) translateX(-7%);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-form input {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.login-form button {
+  padding: 10px;
+  background-color: #00c8aa;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.login-footer {
+  margin-top: 15px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.login-footer a {
+  color: #33aaff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+/* circulos espalhados */
+
+.decor-circle {
+  position: absolute;
+  background-color: #ff4d6d; 
+  border-radius: 50%;
+}
+
+.circle1 {
+  width: 50px;
+  height: 50px;
+  transform: translate(-950%, -100%);
+  margin: 0;
+}
+
+.circle2 {
+  width: 40px;
+  height: 40px;
+  transform: translate(1300%, 500%);
+}
+
+
+/* CONTEÚDO PRINCIPAL */

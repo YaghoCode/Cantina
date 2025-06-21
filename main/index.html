@@ -1,62 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
-    <!--Linkagem cdn icons-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Cantina PJ</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+  <title>TCC</title>
 </head>
-<body>
 
-    <header>
-        <nav class="navbar">
-            <div class="nav-logo">
-                <img src="./assets/img/logo3.png" alt="" height="45vh" width="70vh">
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <div class="container-main-titulo">
-            <div class="content-main-titulo">
-                <h1>Cantina Parque da Juventude</h1>
-                <p>Reserve seu Pedido online.</p>
-            </div>
-        </div>
-        <div class="main-body">
-            <div class="main-body-left">
-                <button class="btn-main-login" id="btn-main-login" style="background-color:  #ffa100;">
-                    <a href="/subpages/login.html">
-                        Login
-                    </a>
-                </button>
-                <button class="btn-main-register" id="btn-main-register" style="background-color:  #ff4d69;">
-                     <a href="/subpages/register.html">
-                        Registrar-se
-                    </a>
-                </button>
-            </div>
-            <div class="main-body-right">
-                <h1>
-                    Etec Parque da Cuventude <br>
-                    Avenida Cruzeiro do Sul 2630,<br> Santana, São Paulo, SP 02030-000.
-                </h1>
-                <p>
-                    <i class="fa-brands fa-whatsapp" style="color: #00ff11;"></i>
-                    +55 011 99999-9999.
-                </p>
-            </div>
-        </div>
-    </main>
-
-
-
-    <script type="module" src="./assets/js/script.js"></script>
-
+<body class="body">
     
+    <!-- NAV -->
+<header>
+    <nav class="navbar-conteiner">
+        <div class="circles-navbar">
+            <span class="circle"></span>
+            <span class="circle"></span>
+            <span class="circle"></span>
+        </div>
+    </nav>
+</header>
+
+<main> <!--Conteudo principal-->
+    <section class="hero">  
+       <div class="content-hero">
+        <h1>Reserve seu pedido online</h1>
+        <h2>Entre na sua conta ou cadastre uma. Assim poderemos fazer seu pedido.</h2>
+        <div class="btn-loginsignup">
+          <button class="btnsignup" id="btnsignupID" type="button">
+            Cadastre numa conta para realizer um pedido
+          </button>
+          <button class="btnlogin" id="btnloginID" type="submit">
+            Entre na sua conta
+          </button>
+        </div>
+       </div>
+    </section>    
+</main> 
+
+
+
+<footer>  <!--Footer-->
+    <div class="containerfooter">
+      <div class="contentfooter">
+        <h1 class="h1footer">NOME DA CANTINA*</h1>
+        <div class="p-section">
+         <p class="pfooter">Etec Parque da Juventude
+         Avenida Cruzeiro do Sul 2630, Santana, São Paulo, SP 02030-000
+         </p>
+        </div>
+            <div class="footer-socialmidia">
+                <a href="" class="socialmidia-icons" id="instagram">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://wa.me/+5511965140861" class="socialmidia-icons" id="whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <a href="" class="socialmidia-icons" id="twitter">
+                  <i class="fa-brands fa-twitter"></i>
+                </a>
+
+                <a href="" class="socialmidia-icons" id="email">
+                  <i class="fa-regular fa-envelope"></i>
+                </a>
+            </div>
+            <h1 class="copyrightfooter">
+              &#169
+              2025 todos os direitos reservados.
+            </h1>
+      </div>
+    </div>
+</footer>
+
 </body>
+
 </html>
