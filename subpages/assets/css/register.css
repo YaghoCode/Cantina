@@ -51,14 +51,18 @@ header {
 
 
 /*Conteúdo principal*/
+.main-container-text {
+  text-align: center;
 
+}
 
 .main-content h1{
   font-family: var(--font-titulo);
   color: black;
   font-size: 3em;
-  transform: translate(83%, 84%);
-  width: 40vw;
+  transform: translate(0%, 84%);
+  width: 100%;
+ 
 } 
 
 .form-grid {
@@ -67,7 +71,7 @@ header {
   gap: 130px;
   flex-wrap: wrap;
   margin-bottom: 30px;
-  transform: translateY(120%);
+  transform: translateY(180%);
 }
 
 .input-group {
@@ -123,7 +127,7 @@ select {
   width: 15vw;
   border-radius: 25px;
   padding: 12px 30px;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   cursor: pointer;
   font-family: var(--font-titulo);
   transform: translate(285%, 325%);
