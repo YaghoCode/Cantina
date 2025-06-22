@@ -24,14 +24,14 @@ new Swiper('.cards-wrapper', {
   loop: true,
   spaceBetween: 30,
 
-  // If we need pagination
+  
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
     dynamicBullets: true
   },
 
-  // Navigation arrows
+  // Flechas de Navegação
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',

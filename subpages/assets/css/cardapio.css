@@ -301,9 +301,9 @@
     height: auto ;
 }
 
-/*Section Bebidas*/
+/*Section Salgados*/
 
-.container-lanches{
+.container-salgados{
     display: flex;
     justify-content: center ;
     flex-direction: column;
@@ -313,20 +313,20 @@
     background-color: #ffffff;
 }
 
-.titulo-lanches{
+.titulo-salgados{
     width: 80%;
     height: 25%;
     display: flex;
     align-items: center;
 }
 
-.titulo-lanches h1{
+.titulo-salgados h1{
     color: black;
     font-family: var(--font-titulo);
     font-size: 1.5rem;
 }
 
-.content-lanches{
+.content-salgados{
     flex-direction: column;
     display: flex;
     justify-content: space-between;
@@ -336,7 +336,7 @@
     background-color: #ffffff;
 }
 
-.row-cards-lanches-1, .row-cards-lanches-2{
+.row-cards-salgados-1, .row-cards-salgados-2{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -433,6 +433,138 @@
     width: 100%;
 }
 
+/*Section Doces*/
+
+
+.container-doces{
+    display: flex;
+    justify-content: center ;
+    flex-direction: column;
+    align-items: center;
+    height: 55vh;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.titulo-doces{
+    width: 80%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.titulo-doces h1{
+    color: black;
+    font-family: var(--font-titulo);
+    font-size: 1.5rem;
+}
+
+.content-doces{
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40vh;
+    width: 82%;
+    background-color: #ffffff;
+}
+
+.row-cards-doces-1, .row-cards-doces-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+}
+
+.column-cards-1, .column-cards-2, .column-cards-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.cards-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 85%;
+    width: 65%;
+    cursor: pointer;
+    border-bottom: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: var(--cor-primaria);
+}
+
+.cards-left-titulo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 25%;
+    width: 95%;
+}
+
+.cards-left-titulo h1{
+    font-family: var(--font-titulo);
+    color: #201f1f;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.cards-left-descrisao{
+    height: 55%;
+    width: 95%;
+}
+
+.cards-left-descrisao p{
+    color: #201f1f;
+    font-family: var(--font-titulo);
+    font-weight: 300;
+    font-size: 0.7rem;
+}
+
+.cards-left-preco{
+    height: 20%;
+    width: 95%;
+}
+
+.cards-left-preco h6{
+    color: #201f1f;
+    font-family: var(--font-titulo);
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.cards-right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85%;
+    width: 30%;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border-bottom: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    background-color: var(--cor-primaria);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+.cards-img-right{
+    height: 80%;
+    width: 80%;
+}
+
+.cards-img-right img{
+    height: 100%;
+    width: 100%;
+}
 
 
 
