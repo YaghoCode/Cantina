@@ -315,7 +315,7 @@
 
 .titulo-lanches{
     width: 80%;
-    height: 30%;
+    height: 25%;
     display: flex;
     align-items: center;
 }
@@ -332,7 +332,7 @@
     justify-content: space-between;
     align-items: center;
     height: 40vh;
-    width: 70%;
+    width: 82%;
     background-color: #ffffff;
 }
 
@@ -341,10 +341,10 @@
     justify-content: center;
     align-items: center;
     height: 50%;
-    width: 80%;
+    width: 100%;
 }
 
-.column-cards-1, .column-cards-2{
+.column-cards-1, .column-cards-2, .column-cards-3{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -356,7 +356,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 80%;
+    height: 85%;
     width: 65%;
     cursor: pointer;
     border-bottom: 1px solid #dddddd;
@@ -368,6 +368,9 @@
 }
 
 .cards-left-titulo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 25%;
     width: 95%;
 }
@@ -407,7 +410,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80%;
+    height: 85%;
     width: 30%;
     transition: 0.3s ease;
     cursor: pointer;
