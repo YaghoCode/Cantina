@@ -425,7 +425,7 @@
 
 .cards-img-right{
     height: 80%;
-    width: 80%;
+    width: 100%;
 }
 
 .cards-img-right img{
@@ -441,14 +441,16 @@
     justify-content: center ;
     flex-direction: column;
     align-items: center;
-    height: 55vh;
+    height: 48vh;
     width: 100%;
+    margin-top: 0;
+    padding-top: 0;
     background-color: #ffffff;
 }
 
 .titulo-doces{
     width: 80%;
-    height: 25%;
+    height: 15%;
     display: flex;
     align-items: center;
 }
@@ -477,96 +479,97 @@
     width: 100%;
 }
 
-.column-cards-1, .column-cards-2, .column-cards-3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-}
+/*Section bebidas*/
 
-.cards-left{
+
+.container-bebidas{
     display: flex;
+    justify-content: center ;
     flex-direction: column;
     align-items: center;
-    height: 85%;
-    width: 65%;
-    cursor: pointer;
-    border-bottom: 1px solid #dddddd;
-    border-top: 1px solid #dddddd;
-    border-left: 1px solid #dddddd;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    background-color: var(--cor-primaria);
+    height: 48vh;
+    width: 100%;
+    margin-top: 0;
+    padding-top: 0;
+    background-color: #ffffff;
 }
 
-.cards-left-titulo{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 25%;
-    width: 95%;
-}
-
-.cards-left-titulo h1{
-    font-family: var(--font-titulo);
-    color: #201f1f;
-    font-weight: 500;
-    font-size: 1rem;
-}
-
-.cards-left-descrisao{
-    height: 55%;
-    width: 95%;
-}
-
-.cards-left-descrisao p{
-    color: #201f1f;
-    font-family: var(--font-titulo);
-    font-weight: 300;
-    font-size: 0.7rem;
-}
-
-.cards-left-preco{
-    height: 20%;
-    width: 95%;
-}
-
-.cards-left-preco h6{
-    color: #201f1f;
-    font-family: var(--font-titulo);
-    font-weight: 300;
-    font-size: 1rem;
-}
-
-.cards-right{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 85%;
-    width: 30%;
-    transition: 0.3s ease;
-    cursor: pointer;
-    border-bottom: 1px solid #dddddd;
-    border-top: 1px solid #dddddd;
-    border-right: 1px solid #dddddd;
-    background-color: var(--cor-primaria);
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-
-.cards-img-right{
-    height: 80%;
+.titulo-bebidas{
     width: 80%;
+    height: 15%;
+    display: flex;
+    align-items: center;
 }
 
-.cards-img-right img{
-    height: 100%;
+.titulo-bebidas h1{
+    color: black;
+    font-family: var(--font-titulo);
+    font-size: 1.5rem;
+}
+
+.content-bebidas{
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40vh;
+    width: 82%;
+    background-color: #ffffff;
+}
+
+.row-cards-bebidas-1, .row-cards-bebidas-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
     width: 100%;
 }
 
+/*Section Acompanhamento*/
 
+
+.container-acompanhamentos{
+    display: flex;
+    justify-content: center ;
+    flex-direction: column;
+    align-items: center;
+    height: 48vh;
+    width: 100%;
+    margin-top: 0;
+    padding-top: 0;
+    background-color: #ffffff;
+}
+
+.titulo-acompanhamentos{
+    width: 80%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+}
+
+.titulo-acompanhamentos h1{
+    color: black;
+    font-family: var(--font-titulo);
+    font-size: 1.5rem;
+}
+
+.content-acompanhamentos{
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40vh;
+    width: 82%;
+    background-color: #ffffff;
+}
+
+.row-cards-acompanhamentos-1, .row-cards-acompanhamentos-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+}
 
 /*Modais*/
 
