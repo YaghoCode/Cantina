@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/cardapio.css">
     <title>Cantina PJ - Cardapio</title>
 </head>
@@ -86,96 +88,72 @@
                     Destaques
                 </h1>
             </div>
-            <div class="content-destaques">
-                <!--Item 1 destaques-->
-                <div class="items-destaques">
-                    <div class="card-img-d">
-                        <img src="./assets/img/pao de queijo.png" alt="">
-                    </div>
-                        <div class="card-text-d">
-                            <h5>
-                                Pão de queijo
-                            </h5>
-                        </div>
-                            <div class="card-text-description-d">
-                                <p>
-                                    Pão de queijo é um bolinho assado, feito com polvilho e queijo, crocante por fora e macio por dentro.
-                                </p>
-                            </div>
-                                <div class="card-preco-d">
-                                    <h6>
-                                        <span style="color: black;">R$:</span> 5,49
-                                    </h6>
-                                </div>
-                                    <div class="card-btn-add-d">
-                                        <button id="btn-add-destaques-1">
-                                            +
-                                        </button>
-                                    </div>
-                </div>
+              <div class="container-cards swiper">
+                <div class="cards-wrapper">
+                    <ul class="cards-listas swiper-wrapper">
+                        <li class="cards-itens swiper-slide">
+                            <a href="" class="cards-link">
+                                <img src="/assets/pao de queijo.png" alt="" class="cards-img">
+                                <p class="cards-Tipo salgado">Salgado</p>
+                                <h2 class="cards-titulo"> Pao de queijo </h2>
+                                <h2 class="cards-preco"> R$6,50</h2>
+                            </a>
+                        </li>
+                        <li class="cards-itens swiper-slide">
+                            <a href="" class="cards-link">
+                                <img src="/assets/pao de queijo.png" alt="" class="cards-img">
+                                <p class="cards-Tipo combo">Combo</p>
+                                <h2 class="cards-titulo"> Pao de queijo </h2>
+                                <h2 class="cards-preco"> R$6,50</h2>
+                            </a>
+                        </li>
+                        <li class="cards-itens swiper-slide">
+                            <a href="" class="cards-link">
+                                <img src="/assets/pao de queijo.png" alt="" class="cards-img">
+                                <p class="cards-Tipo bebidas">Bebida</p>
+                                <h2 class="cards-titulo"> Pao de queijo </h2>
+                                <h2 class="cards-preco"> R$6,50</h2>
+                            </a>
+                        </li>
+                        <li class="cards-itens swiper-slide">
+                            <a href="" class="cards-link">
+                                <img src="/assets/pao de queijo.png" alt="" class="cards-img">
+                                <p class="cards-Tipo doces">Doces</p>
+                                <h2 class="cards-titulo"> Pao de queijo </h2>
+                                <h2 class="cards-preco"> R$6,50</h2>
+                            </a>
+                        </li>
+                        <li class="cards-itens swiper-slide">
+                            <a href="" class="cards-link">
+                                <img src="/assets/pao de queijo.png" alt="" class="cards-img">
+                                <p class="cards-Tipo balas">Balas</p>
+                                <h2 class="cards-titulo"> Pao de queijo </h2>
+                                <h2 class="cards-preco"> R$6,50</h2>
+                            </a>
+                        </li>
+                    </ul>
+                     <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
 
-                <!--Item 2 destaques-->
-
-                <div class="items-destaques">
-                    <div class="card-img-d">
-                        <img src="./assets/img/pao de queijo.png" alt="">
-                    </div>
-                        <div class="card-text-d">
-                            <h5>
-                                Pão de queijo
-                            </h5>
-                        </div>
-                            <div class="card-text-description-d">
-                                <p>
-                                    Pão de queijo é um bolinho assado, feito com polvilho e queijo, crocante por fora e macio por dentro.
-                                </p>
-                            </div>
-                                <div class="card-preco-d">
-                                    <h6>
-                                        <span style="color: black;">R$:</span> 5,49
-                                    </h6>
-                                </div>
-                                    <div class="card-btn-add-d">
-                                        <button id="btn-add-destaques-2">
-                                            +
-                                        </button>
-                                    </div>
-                </div>
-
-                <!--Item 3 destaques-->
-                 
-                <div class="items-destaques">
-                    <div class="card-img-d">
-                        <img src="./assets/img/pao de queijo.png" alt="">
-                    </div>
-                        <div class="card-text-d">
-                            <h5>
-                                Pão de queijo
-                            </h5>
-                        </div>
-                            <div class="card-text-description-d">
-                                <p>
-                                    Pão de queijo é um bolinho assado, feito com polvilho e queijo, crocante por fora e macio por dentro.
-                                </p>
-                            </div>
-                                <div class="card-preco-d">
-                                    <h6>
-                                        <span style="color: black;">R$:</span> 5,49
-                                    </h6>
-                                </div>
-                                    <div class="card-btn-add-d">
-                                        <button id="btn-add-destaques-3">
-                                            +
-                                        </button>
-                                    </div>
+                    
                 </div>
             </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
         </div>
+
+<div class="teste"></div>
+
     </main>
 
         <!--Section-bebidas-->
 
-        <section>
+       <!-- <section>
 
             <div class="container-bebidas">
                 <div class="titulo-bebidas" id="titulo-bebidas">
@@ -320,7 +298,7 @@
 
         </div>
     </section>
-
+-->
 
 
 
@@ -354,7 +332,9 @@
                 </div>
             </div>
 
+
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            <script type="module" src="./assets/js/cardapio.js"></script>
 </body>
 </html>
 
-<script type="module" src="./assets/js/cardapio.js"></script>

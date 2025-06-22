@@ -1,0 +1,84 @@
+<div class="content-destaques">
+                <!--Item 1 destaques-->
+                <div class="items-destaques">
+                    <div class="card-img-d">
+                        <img src="./assets/img/pao de queijo.png" alt="">
+                    </div>
+                        <div class="card-text-d">
+                            <h5>
+                                Pão de queijo
+                            </h5>
+                        </div>
+                            <div class="card-text-description-d">
+                                <p>
+                                    Pão de queijo é um bolinho assado, feito com polvilho e queijo, crocante por fora e macio por dentro.
+                                </p>
+                            </div>
+                                <div class="card-preco-d">
+                                    <h6>
+                                        <span style="color: black;">R$:</span> 5,49
+                                    </h6>
+                                </div>
+                                    <div class="card-btn-add-d">
+                                        <button id="btn-add-destaques-1">
+                                            +
+                                        </button>
+                                    </div>
+                </div>
+
+                <!--Item 2 destaques-->
+
+                <div class="items-destaques">
+                    <div class="card-img-d">
+                        <img src="./assets/img/pao de queijo.png" alt="">
+                    </div>
+                        <div class="card-text-d">
+                            <h5>
+                                Pão de queijo
+                            </h5>
+                        </div>
+                            <div class="card-text-description-d">
+                                <p>
+                                    Pão de queijo é um bolinho assado, feito com polvilho e queijo, crocante por fora e macio por dentro.
+                                </p>
+                            </div>
+                                <div class="card-preco-d">
+                                    <h6>
+                                        <span style="color: black;">R$:</span> 5,49
+                                    </h6>
+                                </div>
+                                    <div class="card-btn-add-d">
+                                        <button id="btn-add-destaques-2">
+                                            +
+                                        </button>
+                                    </div>
+                </div>
+
+                <!--Item 3 destaques-->
+                 
+                <div class="items-destaques">
+                    <div class="card-img-d">
+                        <img src="./assets/img/pao de queijo.png" alt="">
+                    </div>
+                        <div class="card-text-d">
+                            <h5>
+                                Pão de queijo
+                            </h5>
+                        </div>
+                            <div class="card-text-description-d">
+                                <p>
+                                    Pão de queijo é um bolinho assado, feito com polvilho e queijo, crocante por fora e macio por dentro.
+                                </p>
+                            </div>
+                                <div class="card-preco-d">
+                                    <h6>
+                                        <span style="color: black;">R$:</span> 5,49
+                                    </h6>
+                                </div>
+                                    <div class="card-btn-add-d">
+                                        <button id="btn-add-destaques-3">
+                                            +
+                                        </button>
+                                    </div>
+                </div>
+            </div>
