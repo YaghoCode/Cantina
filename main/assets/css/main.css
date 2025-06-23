@@ -25,18 +25,48 @@ html{
 
 /*Navbar*/
 
-.navbar-container{
-    background-color: var(--grey);
-    width: 100%;
+/* NAVBAR */
+
+.navbar{
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
     height: 8vh;
-    position: fixed;
-    z-index: 1000;
+    background-color: rgb(255, 255, 255);
     border-bottom: 1px solid #ccc;
+
 }
 
+.nav-links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav-links ul{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20vh;
+}
+
+.nav-links ul h1{
+    color: var(--cor-elementos-navbar);
+    font-family: var(--font-titulo);
+    cursor: pointer;
+}
+
+.nav-links ul h1 a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav-links ul i{
+    font-size: 1rem;
+}
 
 /*Parte principal do site*/
 
@@ -50,7 +80,7 @@ html{
     align-items: center;
     color: white;
     text-align: center;
-    transform: translateY(7%);
+    transform: translateY(0%);
   }
   
   .hero::before {

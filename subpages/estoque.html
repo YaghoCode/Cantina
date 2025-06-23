@@ -1,0 +1,180 @@
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/estoque.css">
+    <title>Cantina PJ - Estoque</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-account">
+                <button class="btn-nav-account" id="btn-nav-account" aria-label="Minha conta">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+            </div>
+              <div class="nav-links">
+                    <ul>
+                        <li>
+                            <h1>
+                                <a href="">Gerenciamento do Estoque</a>
+                            </h1>
+                        </li>
+                    </ul>
+               </div>
+
+               <!--Mini janela-->
+
+            <div class="popup" id="popup">
+                <ul> 
+                    <li>
+                        <img src="./assets/img/usuario-login.png" alt="" height="50vh" width="50vw" style="border: 1px solid black;">
+                    </li>
+                    <li>
+                        <a href="#">Nome: Admin</a>
+                    </li>
+                        <button class="btn-popup-logout" id="btn-popup-logout">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            Sair
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    <header>
+
+        <main>
+            <!--Produtos display=flex-->
+            <div class="container-estoque">
+                <div class="container-titulo">
+                    <h1>
+                         Produtos e Serviços
+                    </h1>
+                </div>
+                    <div class="content-estoque">
+                        <div class="content-titulo">
+                            <div class="produtos active" id="tab-produtos">
+                                <h1>
+                                   📦 PRODUTOS
+                                </h1>
+                            </div>
+                            <div class="ajustes" id="tab-ajustes">
+                                <h1> 🛠️ AJUSTES DE ESTOQUE</h1>
+                            </div>
+                        </div>
+                            <div class="table-content-produtos" id="conteudo-produtos">
+                                <div class="table-content-titulo">
+                                    <div class="btn-estoque-add">
+                                        <h1>
+                                            + NOVO
+                                        </h1>
+                                    </div>
+                                    <div class="btn-estoque-lixeira">
+                                        <h1>
+                                          <i class="fa-solid fa-trash" style="color: #202122;"></i>
+                                        </h1>
+                                    </div>
+                                </div>
+                                    <div class="table">
+                                        <div class="column">
+                                            <div class="row">
+
+                                            </div>
+                                            <div class="row">
+
+                                            </div>
+                                            <div class="row">
+
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="row">
+
+                                            </div>
+                                            <div class="row">
+
+                                            </div>
+                                            <div class="row">
+
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="row">
+
+                                            </div>
+                                            <div class="row">
+                                                
+                                            </div>
+                                            <div class="row">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <!--Ajustes de estoque (display=none)-->
+                                <div class="table-content-ajustes" id="conteudo-ajustes" style="display: none;">
+                                    <div class="table-content-titulo">
+                                        <div class="btn-estoque-add">
+                                            <h1>
+                                                + EU
+                                            </h1>
+                                        </div>
+                                        <div class="btn-estoque-lixeira">
+                                            <h1>
+                                            <i class="fa-solid fa-trash" style="color: #202122;"></i>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                        <div class="table">
+                                            <div class="column">
+                                                <div class="row">
+
+                                                </div>
+                                                <div class="row">
+
+                                                </div>
+                                                <div class="row">
+
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="row">
+
+                                                </div>
+                                                <div class="row">
+
+                                                </div>
+                                                <div class="row">
+
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="row">
+
+                                                </div>
+                                                <div class="row">
+                                                    
+                                                </div>
+                                                <div class="row">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                    </div>
+            </div>
+
+
+        </main>
+
+
+        <script type="module" src="./assets/js/estoque.js"></script>
+</body>
+</html>
