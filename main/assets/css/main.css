@@ -23,34 +23,18 @@ html{
 /*Ajutes gerais*/
 
 
-
-
 /*Navbar*/
 
-.navbar-conteiner{
+.navbar-container{
     background-color: var(--grey);
-    width: 100vw;
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    height: 12vh;
+    height: 8vh;
     position: fixed;
     z-index: 1000;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.circles-navbar{
-      display: flex;
-      gap: 10px;
-      position: relative;
-      left: -5vw;
-}
-
-.circle{
-  width: 1.6vw;
-  height: 3.2vh;
-  background-color: var(--cor-primaria);
-  border-radius: 50%;
+    border-bottom: 1px solid #ccc;
 }
 
 
@@ -118,6 +102,14 @@ html{
     height: 8.5vh;
     padding: 0px 1.8%;
     border-radius: 15px;
+      cursor: pointer;
+  }
+
+  .btnsignup h1{
+    height: 100%;
+    width: 100%;
+    font-size: 1rem;
+    font-family: var(--font-titulo);
   }
 
   .btnlogin{
@@ -128,7 +120,15 @@ html{
     height: 8.5vh;
     padding: 0px 1.8%;
     border-radius: 15px;
+    cursor: pointer;
 }
+
+.btnlogin h1{
+    height: 100%;
+    width: 100%;
+    font-size: 1rem;
+    font-family: var(--font-titulo);
+  }
  
 
 /*Footer*/
