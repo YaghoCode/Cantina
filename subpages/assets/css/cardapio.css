@@ -179,8 +179,9 @@
 .content-banner{
     height: 30vh;
     width: 80%;
-    background-color: #ccc;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    margin-right: 5%;
+
 }
 
     /*Main destaques*/
@@ -575,6 +576,10 @@
     align-items: center;
     height: 50%;
     width: 100%;
+}
+
+#h2o{
+    width: 50%;
 }
 
 /*Section Acompanhamento*/
