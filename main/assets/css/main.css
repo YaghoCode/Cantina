@@ -53,8 +53,8 @@ html{
     justify-content: center;
     align-items: center;
     height: 8vh;
-    width: 30%;
-    padding: 20px;
+    width: 22%;
+    padding: 2em;
 }
 
 .nav-logo img{
@@ -66,11 +66,10 @@ html{
     list-style: none;
     padding: 0;
     margin: 0;
-    gap: 5vh;
 }
 
 .nav-links ul h1{
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: var(--cor-primaria);
     font-family: var(--font-titulo);
     cursor: pointer;
@@ -81,11 +80,11 @@ html{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 24%;
+    width: 36%;
 }
 
 .nav-items ul{
-    gap: 10vh;
+    gap: 5vh;
 }
 
 .nav-buttons{
@@ -107,7 +106,7 @@ html{
 .btn-cadastrar-se h1{
     cursor: pointer;
     color: #e3261b;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-family: var(--font-titulo);
     font-weight: 600;
 }
@@ -120,17 +119,20 @@ html{
 }
 
 .nav-buttons button{
+    font-size: 1.2rem;
     height: 3.2vh;
     width: 4vw;
     font-family: var(--font-titulo);
     font-weight: 800;
     background-color: var(--cor-primaria);
     color: white;
-    border-radius: 6px;
+    border-radius: 0.4em;
     cursor: pointer;
 }
 
-/*Main*/
+/*Main - Carousel e MP*/
+
+    /*Carousel*/
 
 .Carousel-tittle{
     display: flex;
@@ -179,12 +181,12 @@ html{
 .carousel-inner img {
   height: 56vh;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 2em;
 }
 
 .carousel-indicators [data-bs-target] {
-  width: 10px;
-  height: 10px;
+  width: 0.5vw;
+  height: 1vh;
   background-color: #ffffff; 
   border-radius: 10px;
   border: none;
@@ -196,8 +198,8 @@ html{
 
 .carousel-control-prev,
 .carousel-control-next {
-  width: 40px;
-  height: 40px;
+  width: 4vw;
+  height: 1vh;
   top: 50%;
   transform: translateY(-50%);
   background: transparent; 
@@ -229,6 +231,9 @@ html{
   border-left: 3px solid red;
   transform: translate(-50%, -50%) rotate(135deg);
 }
+
+
+/*MP - Mais Pedidos*/
 
 .container-mais-pedidos{
     display: flex;
@@ -360,28 +365,31 @@ html{
     color: var(--cor-itemdesconto);
 }
 
+    /*Section - Cardapio ( Salgados, Doces e Bebidas )*/
 
 .divisao-cardapio{
     position: relative;
     top: 12vh;
     height: 3px;
     width: 80%;
-    background-color: #cdcbcb;
+    background-color:#cbc9c9;;
 }
 
-.container-cardapio{
+/*Stylos gerais para os 3 do cardapio*/
+
+.container-cardapio, .container-cardapio-doces, .container-cardapio-bebidas{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60vh;
+    height: 45vh;
     flex-direction: column;
 }
 
-.cardapio-tittle{
+.cardapio-tittle, .cardapio-doces-tittle, .cardapio-bebidas-tittle{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 18%;
+    height: 25%;
     width: 100%;
 }
 
@@ -390,22 +398,33 @@ html{
     color: var(--cor-secundaria);
 }
 
-.content-cardapio{
+.cardapio-doces-tittle h1{
+    font-family: var(--font-titulo);
+    color: var(--cor-terciaria);
+}
+
+.cardapio-bebidas-tittle h1{
+    font-family: var(--font-titulo);
+    color: var(--cor-primaria);
+}
+
+.content-cardapio, .content-cardapio-doces, .content-cardapio-bebidas{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 90%;
     width: 90%;
     gap: 8vh;
-    transform: translateY(-20%);
 }
 
-.cards-cardapio{
+    /*Stylos Para Salgados ( cardapio ( C ) e Doces ( cardapio-doces ( D ))*/
+
+.cards-cardapio, .cards-cardapio-doces{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 60%;
+    height: 75%;
     width: 21%;
     background-color: #ece7e7;
     border-radius: 8px;
@@ -419,28 +438,64 @@ html{
     align-items: center;
     height: 46%;
     width: 85%;
-    background-color: #f2972b;
-    border-radius: 10px;
+    background-color: var(--cor-secundaria);
+    border-radius: 0.5em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cards-img-d-1, .cards-img-d-2, .cards-img-d-3, .cards-img-d-4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 46%;
+    width: 85%;
+    background-color: var(--cor-terciaria);
+    border-radius: 0.5em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .cards-img-c-1 img{
-    height: 18vh;
+    height: 20vh;
+    padding: 2em;
 }
 
 .cards-img-c-2 img{
-    height: 22vh;
-}
-
-.cards-img-c-3 img{
+    padding-bottom: 0.5em;
     height: 18vh;
 }
 
+.cards-img-c-3 img{
+    height: 22vh;
+    padding: 2.4em;
+}
+
 .cards-img-c-4 img {
+    padding: 1.8em;
     height: 22vh;
 }
 
-.cards-tittle-c{
+.cards-img-d-1 img{
+    height: 28vh;
+    padding: 2.2em;
+}
+
+.cards-img-d-2 img{
+    padding: 1.4em;
+    height: 21vh;
+}
+
+.cards-img-d-3 img{
+    height: 15vh;
+    padding-bottom: 0.8em;
+}
+
+.cards-img-d-4 img {
+    height: 22vh;
+    padding-top: 1em;
+}
+
+
+.cards-tittle-c, .cards-tittle-d{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -448,12 +503,12 @@ html{
     width: 85%;
 }
 
-.cards-tittle-c h3{
+.cards-tittle-c h3, .cards-tittle-d h3{
     font-family: var(--font-titulo);
     font-size: 1.5rem;
 }
 
-.cards-price-c{
+.cards-price-c, .cards-price-d{
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -461,10 +516,10 @@ html{
     width: 85%;
     position: relative;
     top: 2.5vh;
-    gap: 20vh;
+    gap: 19vh;
 }
 
-.cards-btn-c{
+.cards-btn-c, .cards-btn-d{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -473,7 +528,7 @@ html{
     bottom: 0.8vh;
 }
 
-.cards-btn-c button{
+.cards-btn-c button, .cards-btn-d button{
     background-color: #276254;
     width: 50px;
     height: 30px;
@@ -482,16 +537,313 @@ html{
     font-size: 1.4rem;
 }
 
-.cards-btn-c button p{
+.cards-btn-c button p, .cards-btn-d button p{
     position: relative;
     bottom: 0.3vh;
 }
 
-.cards-price-c h6{
+.cards-price-c h6, .cards-price-d h6{
     font-family: var(--font-titulo);
     font-size: 1.2rem;
     font-weight: 400;
 }
+
+/*cards bebidas*/
+
+.cards-cardapio-bebidas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 65%;
+    width: 21%;
+    background-color: #ece7e7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.cards-img-tittle-b{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 60%;
+    width: 85%;
+}
+
+.cards-tittle-b{
+    text-align: left;
+    width: 55%;
+    max-width: 50%;
+
+}
+
+.cards-tittle-b h3{
+    font-family: var(--font-titulo);
+    font-size: 1.2rem;
+}
+
+.cards-img-b-1, .cards-img-b-2, .cards-img-b-3, .cards-img-b-4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 45%;
+    background-color: var(--cor-primaria);
+    border-radius: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cards-img-b-1 img{
+    height: 10vh;
+}
+
+.cards-img-b-2 img{
+    height: 10vh;
+}
+
+.cards-img-b-3 img{
+    height: 10vh;
+}
+
+.cards-img-b-4 img {
+    height: 10vh;
+}
+
+ .cards-price-b{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 10%;
+    width: 85%;
+    position: relative;
+    top: 2.5vh;
+    gap: 18vh;
+}
+
+.cards-btn-b{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    bottom: 0.8vh;
+}
+
+.cards-btn-b button{
+    background-color: #276254;
+    width: 50px;
+    height: 30px;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.4rem;
+}
+
+.cards-price-b h6{
+    font-family: var(--font-titulo);
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.cards-btn-b button p{
+    position: relative;
+    bottom: 0.3vh;
+}
+
+
+/*Section Sobre Nós*/
+
+.container-divisao-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    width: 100%;
+}
+
+.divisao-cardapio-2{
+    height: 3px;
+    width: 80%;
+    background-color:#cbc9c9;
+}
+
+.container-sobreNos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    width: 100%;
+    flex-direction: column;
+}
+
+.content-tittle-sobreNos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15%;
+    width: 70%;
+    background-color: #e3261b;
+    border-top-right-radius: 2em;
+    border-top-left-radius: 2em;
+}
+
+.content-tittle-sobreNos h1{
+    font-family: var(--font-titulo);
+    font-weight: 800;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.content-sobreNos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 70%;
+    background-color: #e3261b;
+    border-bottom-right-radius: 2em;
+    border-bottom-left-radius: 2em;
+}
+
+.content-left{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 90%;
+    width: 30%;
+}
+
+.content-left-tittle{
+    height: 38%;
+}
+
+.content-left-tittle h1{
+    color: white;
+    font-family: var(--font-titulo);
+    font-weight:800;
+}
+
+.content-left-tittle h1 span{
+    color: #e3261b;
+}
+
+
+.content-left-description{
+    height: 17%;
+}
+
+.content-left-description p{
+    color: white;
+    font-family: var(--font-titulo);
+    font-weight: 400;
+}
+
+.content-left-btn{
+    display: flex;
+    height: 42%;
+    width: 50%;
+}
+
+.content-left-btn button{
+    font-size: 1.2rem;
+    background-color: #276254;
+    color: white;
+    font-family: var(--font-titulo);
+    width: 70%;
+    height: 13%;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.content-right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90%;
+    width: 70%;
+}
+
+.content-right-row-1{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 40%;
+    width: 80%;
+    gap: 2vh;
+}
+
+.one-square{
+    border-radius: 0.7em;
+    height: 50%;
+    width: 15%;
+    background-color: white;
+}
+
+.two-square{
+    border-radius: 0.7em;
+    height: 35%;
+    width: 10%;
+    background-color: white;
+}
+
+.tree-square{
+    border-radius: 0.7em;
+    height: 70%;
+    width: 10%;
+    background-color: white;
+}
+
+.four-square{
+    border-radius: 0.7em;
+    height: 45%;
+    width: 30%;
+    background-color: white;
+}
+
+.five-square{
+    border-radius: 0.7em;
+    height: 60%;
+    width: 13%;
+    background-color: white;
+}
+
+.content-right-row-2{
+    display: flex;
+    padding-top: 0.5em;
+    height: 60%;
+    width: 80%;
+    gap: 2vh;
+}
+
+.seven-square{
+    border-radius: 0.7em;
+    height: 50%;
+    width: 21%;
+    background-color: white;
+}
+.eight-square{
+    border-radius: 0.7em;
+    height: 60%;
+    width: 23%;
+    background-color: white;
+}
+.nine-square{
+    border-radius: 0.7em;
+    height: 40%;
+    width: 28%;
+    background-color: white;
+}
+.ten-square{
+    border-radius: 0.7em;
+    height: 60%;
+    width: 21%;
+    background-color: white;
+}
+
+
 
 
 

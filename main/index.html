@@ -16,7 +16,7 @@
 
 <body class="body">
     
-    <!-- NAV -->
+    <!-- header, navbar -->
   <header>
       <nav class="navbar">
           <div class="nav-links">
@@ -27,18 +27,18 @@
                 <ul>
                   <li>
                       <h1>
-                          Início
+                        <a href="#inicio" style="text-decoration: none; color: inherit;">Início</a>
                       </h1>
                   </li>
                   <li>
                       <h1>
-                          Cardápio
+                        <a href="#Cardapio" style="text-decoration: none; color: inherit;">Cardápio</a>
                       </h1>
                   </li>
                   <li>
-                        <h1>
-                            Sobre nós
-                        </h1>
+                         <h1>
+                        <a href="#Sobre-Nos" style="text-decoration: none; color: inherit;">Sobre Nós</a>
+                      </h1>
                   </li>
                 </ul>
               </div>
@@ -58,12 +58,17 @@
       </nav>
   </header>
 
+    <!--Main, titulo ,carousel e MP (Mais Pedidos)-->
+
     <main>
-        <div class="Carousel-tittle">
+          <!--Titulo Main-->
+        <div class="Carousel-tittle" id="inicio">
               <h1>
                 Bateu a fome? Vai de <br> <Span> #Cantina PJ</Span>
               </h1>
         </div>
+
+          <!--Carousel-->
 
           <div class="container-carousel">
             <div class="container-carousel-divisao">
@@ -97,7 +102,9 @@
                     </div>
           </div>
 
-          <div class="container-mais-pedidos">
+          <!--MP - Mais pedidos-->
+
+          <div class="container-mais-pedidos" id="Cardapio">
               <div class="content-mp-1">
                 <div class="content-tittle">
                     <h1>
@@ -160,6 +167,8 @@
           </div>
   </main>
 
+    <!-- Section Cardapio, Salgados-->
+
     <section>
         <div class="container-cardapio">
             <div class="cardapio-tittle">
@@ -174,13 +183,13 @@
                     </div>
                     <div class="cards-tittle-c">
                         <h3>
-                            Presunto e Queijo
+                            Esfiha de Frango
                         </h3>
                     </div>
                     <div class="cards-price-c">
                       <div class="price">
                         <h6>
-                          R$ 6,99
+                          R$ 6,00
                         </h6>
                       </div>
                       <div class="cards-btn-c">
@@ -198,13 +207,13 @@
                 </div>
                 <div class="cards-tittle-c">
                     <h3>
-                      Presunto e Queijo
+                      Esfiha de Carne
                     </h3>
                 </div>
                 <div class="cards-price-c">
                   <div class="price">
                     <h6>
-                      R$ 6,99
+                      R$ 7,00
                     </h6>
                   </div>
                   <div class="cards-btn-c">
@@ -218,17 +227,17 @@
                 </div>
                 <div class="cards-cardapio">
                   <div class="cards-img-c-3">
-                    <img src="./assets/img/esfiha3.png" alt="">
+                    <img src="./assets/img/coxinha.png" alt="">
                 </div>
                 <div class="cards-tittle-c">
                     <h3>
-                      Presunto e Queijo
+                      Coxinha
                     </h3>
                 </div>
                   <div class="cards-price-c">
                       <div class="price">
                         <h6>
-                          R$ 6,99
+                          R$ 6,00
                         </h6>
                       </div>
                       <div class="cards-btn-c">
@@ -242,17 +251,17 @@
                 </div>
                 <div class="cards-cardapio">
                   <div class="cards-img-c-4">
-                    <img src="./assets/img/esfiha5.png" alt="">
+                    <img src="./assets/img/bauru.png" alt="">
                 </div>
                 <div class="cards-tittle-c">
                     <h3>
-                      Presunto e Queijo
+                      Bauru
                     </h3>
                 </div>
                   <div class="cards-price-c">
                       <div class="price">
                         <h6>
-                          R$ 6,99
+                          R$ 6,00
                         </h6>
                       </div>
                       <div class="cards-btn-c">
@@ -266,6 +275,309 @@
                 </div>
         </div>
     </section>
+
+      <!-- Section Cardapio, Doces-->
+
+      <section>
+          <div class="container-cardapio-doces">
+            <div class="cardapio-doces-tittle">
+                <h1>
+                    Doces
+                </h1>
+            </div>
+             <div class="content-cardapio-doces">
+                <div class="cards-cardapio-doces">
+                    <div class="cards-img-d-1">
+                        <img src="./assets/img/pudim.png" alt="">
+                    </div>
+                    <div class="cards-tittle-d">
+                        <h3>
+                            Pudim
+                        </h3>
+                    </div>
+                    <div class="cards-price-d">
+                      <div class="price">
+                        <h6>
+                          R$ 7,00
+                        </h6>
+                      </div>
+                      <div class="cards-btn-d">
+                          <button>
+                             <P>
+                              +
+                             </P>
+                          </button>
+                      </div>
+                  </div>
+                </div>
+                <div class="cards-cardapio-doces">
+                  <div class="cards-img-d-2">
+                    <img src="./assets/img/croissant2.png" alt="">
+                </div>
+                <div class="cards-tittle-d">
+                    <h3>
+                      Croissant de Chocolate
+                    </h3>
+                </div>
+                <div class="cards-price-d">
+                  <div class="price">
+                    <h6>
+                      R$ 7,00
+                    </h6>
+                  </div>
+                  <div class="cards-btn-d">
+                      <button>
+                        <P>
+                          +
+                         </P>
+                      </button>
+                  </div>
+              </div>
+                </div>
+                <div class="cards-cardapio-doces">
+                  <div class="cards-img-d-3">
+                    <img src="./assets/img/beijinho.png" alt="">
+                </div>
+                <div class="cards-tittle-d">
+                    <h3>
+                      Beijinho
+                    </h3>
+                </div>
+                  <div class="cards-price-d">
+                      <div class="price">
+                        <h6>
+                          R$ 6,00
+                        </h6>
+                      </div>
+                      <div class="cards-btn-d">
+                          <button>
+                            <P>
+                              +
+                             </P>
+                          </button>
+                      </div>
+                  </div>
+                </div>
+                <div class="cards-cardapio-doces">
+                  <div class="cards-img-d-4">
+                    <img src="./assets/img/brigadeiro.png" alt="">
+                </div>
+                <div class="cards-tittle-d">
+                    <h3>
+                      Brigadeiro
+                    </h3>
+                </div>
+                  <div class="cards-price-d">
+                      <div class="price">
+                        <h6>
+                          R$ 6,00
+                        </h6>
+                      </div>
+                      <div class="cards-btn-d">
+                          <button>
+                            <P>
+                              +
+                             </P>
+                          </button>
+                      </div>
+                  </div>
+                </div>
+          </div>
+      </section>
+
+          <!--Section Cadapio, Bebidas-->
+
+        <section>
+
+            <div class="container-cardapio-bebidas">
+                <div class="cardapio-bebidas-tittle">
+                      <h1>
+                          Bebidas
+                      </h1>
+                </div>
+             <div class="content-cardapio-bebidas">
+                  <div class="cards-cardapio-bebidas">
+                            <div class="cards-img-tittle-b">
+                                  <div class="cards-tittle-b">
+                                      <h3>
+                                          Coca-Cola 350ml
+                                      </h3>
+                                  </div>
+                                      <div class="cards-img-b-1">
+                                          <img src="./assets/img/coca.png" alt="">
+                                      </div>
+                            </div>
+                                  <div class="cards-price-b">
+                                        <div class="price">
+                                            <h6>
+                                              R$ 7,00
+                                            </h6>
+                                        </div>
+                                    <div class="cards-btn-b">
+                                          <button>
+                                              <P>
+                                                +
+                                              </P>
+                                          </button>
+                                    </div>
+                                </div>
+                  </div>
+                    <div class="cards-cardapio-bebidas">
+                          <div class="cards-img-tittle-b">
+                                <div class="cards-tittle-b">
+                                      <h3>
+                                          Coca-Cola Zero 350ml
+                                      </h3>
+                                </div>
+                                    <div class="cards-img-b-2">
+                                        <img src="./assets/img/cocazero.png" alt="">
+                                    </div>
+                          </div>
+                                    <div class="cards-price-b">
+                                          <div class="price">
+                                                <h6>
+                                                  R$ 7,00
+                                                </h6>
+                                          </div>
+                                            <div class="cards-btn-b">
+                                                    <button>
+                                                        <P>
+                                                          +
+                                                        </P>
+                                                    </button>
+                                            </div>
+                                    </div>
+                    </div>
+                        <div class="cards-cardapio-bebidas">
+                                <div class="cards-img-tittle-b">
+                                      <div class="cards-tittle-b">
+                                          <h3>
+                                              Coca Cola 350ml
+                                          </h3>
+                                      </div>
+                                          <div class="cards-img-b-3">
+                                              <img src="./assets/img/coca.png" alt="">
+                                          </div>
+                                </div>
+                                    <div class="cards-price-b">
+                                          <div class="price">
+                                              <h6>
+                                                R$ 7,00
+                                              </h6>
+                                          </div>
+                                          <div class="cards-btn-b">
+                                                <button>
+                                                    <P>
+                                                      +
+                                                    </P>
+                                                </button>
+                                          </div>
+                                  </div>
+                        </div>
+                            <div class="cards-cardapio-bebidas">
+                                  <div class="cards-img-tittle-b">
+                                        <div class="cards-tittle-b">
+                                            <h3>
+                                                Coca Cola 350ml
+                                            </h3>
+                                        </div>
+                                            <div class="cards-img-b-4">
+                                                <img src="./assets/img/coca.png" alt="">
+                                            </div>
+                                  </div>
+                                      <div class="cards-price-b">
+                                            <div class="price">
+                                                <h6>
+                                                  R$ 7,00
+                                                </h6>
+                                            </div>
+                                                <div class="cards-btn-b">
+                                                      <button>
+                                                          <P>
+                                                            +
+                                                          </P>
+                                                      </button>
+                                                </div>
+                                      </div>
+                            </div>
+              </div>
+            </div>
+
+        </section>
+
+        <!--Section Sobre Nós-->
+
+        <section>
+          <div class="container-divisao-2">
+            <div class="divisao-cardapio-2">
+           
+            </div>
+          </div>
+
+            <div class="container-sobreNos">
+                <div class="content-tittle-sobreNos" id="Sobre-Nos">
+                      <h1>
+                        Sobre Nós
+                      </h1>
+                  </div>
+                    <div class="content-sobreNos">
+                      
+                          <div class="content-left">
+                              <div class="content-left-tittle">
+                                    <h1>
+                                      Você tem <br> fome <span>.</span> do <br> que!?
+                                    </h1>
+                              </div>
+                                  <div class="content-left-description">
+                                        <p>
+                                          Conheça um pouco da <br> nossa equipe e do <br> projeto!
+                                        </p>
+                                  </div>
+                                      <div class="content-left-btn">
+                                          <button>
+                                              <a href="./propaganda.html" style="color: inherit; text-decoration: none;">Saiba Mais</a>
+                                          </button>
+                                      </div>
+                          </div>
+
+                                <div class="content-right">
+                                    <div class="content-right-row-1">
+                                          <div class="one-square">
+                                              <img src="" alt="">
+                                          </div>
+                                          <div class="two-square">
+                                               <img src="" alt="">
+                                          </div>
+                                          <div class="tree-square">
+                                              <img src="" alt="">
+                                          </div>
+                                          <div class="four-square">
+                                              <img src="" alt="">
+                                          </div>
+                                          <div class="five-square">
+                                              <img src="" alt="">
+                                          </div>
+                                    </div>
+                                
+                                  <div class="content-right-row-2">
+                                          <div class="seven-square">
+                                              <img src="" alt="">
+                                          </div>
+                                          <div class="eight-square">
+                                              <img src="" alt="">
+                                          </div>
+                                          <div class="nine-square">
+                                              <img src="" alt="">
+                                          </div>
+                                          <div class="ten-square">
+                                              <img src="" alt="">
+                                          </div>
+                                  </div>
+                                </div>
+                    </div>
+            </div>
+        </section>
+    
 
 
     <script type="module" src="./assets/js/script.js"></script>
