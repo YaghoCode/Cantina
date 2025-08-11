@@ -39,6 +39,7 @@ html{
     background-color: #f4f4f4;
     z-index: 10000;
     width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .nav-links{
@@ -843,6 +844,150 @@ html{
     background-color: white;
 }
 
+/*Avaliacoes*/
+
+.tittle-avaliacoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    width: 100%;
+}
+
+.tittle-avaliacoes h1{
+    font-family: var(--font-titulo);
+    color: #276254;
+    font-weight: 700;
+}
+
+.container-avaliacoes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 37vh;
+    width: 100%;
+}
+
+.content-avaliacoes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 90%; /* ← aumentei aqui */
+  margin: auto;
+  overflow: hidden;
+  background-color: var(--cor-terciaria);
+  border-radius: 10px;
+}
+
+.avaliacoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease;
+  width: 70%;
+  gap: 2vh;
+  height: 35vh;
+}
+
+.card {
+  flex: 0 0 auto; /* ← garante que não estique ou encolha */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+  width: 41vh;
+  height: 25vh;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.card h1{
+    font-size: 1.2em;
+    font-family: var(--font-titulo);
+    color: var(--cor-primaria);
+    font-weight: 800;
+}
+
+.arrow {
+  position: absolute;
+  font-size: 3rem;
+  color: #000000;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.arrow.left { left: 2px; }
+.arrow.right { right: 2px; }
+
+
+.container-divisao-3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    width: 100%;
+}
+
+.divisao-3{
+    height: 3px;
+    width: 80%;
+    background-color:#cbc9c9;
+}
+
+/*Footer*/
+
+.container-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+    width: 100%;
+}
+
+.content-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 95%;
+}
+
+.footer-left{
+    height: 100%;
+    width: 30%;
+}
+
+.footer-description{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 40%;
+    text-align: center;
+}
+
+.footer-description h6{
+    font-family: var(--font-titulo);
+    color: #989595;
+}
+
+.footer-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 30%;
+}
+
+.footer-icons i{
+    font-size: 2rem;
+    padding: 1vh;
+    color: #e3261b;
+    cursor: pointer;
+}
 
 
 
