@@ -10,13 +10,13 @@ function updateCardWidth() {
   const style = getComputedStyle(avaliacoes);
   const gap = parseFloat(style.gap) || 0;
   const card = avaliacoes.querySelector('.card');
-  cardWidth = card.offsetWidth + gap + 8;
+  cardWidth = card.offsetWidth + gap + 10;
 }
 updateCardWidth();
 
 // Loop infinito real
 function moveLeft() {
-  avaliacoes.style.transition = 'transform 0.4s ease';
+  avaliacoes.style.transition = 'transform 2s ease';
   avaliacoes.style.transform = `translateX(${-cardWidth}px)`;
 
   avaliacoes.addEventListener('transitionend', () => {
@@ -32,7 +32,7 @@ function moveRight() {
   avaliacoes.style.transform = `translateX(${-cardWidth}px)`;
 
   requestAnimationFrame(() => {
-    avaliacoes.style.transition = 'transform 0.4s ease';
+    avaliacoes.style.transition = 'transform 2s ease';
     avaliacoes.style.transform = 'translateX(0)';
   });
 }
@@ -49,7 +49,7 @@ leftBtn.addEventListener('click', () => {
 
 // Autoplay
 function startAutoPlay() {
-  autoPlayInterval = setInterval(moveLeft, 10000); // a cada 3s
+  autoPlayInterval = setInterval(moveLeft, 3000); // a cada 3s
 }
 function resetAutoPlay() {
   clearInterval(autoPlayInterval);
@@ -59,3 +59,38 @@ startAutoPlay();
 
 // Atualiza se a tela mudar
 window.addEventListener('resize', updateCardWidth);
+
+
+  // Video Sobre nos
+
+  function postMessageToPlayer(player, command) {
+    player.contentWindow.postMessage(JSON.stringify(command), '*');
+  }
+
+  const video = document.getElementById('youtube-video');
+  const options = {
+    root: null,
+    threshold: 0.5 // metade do vídeo precisa estar visível
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Quando o vídeo estiver visível, envie comando para tocar
+        postMessageToPlayer(video, {
+          event: 'command',
+          func: 'playVideo',
+          args: []
+        });
+      } else {
+        // Quando o vídeo sair da tela, pause ele
+        postMessageToPlayer(video, {
+          event: 'command',
+          func: 'pauseVideo',
+          args: []
+        });
+      }
+    });
+  }, options);
+
+  observer.observe(document.getElementById('video-container'));
