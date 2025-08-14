@@ -1,63 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" type="text/css" href="./assets/css/login.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cantina PJ - Main</title>
+
+  <!-- Bootstrap e FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+  <!-- Seu CSS -->
+  <link rel="stylesheet" href="./assets/css/login.css" />
 </head>
 
 <body class="body">
-    
-    <!-- header, navbar -->
+  <!-- Navbar -->
+
+  <!-- header, navbar -->
   <header>
-      <nav class="navbar">
-          <div class="nav-links">
-            <div class="nav-logo">
-                <img src="./assets/img/img comidas/Logo-TCC-removebg-preview.png" alt="">
-            </div>
-              <div class="nav-items">
-                <ul>
-                  <li>
-                      <h1>
-                        <a href="#inicio" style="text-decoration: none; color: inherit;">Início</a>
-                      </h1>
-                  </li>
-                  <li>
-                      <h1>
-                        <a href="#Cardapio" style="text-decoration: none; color: inherit;">Cardápio</a>
-                      </h1>
-                  </li>
-                  <li>
-                         <h1>
-                        <a href="#Sobre-Nos" style="text-decoration: none; color: inherit;">Sobre Nós</a>
-                      </h1>
-                  </li>
-                </ul>
-              </div>
-                <div class="nav-buttons">
-                  <div class="btn-user">
-                      <h1>
-                          <i class="fa-solid fa-user"></i>
-                      </h1>
-                  </div>
-                  <div class="btn-cart">
-                     <h1>
-                        <i class="fa-solid fa-cart-shopping"></i>
-                     </h1>
-                  </div>
-                </div>
+    <nav class="navbar">
+      <div class="nav-links">
+        <div class="nav-logo"> <img src="./assets/img/img comidas/Logo-TCC-removebg-preview.png" alt=""> </div>
+        <div class="nav-items">
+          <ul>
+            <li>
+              <h1> <a href="#inicio" style="text-decoration: none; color: inherit;">Início</a> </h1>
+            </li>
+            <li>
+              <h1> <a href="#Cardapio" style="text-decoration: none; color: inherit;">Cardápio</a> </h1>
+            </li>
+            <li>
+              <h1> <a href="#Sobre-Nos" style="text-decoration: none; color: inherit;">Sobre Nós</a> </h1>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-buttons">
+          <div class="btn-user">
+            <h1> <i class="fa-solid fa-user"></i> </h1>
           </div>
-      </nav>
+          <div class="btn-cart">
+            <h1> <i class="fa-solid fa-cart-shopping"></i> </h1>
+          </div>
+        </div>
+      </div>
+    </nav>
   </header>
 
+  <!-- Login / Cadastro -->
+  <main>
+    <div class="container">
 
-  <script type="module" src="./assets/js/login.js"></script>
-</body>
-</html>
+      <div class="form-wrapper" id="formWrapper">
+        <!-- LADO DA IMAGEM -->
+        <div class="image-side" id="imageSide">
+        </div>
+
+        <!-- LADO DO FORMULÁRIO -->
+        <div class="form-side">
+          <!-- LOGIN -->
+          <div class="form-box" id="loginBox">
+            <h2>Bem-vindo à <span>#Cantina PJ</span></h2>
+            <p>Faça o login<br><small>Aproveite a experiência</small></p>
+            <input type="text" placeholder="CPF" id="loginCPF" />
+            <input type="password" placeholder="Senha" id="loginSenha" />
+            <button onclick="entrar()">Entrar</button>
+            <p class="link">Não tem login? <a href="#" onclick="mostrarCadastro()">Cadastre-se</a></p>
+          </div>
+
+          <!-- CADASTRO -->
+          <div class="form-box hidden" id="cadastroBox">
+            <h2>Cadastre-se!</h2>
+            <input type="text" placeholder="Nome Completo" />
+            <input type="text" placeholder="CPF" />
+            <input type="text" placeholder="Sala" />
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Senha" />
+            <button>Cadastrar</button>
+            <p class="link">Já tem cadastro? <a href="#" onclick="mostrarLogin()">Logar</a></p>
+          </div>
+        </div>
+      </div>

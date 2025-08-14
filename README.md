@@ -26,3 +26,7 @@ correção de bugs a aprimoramento da pagina cardapio, mudança em pedidos e adm
 # 09 parte 02 20/06/25, correção de bugs a aprimoramento da pagina cardapio, js do cardapio, modais - Caio
 
 modais, javascript, estilização
+
+# Muitas att ja foram feitas, repaginamento do desgin 14/08/25 -Caio
+
+da Main
