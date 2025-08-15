@@ -11,8 +11,26 @@ function updateCardWidth() {
   const gap = parseFloat(style.gap) || 0;
   const card = avaliacoes.querySelector('.card');
   cardWidth = card.offsetWidth + gap + 10;
+  
+  let contador = avaliacoes.querySelectorAll('div.card').length;
+  
+  if(contador % 2 ==1){
+    if (contador % 2 === 1) {
+     
+      avaliacoes.style.justifyContent = ""; 
+    
+     
+      avaliacoes.style.position = "relative";
+      avaliacoes.style.left = "67.5vh";
+    }
+    
+  }
+
+
+
 }
 updateCardWidth();
+
 
 // Loop infinito real
 function moveLeft() {
