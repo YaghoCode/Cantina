@@ -130,6 +130,36 @@ html{
     cursor: pointer;
 }
 
+/*Modal alert*/
+
+.container-modal-alert{
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 90px;
+      border: 1px solid #0000005d;
+      z-index: 9999;
+      height: 30vh;
+      width: 45vh;
+      border-radius: 15px;
+}
+
+.content-modal-alert{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 90%;
+}
+
+.title-modal-alert{
+    
+}
+
 /*Main - Carousel e MP*/
 
     /*Carousel*/

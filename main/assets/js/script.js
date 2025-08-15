@@ -112,3 +112,20 @@ window.addEventListener('resize', updateCardWidth);
   }, options);
 
   observer.observe(document.getElementById('video-container'));
+
+// medal 
+
+const cardsModal = document.querySelectorAll('.cards-MP, .cards-cardapio, .cards-cardapio-doces, .cards-cardapio-bebidas'); // Seleciona todos os elementos com essa classe
+const modalAlert = document.getElementById('modal-alert');     // Seleciona o modal
+
+cardsModal.forEach(card => {
+  card.addEventListener('click', () => {
+    // Alterna exibição do modal
+    if (modalAlert.style.display === 'block') {
+      modalAlert.style.display = 'none';
+    } else {
+      modalAlert.style.display = 'block';
+    }
+  });
+});
+
