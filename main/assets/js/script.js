@@ -1,3 +1,5 @@
+// AVALIAÇÕES/////////////////////////////////////////
+
 const avaliacoes = document.querySelector('.avaliacoes');
 const leftBtn = document.querySelector('.arrow.left');
 const rightBtn = document.querySelector('.arrow.right');
@@ -5,81 +7,81 @@ const rightBtn = document.querySelector('.arrow.right');
 let cardWidth;
 let autoPlayInterval;
 
-// Atualiza largura com gap dinâmico
-function updateCardWidth() {
-  const style = getComputedStyle(avaliacoes);
-  const gap = parseFloat(style.gap) || 0;
-  const card = avaliacoes.querySelector('.card');
-  cardWidth = card.offsetWidth + gap + 10;
-  
-  let contador = avaliacoes.querySelectorAll('div.card').length;
-  
-  if(contador % 2 ==1){
-    if (contador % 2 === 1) {
-     
-      avaliacoes.style.justifyContent = ""; 
-    
-     
-      avaliacoes.style.position = "relative";
-      avaliacoes.style.left = "67.5vh";
+
+    function updateCardWidth() {
+      const style = getComputedStyle(avaliacoes);
+      const gap = parseFloat(style.gap) || 0;
+      const card = avaliacoes.querySelector('.card');
+      cardWidth = card.offsetWidth + gap + 10;
+      
+      let contador = avaliacoes.querySelectorAll('div.card').length;
+      
+      if(contador % 2 ==1){
+        if (contador % 2 === 1) {
+        
+          avaliacoes.style.justifyContent = ""; 
+        
+        
+          avaliacoes.style.position = "relative";
+          avaliacoes.style.left = "67.5vh";
+        }
+        
+      }
+
+
+
     }
-    
-  }
+    updateCardWidth();
 
 
+        // Loop infinito real
+        function moveLeft() {
+          avaliacoes.style.transition = 'transform 2s ease';
+          avaliacoes.style.transform = `translateX(${-cardWidth}px)`;
 
-}
-updateCardWidth();
+          avaliacoes.addEventListener('transitionend', () => {
+            avaliacoes.appendChild(avaliacoes.firstElementChild);
+            avaliacoes.style.transition = 'none';
+            avaliacoes.style.transform = 'translateX(0)';
+          }, { once: true });
+        }
 
+        function moveRight() {
+          avaliacoes.insertBefore(avaliacoes.lastElementChild, avaliacoes.firstElementChild);
+          avaliacoes.style.transition = 'none';
+          avaliacoes.style.transform = `translateX(${-cardWidth}px)`;
 
-// Loop infinito real
-function moveLeft() {
-  avaliacoes.style.transition = 'transform 2s ease';
-  avaliacoes.style.transform = `translateX(${-cardWidth}px)`;
+          requestAnimationFrame(() => {
+            avaliacoes.style.transition = 'transform 2s ease';
+            avaliacoes.style.transform = 'translateX(0)';
+          });
+        }
 
-  avaliacoes.addEventListener('transitionend', () => {
-    avaliacoes.appendChild(avaliacoes.firstElementChild);
-    avaliacoes.style.transition = 'none';
-    avaliacoes.style.transform = 'translateX(0)';
-  }, { once: true });
-}
+        // Controle manual
+        rightBtn.addEventListener('click', () => {
+          moveLeft();
+          resetAutoPlay();
+        });
+        leftBtn.addEventListener('click', () => {
+          moveRight();
+          resetAutoPlay();
+        });
 
-function moveRight() {
-  avaliacoes.insertBefore(avaliacoes.lastElementChild, avaliacoes.firstElementChild);
-  avaliacoes.style.transition = 'none';
-  avaliacoes.style.transform = `translateX(${-cardWidth}px)`;
+        // Autoplay
+        function startAutoPlay() {
+          autoPlayInterval = setInterval(moveLeft, 3000); // a cada 3s
+        }
+        function resetAutoPlay() {
+          clearInterval(autoPlayInterval);
+          startAutoPlay();
+        }
+        startAutoPlay();
 
-  requestAnimationFrame(() => {
-    avaliacoes.style.transition = 'transform 2s ease';
-    avaliacoes.style.transform = 'translateX(0)';
-  });
-}
-
-// Controle manual
-rightBtn.addEventListener('click', () => {
-  moveLeft();
-  resetAutoPlay();
-});
-leftBtn.addEventListener('click', () => {
-  moveRight();
-  resetAutoPlay();
-});
-
-// Autoplay
-function startAutoPlay() {
-  autoPlayInterval = setInterval(moveLeft, 3000); // a cada 3s
-}
-function resetAutoPlay() {
-  clearInterval(autoPlayInterval);
-  startAutoPlay();
-}
-startAutoPlay();
-
-// Atualiza se a tela mudar
-window.addEventListener('resize', updateCardWidth);
+        // Atualiza se a tela mudar
+        window.addEventListener('resize', updateCardWidth);
 
 
-  // Video Sobre nos
+  // Video Sobre nos ///////////////////////////////////////////////////
 
   function postMessageToPlayer(player, command) {
     player.contentWindow.postMessage(JSON.stringify(command), '*');
@@ -113,10 +115,11 @@ window.addEventListener('resize', updateCardWidth);
 
   observer.observe(document.getElementById('video-container'));
 
-// medal 
+// modal ///////////////////////////////////////////////////////
 
 const cardsModal = document.querySelectorAll('.cards-MP, .cards-cardapio, .cards-cardapio-doces, .cards-cardapio-bebidas'); // Seleciona todos os elementos com essa classe
 const modalAlert = document.getElementById('modal-alert');     // Seleciona o modal
+const btnCloseModal = document.querySelectorAll('.btnCLoseModaL')
 
 cardsModal.forEach(card => {
   card.addEventListener('click', () => {
@@ -126,6 +129,12 @@ cardsModal.forEach(card => {
     } else {
       modalAlert.style.display = 'block';
     }
+  });
+});
+
+  btnCloseModal.forEach(btn => {
+  btn.addEventListener('click', () => {
+    modalAlert.style.display = 'none';
   });
 });
 
