@@ -552,45 +552,44 @@ html{
 }
 
 .cards-img-c-1 img{
-    height: 23vh;
-    padding: 2em;
+    height: 140%;
     transform: rotate(1deg);
 }
 
 .cards-img-c-2 img{
     padding-bottom: 0.5em;
-    height: 22vh;
+    height: 180%;
     transform: rotate(-5deg);
 }
 
 .cards-img-c-3 img{
-    height: 27vh;
+    height: 210%;
     padding: 2.4em;
 }
 
 .cards-img-c-4 img {
     padding: 1.8em;
-    height: 26vh;
+    height: 200%;
     transform: rotate(-5deg);
 }
 
 .cards-img-d-1 img{
-    height: 28vh;
+    height: 220%;
     padding: 1.4em;
 }
 
 .cards-img-d-2 img{
     padding: 1.4em;
-    height: 24vh;
+    height: 190%;
 }
 
 .cards-img-d-3 img{
-    height: 19vh;
+    height: 130%;
     padding-bottom: 1em;
 }
 
 .cards-img-d-4 img {
-    height: 28vh;
+    height: 210%;
     padding-top: 0.8em;
 }
 
@@ -616,7 +615,7 @@ html{
     width: 85%;
     position: relative;
     top: 2.5vh;
-    gap: 18vh;
+    gap: 55%;
 }
 
 .cards-btn-c, .cards-btn-d{
@@ -678,8 +677,8 @@ html{
 
 .cards-tittle-b{
     text-align: left;
-    width: 55%;
     max-width: 50%;
+    width: 50%;
 
 }
 
@@ -700,22 +699,22 @@ html{
 }
 
 .cards-img-b-1 img{
-    height: 16vh;
+    height: 110%;
     transform: rotate(10deg);
 }
 
 .cards-img-b-2 img{
-    height: 16vh;
+    height: 110%;
     transform: rotate(10deg);
 }
 
 .cards-img-b-3 img{
-    height: 16vh;
+    height: 110%;
     transform: rotate(10deg);
 }
 
 .cards-img-b-4 img {
-    height: 16vh;
+    height: 110%;
     transform: rotate(10deg);
 }
 
@@ -727,7 +726,7 @@ html{
     width: 85%;
     position: relative;
     top: 2.5vh;
-    gap: 19vh;
+    gap: 58%;
 }
 
 .cards-btn-b{
