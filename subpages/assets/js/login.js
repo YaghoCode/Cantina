@@ -1,22 +1,11 @@
-export function mostrarCadastro() {
-    document.getElementById('loginBox').classList.add('hidden');
-    document.getElementById('cadastroBox').classList.remove('hidden');
-    document.getElementById('imageSide').style.backgroundImage = "url('./assets/img/croissant.jpg')";
-  }
-  
-  export function mostrarLogin() {
-    document.getElementById('cadastroBox').classList.add('hidden');
-    document.getElementById('loginBox').classList.remove('hidden');
-    document.getElementById('imageSide').style.backgroundImage = "url('./assets/img/coxinha.jpg')";
-  }
-  
-  export function entrar() {
-    document.querySelector('.form-wrapper').classList.add('hidden');
-    document.getElementById('cardapio').classList.remove('hidden');
-  }
-  
-  // Atribui funções globais no navegador
-  window.mostrarCadastro = mostrarCadastro;
-  window.mostrarLogin = mostrarLogin;
-  window.entrar = entrar;
-  
+const container = document.getElementById('container');
+const registerBtn = document.getElementById('register');
+const loginBtn = document.getElementById('login');
+
+registerBtn.addEventListener('click', () => {
+    container.classList.add("active");
+});
+
+loginBtn.addEventListener('click', () => {
+    container.classList.remove("active");
+});
