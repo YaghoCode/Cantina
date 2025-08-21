@@ -124,10 +124,9 @@ const btnCloseModal = document.querySelectorAll('.btnCLoseModaL')
 cardsModal.forEach(card => {
   card.addEventListener('click', () => {
     // Alterna exibição do modal
-    if (modalAlert.style.display === 'block') {
-      modalAlert.style.display = 'none';
-    } else {
-      modalAlert.style.display = 'block';
+    if (modalAlert.style.display != 'block') {
+      modalAlert.style.display = 'block'
+
     }
   });
 });

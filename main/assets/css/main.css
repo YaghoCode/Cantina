@@ -386,7 +386,7 @@ html{
     flex-direction: column;
     height: 30vh;
     width: 21vw;
-    background-color:#f4f4f4;
+    background-color: #fffefe;
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s ease-out;
@@ -408,16 +408,17 @@ html{
 }
 
 .cards-img-1{
-    background-color: #f2972b;
+    background-color: var(--cor-secundaria)
 }
 
 .cards-img-2{
-    background-color: #276254;
+    background-color: var(--cor--botao-accept);
     
 }
 
 .cards-img-3{
-    background-color: #a1735e;
+    background-color: var(--cor-terciaria)
+    
 }
 
 .cards-img-1 img, .cards-img-2 img, .cards-img-3 img{
@@ -475,7 +476,15 @@ html{
     flex-direction: column;
 }
 
-.cardapio-tittle, .cardapio-doces-tittle, .cardapio-bebidas-tittle{
+.cardapio-tittle, .cardapio-bebidas-tittle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25%;
+    width: 100%;
+}
+
+.cardapio-doces-tittle{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -493,6 +502,7 @@ html{
     font-family: var(--font-titulo);
     color: var(--cor-terciaria);
     font-weight: 700;
+    padding-top: 1%;
 }
 
 .cardapio-bebidas-tittle h1{
@@ -501,11 +511,20 @@ html{
     font-weight: 700;
 }
 
-.content-cardapio, .content-cardapio-doces, .content-cardapio-bebidas{
+.content-cardapio, .content-cardapio-doces{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 90%;
+    width: 90%;
+    gap: 8vh;
+}
+
+.content-cardapio-bebidas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
     width: 90%;
     gap: 8vh;
 }
@@ -519,7 +538,7 @@ html{
     flex-direction: column;
     height: 75%;
     width: 21%;
-    background-color: #ece7e7;
+    background-color: #f4f4f4;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s ease;
@@ -654,9 +673,9 @@ html{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 65%;
+    height: 80%;
     width: 21%;
-    background-color: #ece7e7;
+    background-color: #f4f4f4;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s ease;
