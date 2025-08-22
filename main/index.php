@@ -48,16 +48,52 @@ include('./database.php')
                 </ul>
               </div>
                 <div class="nav-buttons">
-                  <div class="btn-cadastrar-se">
-                      <h1>
-                          Cadastrar-se
-                      </h1>
-                  </div>
-                  <div class="btn-login">
-                      <button>
-                          Login
-                      </button>
-                  </div>
+                    <div class="btn-user" id="btn-user-nav">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                    <div class="btn-cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                          <div class="pop-up-user" id="pop-up-user">
+
+                            <div class="content-pp-user">
+
+                              <div class="top-content">
+
+                                    <div class="icon-user">
+                                      <i>
+                                           <i class="fa-solid fa-user-ninja"></i> <!--PHP ICONS IMAGES-->
+                                      </i>
+                                    </div>
+
+                                    <div class="btn-close-pp">
+                                      <i>
+                                          <i class="fa-solid fa-xmark" id="btn-close-user-nav"></i>
+                                      </i>
+                                    </div>
+                              </div>
+
+                              <div class="bottom-content">
+                                  <div class="info-user">
+                                        <div class="name-user">
+                                          <h4>
+                                            <Span>ALUNO:</Span> GABRIEL <!--ADICIONAR PHP-->
+                                          </h4>
+                                      </div>
+                                          <div class="turma-user">
+                                              <h4>
+                                               <Span>TURMA:</Span>  3-DS manhã <!--Adicionar PHP-->
+                                              </h4>
+                                          </div>
+                                  </div>
+                                            <div class="edit-user">
+                                                <i class="fa-solid fa-pen"></i>
+                                            </div>
+                              </div>
+                            </div>
+
+                          </div>
+                    </div>
                 </div>
           </div>
       </nav>

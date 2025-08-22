@@ -39,6 +39,7 @@ html{
     background-color: #f4f4f4;
     z-index: 10000;
     width: 100%;
+    
 }
 
 .nav-links{
@@ -93,41 +94,119 @@ html{
     align-items: center;
     width: 40%;
     height: 3vh;
-    gap: 2vh;
+    gap: 3vh;
 }
 
-.btn-cadastrar-se{
+.btn-user{
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
 
-.btn-cadastrar-se h1{
-    cursor: pointer;
-    color: #e3261b;
-    font-size: 1.4rem;
-    font-family: var(--font-titulo);
-    font-weight: 600;
+.btn-user i{
+    font-size: 2rem;
+    color: var(--cor-primaria);
 }
 
-.btn-login{
+.btn-cart{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 1vh;
 }
 
-.nav-buttons button{
-    font-size: 1.2rem;
-    height: 3.2vh;
-    width: 4vw;
-    font-family: var(--font-titulo);
-    font-weight: 800;
-    background-color: var(--cor-primaria);
-    color: white;
-    border-radius: 0.4em;
+.btn-cart i{
+    font-size: 2rem;
+    color: var(--cor-primaria);
     cursor: pointer;
+}
+
+.pop-up-user{
+    display: none;
+    position: absolute;
+    padding-left: 0.6rem;
+    height: 15vh;
+    width: 10vw;
+    background-color: #ebe8e8;
+    top: 80%;
+    right: 2%;
+    border-radius: 3%;
+}
+
+.content-pp-user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 95%;
+    width: 95%;
+}
+
+.top-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 25%;
+    width: 100%;
+}
+
+.icon-user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0.6rem;
+}
+
+.icon-user i{
+    color: #000000;
+    font-size: 2rem;
+}
+
+.btn-close-pp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0.3rem;
+}
+
+.btn-close-pp i{
+    font-size: 1.3rem;
+}
+
+.bottom-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 65%;
+    width: 100%;
+}
+
+.info-user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90%;
+    width: 100%;
+}
+
+
+.name-user, .turma-user{
+    width: 90%;
+}
+
+.name-user h4, .turma-user h4, .edit-user i{
+    font-size: 1rem;
+}
+
+.edit-user{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 90%;
+    height: 10%;
 }
 
 /*Modal alert*/
