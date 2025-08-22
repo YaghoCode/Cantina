@@ -130,6 +130,7 @@ html{
     top: 80%;
     right: 2%;
     border-radius: 3%;
+    border: 1px solid rgba(0, 0, 0, 0.175);
 }
 
 .content-pp-user{
@@ -342,26 +343,26 @@ html{
 
 .carousel-inner {
   height: 62vh;
-  width: 70vw;
+  width: 62vw;
   object-fit: cover;
-  border-radius: 2em;
+  border-radius: 1.5em;
 }
 
 .carousel-inner img {
-  height: 66vh;
-  object-fit: cover;
+    height: 62vh;
 }
 
 .carousel-indicators [data-bs-target] {
+    transform: translateY(90%);
   width: 0.5vw;
   height: 1vh;
-  background-color: #ffffff; 
+  background-color: #000000; 
   border-radius: 10px;
   border: none;
 }
 
 .carousel-indicators .active {
-  background-color:var(--cor-primaria); 
+  background-color: white;
 }
 
 .carousel-control-prev,
@@ -389,14 +390,14 @@ html{
   left: 50%;
   width: 20px;
   height: 20px;
-  border-top: 3px solid red;  
-  border-left: 3px solid red; 
+  border-top: 3px solid rgb(255, 255, 255);  
+  border-left: 3px solid rgb(255, 255, 255); 
   transform: translate(-50%, -50%) rotate(-45deg); 
 }
 
 .carousel-control-next-icon::before {
-  border-top: 3px solid red;
-  border-left: 3px solid red;
+  border-top: 3px solid rgb(255, 255, 255);  
+  border-left: 3px solid rgb(255, 255, 255);
   transform: translate(-50%, -50%) rotate(135deg);
 }
 

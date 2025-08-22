@@ -120,7 +120,7 @@ include('./database.php')
               </div>
                   <div class="btn-modal-alert">
                       <button>
-                          <a style="color: inherit; text-decoration: none;" href="/subpages/login.html">Continuar</a>
+                          <a style="color: inherit; text-decoration: none;">Continuar</a>
                       </button>
                   </div>
         </div>
@@ -150,13 +150,13 @@ include('./database.php')
                     </div>
                       <div class="carousel-inner">
                         <div class="carousel-item active">
-                          <img src="./assets/img/varios.png" class="d-block w-100" alt="...">
+                          <img src="./assets/img/carousel-1.png" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                          <img src="./assets/img/paodequeijo.jpg" class="d-block w-100" alt="...">
+                          <img src="./assets/img/carousel-2.png" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                          <img src="./assets/img/varios.png" class="d-block w-100" alt="...">
+                          <img src="./assets/img/carousel-3.png" class="d-block w-100" alt="...">
                         </div>
                       </div>
                       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
