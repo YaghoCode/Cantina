@@ -22,7 +22,7 @@ session_start();
 <body class="body">
     
     <!-- header, navbar -->
-  <header style="display: none;">
+  <header>
       <nav class="navbar">
           <div class="nav-links">
               <div class="nav-btn-cardapio">
