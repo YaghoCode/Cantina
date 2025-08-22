@@ -26,7 +26,7 @@ include('./database.php')
       <nav class="navbar">
           <div class="nav-links">
             <div class="nav-logo">
-                <img src="./assets/img/Logo-TCC-removebg-preview.png" alt="">
+                <img src="./assets/img/logoCantina.png" alt="">
             </div>
               <div class="nav-items">
                 <ul>

@@ -53,13 +53,13 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 8vh;
+    height: 9vh;
     width: 22%;
     padding: 2em;
 }
 
 .nav-logo img{
-    height: 12vh;
+    height: 13vh;
 }
 
 .nav-links ul{
