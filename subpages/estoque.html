@@ -13,41 +13,75 @@
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="nav-account">
-                <button class="btn-nav-account" id="btn-nav-account" aria-label="Minha conta">
-                    <i class="fa-solid fa-user"></i>
-                </button>
-            </div>
-              <div class="nav-links">
-                    <ul>
-                        <li>
-                            <h1>
-                                <a href="">Gerenciamento do Estoque</a>
-                            </h1>
-                        </li>
-                    </ul>
-               </div>
-
-               <!--Mini janela-->
-
-            <div class="popup" id="popup">
-                <ul> 
-                    <li>
-                        <img src="./assets/img/usuario-login.png" alt="" height="50vh" width="50vw" style="border: 1px solid black;">
-                    </li>
-                    <li>
-                        <a href="#">Nome: Admin</a>
-                    </li>
-                        <button class="btn-popup-logout" id="btn-popup-logout">
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                            Sair
-                        </button>
-                    </li>
+      <nav class="navbar">
+          <div class="nav-links">
+              <div class="nav-logo">
+                    <img src="./assets/img/img comidas/logoCantina.png" alt="">
+              </div>
+  
+              <div class="nav-items">
+                <ul>
+                  <li>
+                      <h1>
+                        <a href="#inicio" style="text-decoration: none; color: #e3261b">Estoque</a>
+                      </h1>
+                  </li>
+                  <li>
+                      <h1>
+                        <a href="#Cardapio" style="text-decoration: none; color:#e3261b">Pedidos</a>
+                      </h1>
+                  </li>
                 </ul>
-            </div>
-        </nav>
-    <header>
+              </div>
+                 <div class="nav-buttons">
+                    <div class="btn-user" id="btn-user-nav">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                   
+
+                          <div class="pop-up-user" id="pop-up-user">
+
+                            <div class="content-pp-user">
+
+                              <div class="top-content">
+
+                                    <div class="icon-user">
+                                      <i>
+                                           <i class="fa-solid fa-user-ninja"></i> <!--PHP ICONS IMAGES-->
+                                      </i>
+                                    </div>
+
+                                    <div class="btn-close-pp">
+                                      <i>
+                                          <i class="fa-solid fa-xmark" id="btn-close-user-nav"></i>
+                                      </i>
+                                    </div>
+                              </div>
+
+                              <div class="bottom-content">
+                                  <div class="info-user">
+                                        <div class="name-user">
+                                          <h4>
+                                            <Span>ALUNO:</Span> GABRIEL <!--ADICIONAR PHP-->
+                                          </h4>
+                                      </div>
+                                          <div class="turma-user">
+                                              <h4>
+                                               <Span>TURMA:</Span>  3-DS manhã <!--Adicionar PHP-->
+                                              </h4>
+                                          </div>
+                                  </div>
+                                            <div class="edit-user">
+                                                <i class="fa-solid fa-pen"></i>
+                                            </div>
+                              </div>
+                            </div>
+
+                          </div>
+                    </div>
+          </div>
+      </nav>
+  </header>
 
         <main>
             <!--Produtos display=flex-->
@@ -70,7 +104,7 @@
                         </div>
                             <div class="table-content-produtos" id="conteudo-produtos">
                                 <div class="table-content-titulo">
-                                    <div class="btn-estoque-add">
+                                    <div class="btn-estoque-add" id="btn-novo-produto">
                                         <h1>
                                             + NOVO
                                         </h1>
@@ -126,6 +160,77 @@
                                             </div>
                                         </div>
                             </div>
+
+                            <!--FUNCAO CLICK DO BOTAO "NOVO"-->
+
+                            <!--Alert Modal login-->
+                                    <div class="modal-novo-produto" id="modal-novo-p">
+                                        <div class="modal-content">
+                                                    <div class="modal-content-left">
+                                                                <div class="modal-title">
+                                                                    <h1>
+                                                                    Crie um novo produto:
+                                                                    </h1>
+                                                                </div>
+                                                                    <div class="modal-form-produto">
+                                                                            <form action="processar_produto.php" method="POST" class="form-novo-produto">
+                                                                                <div class="form-group">
+                                                                                    <label for="titulo">Título do Produto:</label>
+                                                                                    <input type="text" id="titulo" name="name-produto" class="form-control" placeholder="Digite o título do produto" required>
+                                                                                </div>
+
+                                                                                        <div class="form-group">
+                                                                                            <label for="titulo">Descrição do produto:</label>
+                                                                                            <input type="text" id="titulo" name="description-produto" class="form-control" placeholder="Digite a descrisão do produto" required>
+                                                                                        </div>
+
+                                                                                    <div class="form-group">
+                                                                                        <label for="preco">Preço:</label>
+                                                                                        <input type="number" id="preco" name="preco-produto" class="form-control" placeholder="Digite o preço do produto" step="0.01" min="0" required>
+                                                                                    </div>
+
+                                                                                        <div class="form-group">
+                                                                                            <label for="quantidade">Quantidade:</label>
+                                                                                            <input type="number" id="quantidade" name="quantidade-produto" class="form-control" placeholder="Digite a quantidade disponível" min="0" required>
+                                                                                        </div>
+
+                                                                                            <div class="form-group">
+                                                                                                <label for="categoria">Categoria:</label>
+                                                                                                <select id="categoria" name="categoria-produto" class="form-control" required>
+                                                                                                    <option value="salgado">Salgado</option>
+                                                                                                    <option value="folhado">Folhado</option>
+                                                                                                    <option value="doces">Doces</option>
+                                                                                                    <option value="bebidas">Bebidas</option>
+                                                                                                    <option value="outros">Outros</option>
+                                                                                                </select>
+                                                                                            </div>
+
+                                                                                                <div class="form-group">
+                                                                                                    <button type="submit" class="btn btn-primary">Criar Produto</button>
+                                                                                                </div>
+                                                                            </form>
+                                                                    </div>
+                                                    </div>
+                                                            <div class="modal-content-right">
+                                                                        <div class="btn-close-modal">
+                                                                            <button id="btn-close-modal-p">
+                                                                                <i class="fa-solid fa-xmark" id="btn-close-modal-p"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="upload-imagem">
+                                                                                    <label for="label-imagem">Escolha uma imagem para o produto:</label>
+                                                                                    <input type="file" id="imagem-produto" name="imagem-produto" accept="image/*" style="display: none;">
+                                                                                    <div class="preview-imagem">
+                                                                                        <button id="btn-remove-preview" class="btn-remove-preview" style="display: none;">&times;</button>
+                                                                                        <img id="preview" src="#" alt="Pré-visualização da imagem" style="display: none;">
+                                                                                    </div>
+                                                                                    <label for="imagem-produto" class="btn-upload">
+                                                                                        <i class="fa-solid fa-upload"></i> Escolher Imagem
+                                                                                    </label>
+                                                                        </div>                                          
+                                                            </div>
+                                        </div>
+                                    </div>
 
                             <!--Ajustes de estoque (display=none)-->
                                 <div class="table-content-ajustes" id="conteudo-ajustes" style="display: none;">

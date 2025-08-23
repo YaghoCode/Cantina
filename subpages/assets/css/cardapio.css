@@ -94,22 +94,22 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 18%;
+    width: 14%;
     height: 3vh;
-    gap: 4vh;
+    gap: 3vh;
+    padding: 1rem;
 }
 
 .btn-user{
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
 
 .btn-user i{
+    font-size: 2rem;
+    color: var(--cor-primaria);
     cursor: pointer;
-    color: #e3261b;
-    font-size: 1.8rem;
 }
 
 .btn-cart{
@@ -119,10 +119,99 @@ body {
 }
 
 .btn-cart i{
+    font-size: 2rem;
+    color: var(--cor-primaria);
     cursor: pointer;
-    color: #e3261b;
-    font-size: 1.8rem;
-    padding-right: 2vh;
+}
+
+.pop-up-user{
+    display: none;
+    position: absolute;
+    padding-left: 0.6rem;
+    height: 15vh;
+    width: 10vw;
+    background-color: #ebe8e8;
+    top: 80%;
+    right: 2%;
+    border-radius: 3%;
+    border: 1px solid rgba(0, 0, 0, 0.175);
+}
+
+.content-pp-user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 95%;
+    width: 95%;
+}
+
+.top-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 25%;
+    width: 100%;
+}
+
+.icon-user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0.6rem;
+}
+
+.icon-user i{
+    color: #000000;
+    font-size: 2rem;
+}
+
+.btn-close-pp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0.3rem;
+}
+
+.btn-close-pp i{
+    font-size: 1.3rem;
+}
+
+.bottom-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 65%;
+    width: 100%;
+}
+
+.info-user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90%;
+    width: 100%;
+}
+
+
+.name-user, .turma-user{
+    width: 90%;
+}
+
+.name-user h4, .turma-user h4, .edit-user i{
+    font-size: 1rem;
+}
+
+.edit-user{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 90%;
+    height: 10%;
 }
 
 /*Main*/

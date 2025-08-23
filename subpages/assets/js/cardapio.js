@@ -1,51 +1,21 @@
-//popup.js
+//popup users navbar
 
-const btn = document.getElementById('btn-nav-account');
-const popup = document.getElementById('popup');
+const containerPopUp = document.getElementById('pop-up-user');
+const btnUserNav = document.getElementById('btn-user-nav');
+const btnCloseUsernav = document.getElementById('btn-close-user-nav');
 
-// Alterna visibilidade ao clicar no botão
-btn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
-});
 
-// Impede que clique dentro da popup feche ela
-popup.addEventListener('click', (e) => {
-  e.stopPropagation();
-});
-
-// Fecha ao clicar fora
-document.addEventListener('click', () => {
-  popup.style.display = 'none';
-});
-
-new Swiper('.cards-wrapper', {
-
-  loop: true,
-  spaceBetween: 30,
-
-  
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-    dynamicBullets: true
-  },
-
-  // Flechas de Navegação
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-
-  breakpoints: {
-    0: {
-        slidesPerView: 1
-    },
-     768: {
-        slidesPerView: 2
-    },
-     1024: {
-        slidesPerView: 3
-    },
+btnUserNav.addEventListener('click', () => {
+  if (containerPopUp.style.display !== 'block') {
+    containerPopUp.style.display = 'block';
+  }else{
+    containerPopUp.style.display = 'none';
   }
 });
+
+
+btnCloseUsernav.addEventListener('click', () => {
+  containerPopUp.style.display = 'none';
+});
+
+
