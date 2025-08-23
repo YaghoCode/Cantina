@@ -1,29 +1,47 @@
+// tabelas pedidos e estoque
+
+const btnPedidos = document.getElementById('btn-pedidos')
+const btnEstoque = document.getElementById('btn-estoque')
+const conteudoPedidos = document.getElementById('content-pedidos')
+const conteudoEstoque = document.getElementById('content-estoque')
+
+btnPedidos.style.backgroundColor = '#e3261b';
+btnPedidos.style.color = '#ffff';
 
 
-const tabProdutos = document.getElementById("tab-produtos");
-const tabAjustes = document.getElementById("tab-ajustes");
+btnPedidos.addEventListener('click', () => {
+    if (conteudoPedidos.style.display !== 'flex'){
+        //mudar o conteudo
+        conteudoPedidos.style.display = 'flex';
+        conteudoEstoque.style.display = 'none';
 
-const conteudoProdutos = document.getElementById("conteudo-produtos");
-const conteudoAjustes = document.getElementById("conteudo-ajustes");
-
-tabProdutos.addEventListener("click", () => {
-  tabProdutos.classList.add("active");
-  tabAjustes.classList.remove("active");
-
-  conteudoProdutos.style.display = "flex";
-  conteudoAjustes.style.display = "none";
+        //mudar a cor e backgroud dos buttons yesirr
+        btnPedidos.style.backgroundColor = '#e3261b';
+        btnPedidos.style.color = '#ffff'; 
+        btnEstoque.style.backgroundColor = '#ffff';
+        btnEstoque.style.color = '#000000'; 
+    }
 });
 
-tabAjustes.addEventListener("click", () => {
-  tabAjustes.classList.add("active");
-  tabProdutos.classList.remove("active");
+btnEstoque.addEventListener('click', () => {
+    if (conteudoEstoque.style.display !== 'flex'){
+              //mudar o conteudo
+        conteudoEstoque.style.display = 'flex';
+        conteudoPedidos.style.display = 'none';
 
-  conteudoAjustes.style.display = "flex";
-  conteudoProdutos.style.display = "none";
+                //mudar a cor e backgroud dos buttons yesirr
+        btnPedidos.style.backgroundColor = '#ffff';
+        btnPedidos.style.color = '#000000'; 
+        btnEstoque.style.backgroundColor = '#e3261b';
+        btnEstoque.style.color = '#ffff'; 
+    }
 });
+
+
+
+
 
 //popup
-
 //popup users navbar
 
 const containerPopUp = document.getElementById('pop-up-user');
@@ -86,3 +104,4 @@ btnRemovePreview.addEventListener('click', () => {
     btnRemovePreview.style.display = 'none';
     inputImagem.value = ''; // Reseta o campo de upload
 });
+

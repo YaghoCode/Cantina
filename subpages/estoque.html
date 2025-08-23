@@ -1,467 +1,196 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/estoque.css">
     <title>Cantina PJ - Estoque</title>
 </head>
+
 <body>
     <header>
-      <nav class="navbar">
-          <div class="nav-links">
-              <div class="nav-logo">
+        <nav class="navbar">
+            <div class="nav-links">
+                <div class="nav-logo">
                     <img src="./assets/img/img comidas/logoCantina.png" alt="">
-              </div>
-  
-              <div class="nav-items">
-                <ul>
-                  <li>
-                      <h1>
-                        <a href="#inicio" style="text-decoration: none; color: #e3261b">Estoque</a>
-                      </h1>
-                  </li>
-                  <li>
-                      <h1>
-                        <a href="#Cardapio" style="text-decoration: none; color:#e3261b">Pedidos</a>
-                      </h1>
-                  </li>
-                </ul>
-              </div>
-                 <div class="nav-buttons">
+                </div>
+
+                <div class="nav-items">
+                    <ul>
+                        <li>
+                            <h1>
+                                <a href="#inicio" style="text-decoration: none; color: #e3261b">Gerenciamento de Estoque
+                                    e Pedidos</a>
+                            </h1>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-buttons">
                     <div class="btn-user" id="btn-user-nav">
                         <i class="fa-regular fa-user"></i>
                     </div>
-                   
 
-                          <div class="pop-up-user" id="pop-up-user">
 
-                            <div class="content-pp-user">
+                    <div class="pop-up-user" id="pop-up-user">
 
-                              <div class="top-content">
+                        <div class="content-pp-user">
 
-                                    <div class="icon-user">
-                                      <i>
-                                           <i class="fa-solid fa-user-ninja"></i> <!--PHP ICONS IMAGES-->
-                                      </i>
-                                    </div>
+                            <div class="top-content">
 
-                                    <div class="btn-close-pp">
-                                      <i>
-                                          <i class="fa-solid fa-xmark" id="btn-close-user-nav"></i>
-                                      </i>
-                                    </div>
-                              </div>
+                                <div class="icon-user">
+                                    <i>
+                                        <i class="fa-solid fa-user-ninja"></i> <!--PHP ICONS IMAGES-->
+                                    </i>
+                                </div>
 
-                              <div class="bottom-content">
-                                  <div class="info-user">
-                                        <div class="name-user">
-                                          <h4>
+                                <div class="btn-close-pp">
+                                    <i>
+                                        <i class="fa-solid fa-xmark" id="btn-close-user-nav"></i>
+                                    </i>
+                                </div>
+                            </div>
+
+                            <div class="bottom-content">
+                                <div class="info-user">
+                                    <div class="name-user">
+                                        <h4>
                                             <Span>ALUNO:</Span> GABRIEL <!--ADICIONAR PHP-->
-                                          </h4>
-                                      </div>
-                                          <div class="turma-user">
-                                              <h4>
-                                               <Span>TURMA:</Span>  3-DS manhã <!--Adicionar PHP-->
-                                              </h4>
-                                          </div>
-                                  </div>
-                                            <div class="edit-user">
-                                                <i class="fa-solid fa-pen"></i>
-                                            </div>
-                              </div>
-                            </div>
-
-                          </div>
-                    </div>
-          </div>
-      </nav>
-  </header>
-
-        <main>
-            <!--Produtos display=flex-->
-            <div class="container-estoque">
-                <div class="container-titulo">
-                    <h1>
-                         Produtos e Serviços
-                    </h1>
-                </div>
-                    <div class="content-estoque">
-                        <div class="content-titulo">
-                            <div class="produtos active" id="tab-produtos">
-                                <h1>
-                                   📦 PRODUTOS
-                                </h1>
-                            </div>
-                            <div class="ajustes" id="tab-ajustes">
-                                <h1> 🛠️ AJUSTES DE ESTOQUE</h1>
+                                        </h4>
+                                    </div>
+                                    <div class="turma-user">
+                                        <h4>
+                                            <Span>TURMA:</Span> 3-DS manhã <!--Adicionar PHP-->
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="edit-user">
+                                    <i class="fa-solid fa-pen"></i>
+                                </div>
                             </div>
                         </div>
-                            <div class="table-content-produtos" id="conteudo-produtos">
-                                <div class="table-content-titulo">
-                                    <div class="btn-estoque-add" id="btn-novo-produto">
-                                        <h1>
-                                            + NOVO
-                                        </h1>
-                                    </div>
-                                    <div class="btn-estoque-lixeira">
-                                        <h1>
-                                          <i class="fa-solid fa-trash" style="color: #202122;"></i>
-                                        </h1>
-                                    </div>
-                                </div>
-                                    <div class="table">
-                                            <div class="table-secoes">
-                                                <div class="table-titulos">
-                                                    <ul>
-                                                        <li>Nome e descrisão:</li>
-                                                        <li>Preço e quantidade:</li>
-                                                        <li>Informações do pedido:</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="column-1">
 
-                                                </div>
-                                                <div class="column-2">
-
-                                                </div>
-                                                <div class="column-3">
-
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="column-1">
-
-                                                </div>
-                                                <div class="column-2">
-
-                                                </div>
-                                                <div class="column-3">
-
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="column-1">
-
-                                                </div>
-                                                <div class="column-2">
-                                                    
-                                                </div>
-                                                <div class="column-3">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                            </div>
-
-                            <!--FUNCAO CLICK DO BOTAO "NOVO"-->
-
-                            <!--Alert Modal login-->
-                                    <div class="modal-novo-produto" id="modal-novo-p">
-                                        <div class="modal-content">
-                                                    <div class="modal-content-left">
-                                                                <div class="modal-title">
-                                                                    <h1>
-                                                                    Crie um novo produto:
-                                                                    </h1>
-                                                                </div>
-                                                                    <div class="modal-form-produto">
-                                                                            <form action="processar_produto.php" method="POST" class="form-novo-produto">
-                                                                                <div class="form-group">
-                                                                                    <label for="titulo">Título do Produto:</label>
-                                                                                    <input type="text" id="titulo" name="name-produto" class="form-control" placeholder="Digite o título do produto" required>
-                                                                                </div>
-
-                                                                                        <div class="form-group">
-                                                                                            <label for="titulo">Descrição do produto:</label>
-                                                                                            <input type="text" id="titulo" name="description-produto" class="form-control" placeholder="Digite a descrisão do produto" required>
-                                                                                        </div>
-
-                                                                                    <div class="form-group">
-                                                                                        <label for="preco">Preço:</label>
-                                                                                        <input type="number" id="preco" name="preco-produto" class="form-control" placeholder="Digite o preço do produto" step="0.01" min="0" required>
-                                                                                    </div>
-
-                                                                                        <div class="form-group">
-                                                                                            <label for="quantidade">Quantidade:</label>
-                                                                                            <input type="number" id="quantidade" name="quantidade-produto" class="form-control" placeholder="Digite a quantidade disponível" min="0" required>
-                                                                                        </div>
-
-                                                                                            <div class="form-group">
-                                                                                                <label for="categoria">Categoria:</label>
-                                                                                                <select id="categoria" name="categoria-produto" class="form-control" required>
-                                                                                                    <option value="salgado">Salgado</option>
-                                                                                                    <option value="folhado">Folhado</option>
-                                                                                                    <option value="doces">Doces</option>
-                                                                                                    <option value="bebidas">Bebidas</option>
-                                                                                                    <option value="outros">Outros</option>
-                                                                                                </select>
-                                                                                            </div>
-
-                                                                                                <div class="form-group">
-                                                                                                    <button type="submit" class="btn btn-primary">Criar Produto</button>
-                                                                                                </div>
-                                                                            </form>
-                                                                    </div>
-                                                    </div>
-                                                            <div class="modal-content-right">
-                                                                        <div class="btn-close-modal">
-                                                                            <button id="btn-close-modal-p">
-                                                                                <i class="fa-solid fa-xmark" id="btn-close-modal-p"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="upload-imagem">
-                                                                                    <label for="label-imagem">Escolha uma imagem para o produto:</label>
-                                                                                    <input type="file" id="imagem-produto" name="imagem-produto" accept="image/*" style="display: none;">
-                                                                                    <div class="preview-imagem">
-                                                                                        <button id="btn-remove-preview" class="btn-remove-preview" style="display: none;">&times;</button>
-                                                                                        <img id="preview" src="#" alt="Pré-visualização da imagem" style="display: none;">
-                                                                                    </div>
-                                                                                    <label for="imagem-produto" class="btn-upload">
-                                                                                        <i class="fa-solid fa-upload"></i> Escolher Imagem
-                                                                                    </label>
-                                                                        </div>                                          
-                                                            </div>
-                                        </div>
-                                    </div>
-
-                            <!--Ajustes de estoque (display=none)-->
-                                <div class="table-content-ajustes" id="conteudo-ajustes" style="display: none;">
-                                    <div class="table-content-titulo">
-                                        <div class="btn-estoque-lixeira">
-                                            <h1>
-                                            <i class="fa-solid fa-trash" style="color: #202122;"></i>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                        <div class="table">
-                                            <div class="table-secoes">
-                                                <div class="table-titulos">
-                                                    <ul>
-                                                        <li>Bebidas:</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="column-1">
-                                                    <div class="column-left">
-                                                        <div class="cards-left">
-                                                            <div class="cards-titulo">
-                                                                <h1>Chá.</h1>
-                                                            </div>
-                                                            <div class="info-produto">
-                                                                <div class="preco-produtos">
-                                                                    <p>
-                                                                        R$ 8,00
-                                                                    </p>
-                                                                </div>
-                                                                <div class="quantidade-produtos">
-                                                                    <p>Quantidade: 11 uni.</p>
-                                                                </div>
-                                                                <div class="acoes-produtos">
-                                                                    <ul>
-                                                                        <li>Detalhes</li>
-                                                                        <li style="background-color: rgb(245, 198, 110);">Editar</li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="cards-right">
-                                                            <div class="cards-img">
-                                                                <img src="./assets/img/img comidas/cha.png" alt="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="column-right">
-                                                        <div class="cards-left">
-                                                            <div class="cards-titulo">
-                                                                <h1>Dolly 350ml.</h1>
-                                                            </div>
-                                                            <div class="info-produto">
-                                                                <div class="preco-produtos">
-                                                                    <p>
-                                                                        R$ 7,00
-                                                                    </p>
-                                                                </div>
-                                                                <div class="quantidade-produtos">
-                                                                    <p>Quantidade: 8 uni.</p>
-                                                                </div>
-                                                                <div class="acoes-produtos">
-                                                                    <ul>
-                                                                        <li>Detalhes</li>
-                                                                        <li style="background-color:rgb(245, 198, 110);">Editar</li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="cards-right">
-                                                            <div class="cards-img">
-                                                                <img src="./assets/img/img comidas/dolly.png" alt="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="column-2">
-                                                    <div class="column-left">
-                                                        <div class="cards-left">
-                                                            <div class="cards-titulo">
-                                                                <h1>Coca cola 500ml.</h1>
-                                                            </div>
-                                                            <div class="info-produto">
-                                                                <div class="preco-produtos">
-                                                                    <p>
-                                                                        R$ 8,00
-                                                                    </p>
-                                                                </div>
-                                                                <div class="quantidade-produtos">
-                                                                    <p>Quantidade: 23 uni.</p>
-                                                                </div>
-                                                                <div class="acoes-produtos">
-                                                                    <ul>
-                                                                        <li>Detalhes</li>
-                                                                        <li style="background-color: rgb(245, 198, 110);">Editar</li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="cards-right">
-                                                            <div class="cards-img">
-                                                                <img src="./assets/img/coca lata.png" alt="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="column-right">
-                                                        <div class="cards-left">
-                                                            <div class="cards-titulo">
-                                                                <h1>Café.</h1>
-                                                            </div>
-                                                            <div class="info-produto">
-                                                                <div class="preco-produtos">
-                                                                    <p>
-                                                                        R$ 5,00
-                                                                    </p>
-                                                                </div>
-                                                                <div class="quantidade-produtos">
-                                                                    <p>Quantidade: 14 uni.</p>
-                                                                </div>
-                                                                <div class="acoes-produtos">
-                                                                    <ul>
-                                                                        <li>Detalhes</li>
-                                                                        <li style="background-color:rgb(245, 198, 110);">Editar</li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="cards-right">
-                                                            <div class="cards-img">
-                                                                <img src="./assets/img/img comidas/cafe1.png" alt="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="column-3">
-                                                    <div class="column-left">
-                                                        <div class="cards-left">
-                                                            <div class="cards-titulo">
-                                                                <h1>H2O 500ml.</h1>
-                                                            </div>
-                                                            <div class="info-produto">
-                                                                <div class="preco-produtos">
-                                                                    <p>
-                                                                        R$ 8,00
-                                                                    </p>
-                                                                </div>
-                                                                <div class="quantidade-produtos">
-                                                                    <p>Quantidade: 7 uni.</p>
-                                                                </div>
-                                                                <div class="acoes-produtos">
-                                                                    <ul>
-                                                                        <li>Detalhes</li>
-                                                                        <li style="background-color: rgb(245, 198, 110);">Editar</li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="cards-right">
-                                                            <div class="cards-img">
-                                                                <img src="./assets/img/img comidas/h2o.png" alt="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="column-right">
-                                                        <div class="cards-left">
-                                                            <div class="cards-titulo">
-                                                                <h1>Suco de Laranja..</h1>
-                                                            </div>
-                                                            <div class="info-produto">
-                                                                <div class="preco-produtos">
-                                                                    <p>
-                                                                        R$ 8,00
-                                                                    </p>
-                                                                </div>
-                                                                <div class="quantidade-produtos">
-                                                                    <p>Quantidade: 10 uni.</p>
-                                                                </div>
-                                                                <div class="acoes-produtos">
-                                                                    <ul>
-                                                                        <li>Detalhes</li>
-                                                                        <li style="background-color: rgb(245, 198, 110);">Editar</li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="cards-right">
-                                                            <div class="cards-img">
-                                                                <img src="./assets/img/img comidas/laranja.png" alt="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="column-1">
-
-                                                </div>
-                                                <div class="column-2">
-
-                                                </div>
-                                                <div class="column-3">
-
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="column-1">
-
-                                                </div>
-                                                <div class="column-2">
-                                                    
-                                                </div>
-                                                <div class="column-3">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                </div>
                     </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+            <div class="main-container">
+                <div class="main-title">
+                    <div class="pedidos-title">
+                        <button id="btn-pedidos">
+                            Pedidos
+                        </button>
+                    </div>
+                        <div class="estoque-title">
+                            <button id="btn-estoque">
+                                Ajustes do Estoque
+                            </button>
+                        </div>
+                </div>
+                    <div class="main-content-pedidos" id="content-pedidos">
+
+                    </div>
+                        <div class="main-content-estoque" id="content-estoque">
+                            <div class="content-estoque-buttons">
+                                <button id="btn-novo-produto">
+                                    Novo Produto +
+                                </button>
+                            </div>
+                        </div>
             </div>
 
 
-        </main>
+        <!--FUNCAO CLICK DO BOTAO "NOVO"-->
+
+        <!--Alert Modal login-->
+        <div class="modal-novo-produto" id="modal-novo-p">
+            <div class="modal-content">
+                <div class="modal-content-left">
+                    <div class="modal-title">
+                        <h1>
+                            Crie um novo produto:
+                        </h1>
+                    </div>
+                    <div class="modal-form-produto">
+                        <form action="processar_produto.php" method="POST" class="form-novo-produto">
+                            <div class="form-group">
+                                <label for="titulo">Título do Produto:</label>
+                                <input type="text" id="titulo" name="name-produto" class="form-control"
+                                    placeholder="Digite o título do produto" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="titulo">Descrição do produto:</label>
+                                <input type="text" id="titulo" name="description-produto" class="form-control"
+                                    placeholder="Digite a descrisão do produto" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="preco">Preço:</label>
+                                <input type="number" id="preco" name="preco-produto" class="form-control"
+                                    placeholder="Digite o preço do produto" step="0.01" min="0" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="quantidade">Quantidade:</label>
+                                <input type="number" id="quantidade" name="quantidade-produto" class="form-control"
+                                    placeholder="Digite a quantidade disponível" min="0" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="categoria">Categoria:</label>
+                                <select id="categoria" name="categoria-produto" class="form-control" required>
+                                    <option value="salgado">Salgado</option>
+                                    <option value="folhado">Folhado</option>
+                                    <option value="doces">Doces</option>
+                                    <option value="bebidas">Bebidas</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Criar Produto</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-content-right">
+                    <div class="btn-close-modal">
+                        <button id="btn-close-modal-p">
+                            <i class="fa-solid fa-xmark" id="btn-close-modal-p"></i>
+                        </button>
+                    </div>
+                    <div class="upload-imagem">
+                        <label for="label-imagem">Escolha uma imagem para o produto:</label>
+                        <input type="file" id="imagem-produto" name="imagem-produto" accept="image/*"
+                            style="display: none;">
+                        <div class="preview-imagem">
+                            <button id="btn-remove-preview" class="btn-remove-preview"
+                                style="display: none;">&times;</button>
+                            <img id="preview" src="#" alt="Pré-visualização da imagem" style="display: none;">
+                        </div>
+                        <label for="imagem-produto" class="btn-upload">
+                            <i class="fa-solid fa-upload"></i> Escolher Imagem
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-        <script type="module" src="./assets/js/estoque.js"></script>
+
+    </main>
+
+
+    <script type="module" src="./assets/js/estoque.js"></script>
 </body>
+
 </html>

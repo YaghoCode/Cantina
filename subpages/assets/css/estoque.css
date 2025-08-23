@@ -209,280 +209,65 @@ body {
 
 /*Main*/
 
-.container-estoque{
+.main-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 92vh;
-    width: 100%;
     flex-direction: column;
+    height: 120vh;
+    width: 100%;
+    padding-top: 10%;
 }
 
-.container-titulo{
+.main-title{
     display: flex;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: center;
-    height: 20%;
+    height: 8%;
     width: 95%;
+    gap: 0.3rem;
 }
 
-.container-titulo h1{
-    font-size: 1.5rem;
-    font-weight: 400;
-    font-family: var(--font-titulo);
-    color: #1b1b1b;
-    height: 30%;
-    width: 100%;
-}
-
-.content-estoque{
+.pedidos-title, .estoque-title{
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    height: 80%;
-    width: 100%;
-    flex-direction: column;
-}
-
-.content-titulo{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: 10%;
-    width: 90%;
-}
-
-.produtos{
-    width: 10%;
     height: 50%;
-    border: 1px solid rgb(180, 180, 180);
-    background-color: var(--cor-grey);
-    cursor: pointer;
+    width: 9%;
 }
 
-.ajustes{
-    width: 15%;
-    height: 50%;
-    border: 1px solid rgb(180, 180, 180);
-    background-color: var(--cor-grey);
-    cursor: pointer;
-}
-
-.produtos h1, .ajustes h1{
-    text-align: center;
-    color: #1b1b1b;
-    font-family: var(--font-titulo);
-    font-size: 1.2rem;
-    font-weight: 400;
-}
-
-.produtos.active, .ajustes.active {
-  background-color: white;
-  font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/*Produtos*/
-
-.table-content-produtos{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    height: 92%;
-    background-color: var(--cor-grey);
-    flex-direction: column;
-}
-
-.table-content-titulo{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: 10%;
-    width: 98%;
-    gap: 1vw;
-    border-bottom: 1px solid  rgb(180, 180, 180);
-}
-
-.btn-estoque-add{
-    width: 6%;
-    border: 1px solid rgb(180, 180, 180);
-    background-color: white;
-    cursor: pointer;
-}
-
-.btn-estoque-lixeira{
-    width: 3%;
-    height: 50%;
-    border: 1px solid rgb(180, 180, 180);
-    background-color: white;
-    cursor: pointer;
-}
-
-.btn-estoque-lixeira h1, .btn-estoque-add h1{
-    text-align: center;
-    color: #1b1b1b;
-    font-family: var(--font-titulo);
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-.table{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90%;
-    width: 100%;
-    flex-direction: column;
-}
-
-.table-secoes{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-}
-
-.table-titulos{
-    width: 100%;
-}
-
-.table-titulos ul{
-    display: flex;
-    justify-content: space-between; /* Espaça os <li> */
-    width: 100%; /* Ocupar toda a linha */
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.table-titulos li {
-    flex: 1;
-    padding-left: 1.7%;
-    font-weight: 500;
-    font-family: var(--font-titulo);
-}
-
-.table-titulos li + li {
-    border-left: 2px solid #ccc;
-}
-
-.column-1, .column-2, .column-3{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #dfdcdc;
-    height: 80%;
-    width: 30%;
-}
-
-.row{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 30%;
-    width: 100%;
-}
-
-/*Ajustes*/
-
-.table-content-ajustes{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    height: 92%;
-    background-color: var(--cor-grey);
-    flex-direction: column;
-}
-
-
-.column-left, .column-right{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90%;
-    width: 46%;
-    border: 1px solid rgb(0, 0, 0, 0.10);
-}
-
-.cards-left, .cards-right{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.pedidos-title button, .estoque-title button{
     height: 100%;
     width: 100%;
-    flex-direction: column;
-}
-
-.cards-titulo{
-    display: flex;
-    height:  12%;
-    width: 95%;
-}
-
-.cards-titulo h1{
-    font-size: 0.7rem;
-    font-family: var(--font-titulo);
-    font-weight: 500;
-    height: 25%;
-    width: 100%;
-}
-
-.info-produto{
-    display: flex;
-    flex-direction: column;
-    height: 80%;
-    width: 95%;
-}
-
-.preco-produtos {
-    height: 40%;
-}
-
-.preco-produtos p{
-    font-size: 0.8rem;
-    font-weight: 400;
-    font-family: var(--font-titulo);
-}
-
-.quantidade-produtos{
-    height: 40%;
-}
-
-.quantidade-produtos p{
-    font-size: 0.73rem;
-    font-weight: 600;
-    font-family: var(--font-titulo);
-}
-
-.acoes-produtos ul{
-    display: flex;
-    list-style: none;
-    gap: 10px;
-}
-
-.acoes-produtos ul li{
+    border: 1px solid rgba(0, 0, 0, 0.328);
+    background-color: transparent;
+    cursor: pointer;
     font-size: 1rem;
-    font-family: var(--font-titulo);
-    font-weight: 400;
-    cursor: pointer;
-    border: 1px solid rgb(0, 0, 0, 0.30);
-    background-color: var(--cor-itemdesconto);
-    color: rgb(0, 0, 0)
+    border-radius: 0.2rem;
+    font-family:var(--font-titulo);
+    font-weight: 500;
 }
 
-.cards-img{
+.main-content-pedidos{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 95%;
     width: 95%;
+    height: 90%;
+    background-color: var(--cor-grey);
+    border-radius: 0.5rem;
+    border: 1px solid #0000003b;
 }
 
-.cards-img img{
-    height: 100%;
-    width: 100%;
+.main-content-estoque{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    height: 90%;
+    background-color: var(--cor-grey);
+    border-radius: 0.5rem;
+    border: 1px solid #0000003b;
 }
 
 
