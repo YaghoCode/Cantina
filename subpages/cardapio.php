@@ -13,129 +13,158 @@ session_start();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" type="text/css" href="./assets/css/cardapio.css">
   <title>Cantina PJ - Cardapio</title>
 </head>
 
 <body class="body">
-    
-    <!-- header, navbar -->
-  <header>
-      <nav class="navbar">
-          <div class="nav-links">
-              <div class="nav-btn-cardapio">
-                    <h1>
-                      <i class="fa-solid fa-caret-left"></i>
-                      Cardapio
-                    </h1>
-              </div>
-  
-              <div class="nav-items">
-                <ul>
-                  <li>
+
+          <!-- header, navbar -->
+          <header>
+            <nav class="navbar">
+              <div class="nav-links">
+                <div class="nav-btn-cardapio">
+                  <h1>
+                    <i class="fa-solid fa-caret-left"></i>
+                    Cardapio
+                  </h1>
+                </div>
+
+                <div class="nav-items">
+                  <ul>
+                    <li>
                       <h1>
                         <a href="#inicio" style="text-decoration: none; color: #f0a956;">Salgados</a>
                       </h1>
-                  </li>
-                  <li>
+                    </li>
+                    <li>
                       <h1>
                         <a href="#Cardapio" style="text-decoration: none; color: #a1735e;">Folhados</a>
                       </h1>
-                  </li>
-                  <li>
-                         <h1>
+                    </li>
+                    <li>
+                      <h1>
                         <a href="#Sobre-Nos" style="text-decoration: none; color:  #f0a956;">Doces</a>
                       </h1>
-                  </li>
-                  <li>
-                    <h1>
-                      <a href="#inicio" style="text-decoration: none; color: #a1735e;">Bebidas</a>
-                    </h1>
-                </li>
-                <li>
-                    <h1>
-                      <a href="#Cardapio" style="text-decoration: none; color: inherit;">Outros</a>
-                    </h1>
-                </li>
-                </ul>
-              </div>
-                 <div class="nav-buttons">
-                    <div class="btn-user" id="btn-user-nav">
-                        <i class="fa-regular fa-user"></i>
-                    </div>
-                    <div class="btn-cart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-
-                          <div class="pop-up-user" id="pop-up-user">
-
-                            <div class="content-pp-user">
-
-                              <div class="top-content">
-
-                                    <div class="icon-user">
-                                      <i>
-                                           <i class="fa-solid fa-user-ninja"></i> <!--PHP ICONS IMAGES-->
-                                      </i>
-                                    </div>
-
-                                    <div class="btn-close-pp">
-                                      <i>
-                                          <i class="fa-solid fa-xmark" id="btn-close-user-nav"></i>
-                                      </i>
-                                    </div>
-                              </div>
-
-                              <div class="bottom-content">
-                                  <div class="info-user">
-                                        <div class="name-user">
-                                          <h4>
-                                            <Span>ALUNO:</Span> GABRIEL <!--ADICIONAR PHP-->
-                                          </h4>
-                                      </div>
-                                          <div class="turma-user">
-                                              <h4>
-                                               <Span>TURMA:</Span>  3-DS manhã <!--Adicionar PHP-->
-                                              </h4>
-                                          </div>
-                                  </div>
-                                            <div class="edit-user">
-                                                <i class="fa-solid fa-pen"></i>
-                                            </div>
-                              </div>
-                            </div>
-
+                    </li>
+                    <li>
+                      <h1>
+                        <a href="#inicio" style="text-decoration: none; color: #a1735e;">Bebidas</a>
+                      </h1>
+                    </li>
+                    <li>
+                      <h1>
+                        <a href="#Cardapio" style="text-decoration: none; color: inherit;">Outros</a>
+                      </h1>
+                    </li>
+                  </ul>
+                </div>
+                    <div class="nav-buttons">
+                        <div class="btn-user">
+                            <i class="fa-regular fa-user" id="btn-user-nav"></i>
+                        </div>
+                          <div class="btn-cart" id="btn-cart-nav">
+                              <i class="fa-solid fa-cart-shopping"></i>
                           </div>
                     </div>
-                </div>
+            </nav>
+          </header>
+
+          <!--POPUP DO USER-->
+
+          <div class="pop-up-user" id="pop-up-user">
+
+            <div class="content-pp-user">
+
+              <div class="top-content">
+
+                  <div class="icon-user">
+                      <i class="fa-solid fa-user-ninja"></i> <!--PHP ICONS IMAGES-->
+                  </div>
+
+                    <div class="btn-close-pp">
+                        <i class="fa-solid fa-xmark" id="btn-close-user-nav"></i>
+                    </div>
+              </div>
+
+              <div class="bottom-content">
+                  <div class="info-user">
+                      <div class="name-user">
+                          <h4>
+                            <Span>ALUNO:</Span> GABRIEL <!--ADICIONAR PHP-->
+                          </h4>
+                      </div>
+                      <div class="turma-user">
+                          <h4>
+                            <Span>TURMA:</Span> 3-DS manhã <!--Adicionar PHP-->
+                          </h4>
+                            <i class="fa-solid fa-pen"></i>
+                      </div>
+                  </div>
+              </div>
+            </div>
+
           </div>
-      </nav>
-  </header>
+          </div>
+
+           <!--Popup carrinho-->
+              <div class="pop-up-cart" id="pop-up-cart">
+                <div class="content-pp-cart">
+                    <div class="content-pp-cart-top">
+                          <button>
+                            <i class="fa-solid fa-xmark" id="btn-close-cart-nav"></i>
+                          </button>
+                    </div>
+                      <div class="content-pp-cart-bottom">
+                          <div class="cart-title">
+                              <h6>
+                                  Itens Adicionados:
+                              </h6>
+                          </div>
+                           <div class="barra-divisao">
+
+                           </div>
+                            <div class="cart-items">
+                                <!--PHP ITEMS-->
+                            </div>
+                              <div class="cart-total-price">
+                                  <h5>Total:</h5> <h6>R$: 00,00 <!--Price calculado--></h6>
+                              </div>
+                                <div class="finalizar-pedido">
+                                    <button id="btn-finalizar-pedidos">
+                                        Finalizar Pedido
+                                    </button>
+                                </div>
+                      </div>
+                </div>
+              </div>
 
 
-    <script type="module" src="./assets/js/cardapio.js"></script>
+  <script type="module" src="./assets/js/cardapio.js"></script>
 
 </body>
+
 </html>
 
 
-<?php 
+<?php
 if (isset($_SESSION['cpf'])) {
-    $cpf = $_SESSION['cpf'];
-    $query = "SELECT nome, cpf FROM cliente WHERE cpf = '$cpf'";
-    $result = mysqli_query($con, $query);
+  $cpf = $_SESSION['cpf'];
+  $query = "SELECT nome, cpf FROM cliente WHERE cpf = '$cpf'";
+  $result = mysqli_query($con, $query);
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        $user_data = mysqli_fetch_assoc($result);
-        echo "<h1>CPF: " . $user_data['cpf'] . "<br></h1>";
-        echo "Nome: " . $user_data['nome'] . "<br>";
-    } else {
-        echo "Usuário não encontrado.";
-    }
+  if ($result && mysqli_num_rows($result) > 0) {
+    $user_data = mysqli_fetch_assoc($result);
+    echo "<h1>CPF: " . $user_data['cpf'] . "<br></h1>";
+    echo "Nome: " . $user_data['nome'] . "<br>";
+  } else {
+    echo "Usuário não encontrado.";
+  }
 } else {
-    echo "Nenhum usuário logado. <br><br>";
-    echo "Ao logar, você verá os dados do usuário aqui.";
+  echo "Nenhum usuário logado. <br><br>";
+  echo "Ao logar, você verá os dados do usuário aqui.";
 }
 
 mysqli_close($con);
