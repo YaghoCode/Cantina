@@ -263,12 +263,51 @@ body {
     display: none;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     width: 95%;
     height: 90%;
     background-color: var(--cor-grey);
     border-radius: 0.5rem;
     border: 1px solid #0000003b;
 }
+
+.content-estoque-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 7%;
+}
+
+.estoque-btn-novo-produto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 13%;
+}
+
+.estoque-btn-novo-produto button{
+    height: 50%;
+    width: 60%;
+    border: 1px solid rgba(0, 0, 0, 0.328);
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 0.8rem;
+    border-radius: 0.2rem;
+    font-family:var(--font-titulo);
+    font-weight: 500;
+}
+
+.table-estoque{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95%;
+    width: 100%;
+}
+
+
 
 
 /*FUNCAO MODAL CLICK "NOVO"*/

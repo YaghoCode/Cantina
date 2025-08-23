@@ -66,7 +66,7 @@ btnCloseUsernav.addEventListener('click', () => {
 // modal NOVO
 
 
-const btnNovoProduto = document.getElementById('btn-novo-produto')
+const btnNovoProduto = document.getElementById('btn-adicionar-produto')
 const modalAlert = document.getElementById('modal-novo-p');     
 const btnCloseModal = document.getElementById('btn-close-modal-p')
 
