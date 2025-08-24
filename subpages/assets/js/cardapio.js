@@ -35,4 +35,13 @@ btnCloseCartNav.addEventListener('click', () => {
   containerPopUpCart.classList.remove('active'); 
 });
 
-
+const swiper = new Swiper('.swiper', {
+    direction: 'vertical', // Define a direção como vertical
+    slidesPerView: 'auto', // Mostra os slides conforme o tamanho do conteúdo
+    freeMode: true, // Permite rolagem livre
+    scrollbar: {
+        el: '.swiper-scrollbar', // Ativa a barra de rolagem
+        draggable: true, // Permite arrastar a barra
+    },
+    mousewheel: true, // Permite rolagem com o mouse
+});
