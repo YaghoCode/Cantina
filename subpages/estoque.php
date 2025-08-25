@@ -1,3 +1,8 @@
+<?php
+include('/xampp/htdocs/cantinarepositorio/main/database.php');
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -125,16 +130,16 @@
                         </h1>
                     </div>
                     <div class="modal-form-produto">
-                        <form action="processar_produto.php" method="POST" class="form-novo-produto">
+                        <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post" class="form-novo-produto">
                             <div class="form-group">
                                 <label for="titulo">Título do Produto:</label>
-                                <input type="text" id="titulo" name="name-produto" class="form-control"
+                                <input type="text" id="titulo" name="nome-produto" class="form-control"
                                     placeholder="Digite o título do produto" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="titulo">Descrição do produto:</label>
-                                <input type="text" id="titulo" name="description-produto" class="form-control"
+                                <input type="text" id="titulo" name="descricao-produto" class="form-control"
                                     placeholder="Digite a descrisão do produto" required>
                             </div>
 
@@ -153,16 +158,16 @@
                             <div class="form-group">
                                 <label for="categoria">Categoria:</label>
                                 <select id="categoria" name="categoria-produto" class="form-control" required>
-                                    <option value="salgado">Salgado</option>
-                                    <option value="folhado">Folhado</option>
-                                    <option value="doces">Doces</option>
-                                    <option value="bebidas">Bebidas</option>
-                                    <option value="outros">Outros</option>
+                                    <option value="Salgados">Salgado</option>
+                                    <option value="Doces">Doces</option>
+                                    <option value="Folhados">Folhado</option>
+                                    <option value="Bebidas">Bebidas</option>
+                                    <option value="Outros">Outros</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Criar Produto</button>
+                                <button type="submit" name="cadastrar-produto" class="btn btn-primary">Criar Produto</button>
                             </div>
                         </form>
                     </div>
@@ -198,4 +203,25 @@
     <script type="module" src="./assets/js/estoque.js"></script>
 </body>
 
-</html>
+</html
+
+<?php
+
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cadastrar-produto'])){
+
+$nome = filter_input(INPUT_POST, 'nome-produto', FILTER_SANITIZE_SPECIAL_CHARS);
+$descricao = filter_input(INPUT_POST, 'descricao-produto', FILTER_SANITIZE_SPECIAL_CHARS);
+$preco = filter_input(INPUT_POST, 'preco-produto', FILTER_SANITIZE_NUMBER_FLOAT);
+$quantidade = filter_input(INPUT_POST, 'quantidade-produto', FILTER_SANITIZE_NUMBER_INT);
+$categoria = $_POST['categoria-produto'];
+
+$sql = "INSERT INTO estoque(Nome, Descricao, Preco, Quantidade, Categoria) VALUES ('$nome', '$descricao', '$preco', '$quantidade', '$categoria')";
+            mysqli_query($con, $sql);
+            header("Location: /cantinarepositorio/subpages/estoque.php");
+            exit;
+        } 
+
+
+?>
