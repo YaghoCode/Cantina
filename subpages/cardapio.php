@@ -1,5 +1,5 @@
 <?php
-include('/xampp/htdocs/cantina/main/database.php');
+include('/xampp/htdocs/cantinarepositorio/main/database.php');
 session_start();
 ?>
 
@@ -17,6 +17,7 @@ session_start();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" type="text/css" href="./assets/css/cardapio.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <title>Cantina PJ - Cardapio</title>
 
 </head>
 
@@ -37,12 +38,12 @@ session_start();
           <ul>
             <li>
               <h1>
-                <a href="#inicio" style="text-decoration: none; color: #f0a956;">Salgados</a>
+                <a href="#salgados" style="text-decoration: none; color: #f0a956;">Salgados</a>
               </h1>
             </li>
             <li>
               <h1>
-                <a href="#Cardapio" style="text-decoration: none; color: #a1735e;">Folhados</a>
+                <a href="#folhados" style="text-decoration: none; color: #a1735e;">Folhados</a>
               </h1>
             </li>
             <li>
@@ -130,7 +131,7 @@ session_start();
         <div class="cart-items">
           <div class="container-items">
             <div class="swiper">
-              <div class="swiper-wrapper" style="max-height: auto;">
+              <div class="swiper-wrapper">
                 <div class="swiper-slide bg-light p-3 border rounded">Slide 1</div>
                 <div class="swiper-slide bg-light p-3 border rounded">Slide 2</div>
                 <div class="swiper-slide bg-light p-3 border rounded">Slide 3</div>
@@ -157,6 +158,419 @@ session_start();
   </div>
 
 
+
+  <!--Main-->
+
+  <div class="container-salgados">
+    <div class="title-salgados" id="salgados">
+      <h1>
+        Salgados
+      </h1>
+    </div>
+    <div class="content-salgados">
+      <div class="row-cards">
+        <div class="cards-items">
+          <div class="cards-items-left">
+            <div class="title-cards-items">
+              <h1>
+                Esfiha de Carne
+              </h1>
+            </div>
+            <div class="description-cards-items">
+              <p>
+                Uma deliciosa esfiha de carne, feita com massa macia e recheio temperado, perfeita para qualquer momento do dia.
+              </p>
+            </div>
+            <div class="price-cards-items">
+              <p>
+                R$ 6,00
+              </p>
+            </div>
+          </div>
+          <div class="cards-items-right">
+            <div class="cards-items-img">
+              <img src="/main/assets/img/esfiha5.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="cards-items">
+          <div class="cards-items-left">
+            <div class="title-cards-items">
+              <h1>
+                Esfiha de frango
+              </h1>
+            </div>
+            <div class="description-cards-items">
+              <p>
+                Esfiha de frango com massa leve e recheio cremoso de frango temperado, ideal para um lanche saboroso a qualquer hora.
+              </p>
+            </div>
+            <div class="price-cards-items">
+              <p>
+                R$ 6,00
+              </p>
+            </div>
+          </div>
+          <div class="cards-items-right">
+            <div class="cards-items-img">
+              <img src="/main/assets/img/esfiha1.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="cards-items">
+          <div class="cards-items-left">
+            <div class="title-cards-items">
+              <h1>
+                Bauru
+              </h1>
+            </div>
+            <div class="description-cards-items">
+              <p>
+                Tradicional lanche paulista feito com pão, presunto, queijo, tomate e orégano, servido quente e crocante.
+              </p>
+            </div>
+            <div class="price-cards-items">
+              <p>
+                R$ 6,00
+              </p>
+            </div>
+          </div>
+          <div class="cards-items-right">
+            <div class="cards-items-img">
+              <img src="/main/assets/img/bauru.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row-cards">
+          <div class="cards-items">
+                <div class="cards-items-left">
+                  <div class="title-cards-items">
+                      <h1>
+                        Coxinha de Frango
+                      </h1>
+                  </div>
+                    <div class="description-cards-items">
+                        <p>
+                            Coxinha de frango com massa crocante e recheio suculento de frango temperado, perfeita para um lanche rápido e saboroso.
+                        </p>
+                    </div>
+                      <div class="price-cards-items">
+                          <p>
+                            R$ 6,00
+                          </p>
+                      </div>     
+                </div>
+                  <div class="cards-items-right">
+                        <div class="cards-items-img">
+                           <img src="/main/assets/img/coxinha.png" alt="">
+                        </div>
+                  </div>
+            </div>
+              <div class="cards-items">
+                <div class="cards-items-left">
+                  <div class="title-cards-items">
+                      <h1>
+                        Esfiha de Queijo
+                      </h1>
+                  </div>
+                    <div class="description-cards-items">
+                        <p>
+                            Esfiha de queijo com massa leve e recheio cremoso de queijo, perfeita para quem aprecia um sabor suave e irresistível.
+                        </p>
+                    </div>
+                      <div class="price-cards-items">
+                          <p>
+                            R$ 6,00
+                          </p>
+                      </div>     
+                </div>
+                  <div class="cards-items-right">
+                        <div class="cards-items-img">
+                           <img src="/main/assets/img/esfiha2.png" alt="">
+                        </div>
+                  </div>
+            </div>
+              <div class="cards-items">
+                <div class="cards-items-left">
+                  <div class="title-cards-items">
+                      <h1>
+                        Enroladinho de Salsicha
+                      </h1>
+                  </div>
+                    <div class="description-cards-items">
+                        <p>
+                            Enroladinho de salsicha envolto em massa fofinha e dourada, recheado com salsicha suculenta, ideal para um lanche prático e saboroso.
+                        </p>
+                    </div>
+                      <div class="price-cards-items">
+                          <p>
+                            R$ 6,00
+                          </p>
+                      </div>     
+                </div>
+                  <div class="cards-items-right">
+                        <div class="cards-items-img">
+                           <img src="/main/assets/img/enroladinho.png" alt="">
+                        </div>
+                  </div>
+            </div>
+      </div>
+      <div class="row-cards">
+          <div class="cards-items">
+                <div class="cards-items-left">
+                  <div class="title-cards-items">
+                      <h1>
+                        Pão de Queijo
+                      </h1>
+                  </div>
+                    <div class="description-cards-items">
+                        <p>
+                            Pão de queijo tradicional, feito com queijo mineiro e massa leve, crocante por fora e macio por dentro, ideal para acompanhar seu café ou lanche.
+                        </p>
+                    </div>
+                      <div class="price-cards-items">
+                          <p>
+                            R$ 6,00
+                          </p>
+                      </div>     
+                </div>
+                  <div class="cards-items-right">
+                        <div class="cards-items-img">
+                           <img src="/main/assets/img/paodequeijound.png" alt="">
+                        </div>
+                  </div>
+            </div>
+              <div class="cards-items">
+                <div class="cards-items-left">
+                  <div class="title-cards-items">
+                      <h1>
+                        Quibe Assado
+                      </h1>
+                  </div>
+                    <div class="description-cards-items">
+                        <p>
+                            Quibe assado feito com carne bovina temperada, trigo para quibe e especiarias, assado até ficar macio e saboroso, ideal para um lanche nutritivo.
+                        </p>
+                    </div>
+                      <div class="price-cards-items">
+                          <p>
+                            R$ 6,00
+                          </p>
+                      </div>     
+                </div>
+                  <div class="cards-items-right">
+                        <div class="cards-items-img">
+                           <img src="/main/assets/img/quibeassadound.png" alt="">
+                        </div>
+                  </div>
+            </div>
+              <div class="cards-items">
+                <div class="cards-items-left">
+                  <div class="title-cards-items">
+                      <h1>
+                        Pão de Batata
+                      </h1>
+                  </div>
+                    <div class="description-cards-items">
+                        <p>
+                            Pão de batata recheado com frango, massa leve e macia, perfeito para um lanche saboroso e prático a qualquer hora do dia.
+                        </p>
+                    </div>
+                      <div class="price-cards-items">
+                          <p>
+                            R$ 6,00
+                          </p>
+                      </div>     
+                </div>
+                  <div class="cards-items-right">
+                        <div class="cards-items-img">
+                           <img src="/main/assets/img/paodebatata.png" alt="">
+                        </div>
+                  </div>
+            </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-folhados">
+    <div class="title-folhados" id="folhados">
+      <h1>
+        Folhados
+      </h1>
+    </div>
+    <div class="content-folhados">
+        <div class="row-cards-f">
+        <div class="cards-items">
+          <div class="cards-items-left">
+            <div class="title-cards-items">
+              <h1>
+                Esfiha de Carne
+              </h1>
+            </div>
+            <div class="description-cards-items">
+              <p>
+                Uma deliciosa esfiha de carne, feita com massa macia e recheio temperado, perfeita para qualquer momento do dia.
+              </p>
+            </div>
+            <div class="price-cards-items">
+              <p>
+                R$ 6,00
+              </p>
+            </div>
+          </div>
+          <div class="cards-items-right">
+            <div class="cards-items-img">
+              <img src="/main/assets/img/esfiha5.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="cards-items">
+          <div class="cards-items-left">
+            <div class="title-cards-items">
+              <h1>
+                Esfiha de frango
+              </h1>
+            </div>
+            <div class="description-cards-items">
+              <p>
+                Esfiha de frango com massa leve e recheio cremoso de frango temperado, ideal para um lanche saboroso a qualquer hora.
+              </p>
+            </div>
+            <div class="price-cards-items">
+              <p>
+                R$ 6,00
+              </p>
+            </div>
+          </div>
+          <div class="cards-items-right">
+            <div class="cards-items-img">
+              <img src="/main/assets/img/esfiha1.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="cards-items">
+          <div class="cards-items-left">
+            <div class="title-cards-items">
+              <h1>
+                Bauru
+              </h1>
+            </div>
+            <div class="description-cards-items">
+              <p>
+                Tradicional lanche paulista feito com pão, presunto, queijo, tomate e orégano, servido quente e crocante.
+              </p>
+            </div>
+            <div class="price-cards-items">
+              <p>
+                R$ 6,00
+              </p>
+            </div>
+          </div>
+          <div class="cards-items-right">
+            <div class="cards-items-img">
+              <img src="/main/assets/img/bauru.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row-cards-f">
+          <div class="cards-items">
+                <div class="cards-items-left">
+                  <div class="title-cards-items">
+                      <h1>
+                        Coxinha de Frango
+                      </h1>
+                  </div>
+                    <div class="description-cards-items">
+                        <p>
+                            Coxinha de frango com massa crocante e recheio suculento de frango temperado, perfeita para um lanche rápido e saboroso.
+                        </p>
+                    </div>
+                      <div class="price-cards-items">
+                          <p>
+                            R$ 6,00
+                          </p>
+                      </div>     
+                </div>
+                  <div class="cards-items-right">
+                        <div class="cards-items-img">
+                           <img src="/main/assets/img/coxinha.png" alt="">
+                        </div>
+                  </div>
+            </div>
+              <div class="cards-items">
+                <div class="cards-items-left">
+                  <div class="title-cards-items">
+                      <h1>
+                        Esfiha de Queijo
+                      </h1>
+                  </div>
+                    <div class="description-cards-items">
+                        <p>
+                            Esfiha de queijo com massa leve e recheio cremoso de queijo, perfeita para quem aprecia um sabor suave e irresistível.
+                        </p>
+                    </div>
+                      <div class="price-cards-items">
+                          <p>
+                            R$ 6,00
+                          </p>
+                      </div>     
+                </div>
+                  <div class="cards-items-right">
+                        <div class="cards-items-img">
+                           <img src="/main/assets/img/esfiha2.png" alt="">
+                        </div>
+                  </div>
+            </div>
+              <div class="cards-items">
+                <div class="cards-items-left">
+                  <div class="title-cards-items">
+                      <h1>
+                        Enroladinho de Salsicha
+                      </h1>
+                  </div>
+                    <div class="description-cards-items">
+                        <p>
+                            Enroladinho de salsicha envolto em massa fofinha e dourada, recheado com salsicha suculenta, ideal para um lanche prático e saboroso.
+                        </p>
+                    </div>
+                      <div class="price-cards-items">
+                          <p>
+                            R$ 6,00
+                          </p>
+                      </div>     
+                </div>
+                  <div class="cards-items-right">
+                        <div class="cards-items-img">
+                           <img src="/main/assets/img/enroladinho.png" alt="">
+                        </div>
+                  </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <script type="module" src="./assets/js/cardapio.js"></script>
   <!-- Bootstrap 5 JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
@@ -180,11 +594,11 @@ if (isset($_SESSION['cpf'])) {
     echo "<h1>CPF: " . $user_data['cpf'] . "<br></h1>";
     echo "Nome: " . $user_data['nome'] . "<br>";
   } else {
-    echo "Usuário não encontrado.";
+    echo "";
   }
 } else {
-  echo "Nenhum usuário logado. <br><br>";
-  echo "Ao logar, você verá os dados do usuário aqui.";
+  echo "";
+  echo "";
 }
 
 mysqli_close($con);

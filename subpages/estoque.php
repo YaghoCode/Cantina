@@ -87,35 +87,35 @@ session_start();
     </header>
 
     <main>
-            <div class="main-container">
-                <div class="main-title">
-                    <div class="pedidos-title">
-                        <button id="btn-pedidos">
-                            Pedidos
+        <div class="main-container">
+            <div class="main-title">
+                <div class="pedidos-title">
+                    <button id="btn-pedidos">
+                        Pedidos
+                    </button>
+                </div>
+                <div class="estoque-title">
+                    <button id="btn-estoque">
+                        Ajustes do Estoque
+                    </button>
+                </div>
+            </div>
+            <div class="main-content-pedidos" id="content-pedidos">
+
+            </div>
+            <div class="main-content-estoque" id="content-estoque">
+                <div class="content-estoque-buttons">
+                    <div class="estoque-btn-novo-produto">
+                        <button id="btn-adicionar-produto">
+                            Adicionar Produto +
                         </button>
                     </div>
-                        <div class="estoque-title">
-                            <button id="btn-estoque">
-                                Ajustes do Estoque
-                            </button>
-                        </div>
                 </div>
-                    <div class="main-content-pedidos" id="content-pedidos">
+                <div class="table-estoque">
 
-                    </div>
-                        <div class="main-content-estoque" id="content-estoque">
-                            <div class="content-estoque-buttons">
-                                <div class="estoque-btn-novo-produto">
-                                    <button id="btn-adicionar-produto">
-                                        Adicionar Produto +
-                                    </button>
-                                </div>
-                            </div>
-                                <div class="table-estoque">
-
-                                </div>
-                        </div>
+                </div>
             </div>
+        </div>
 
 
         <!--FUNCAO CLICK DO BOTAO "NOVO"-->
@@ -130,29 +130,25 @@ session_start();
                         </h1>
                     </div>
                     <div class="modal-form-produto">
-                        <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post" class="form-novo-produto">
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-novo-produto">
                             <div class="form-group">
                                 <label for="titulo">Título do Produto:</label>
-                                <input type="text" id="titulo" name="nome-produto" class="form-control"
-                                    placeholder="Digite o título do produto" required>
+                                <input type="text" id="titulo" name="nome-produto" class="form-control" placeholder="Digite o título do produto" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="titulo">Descrição do produto:</label>
-                                <input type="text" id="titulo" name="descricao-produto" class="form-control"
-                                    placeholder="Digite a descrisão do produto" required>
+                                <label for="descricao">Descrição do Produto:</label>
+                                <input type="text" id="descricao" name="descricao-produto" class="form-control" placeholder="Digite a descrição do produto" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="preco">Preço:</label>
-                                <input type="number" id="preco" name="preco-produto" class="form-control"
-                                    placeholder="Digite o preço do produto" step="0.01" min="0" required>
+                                <input type="number" id="preco" name="preco-produto" class="form-control" placeholder="Digite o preço do produto" step="0.01" min="0" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="quantidade">Quantidade:</label>
-                                <input type="number" id="quantidade" name="quantidade-produto" class="form-control"
-                                    placeholder="Digite a quantidade disponível" min="0" required>
+                                <input type="number" id="quantidade" name="quantidade-produto" class="form-control" placeholder="Digite a quantidade disponível" min="0" required>
                             </div>
 
                             <div class="form-group">
@@ -205,23 +201,29 @@ session_start();
 
 </html
 
-<?php
+    <?php
+    if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] === "POST") {
+        try {
+            if (isset($_POST['cadastrar-produto'])) {
+                // Sanitização dos dados
+                $nome = filter_input(INPUT_POST, 'nome-produto', FILTER_SANITIZE_SPECIAL_CHARS);
+                $descricao = filter_input(INPUT_POST, 'descricao-produto', FILTER_SANITIZE_SPECIAL_CHARS);
+                $preco = filter_input(INPUT_POST, 'preco-produto', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+                $quantidade = filter_input(INPUT_POST, 'quantidade-produto', FILTER_SANITIZE_NUMBER_INT);
+                $categoria = filter_input(INPUT_POST, 'categoria-produto', FILTER_SANITIZE_SPECIAL_CHARS);
 
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cadastrar-produto'])){
-
-$nome = filter_input(INPUT_POST, 'nome-produto', FILTER_SANITIZE_SPECIAL_CHARS);
-$descricao = filter_input(INPUT_POST, 'descricao-produto', FILTER_SANITIZE_SPECIAL_CHARS);
-$preco = filter_input(INPUT_POST, 'preco-produto', FILTER_SANITIZE_NUMBER_FLOAT);
-$quantidade = filter_input(INPUT_POST, 'quantidade-produto', FILTER_SANITIZE_NUMBER_INT);
-$categoria = $_POST['categoria-produto'];
-
-$sql = "INSERT INTO estoque(Nome, Descricao, Preco, Quantidade, Categoria) VALUES ('$nome', '$descricao', '$preco', '$quantidade', '$categoria')";
-            mysqli_query($con, $sql);
-            header("Location: /cantinarepositorio/subpages/estoque.php");
-            exit;
-        } 
-
-
-?>
+                // Inserção no banco de dados
+                $sql = "INSERT INTO estoque (Nome, Descricao, Preco, Quantidade, Categoria) VALUES ('$nome', '$descricao', '$preco', '$quantidade', '$categoria')";
+                if (mysqli_query($con, $sql)) {
+                    // Redireciona após sucesso
+                    header("Location: /cantinarepositorio/subpages/estoque.php");
+                    exit;
+                } else {
+                    throw new Exception("Erro ao inserir produto no banco de dados.");
+                }
+            }
+        } catch (Exception $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    ?>
