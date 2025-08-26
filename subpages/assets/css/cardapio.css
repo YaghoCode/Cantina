@@ -435,6 +435,11 @@ body {
         border-bottom: 3px solid rgba(0, 0, 0, 0.080);
         border-radius: 0.4rem;
         cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .cards-items:hover{
+        box-shadow: 0 4px 16px rgba(0,0,0,0.10);
     }
 
     .cards-items-left{
