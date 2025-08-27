@@ -130,7 +130,7 @@ session_start();
                         </h1>
                     </div>
                     <div class="modal-form-produto">
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-novo-produto">
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-novo-produto" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="titulo">Título do Produto:</label>
                                 <input type="text" id="titulo" name="nome-produto" class="form-control" placeholder="Digite o título do produto" required>
@@ -211,8 +211,7 @@ session_start();
                 $preco = filter_input(INPUT_POST, 'preco-produto', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
                 $quantidade = filter_input(INPUT_POST, 'quantidade-produto', FILTER_SANITIZE_NUMBER_INT);
                 $categoria = filter_input(INPUT_POST, 'categoria-produto', FILTER_SANITIZE_SPECIAL_CHARS);
-                $nomearquivo = $_FILLES['imagem-produto']['name'];
-                echo $nomearquivo;
+                $nomearquivo = $_FILES['imagem-produto']['name'];
                 // Inserção no banco de dados
                 $sql = "INSERT INTO estoque (Nome, Descricao, Preco, Quantidade, Categoria) VALUES ('$nome', '$descricao', '$preco', '$quantidade', '$categoria')";
                 if (mysqli_query($con, $sql)) {
