@@ -383,143 +383,131 @@ body {
 
 /*Main*/
 
-    .container-salgados{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 75vh;
-        width: 100%;
-    }
+    .container-salgados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 30vh;
+    width: 100%;
+    padding: 2rem 0;
+}
 
-    .title-salgados{
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-start;
-        height: 5vh;
-        width: 80%;
-    }
+.title-salgados {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    width: 80%;
+    margin-bottom: 1.5rem;
+}
 
-    .title-salgados h1{
-        font-size: 2.2rem;
-        font-weight: 600;
-        color: var(--cor-secundaria);
-        padding-bottom: 1.7rem;
-    }
+.title-salgados h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--cor-secundaria);
+}
 
-    .content-salgados{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        height: 90%;
-        width: 80%;
-        gap: 3.2vh;
-    }
+.content-salgados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    gap: 3.2vh;
+}
 
-    .row-cards{
-        display: flex;
-        align-items: center;
-        height: 28vh;
-        width: 100%;
-        gap: 3.2vh;
-        flex-wrap: nowrap; /* Impede que os itens quebrem para uma nova linha */
-        justify-content: flex-start; /* Alinha os itens da esquerda para a direita */
-    }
+.row-cards {
+    display: flex;
+    gap: 2%;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
 
-    .cards-items{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        width: 32%;
-        border-bottom: 3px solid rgba(0, 0, 0, 0.080);
-        border-radius: 0.4rem;
-        cursor: pointer;
-        transition: 0.5s ease;
-        flex: 0 0 calc(33.33% - 1rem); /* Cada item ocupa 1/3 da largura da row menos o gap */
-        box-sizing: border-box; /* Inclui padding e border no tamanho total */
-    }
+.cards-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 21vh;
+    flex: 0 0 32%;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.080);
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: 0.5s ease;
+    box-sizing: border-box;
+}
 
-    .cards-items:hover{
-        box-shadow: 0 2px 10px rgba(0,0,0,0.10);
-    }
+.cards-items:hover {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+}
 
-    .cards-items-left{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        height: 100%;
-        width: 50%;
-    }
+.cards-items-left,
+.cards-items-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+}
 
-    .title-cards-items{
-        display: flex;
-        align-items: center;
-        width: 100%;
-        height: 33%;
-        padding-left: 1rem;
-    }
+.title-cards-items {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 33%;
+    padding-left: 1rem;
+}
 
-    .title-cards-items h1{
-        font-size: 1.2rem;
-    }
+.title-cards-items h1 {
+    font-size: 1.2rem;
+}
 
-    .description-cards-items{
-         display: -webkit-box; /* Necessário para o line-clamp funcionar */
-        -webkit-line-clamp: 3; /* Número máximo de linhas */
-        -webkit-box-orient: vertical; /* Orientação vertical */
-        overflow: hidden; /* Esconde o conteúdo que ultrapassa */
-        text-overflow: ellipsis; /* Adiciona "..." ao final do texto */
-        height: 30%;
-        width: 100%;
-        padding-left: 1rem;
-    }
+.description-cards-items {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 30%;
+    width: 100%;
+    padding-left: 1rem;
+}
 
-    .description-cards-items p{
-        font-size: 0.8rem;
-    }
+.description-cards-items p {
+    font-size: 0.8rem;
+}
 
-    .price-cards-items{
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-start;
-        height: 30%;
-        width: 100%;
-        padding-left: 1rem;
-    }
+.price-cards-items {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    height: 30%;
+    width: 100%;
+    padding-left: 1rem;
+}
 
-    .price-cards-items p{
-        font-size: 1rem;
-        font-weight: 600;
-    }
+.price-cards-items p {
+    font-size: 1rem;
+    font-weight: 600;
+}
 
-    .cards-items-img{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 80%;
-        width: 80%;
-        background-color: var(--cor-grey);
-        border-radius: 0.5rem; /* Adiciona bordas arredondadas (opcional) */
-        background-color: #f0a856ed;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-    }
+.cards-items-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 80%;
+    background-color: #f0a856ed;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
 
-    .cards-items-img img {
-        max-width: 100%; /* Limita a largura máxima ao tamanho da div */
-        max-height: 100%; /* Limita a altura máxima ao tamanho da div */
-        object-fit: cover; /* Ajusta a imagem para preencher a div sem distorção */
-    }
-    
-    .cards-items-right{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        width: 50%;
-    }
+.cards-items-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
 
     .container-folhados{
         display: flex;

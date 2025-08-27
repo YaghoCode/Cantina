@@ -160,224 +160,57 @@ session_start();
 
 
   <!--Main-->
-    <div class="divisao-navbar" style="height: 15vh;">
+    <div class="divisao-navbar" style="height: 12vh;">
 
     </div>
 
   <div class="container-salgados">
     <div class="title-salgados" id="salgados">
-      <h1>
-        Salgados
-      </h1>
+      <h1>Salgados</h1>
     </div>
-    <div class="content-salgados">
+      <div class="content-salgados">
+            <?php
+              $query = "SELECT * from estoque";
+              $query_run = mysqli_query($con, $query);
 
-
-
-    
-      <div class="row-cards">
-
-      <?php
-$query = "SELECT * from estoque";
-    $query_run = mysqli_query($con, $query);
-
-    if(mysqli_num_rows($query_run) > 0){
-
-        foreach($query_run as $item){
-            
-           echo'<div class="cards-items">
-          <div class="cards-items-left">
-            <div class="title-cards-items">
-              <h1>
-                '. $item['Nome'].'
-              </h1>
-            </div>
-            <div class="description-cards-items">
-              <p>
-                '.$item['Descricao'].'
-              </p>
-            </div>
-            <div class="price-cards-items">
-              <p>
-                R$ 6,00
-              </p>
-            </div>
-          </div>
-          <div class="cards-items-right">
-            <div class="cards-items-img">
-              <img src="/main/assets/img/esfiha5.png" alt="">
-            </div>
-          </div>
-    </div>
-    ';
-            
-        }
-    }
-
-?>
-        
+              if(mysqli_num_rows($query_run) > 0){
+                  foreach($query_run as $item){
+                      echo '
+                      <div class="cards-items">
+                        <div class="cards-items-left">
+                          <div class="title-cards-items">
+                            <h1>'.$item['Nome'].'</h1>
+                          </div>
+                          <div class="description-cards-items">
+                            <p>'.$item['Descricao'].'</p>
+                          </div>
+                          <div class="price-cards-items">
+                            <p>R$ '.$item['Preco'].'</p>
+                          </div>
+                        </div>
+                        <div class="cards-items-right">
+                          <div class="cards-items-img">
+                            <img src="/main/assets/img/esfiha5.png" alt="">
+                          </div>
+                        </div>
+                      </div>';
+                  }
+              }
+            ?>
+      </div>
   </div>
+
 
   <div class="container-folhados">
-    <div class="title-folhados" id="folhados">
-      <h1>
-        Folhados
-      </h1>
-    </div>
-    <div class="content-folhados">
-        <div class="row-cards-f">
-        <div class="cards-items">
-          <div class="cards-items-left">
-            <div class="title-cards-items">
-              <h1>
-                Croissant de Chocolate
-              </h1>
-            </div>
-            <div class="description-cards-items-f">
-              <p>
-                Croissant de chocolate com massa folhada leve e recheio cremoso de chocolate, perfeito para quem busca um lanche doce e irresistível.
-              </p>
-            </div>
-            <div class="price-cards-items">
-              <p>
-                R$ 7,00
-              </p>
-            </div>
-          </div>
-          <div class="cards-items-right">
-            <div class="cards-items-img-f">
-              <img src="/main/assets/img/croissant1.png" alt="">
-            </div>
-          </div>
-        </div>
-        <div class="cards-items">
-          <div class="cards-items-left">
-            <div class="title-cards-items">
-              <h1>
-                Croissant de Frango
-              </h1>
-            </div>
-            <div class="description-cards-items-f">
-              <p>
-                Croissant de frango com massa folhada leve e recheio cremoso de frango temperado, perfeito para quem busca um lanche salgado e sofisticado.
-              </p>
-            </div>
-            <div class="price-cards-items">
-              <p>
-                R$ 7,00
-              </p>
-            </div>
-          </div>
-          <div class="cards-items-right">
-            <div class="cards-items-img-f">
-              <img src="/main/assets/img/croissant-frango.png" alt="">
-            </div>
-          </div>
-        </div>
-        <div class="cards-items">
-          <div class="cards-items-left">
-            <div class="title-cards-items">
-              <h1>
-                Croissant de Calabresa
-              </h1>
-            </div>
-            <div class="description-cards-items-f">
-              <p>
-                Croissant de calabresa com massa folhada leve e recheio saboroso de calabresa temperada, ideal para quem aprecia um lanche salgado e marcante.
-              </p>
-            </div>
-            <div class="price-cards-items">
-              <p>
-                R$ 7,00
-              </p>
-            </div>
-          </div>
-          <div class="cards-items-right">
-            <div class="cards-items-img-f">
-              <img src="/main/assets/img/croissantcalabresa.png" alt="">
-            </div>
-          </div>
-        </div>
+      <div class="title-folhados" id="folhados">
+        <h1>
+          Folhados
+        </h1>
       </div>
-      <div class="row-cards-f">
-          <div class="cards-items">
-                <div class="cards-items-left">
-                  <div class="title-cards-items">
-                      <h1>
-                        Folhado de 4 Queijos
-                      </h1>
-                  </div>
-                    <div class="description-cards-items-f">
-                        <p>
-                            Folhado de 4 queijos com massa folhada leve e recheio cremoso de mussarela, parmesão, provolone e requeijão, perfeito para quem aprecia sabores intensos e sofisticados.
-                        </p>
-                    </div>
-                      <div class="price-cards-items">
-                          <p>
-                            R$ 7,00
-                          </p>
-                      </div>     
-                </div>
-                  <div class="cards-items-right">
-                        <div class="cards-items-img-f">
-                           <img src="/main/assets/img/folhado4queijos.png" alt="">
-                        </div>
-                  </div>
-            </div>
-              <div class="cards-items">
-                <div class="cards-items-left">
-                  <div class="title-cards-items">
-                      <h1>
-                        Folhado de Palmito
-                      </h1>
-                  </div>
-                    <div class="description-cards-items-f">
-                        <p>
-                            Folhado de palmito com massa folhada crocante e recheio cremoso de palmito temperado, ideal para quem busca um lanche leve e saboroso.
-                        </p>
-                    </div>
-                      <div class="price-cards-items">
-                          <p>
-                            R$ 7,00
-                          </p>
-                      </div>     
-                </div>
-                  <div class="cards-items-right">
-                        <div class="cards-items-img-f">
-                           <img src="/main/assets/img/FolhadoPalmito.png" alt="">
-                        </div>
-                  </div>
-            </div>
-              <div class="cards-items">
-                <div class="cards-items-left">
-                  <div class="title-cards-items">
-                      <h1>
-                        Folhado de Carne
-                      </h1>
-                  </div>
-                    <div class="description-cards-items-f">
-                        <p>
-                            Folhado de carne com massa folhada crocante e recheio suculento de carne temperada, perfeito para quem busca um lanche salgado e saboroso.
-                        </p>
-                    </div>
-                      <div class="price-cards-items">
-                          <p>
-                            R$ 7,00
-                          </p>
-                      </div>     
-                </div>
-                  <div class="cards-items-right">
-                        <div class="cards-items-img-f">
-                           <img src="/main/assets/img/folhadoCarne.png" alt="">
-                        </div>
-                  </div>
-            </div>
-        </div>
-      </div>
-    </div>
+          <div class="content-folhados">
+              
+          </div>
   </div>
-
-
 
 
 
