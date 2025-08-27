@@ -63,3 +63,19 @@ document.addEventListener("DOMContentLoaded", () => {
     content.appendChild(row);
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const contentf = document.querySelector(".content-folhados");
+  const items = Array.from(content.querySelectorAll(".cards-items"));
+
+
+  content.innerHTML = "";
+
+  // cria rows de 3
+  for (let i = 0; i < items.length; i += 3) {
+    const row = document.createElement("div");
+    row.classList.add("row-cards");
+    items.slice(i, i + 3).forEach(item => row.appendChild(item));
+    contentf.appendChild(row);
+  }
+});
