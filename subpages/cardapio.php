@@ -160,6 +160,9 @@ session_start();
 
 
   <!--Main-->
+    <div class="divisao-navbar" style="height: 15vh;">
+
+    </div>
 
   <div class="container-salgados">
     <div class="title-salgados" id="salgados">

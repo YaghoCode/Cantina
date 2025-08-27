@@ -45,3 +45,60 @@ const swiper = new Swiper('.swiper', {
     },
     mousewheel: true, // Permite rolagem com o mouse
 });
+
+//
+
+function adicionarItemCardapio(itemHTML) {
+    const container = document.querySelector('.container-salgados');
+    const content = container.querySelector('.content-salgados'); 
+    const rows = content.querySelectorAll('.row-cards'); 
+    let ultimaRow = rows[rows.length - 1]; // pega a ultima row do salgados
+
+    //ve se a ultima row ta com 3 items
+    if (ultimaRow && ultimaRow.children.length >= 3) {
+        // cria uma nova row
+        const novaRow = document.createElement('div');
+        novaRow.classList.add('row-cards');
+        content.appendChild(novaRow); // adiciona a nova row ao content
+        ultimaRow = novaRow; // atualiza a última row para a nova criada
+
+        // ajusta o tamanho co container e do content
+        const alturaContentAtual = parseFloat(window.getComputedStyle(content).height); // Altura atual do content
+        const alturaContainerAtual = parseFloat(window.getComputedStyle(container).height); // Altura atual do container
+
+        const alturaRow = alturaContentAtual / rows.length; // Calcula a altura de uma row com base nas existentes
+
+       content.style.height = `${alturaContentAtual + alturaRow}px`;
+        container.style.height = `${alturaContainerAtual + alturaRow}px`; // Aumenta o container proporcionalmente
+    }
+
+    // Adiciona o item na última row
+    const novoItem = document.createElement('div');
+    novoItem.classList.add('cards-items');
+    novoItem.innerHTML = itemHTML; // Adiciona o conteúdo do item
+    ultimaRow.appendChild(novoItem); // Adiciona o item à última row
+}
+
+// Exemplo de uso:
+const novoItemHTML = `
+    <div class="cards-items-left">
+        <div class="title-cards-items">
+            <h1>Item Novo</h1>
+        </div>
+        <div class="description-cards-items">
+            <p>Descrição do novo item.</p>
+        </div>
+        <div class="price-cards-items">
+            <p>R$ 10,00</p>
+        </div>
+    </div>
+    <div class="cards-items-right">
+        <div class="cards-items-img">
+            <img src="/main/assets/img/.png" alt="Novo Item">
+        </div>
+    </div>
+`;
+
+// Adiciona o novo item ao cardápio
+adicionarItemCardapio(novoItemHTML);
+adicionarItemCardapio(novoItemHTML);
