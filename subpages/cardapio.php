@@ -48,17 +48,17 @@ session_start();
             </li>
             <li>
               <h1>
-                <a href="#Sobre-Nos" style="text-decoration: none; color:  #f0a956;">Doces</a>
+                <a href="#doces" style="text-decoration: none; color:  #f0a956;">Doces</a>
               </h1>
             </li>
             <li>
               <h1>
-                <a href="#inicio" style="text-decoration: none; color: #a1735e;">Bebidas</a>
+                <a href="#bebidas" style="text-decoration: none; color: #a1735e;">Bebidas</a>
               </h1>
             </li>
             <li>
               <h1>
-                <a href="#Cardapio" style="text-decoration: none; color: inherit;">Outros</a>
+                <a href="#outros" style="text-decoration: none; color: inherit;">Outros</a>
               </h1>
             </li>
           </ul>
@@ -200,6 +200,7 @@ session_start();
       </div>
   </div>
 
+            <!--FOLHADOS-->
 
   <div class="container-folhados">
       <div class="title-folhados" id="folhados">
@@ -211,6 +212,43 @@ session_start();
               
           </div>
   </div>
+
+            <!--DOCES-->
+
+            <div class="container-doces">
+              <div class="title-doces" id="doces">
+                <h1>
+                  Doces
+                </h1>
+              </div>
+                <div class="content-doces">
+                    
+                </div>
+            </div>
+
+              <!--BEBIDAS-->
+                <div class="container-bebidas">
+                    <div class="title-bebidas" id="bebidas">
+                        <h1>
+                            Bebidas
+                        </h1>
+                    </div>
+                      <div class="content-bebidas">
+
+                      </div>
+                </div>
+
+                <!--Outros-->
+                  <div class="container-outros">
+                      <div class="title-outros" id="outros">
+                          <h1>
+                              Outros
+                          </h1>
+                      </div>
+                        <div class="content-outros">
+
+                        </div>
+                  </div>
 
 
 

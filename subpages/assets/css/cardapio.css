@@ -383,17 +383,17 @@ body {
 
 /*Main*/
 
-    .container-salgados {
+    .container-salgados, .container-folhados, .container-doces, .container-bebidas, .container-outros{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 30vh;
+    min-height: 15vh;
     width: 100%;
     padding: 2rem 0;
 }
 
-.title-salgados {
+.title-salgados, .title-folhados, .title-doces, .title-bebidas, .title-outros {
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
@@ -407,7 +407,32 @@ body {
     color: var(--cor-secundaria);
 }
 
-.content-salgados {
+.title-folhados h1{
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--cor-terciaria);
+}
+
+.title-doces h1{
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--cor-secundaria);
+}
+
+.title-bebidas h1{
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--cor-terciaria)
+}
+
+.title-outros h1{
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--cor-primaria)
+}
+
+
+.content-salgados, .content-salgados, .content-doces, .content-bebidas, .content-outros {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -507,81 +532,4 @@ body {
     max-height: 100%;
     object-fit: cover;
 }
-
-
-    .container-folhados{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 58vh;
-        width: 100%;
-    }
-
-    .title-folhados{
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        height: 25%;
-        width: 80%;
-        padding-top: 2vh;
-    }
-
-    .title-folhados h1{
-        font-size: 2.2rem;
-        font-weight: 600;
-        color: var(--cor-terciaria)
-    }
-
-    .content-folhados{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        height: 83%;
-        width: 80%;
-        gap: 3vh;
-    }
-
-    .row-cards-f{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 50%;
-        width: 100%;
-        gap: 3.2vh;
-    }
-
-    .description-cards-items-f{
-        display: -webkit-box; /* Necessário para o line-clamp funcionar */
-        -webkit-line-clamp: 3; /* Número máximo de linhas */
-        -webkit-box-orient: vertical; /* Orientação vertical */
-        overflow: hidden; /* Esconde o conteúdo que ultrapassa */
-        text-overflow: ellipsis; /* Adiciona "..." ao final do texto */
-        height: 30%;
-        width: 100%;
-        padding-left: 1rem;
-    }
-
-   .description-cards-items-f p{
-        font-size: 0.8rem;
-   }
-
-   .cards-items-img-f{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 80%;
-        width: 80%;
-        background-color: var(--cor-grey);
-        border-radius: 0.5rem; /* Adiciona bordas arredondadas (opcional) */
-        background-color: var(--cor-terciaria);
-        border: 1px solid rgba(0, 0, 0, 0.1);
-   }
-
-      .cards-items-img-f img{
-        max-width: 100%; /* Limita a largura máxima ao tamanho da div */
-        max-height: 100%; /* Limita a altura máxima ao tamanho da div */
-        object-fit: cover; /* Ajusta a imagem para preencher a div sem distorção */
-      }
 
