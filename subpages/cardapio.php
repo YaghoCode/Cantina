@@ -405,23 +405,23 @@ session_start();
           <div class="cards-items-left">
             <div class="title-cards-items">
               <h1>
-                Esfiha de Carne
+                Croissant de Chocolate
               </h1>
             </div>
-            <div class="description-cards-items">
+            <div class="description-cards-items-f">
               <p>
-                Uma deliciosa esfiha de carne, feita com massa macia e recheio temperado, perfeita para qualquer momento do dia.
+                Croissant de chocolate com massa folhada leve e recheio cremoso de chocolate, perfeito para quem busca um lanche doce e irresistível.
               </p>
             </div>
             <div class="price-cards-items">
               <p>
-                R$ 6,00
+                R$ 7,00
               </p>
             </div>
           </div>
           <div class="cards-items-right">
-            <div class="cards-items-img">
-              <img src="/main/assets/img/esfiha5.png" alt="">
+            <div class="cards-items-img-f">
+              <img src="/main/assets/img/croissant1.png" alt="">
             </div>
           </div>
         </div>
@@ -429,23 +429,23 @@ session_start();
           <div class="cards-items-left">
             <div class="title-cards-items">
               <h1>
-                Esfiha de frango
+                Croissant de Frango
               </h1>
             </div>
-            <div class="description-cards-items">
+            <div class="description-cards-items-f">
               <p>
-                Esfiha de frango com massa leve e recheio cremoso de frango temperado, ideal para um lanche saboroso a qualquer hora.
+                Croissant de frango com massa folhada leve e recheio cremoso de frango temperado, perfeito para quem busca um lanche salgado e sofisticado.
               </p>
             </div>
             <div class="price-cards-items">
               <p>
-                R$ 6,00
+                R$ 7,00
               </p>
             </div>
           </div>
           <div class="cards-items-right">
-            <div class="cards-items-img">
-              <img src="/main/assets/img/esfiha1.png" alt="">
+            <div class="cards-items-img-f">
+              <img src="/main/assets/img/croissant-frango.png" alt="">
             </div>
           </div>
         </div>
@@ -453,23 +453,23 @@ session_start();
           <div class="cards-items-left">
             <div class="title-cards-items">
               <h1>
-                Bauru
+                Croissant de Calabresa
               </h1>
             </div>
-            <div class="description-cards-items">
+            <div class="description-cards-items-f">
               <p>
-                Tradicional lanche paulista feito com pão, presunto, queijo, tomate e orégano, servido quente e crocante.
+                Croissant de calabresa com massa folhada leve e recheio saboroso de calabresa temperada, ideal para quem aprecia um lanche salgado e marcante.
               </p>
             </div>
             <div class="price-cards-items">
               <p>
-                R$ 6,00
+                R$ 7,00
               </p>
             </div>
           </div>
           <div class="cards-items-right">
-            <div class="cards-items-img">
-              <img src="/main/assets/img/bauru.png" alt="">
+            <div class="cards-items-img-f">
+              <img src="/main/assets/img/croissantcalabresa.png" alt="">
             </div>
           </div>
         </div>
@@ -479,23 +479,23 @@ session_start();
                 <div class="cards-items-left">
                   <div class="title-cards-items">
                       <h1>
-                        Coxinha de Frango
+                        Folhado de 4 Queijos
                       </h1>
                   </div>
-                    <div class="description-cards-items">
+                    <div class="description-cards-items-f">
                         <p>
-                            Coxinha de frango com massa crocante e recheio suculento de frango temperado, perfeita para um lanche rápido e saboroso.
+                            Folhado de 4 queijos com massa folhada leve e recheio cremoso de mussarela, parmesão, provolone e requeijão, perfeito para quem aprecia sabores intensos e sofisticados.
                         </p>
                     </div>
                       <div class="price-cards-items">
                           <p>
-                            R$ 6,00
+                            R$ 7,00
                           </p>
                       </div>     
                 </div>
                   <div class="cards-items-right">
-                        <div class="cards-items-img">
-                           <img src="/main/assets/img/coxinha.png" alt="">
+                        <div class="cards-items-img-f">
+                           <img src="/main/assets/img/folhado4queijos.png" alt="">
                         </div>
                   </div>
             </div>
@@ -503,23 +503,23 @@ session_start();
                 <div class="cards-items-left">
                   <div class="title-cards-items">
                       <h1>
-                        Esfiha de Queijo
+                        Folhado de Palmito
                       </h1>
                   </div>
-                    <div class="description-cards-items">
+                    <div class="description-cards-items-f">
                         <p>
-                            Esfiha de queijo com massa leve e recheio cremoso de queijo, perfeita para quem aprecia um sabor suave e irresistível.
+                            Folhado de palmito com massa folhada crocante e recheio cremoso de palmito temperado, ideal para quem busca um lanche leve e saboroso.
                         </p>
                     </div>
                       <div class="price-cards-items">
                           <p>
-                            R$ 6,00
+                            R$ 7,00
                           </p>
                       </div>     
                 </div>
                   <div class="cards-items-right">
-                        <div class="cards-items-img">
-                           <img src="/main/assets/img/esfiha2.png" alt="">
+                        <div class="cards-items-img-f">
+                           <img src="/main/assets/img/FolhadoPalmito.png" alt="">
                         </div>
                   </div>
             </div>
@@ -527,23 +527,23 @@ session_start();
                 <div class="cards-items-left">
                   <div class="title-cards-items">
                       <h1>
-                        Enroladinho de Salsicha
+                        Folhado de Carne
                       </h1>
                   </div>
-                    <div class="description-cards-items">
+                    <div class="description-cards-items-f">
                         <p>
-                            Enroladinho de salsicha envolto em massa fofinha e dourada, recheado com salsicha suculenta, ideal para um lanche prático e saboroso.
+                            Folhado de carne com massa folhada crocante e recheio suculento de carne temperada, perfeito para quem busca um lanche salgado e saboroso.
                         </p>
                     </div>
                       <div class="price-cards-items">
                           <p>
-                            R$ 6,00
+                            R$ 7,00
                           </p>
                       </div>     
                 </div>
                   <div class="cards-items-right">
-                        <div class="cards-items-img">
-                           <img src="/main/assets/img/enroladinho.png" alt="">
+                        <div class="cards-items-img-f">
+                           <img src="/main/assets/img/folhadoCarne.png" alt="">
                         </div>
                   </div>
             </div>
