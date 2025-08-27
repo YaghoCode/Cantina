@@ -109,7 +109,6 @@ session_start();
     </div>
 
   </div>
-  </div>
 
   <!--Popup carrinho-->
   <div class="pop-up-cart" id="pop-up-cart">
@@ -170,11 +169,12 @@ session_start();
     </div>
       <div class="content-salgados">
             <?php
-              $query = "SELECT * from estoque";
+              $query = "SELECT * from estoque WHERE categoria = 'Salgados'";
               $query_run = mysqli_query($con, $query);
 
               if(mysqli_num_rows($query_run) > 0){
                   foreach($query_run as $item){
+
                       echo '
                       <div class="cards-items">
                         <div class="cards-items-left">
@@ -195,7 +195,7 @@ session_start();
                         </div>
                       </div>';
                   }
-              }
+                }
             ?>
       </div>
   </div>
@@ -209,7 +209,35 @@ session_start();
         </h1>
       </div>
           <div class="content-folhados">
-              
+              <?php
+              $query = "SELECT * from estoque WHERE categoria = 'Folhados'";
+              $query_run = mysqli_query($con, $query);
+
+              if(mysqli_num_rows($query_run) > 0){
+                  foreach($query_run as $item){
+
+                      echo '
+                      <div class="cards-items">
+                        <div class="cards-items-left">
+                          <div class="title-cards-items">
+                            <h1>'.$item['Nome'].'</h1>
+                          </div>
+                          <div class="description-cards-items">
+                            <p>'.$item['Descricao'].'</p>
+                          </div>
+                          <div class="price-cards-items">
+                            <p>R$ '.$item['Preco'].'</p>
+                          </div>
+                        </div>
+                        <div class="cards-items-right">
+                          <div class="cards-items-img">
+                            <img src="/main/assets/img/esfiha5.png" alt="">
+                          </div>
+                        </div>
+                      </div>';
+                  }
+                }
+            ?>
           </div>
   </div>
 
@@ -222,8 +250,36 @@ session_start();
                 </h1>
               </div>
                 <div class="content-doces">
-                    
-                </div>
+                    <?php
+              $query = "SELECT * from estoque WHERE categoria = 'Doces'";
+              $query_run = mysqli_query($con, $query);
+
+              if(mysqli_num_rows($query_run) > 0){
+                  foreach($query_run as $item){
+
+                      echo '
+                      <div class="cards-items">
+                        <div class="cards-items-left">
+                          <div class="title-cards-items">
+                            <h1>'.$item['Nome'].'</h1>
+                          </div>
+                          <div class="description-cards-items">
+                            <p>'.$item['Descricao'].'</p>
+                          </div>
+                          <div class="price-cards-items">
+                            <p>R$ '.$item['Preco'].'</p>
+                          </div>
+                        </div>
+                        <div class="cards-items-right">
+                          <div class="cards-items-img">
+                            <img src="/main/assets/img/esfiha5.png" alt="">
+                          </div>
+                        </div>
+                      </div>';
+                  }
+                }
+            ?>
+            </div>
             </div>
 
               <!--BEBIDAS-->
@@ -234,7 +290,35 @@ session_start();
                         </h1>
                     </div>
                       <div class="content-bebidas">
+              <?php
+              $query = "SELECT * from estoque WHERE categoria = 'Bebidas'";
+              $query_run = mysqli_query($con, $query);
 
+              if(mysqli_num_rows($query_run) > 0){
+                  foreach($query_run as $item){
+
+                      echo '
+                      <div class="cards-items">
+                        <div class="cards-items-left">
+                          <div class="title-cards-items">
+                            <h1>'.$item['Nome'].'</h1>
+                          </div>
+                          <div class="description-cards-items">
+                            <p>'.$item['Descricao'].'</p>
+                          </div>
+                          <div class="price-cards-items">
+                            <p>R$ '.$item['Preco'].'</p>
+                          </div>
+                        </div>
+                        <div class="cards-items-right">
+                          <div class="cards-items-img">
+                            <img src="/main/assets/img/esfiha5.png" alt="">
+                          </div>
+                        </div>
+                      </div>';
+                  }
+                }
+            ?>
                       </div>
                 </div>
 
@@ -246,26 +330,37 @@ session_start();
                           </h1>
                       </div>
                         <div class="content-outros">
+<?php
+              $query = "SELECT * from estoque WHERE categoria = 'outros'";
+              $query_run = mysqli_query($con, $query);
 
+              if(mysqli_num_rows($query_run) > 0){
+                  foreach($query_run as $item){
+
+                      echo '
+                      <div class="cards-items">
+                        <div class="cards-items-left">
+                          <div class="title-cards-items">
+                            <h1>'.$item['Nome'].'</h1>
+                          </div>
+                          <div class="description-cards-items">
+                            <p>'.$item['Descricao'].'</p>
+                          </div>
+                          <div class="price-cards-items">
+                            <p>R$ '.$item['Preco'].'</p>
+                          </div>
+                        </div>
+                        <div class="cards-items-right">
+                          <div class="cards-items-img">
+                            <img src="/main/assets/img/esfiha5.png" alt="">
+                          </div>
+                        </div>
+                      </div>';
+                  }
+                }
+            ?>
                         </div>
                   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <script type="module" src="./assets/js/cardapio.js"></script>
   <!-- Bootstrap 5 JS -->

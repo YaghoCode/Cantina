@@ -20,7 +20,7 @@ session_start();
 
 <body>
     <header>
-        <nav class="navbar" style=" display:none">
+        <nav class="navbar" style="display: none;">
             <div class="nav-links">
                 <div class="nav-logo">
                     <img src="./assets/img/img comidas/logoCantina.png" alt="">
