@@ -20,7 +20,7 @@ session_start();
 
 <body>
     <header>
-        <nav class="navbar">
+        <nav class="navbar" style=" display:none">
             <div class="nav-links">
                 <div class="nav-logo">
                     <img src="./assets/img/img comidas/logoCantina.png" alt="">
@@ -202,7 +202,7 @@ session_start();
 </html
 
     <?php
-    if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] === "POST") {
+     if($_SERVER["REQUEST_METHOD"] === "POST") {
         try {
             if (isset($_POST['cadastrar-produto'])) {
                 // Sanitização dos dados
@@ -224,6 +224,17 @@ session_start();
             }
         } catch (Exception $e) {
             echo "Erro: " . $e->getMessage();
+        }
+    }
+
+
+    $query = "SELECT * from estoque";
+    $query_run = mysqli_query($con, $query);
+
+    if(mysqli_num_rows($query_run) > 0){
+
+        foreach($query_run as $item){
+            echo $item['id'];
         }
     }
     ?>

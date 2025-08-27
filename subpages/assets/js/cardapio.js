@@ -100,5 +100,3 @@ const novoItemHTML = `
 `;
 
 // Adiciona o novo item ao cardápio
-adicionarItemCardapio(novoItemHTML);
-adicionarItemCardapio(novoItemHTML);
