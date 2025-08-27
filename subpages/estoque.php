@@ -165,7 +165,6 @@ session_start();
                             <div class="form-group">
                                 <button type="submit" name="cadastrar-produto" class="btn btn-primary">Criar Produto</button>
                             </div>
-                        </form>
                     </div>
                 </div>
                 <div class="modal-content-right">
@@ -186,6 +185,7 @@ session_start();
                         <label for="imagem-produto" class="btn-upload">
                             <i class="fa-solid fa-upload"></i> Escolher Imagem
                         </label>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -211,7 +211,8 @@ session_start();
                 $preco = filter_input(INPUT_POST, 'preco-produto', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
                 $quantidade = filter_input(INPUT_POST, 'quantidade-produto', FILTER_SANITIZE_NUMBER_INT);
                 $categoria = filter_input(INPUT_POST, 'categoria-produto', FILTER_SANITIZE_SPECIAL_CHARS);
-
+                $nomearquivo = $_FILLES['imagem-produto']['name'];
+                echo $nomearquivo;
                 // Inserção no banco de dados
                 $sql = "INSERT INTO estoque (Nome, Descricao, Preco, Quantidade, Categoria) VALUES ('$nome', '$descricao', '$preco', '$quantidade', '$categoria')";
                 if (mysqli_query($con, $sql)) {
