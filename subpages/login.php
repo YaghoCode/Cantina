@@ -1,6 +1,69 @@
 <?php
-include('/xampp/htdocs/cantina/main/database.php')
+include('/xampp/htdocs/cantinarepositorio/main/database.php');
+session_start();
 
+
+
+
+try{
+  if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+      if(isset($_POST['action'])){
+        if($_POST['action'] === 'cadastrar'){
+          // código de login
+          $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
+          $cpf = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_NUMBER_INT);
+          $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+          $senha = $_POST['senha'];
+          $turma = $_POST['turma'];
+
+          $hash = password_hash($senha, PASSWORD_DEFAULT);
+
+             $sql = "INSERT INTO cliente(nome, cpf, email, turma, senha) VALUES ('$nome', '$cpf', '$email', '$turma', '$hash')";
+            mysqli_query($con, $sql);
+            echo "Dados inseridos com sucesso!";
+        }
+      
+          elseif($_POST["action"] === "entrar"){
+           // código de cadastro
+          $cpf = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_NUMBER_INT);
+          $senha = $_POST['senha'];
+
+            $query = "SELECT * FROM cliente WHERE cpf = '$cpf'";
+            $result = mysqli_query($con, $query);
+    
+            if(mysqli_num_rows($result) > 0){
+              $user_data = mysqli_fetch_assoc($result);
+        
+              if(password_verify($senha, $user_data['senha'])) {
+            $_SESSION['cpf'] = $user_data['cpf'];
+            header("Location: /cantinarepositorio/main/index.php");
+            exit;
+        }
+        else {
+            echo "CPF ou senha inválidos!";
+        }
+    }
+      }
+    }
+}   
+}catch(mysqli_sql_exception){
+    echo "Erro ao inserir dados! CPF já cadastrado";
+}
+
+
+
+if(isset($_SESSION['cpf'])){
+  $cpf = $_SESSION['cpf'];
+  $query = "SELECT nome, cpf FROM cliente WHERE cpf = '$cpf'";
+  $result = mysqli_query($con, $query);
+
+  if($result && mysqli_num_rows($result) > 0){
+    header("Location: /cantinarepositorio/main/index.php");
+    exit;
+  }
+}
+
+mysqli_close($con);
 ?>
 
 
@@ -32,9 +95,6 @@ include('/xampp/htdocs/cantina/main/database.php')
               <h1> <a href="#inicio" style="text-decoration: none; color: inherit;">Início</a> </h1>
             </li>
             <li>
-              <h1> <a href="#Cardapio" style="text-decoration: none; color: inherit;">Cardápio</a> </h1>
-            </li>
-            <li>
               <h1> <a href="#Sobre-Nos" style="text-decoration: none; color: inherit;">Sobre Nós</a> </h1>
             </li>
           </ul>
@@ -46,7 +106,7 @@ include('/xampp/htdocs/cantina/main/database.php')
   <!-- Login / Cadastro -->
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post" >
+            <form action="login.php" method="post" >
                 <h1 class="h1-sign">Cadastra-se!</h1>
                 <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 
@@ -57,6 +117,13 @@ include('/xampp/htdocs/cantina/main/database.php')
                   <option value="1ds">1°DS</option>
                   <option value="2ds">2°DS</option>
                   <option value="3ds">3°DS</option>
+                  <option value="1adm">1°ADM</option>
+                  <option value="2ds">2°ADM</option>
+                  <option value="3ds">3°ADM</option>
+                  <option value="1ds">1°JD</option>
+                  <option value="2ds">2°RH</option>
+                  <option value="3ds">3°RH</option>
+                  <option value="3ds">1°DG</option>
                 </select>
                 
                 <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
@@ -67,13 +134,14 @@ include('/xampp/htdocs/cantina/main/database.php')
             </form>
         </div>
         <div class="form-container sign-in" id="form-login">
-            <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
+            <form action="login.php" method="post">
                 <h1 class="h1-sign">Bem-vindo á <br>#Cantina-PJ</h1>
                 <span>Faça o login
                   e aproveite a experiência</span>
                 <input type="text" name="cpf" id="cpf" maxlength="11" placeholder="000.000.000-00" pattern="\d{11}" required>
                 <input type="password" name="senha" placeholder="Senha" required>
                 <button name="action" value="entrar" type="submit">
+                  <a href="./logout.php">SAIR</a>
                   <a style="color: inherit; text-decoration: none;" >Entrar</a>
                 </button>
             </form>
@@ -97,59 +165,4 @@ include('/xampp/htdocs/cantina/main/database.php')
     <script src="./assets/js/login.js"></script>
 </body>
 </html>
-
-<?php
-
-
-
-try{
-    if($_SERVER["REQUEST_METHOD"] === "POST"){
-      if(isset($_POST['action'])){
-        if($_POST['action'] === 'cadastrar'){
-          // código de login
-          $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
-          $cpf = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_NUMBER_INT);
-          $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-          $senha = $_POST['senha'];
-          $turma = $_POST['turma'];
-
-          $hash = password_hash($senha, PASSWORD_DEFAULT);
-
-             $sql = "INSERT INTO cliente(nome, cpf, email, turma, senha) VALUES ('$nome', '$cpf', '$email', '$turma', '$hash')";
-            mysqli_query($con, $sql);
-            echo "Dados inseridos com sucesso!";
-        }
-      
-          elseif($_POST["action"] === "entrar"){
-           // código de cadastro
-          $cpf = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_NUMBER_INT);
-          $senha = $_POST['senha'];
-
-            $query = "SELECT * FROM cliente WHERE cpf = '$cpf'";
-            $result = mysqli_query($con, $query);
-    
-            if(mysqli_num_rows($result) > 0){
-              $user_data = mysqli_fetch_assoc($result);
-        
-              if(password_verify($senha, $user_data['senha'])) {
-            $_SESSION['cpf'] = $user_data['cpf'];
-            header("Location: /cantina/main/index.php");
-            exit;
-        }
-        else {
-            echo "CPF ou senha inválidos!";
-        }
-    }
-      }
-    }
-}   
-}catch(mysqli_sql_exception){
-    echo "Erro ao inserir dados! CPF já cadastrado";
-}
-
-
-
-mysqli_close($con);
-?>
-
 

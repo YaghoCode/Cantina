@@ -1,6 +1,18 @@
 <?php
 include('/xampp/htdocs/cantinarepositorio/main/database.php');
 session_start();
+
+
+if(isset($_SESSION['cpf'])){
+    $cpf = $_SESSION['cpf'];
+    $query = "SELECT nome, cpf FROM cliente WHERE cpf = '$cpf'";
+    $result = mysqli_query($con, $query);
+  
+    if($result && mysqli_num_rows($result) == 0){
+      header("Location: .login.php");
+      exit;
+    }
+  }
 ?>
 
 <!DOCTYPE html>
