@@ -46,12 +46,11 @@ const swiper = new Swiper('.swiper', {
     mousewheel: true, // Permite rolagem com o mouse
 });
 
-//
+// arruma o salgados ROW
 
 document.addEventListener("DOMContentLoaded", () => {
   const content = document.querySelector(".content-salgados");
   const items = Array.from(content.querySelectorAll(".cards-items"));
-
 
   content.innerHTML = "";
 
@@ -64,18 +63,71 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// arruma o folhados ROW
+
 document.addEventListener("DOMContentLoaded", () => {
   const contentf = document.querySelector(".content-folhados");
-  const items = Array.from(content.querySelectorAll(".cards-items"));
+  const itemsf = Array.from(contentf.querySelectorAll(".cards-items"));
 
-
-  content.innerHTML = "";
+  contentf.innerHTML = "";
 
   // cria rows de 3
-  for (let i = 0; i < items.length; i += 3) {
+  for (let i = 0; i < itemsf.length; i += 3) {
     const row = document.createElement("div");
     row.classList.add("row-cards");
-    items.slice(i, i + 3).forEach(item => row.appendChild(item));
+    itemsf.slice(i, i + 3).forEach(item => row.appendChild(item));
     contentf.appendChild(row);
   }
 });
+
+// arruma o doces ROW
+
+document.addEventListener("DOMContentLoaded", () => {
+  const contentd = document.querySelector(".content-doces");
+  const itemsd = Array.from(contentd.querySelectorAll(".cards-items"));
+
+  contentd.innerHTML = "";
+
+  // cria rows de 3
+  for (let i = 0; i < itemsd.length; i += 3) {
+    const row = document.createElement("div");
+    row.classList.add("row-cards");
+    itemsd.slice(i, i + 3).forEach(item => row.appendChild(item));
+    contentd.appendChild(row);
+  }
+});
+
+// arruma o bebidas ROW
+
+document.addEventListener("DOMContentLoaded", () => {
+  const contentb = document.querySelector(".content-bebidas");
+  const itemsb = Array.from(contentb.querySelectorAll(".cards-items"));
+
+  contentb.innerHTML = "";
+
+  // cria rows de 3
+  for (let i = 0; i < itemsb.length; i += 3) {
+    const row = document.createElement("div");
+    row.classList.add("row-cards");
+    itemsb.slice(i, i + 3).forEach(item => row.appendChild(item));
+    contentb.appendChild(row);
+  }
+});
+
+// arruma o outros ROW
+
+document.addEventListener("DOMContentLoaded", () => {
+  const contentot = document.querySelector(".content-outros");
+  const itemsot = Array.from(contentot.querySelectorAll(".cards-items"));
+
+  contentot.innerHTML = "";
+
+  // cria rows de 3
+  for (let i = 0; i < itemsot.length; i += 3) {
+    const row = document.createElement("div");
+    row.classList.add("row-cards");
+    itemsot.slice(i, i + 3).forEach(item => row.appendChild(item));
+    contentot.appendChild(row);
+  }
+});
+

@@ -324,14 +324,14 @@ session_start();
 
                 <!--Outros-->
                   <div class="container-outros">
-                      <div class="title-outros" id="outros">
-                          <h1>
-                              Outros
-                          </h1>
-                      </div>
-                        <div class="content-outros">
-<?php
-              $query = "SELECT * from estoque WHERE categoria = 'outros'";
+                    <div class="title-outros" id="outros">
+                        <h1>
+                            Outros
+                        </h1>
+                    </div>
+                      <div class="content-outros">
+              <?php
+              $query = "SELECT * from estoque WHERE categoria = 'Outros'";
               $query_run = mysqli_query($con, $query);
 
               if(mysqli_num_rows($query_run) > 0){
@@ -359,8 +359,8 @@ session_start();
                   }
                 }
             ?>
-                        </div>
-                  </div>
+                      </div>
+                </div>
 
   <script type="module" src="./assets/js/cardapio.js"></script>
   <!-- Bootstrap 5 JS -->

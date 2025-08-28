@@ -432,7 +432,7 @@ body {
 }
 
 
-.content-salgados, .content-salgados, .content-doces, .content-bebidas, .content-outros {
+.content-salgados, .content-folhados, .content-doces, .content-bebidas, .content-outros {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -452,7 +452,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 21vh;
+    min-height: 21vh;
     flex: 0 0 32%;
     border-bottom: 3px solid rgba(0, 0, 0, 0.080);
     border-radius: 0.4rem;
