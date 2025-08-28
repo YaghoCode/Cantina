@@ -124,12 +124,11 @@ body {
     color: var(--cor-primaria);
     cursor: pointer;
 }
-
 /*pop-up-user*/
 
 .pop-up-user {
     display: none;
-    position: absolute;
+    position: fixed;
     padding-left: 0.6rem;
     height: 15vh;
     width: 12vw;
@@ -161,15 +160,17 @@ body {
 .icon-user {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 80%;
-    padding: 0.6rem;
-    border: 1px solid rgba(0, 0, 0, 0.238);
+    width: 95%;
+    padding-left: 0.2rem;
 }
 
 .icon-user i {
     color: #000000;
     font-size: 2rem;
+    padding: 0.4rem;
+    border: 1px solid rgba(0, 0, 0, 0.238);
 }
 
 .btn-close-pp {
@@ -183,6 +184,7 @@ body {
 .btn-close-pp i {
     font-size: 1.3rem;
     cursor: pointer;
+    color: var(--cor-primaria);
 }
 
 .bottom-content {
@@ -218,9 +220,37 @@ body {
 
 .name-user h4,
 .turma-user h4 {
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 
+.logout-user{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    width: 95%;
+}
+
+.logout-user button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 80%;
+    width: 30%;
+    border-radius: 0.5rem;
+}
+
+.logout-user button a{
+    font-size: 1rem;
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-family: var(--font-titulo);
+}
+
+.logout-user i{
+    color: var(--cor-primaria);
+}
 
 
 /*pop-up-cart*/

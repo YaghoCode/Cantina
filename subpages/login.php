@@ -20,7 +20,7 @@ try{
 
              $sql = "INSERT INTO cliente(nome, cpf, email, turma, senha) VALUES ('$nome', '$cpf', '$email', '$turma', '$hash')";
             mysqli_query($con, $sql);
-            echo "Dados inseridos com sucesso!";
+            echo "<script> alert('Seus dados foram inseridos com sucesso!')</script>";
         }
       
           elseif($_POST["action"] === "entrar"){
@@ -40,14 +40,15 @@ try{
             exit;
         }
         else {
-            echo "CPF ou senha inválidos!";
+            echo "<script> alert('CPF ou Senha invalidos!')</script>";
         }
     }
       }
     }
 }   
 }catch(mysqli_sql_exception){
-    echo "Erro ao inserir dados! CPF já cadastrado";
+    echo "<script> alert('Erro em inserir seus dados! CPF já cadastrado.')</script>";
+
 }
 
 
@@ -73,7 +74,7 @@ mysqli_close($con);
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cantina PJ - Main</title>
+  <title>Cantina PJ - Login</title>
 
   <!-- Bootstrap e FontAwesome -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -88,14 +89,16 @@ mysqli_close($con);
   <header>
     <nav class="navbar">
       <div class="nav-links">
-        <div class="nav-logo"> <img src="./assets/img/img comidas/Logo-TCC-removebg-preview.png" alt=""> </div>
+        <div class="nav-logo"> 
+          <img src="/cantinarepositorio/main/assets/img/logoCantina.png" style="padding-bottom: 0.5rem;" alt=""> 
+        </div>
         <div class="nav-items">
           <ul>
             <li>
-              <h1> <a href="#inicio" style="text-decoration: none; color: inherit;">Início</a> </h1>
+              <h1> <a href="/cantinarepositorio/main/index.php" style="text-decoration: none; color: inherit;">Início</a> </h1>
             </li>
             <li>
-              <h1> <a href="#Sobre-Nos" style="text-decoration: none; color: inherit;">Sobre Nós</a> </h1>
+              <h1> <a href="/cantinarepositorio/main/index.php" style="text-decoration: none; color: inherit;">Sobre Nós</a> </h1>
             </li>
           </ul>
         </div>
@@ -141,7 +144,6 @@ mysqli_close($con);
                 <input type="text" name="cpf" id="cpf" maxlength="11" placeholder="000.000.000-00" pattern="\d{11}" required>
                 <input type="password" name="senha" placeholder="Senha" required>
                 <button name="action" value="entrar" type="submit">
-                  <a href="./logout.php">SAIR</a>
                   <a style="color: inherit; text-decoration: none;" >Entrar</a>
                 </button>
             </form>

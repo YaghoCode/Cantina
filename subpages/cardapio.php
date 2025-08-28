@@ -1,7 +1,15 @@
 <?php
 include('/xampp/htdocs/cantinarepositorio/main/database.php');
 session_start();
+
+
+  if (isset($_SESSION['cpf'])) {
+
+        }else{
+          header("Location: /cantinarepositorio/subpages/login.php");
+        }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -29,8 +37,7 @@ session_start();
       <div class="nav-links">
         <div class="nav-btn-cardapio">
           <h1>
-            <i class="fa-solid fa-caret-left"></i>
-            Cardapio
+              <a href="/cantinarepositorio/main/index.php" style="color: inherit; text-decoration:none;"> <i class="fa-solid fa-caret-left"></i> Cardapio</a>
           </h1>
         </div>
 
@@ -63,13 +70,39 @@ session_start();
             </li>
           </ul>
         </div>
-        <div class="nav-buttons">
-          <div class="btn-user">
-            <i class="fa-regular fa-user" id="btn-user-nav"></i>
-          </div>
-          <div class="btn-cart" id="btn-cart-nav">
-            <i class="fa-solid fa-cart-shopping"></i>
-          </div>
+          <?php
+        if (isset($_SESSION['cpf'])) {
+          $cpf = $_SESSION['cpf'];
+          $query = "SELECT nome, cpf, turma FROM cliente WHERE cpf = '$cpf'";
+          $result = mysqli_query($con, $query);
+          $user_data = mysqli_fetch_assoc($result);
+
+          if ($result && mysqli_num_rows($result) > 0) {
+
+            echo '<div class="nav-buttons">
+                  <div class="btn-user" id="btn-user-nav" >
+                      <i class="fa-regular fa-user"></i>
+                  </div>
+                  <div class="btn-cart" id="btn-cart-nav">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                  </div>
+              </div>';
+          }
+        } else {
+          echo '  <div class="nav-buttons">
+                <div class="btn-cadastrar-se">
+                                <h1 class="botaocadastro">
+                                <a href="/subpages/login.php" style=" color:inherit; text-decoration:none;">Cadastrar</a>
+                                </h1>
+                            </div>
+                              <div class="btn-login" >
+                                  <button>
+                                    <a href="/cantinarepositorio/subpages/login.php" style=" color:white; text-decoration:none;">Login</a> 
+                                  </button>
+                              </div>
+                </div>';
+        }
+        ?>
         </div>
     </nav>
   </header>
@@ -92,17 +125,24 @@ session_start();
       </div>
 
       <div class="bottom-content">
+
+
         <div class="info-user">
           <div class="name-user">
             <h4>
-              <Span>ALUNO:</Span> GABRIEL <!--ADICIONAR PHP-->
+              ALUNO: <?php echo $user_data['nome']; ?><!--ADICIONAR PHP-->
             </h4>
           </div>
           <div class="turma-user">
             <h4>
-              <Span>TURMA:</Span> 3-DS manhã <!--Adicionar PHP-->
+              TURMA:  <?php echo $user_data['turma']; ?> <!--Adicionar PHP-->
             </h4>
-            <i class="fa-solid fa-pen"></i>
+          </div>
+          <div class="logout-user">
+              <button style="    border: none;">
+                  <a href="/cantinarepositorio/subpages/logout.php">Logout</a>
+              </button>
+              <a href=""><i class="fa-solid fa-pen"></i></a>
           </div>
         </div>
       </div>

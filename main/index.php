@@ -38,7 +38,7 @@ session_start();
             </li>
             <li>
               <h1>
-                <a href="#Cardapio" style="text-decoration: none; color: inherit;">Cardápio</a>
+                <a href="/cantinarepositorio/subpages/cardapio.php" style="text-decoration: none; color: inherit;">Cardápio</a>
               </h1>
             </li>
             <li>
@@ -70,7 +70,7 @@ session_start();
           echo '  <div class="nav-buttons">
                 <div class="btn-cadastrar-se">
                                 <h1 class="botaocadastro">
-                                <a href="/subpages/login.php" style=" color:inherit; text-decoration:none;">Cadastrar</a>
+                                <a href="/cantinarepositorio/subpages/login.php" style=" color:inherit; text-decoration:none;">Cadastrar</a>
                                 </h1>
                             </div>
                               <div class="btn-login" >
@@ -115,17 +115,19 @@ session_start();
         <div class="info-user">
           <div class="name-user">
             <h4>
-              <Span>ALUNO:</Span><?php echo $user_data['nome']; ?><!--ADICIONAR PHP-->
+              ALUNO: <?php echo $user_data['nome']; ?><!--ADICIONAR PHP-->
             </h4>
           </div>
           <div class="turma-user">
             <h4>
-              <Span>TURMA:</Span> <?php echo $user_data['turma']; ?> <!--Adicionar PHP-->
+              TURMA: <?php echo $user_data['turma']; ?> <!--Adicionar PHP-->
             </h4>
-            <i class="fa-solid fa-pen"></i>
-            <button>
+          </div>
+          <div class="logout-user">
+              <button>
                   <a href="/cantinarepositorio/subpages/logout.php">Logout</a>
-            </button>
+              </button>
+              <a href=""><i class="fa-solid fa-pen"></i></a>
           </div>
         </div>
       </div>
@@ -201,7 +203,7 @@ session_start();
       </div>
       <div class="btn-modal-alert">
         <button>
-          <a style="color: inherit; text-decoration: none;">Continuar</a>
+          <a href="/cantinarepositorio/subpages/login.php" style="color: inherit; text-decoration: none;">Continuar</a>
         </button>
       </div>
     </div>
@@ -718,34 +720,380 @@ session_start();
 
         <div class="avaliacoes">
           <div class="card">
-            <h1>Avaliação 1</h1>
+            <div class="c-top">
+              <div class="title-avaliacao">
+                  <h1>Aluno: Lucas Nunes</h1>
+                  <h1>Turma: 3 DS - A</h1>
+              </div>
+              <div class="avaliacao-stars">
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </div>
+            </div>
+            <div class="c-bottom">
+                <div class="avaliacao-user">
+                    <div class="title-avaliacao-user">
+                        <h1>Avaliação:</h1>
+                    </div>
+                    <div class="conteudo-avaliacao-user">
+                        <p>
+                          Amei os salgados! A esfiha de frango estava bem temperada e fresquinha. Atendimento rápido, adorei o sistema de retirar o pedido sem fila
+                        </p>
+                    </div>
+                </div>
+                  <div class="pedido-user">
+                      <div class="title-pedido-user">
+                          <h1>Pedido:</h1>
+                      </div>
+                        <div class="conteudo-pedido-user">
+                            <p>
+                              - 1x Esfiha de Frango <br>
+                              - 1x Suco de Laranja Natural<br>
+                              <span>Total: R$ 12,00</span>
+                            </p>
+                        </div>
+                  </div>
+            </div>
           </div>
           <div class="card">
-            <h1>Avaliação 2</h1>
+            <div class="c-top">
+              <div class="title-avaliacao">
+                  <h1>Aluno: Isaque Vicente</h1>
+                  <h1>Turma: 3 DS - A</h1>
+              </div>
+              <div class="avaliacao-stars">
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </div>
+            </div>
+            <div class="c-bottom">
+                <div class="avaliacao-user">
+                    <div class="title-avaliacao-user">
+                        <h1>Avaliação:</h1>
+                    </div>
+                    <div class="conteudo-avaliacao-user">
+                        <p>
+                          O salgado estava um pouco frio, porém a agilidade da entrega me surpreendeu!
+                        </p>
+                    </div>
+                </div>
+                  <div class="pedido-user">
+                      <div class="title-pedido-user">
+                          <h1>Pedido:</h1>
+                      </div>
+                        <div class="conteudo-pedido-user">
+                            <p>
+                              - 1x Esfiha de Carne <br>
+                              <span>Total: R$ 6,00</span>
+                            </p>
+                        </div>
+                  </div>
+            </div>
+          </div>
+         <div class="card">
+            <div class="c-top">
+              <div class="title-avaliacao">
+                  <h1>Aluno: Caio Picciarelli</h1>
+                  <h1>Turma: 3 DS - A</h1>
+              </div>
+              <div class="avaliacao-stars">
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </div>
+            </div>
+            <div class="c-bottom">
+                <div class="avaliacao-user">
+                    <div class="title-avaliacao-user">
+                        <h1>Avaliação:</h1>
+                    </div>
+                    <div class="conteudo-avaliacao-user">
+                        <p>
+                          Amei os salgados! A esfiha de carne estava bem temperada e fresquinha. Atendimento rápido, adorei o sistema de retirar o pedido sem fila
+                        </p>
+                    </div>
+                </div>
+                  <div class="pedido-user">
+                      <div class="title-pedido-user">
+                          <h1>Pedido:</h1>
+                      </div>
+                        <div class="conteudo-pedido-user">
+                            <p>
+                              - 1x Esfiha de carne <br>
+                              - 1x Suco de Uva natural<br>
+                              <span>Total: R$ 12,00</span>
+                            </p>
+                        </div>
+                  </div>
+            </div>
           </div>
           <div class="card">
-            <h1>Avaliação 3</h1>
+            <div class="c-top">
+              <div class="title-avaliacao">
+                  <h1>Aluno: Lucas Rossi</h1>
+                  <h1>Turma: 3 DS - A</h1>
+              </div>
+              <div class="avaliacao-stars">
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </div>
+            </div>
+            <div class="c-bottom">
+                <div class="avaliacao-user">
+                    <div class="title-avaliacao-user">
+                        <h1>Avaliação:</h1>
+                    </div>
+                    <div class="conteudo-avaliacao-user">
+                        <p>
+                          Lanche Pessimo!
+                        </p>
+                    </div>
+                </div>
+                  <div class="pedido-user">
+                      <div class="title-pedido-user">
+                          <h1>Pedido:</h1>
+                      </div>
+                        <div class="conteudo-pedido-user">
+                            <p>
+                              - 1x Pão de queijo<br>
+                              <span>Total: R$ 6,00</span>
+                            </p>
+                        </div>
+                  </div>
+            </div>
+          </div>
+         <div class="card">
+            <div class="c-top">
+              <div class="title-avaliacao">
+                  <h1>Aluno: Ana Luiza</h1>
+                  <h1>Turma: 3 DS - A</h1>
+              </div>
+              <div class="avaliacao-stars">
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </div>
+            </div>
+            <div class="c-bottom">
+                <div class="avaliacao-user">
+                    <div class="title-avaliacao-user">
+                        <h1>Avaliação:</h1>
+                    </div>
+                    <div class="conteudo-avaliacao-user">
+                        <p>
+                          Pastel folhado maravilhoso, crocante e recheado até o fim. Com certeza virei cliente fiel!
+                        </p>
+                    </div>
+                </div>
+                  <div class="pedido-user">
+                      <div class="title-pedido-user">
+                          <h1>Pedido:</h1>
+                      </div>
+                        <div class="conteudo-pedido-user">
+                            <p>
+                              - 1x Pastel de Carne <br>
+                              <span>Total: R$ 10,00</span>
+                            </p>
+                        </div>
+                  </div>
+            </div>
           </div>
           <div class="card">
-            <h1>Avaliação 4</h1>
+            <div class="c-top">
+              <div class="title-avaliacao">
+                  <h1>Aluno: Miguel Altoe</h1>
+                  <h1>Turma: 3 DS - A</h1>
+              </div>
+              <div class="avaliacao-stars">
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </div>
+            </div>
+            <div class="c-bottom">
+                <div class="avaliacao-user">
+                    <div class="title-avaliacao-user">
+                        <h1>Avaliação:</h1>
+                    </div>
+                    <div class="conteudo-avaliacao-user">
+                        <p>
+                          Os doces são muito bons, principalmente o brigadeiro gourmet. Só faltou ter mais opções sem lactose
+                        </p>
+                    </div>
+                </div>
+                  <div class="pedido-user">
+                      <div class="title-pedido-user">
+                          <h1>Pedido:</h1>
+                      </div>
+                        <div class="conteudo-pedido-user">
+                            <p>
+                              - 1x brigadeiro <br>
+                              <span>Total: R$ 7,00</span>
+                            </p>
+                        </div>
+                  </div>
+            </div>
           </div>
           <div class="card">
-            <h1>Avaliação 5</h1>
+            <div class="c-top">
+              <div class="title-avaliacao">
+                  <h1>Aluno: Nilson N.</h1>
+                  <h1>Turma: 3 DS - A</h1>
+              </div>
+              <div class="avaliacao-stars">
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </div>
+            </div>
+            <div class="c-bottom">
+                <div class="avaliacao-user">
+                    <div class="title-avaliacao-user">
+                        <h1>Avaliação:</h1>
+                    </div>
+                    <div class="conteudo-avaliacao-user">
+                        <p>
+                          Amei os salgados!
+                        </p>
+                    </div>
+                </div>
+                  <div class="pedido-user">
+                      <div class="title-pedido-user">
+                          <h1>Pedido:</h1>
+                      </div>
+                        <div class="conteudo-pedido-user">
+                            <p>
+                              - 1x Esfiha de Frango <br>
+                              <span>Total: R$ 6,00</span>
+                            </p>
+                        </div>
+                  </div>
+            </div>
           </div>
           <div class="card">
-            <h1>Avaliação 6</h1>
+            <div class="c-top">
+              <div class="title-avaliacao">
+                  <h1>Aluno: Arthur C.</h1>
+                  <h1>Turma: 3 DS - A</h1>
+              </div>
+              <div class="avaliacao-stars">
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </div>
+            </div>
+            <div class="c-bottom">
+                <div class="avaliacao-user">
+                    <div class="title-avaliacao-user">
+                        <h1>Avaliação:</h1>
+                    </div>
+                    <div class="conteudo-avaliacao-user">
+                        <p>
+                          Os salgados são muito bons!
+                        </p>
+                    </div>
+                </div>
+                  <div class="pedido-user">
+                      <div class="title-pedido-user">
+                          <h1>Pedido:</h1>
+                      </div>
+                        <div class="conteudo-pedido-user">
+                            <p>
+                              - 1x Kibi Assado <br>
+                              <span>Total: R$ 7,00</span>
+                            </p>
+                        </div>
+                  </div>
+            </div>
           </div>
           <div class="card">
-            <h1>Avaliação 7</h1>
+            <div class="c-top">
+              <div class="title-avaliacao">
+                  <h1>Aluno: Nicolas O.</h1>
+                  <h1>Turma: 3 DS - A</h1>
+              </div>
+              <div class="avaliacao-stars">
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </div>
+            </div>
+            <div class="c-bottom">
+                <div class="avaliacao-user">
+                    <div class="title-avaliacao-user">
+                        <h1>Avaliação:</h1>
+                    </div>
+                    <div class="conteudo-avaliacao-user">
+                        <p>
+                          Adorei a praticidade! Peguei meu Pastel sem perder tempo na fila.”
+                        </p>
+                    </div>
+                </div>
+                  <div class="pedido-user">
+                      <div class="title-pedido-user">
+                          <h1>Pedido:</h1>
+                      </div>
+                        <div class="conteudo-pedido-user">
+                            <p>
+                              - 1x Pastel de frango <br>
+                              <span>Total: R$ 10,00</span>
+                            </p>
+                        </div>
+                  </div>
+            </div>
           </div>
           <div class="card">
-            <h1>Avaliação 8</h1>
-          </div>
-          <div class="card">
-            <h1>Avaliação 9</h1>
-          </div>
-          <div class="card">
-            <h1>Avaliação 10</h1>
+            <div class="c-top">
+              <div class="title-avaliacao">
+                  <h1>Aluno: Yagho C.</h1>
+                  <h1>Turma: 3 DS - A</h1>
+              </div>
+              <div class="avaliacao-stars">
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                  <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </div>
+            </div>
+            <div class="c-bottom">
+                <div class="avaliacao-user">
+                    <div class="title-avaliacao-user">
+                        <h1>Avaliação:</h1>
+                    </div>
+                    <div class="conteudo-avaliacao-user">
+                        <p>
+                          Amei os salgados! A esfiha de Queijo estava bem temperada e fresquinha. Atendimento rápido, adorei o sistema de retirar o pedido sem fila
+                        </p>
+                    </div>
+                </div>
+                  <div class="pedido-user">
+                      <div class="title-pedido-user">
+                          <h1>Pedido:</h1>
+                      </div>
+                        <div class="conteudo-pedido-user">
+                            <p>
+                              - 1x Esfiha de Queijo <br>
+                              - 1x Suco de Melancia Natural<br>
+                              <span>Total: R$ 12,00</span>
+                            </p>
+                        </div>
+                  </div>
+            </div>
           </div>
 
         </div>

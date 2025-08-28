@@ -32,7 +32,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10vh;
+    height: 9vh;
     background-color: #f4f4f4;
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.04);
@@ -51,11 +51,10 @@ body {
     align-items: center;
     height: 8vh;
     width: 22%;
-    padding: 2em;
 }
 
 .nav-logo img {
-    height: 12vh;
+    height: 20vh;
 }
 
 .nav-links ul {

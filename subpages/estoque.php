@@ -32,7 +32,7 @@ if(isset($_SESSION['cpf'])){
 
 <body>
     <header>
-        <nav class="navbar" style="display: none;">
+        <nav class="navbar">
             <div class="nav-links">
                 <div class="nav-logo">
                     <img src="./assets/img/img comidas/logoCantina.png" alt="">
@@ -77,12 +77,12 @@ if(isset($_SESSION['cpf'])){
                                 <div class="info-user">
                                     <div class="name-user">
                                         <h4>
-                                            <Span>ALUNO:</Span> GABRIEL <!--ADICIONAR PHP-->
+                                            <Span>ALUNO:</Span> Admin1<!--ADICIONAR PHP-->
                                         </h4>
                                     </div>
                                     <div class="turma-user">
                                         <h4>
-                                            <Span>TURMA:</Span> 3-DS manhã <!--Adicionar PHP-->
+                                            <Span>TURMA:</Span> Cantina <!--Adicionar PHP-->
                                         </h4>
                                     </div>
                                 </div>
