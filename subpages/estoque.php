@@ -166,14 +166,14 @@ session_start();
                                 <button type="submit" name="cadastrar-produto" class="btn btn-primary">Criar Produto</button>
                             </div>
                     </div>
-                </div>
-                <div class="modal-content-right">
-                    <div class="btn-close-modal">
+                        </div>
+                        <div class="modal-content-right">
+                        <div class="btn-close-modal">
                         <button id="btn-close-modal-p">
                             <i class="fa-solid fa-xmark" id="btn-close-modal-p"></i>
                         </button>
-                    </div>
-                    <div class="upload-imagem">
+                         </div>
+                         <div class="upload-imagem">
                         <label for="label-imagem">Escolha uma imagem para o produto:</label>
                         <input type="file" id="imagem-produto" name="imagem-produto" accept="image/*"
                             style="display: none;">
@@ -203,7 +203,7 @@ session_start();
 
     <?php
      if($_SERVER["REQUEST_METHOD"] === "POST") {
-        try {
+        
             if (isset($_POST['cadastrar-produto'])) {
                 // Sanitização dos dados
                 $nome = filter_input(INPUT_POST, 'nome-produto', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -212,8 +212,15 @@ session_start();
                 $quantidade = filter_input(INPUT_POST, 'quantidade-produto', FILTER_SANITIZE_NUMBER_INT);
                 $categoria = filter_input(INPUT_POST, 'categoria-produto', FILTER_SANITIZE_SPECIAL_CHARS);
                 $nomearquivo = $_FILES['imagem-produto']['name'];
+                $ext = pathinfo($nomearquivo, PATHINFO_EXTENSION);
+                $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
+                $tempName = $_FILES['imagem-produto']['tmp_name'];
+                $TargetPath = "/xampp/htdocs/cantinarepositorio/subpages/imgbd/" . $nomearquivo;
+                echo $nomearquivo;
                 // Inserção no banco de dados
-                $sql = "INSERT INTO estoque (Nome, Descricao, Preco, Quantidade, Categoria) VALUES ('$nome', '$descricao', '$preco', '$quantidade', '$categoria')";
+                if (in_array($ext, $allowedTypes)) {
+                    if (move_uploaded_file($tempName, $TargetPath)) {
+                        $sql = "INSERT INTO estoque (Nome, Descricao, Preco, Quantidade, Categoria, img) VALUES ('$nome', '$descricao', '$preco', '$quantidade', '$categoria', '$nomearquivo')";
                 if (mysqli_query($con, $sql)) {
                     // Redireciona após sucesso
                     header("Location: /cantinarepositorio/subpages/estoque.php");
@@ -221,11 +228,13 @@ session_start();
                 } else {
                     throw new Exception("Erro ao inserir produto no banco de dados.");
                 }
-            }
-        } catch (Exception $e) {
-            echo "Erro: " . $e->getMessage();
-        }
-    }
+                } else {
+                    throw new Exception("Erro ao mover o arquivo para o diretório de destino.");
+                }
+                } else {
+                    throw new Exception("Tipo de arquivo não permitido. Apenas JPG, JPEG, PNG e GIF são aceitos.");
+                
+            } }}
 
 
     $query = "SELECT * from estoque";

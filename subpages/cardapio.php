@@ -190,7 +190,7 @@ session_start();
                         </div>
                         <div class="cards-items-right">
                           <div class="cards-items-img">
-                            <img src="/main/assets/img/esfiha5.png" alt="">
+                            <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
                           </div>
                         </div>
                       </div>';
@@ -231,7 +231,7 @@ session_start();
                         </div>
                         <div class="cards-items-right">
                           <div class="cards-items-img">
-                            <img src="/main/assets/img/esfiha5.png" alt="">
+                            <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
                           </div>
                         </div>
                       </div>';
@@ -272,7 +272,7 @@ session_start();
                         </div>
                         <div class="cards-items-right">
                           <div class="cards-items-img">
-                            <img src="/main/assets/img/esfiha5.png" alt="">
+                            <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
                           </div>
                         </div>
                       </div>';
@@ -312,7 +312,7 @@ session_start();
                         </div>
                         <div class="cards-items-right">
                           <div class="cards-items-img">
-                            <img src="/main/assets/img/esfiha5.png" alt="">
+                            <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
                           </div>
                         </div>
                       </div>';
@@ -352,7 +352,7 @@ session_start();
                         </div>
                         <div class="cards-items-right">
                           <div class="cards-items-img">
-                            <img src="/main/assets/img/esfiha5.png" alt="">
+                            <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
                           </div>
                         </div>
                       </div>';
