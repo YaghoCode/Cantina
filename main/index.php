@@ -789,7 +789,21 @@ session_start();
 
 
   <script type="module" src="./assets/js/script.js"></script>
+  <?php
+        if (isset($_SESSION['cpf'])) {
+          $cpf = $_SESSION['cpf'];
+          $query = "SELECT nome, cpf, turma FROM cliente WHERE cpf = '$cpf'";
+          $result = mysqli_query($con, $query);
+          $user_data = mysqli_fetch_assoc($result);
 
+          if ($result && mysqli_num_rows($result) > 0) {
+            echo '<script type="module" src="./assets/js/modalalert.js"></script> ';
+          }
+        } else {
+          
+          echo'<script type="module" src="./assets/js/direcionamentocardapio.js"></script>';
+        }
+        ?>
 </body>
 
 </html>

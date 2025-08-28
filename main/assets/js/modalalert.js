@@ -1,0 +1,13 @@
+
+// modal ///////////////////////////////////////////////////////
+
+const cardsModal = document.querySelectorAll('.cards-MP, .cards-cardapio, .cards-cardapio-doces, .cards-cardapio-bebidas'); // Seleciona todos os elementos com essa classe
+const modalAlert = document.getElementById('modal-alert');     // Seleciona o modal
+const btnCloseModal = document.querySelectorAll('.btnCLoseModaL')
+
+cardsModal.forEach(card => {
+  card.addEventListener('click', () => {
+    // Alterna exibição do modal
+    window.location.href = `/cantinarepositorio/subpages/cardapio.php`;
+  });
+});
