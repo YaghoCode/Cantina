@@ -116,7 +116,7 @@ session_start();
       <div class="top-content">
 
         <div class="icon-user">
-          <i class="fa-solid fa-user-ninja"></i> <!--PHP ICONS IMAGES-->
+          <i class="fa-solid fa-user"></i> <!--PHP ICONS IMAGES-->
         </div>
 
         <div class="btn-close-pp">

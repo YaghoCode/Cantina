@@ -62,7 +62,7 @@ if(isset($_SESSION['cpf'])){
 
                                 <div class="icon-user">
                                     <i>
-                                        <i class="fa-solid fa-user-ninja"></i> <!--PHP ICONS IMAGES-->
+                                        <i class="fa-solid fa-user"></i> <!--PHP ICONS IMAGES-->
                                     </i>
                                 </div>
 
@@ -230,6 +230,7 @@ if(isset($_SESSION['cpf'])){
                 $TargetPath = "/xampp/htdocs/cantinarepositorio/subpages/imgbd/" . $nomearquivo;
                 echo $nomearquivo;
                 // Inserção no banco de dados
+                // Quando a gente fez isso embaixo???
                 if (in_array($ext, $allowedTypes)) {
                     if (move_uploaded_file($tempName, $TargetPath)) {
                         $sql = "INSERT INTO estoque (Nome, Descricao, Preco, Quantidade, Categoria, img) VALUES ('$nome', '$descricao', '$preco', '$quantidade', '$categoria', '$nomearquivo')";
