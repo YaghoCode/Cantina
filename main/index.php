@@ -694,10 +694,7 @@ session_start();
         <div class="content-right">
           <div class="movie" id="video-container">
             <div class="ratio ratio-16x9">
-              <iframe
-                id="youtube-video" width="560" height="315" src="https://www.youtube.com/embed/__UIwJS_r3w?enablejsapi=1&mute=0" style="border-radius: 10px;" title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+             <iframe width="560" height="315" src="https://www.youtube.com/embed/O1iBfvighSo?si=v8wQ_udFzU5NITMl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>
         </div>
