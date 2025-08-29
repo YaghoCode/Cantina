@@ -5,5 +5,5 @@ if(isset($_SESSION['cpf'])){
     unset($_SESSION['cpf']);
 }
 
-header("Location: ./login.php");
+header("Location: /cantinarepositorio/main/index.php");
 ?>

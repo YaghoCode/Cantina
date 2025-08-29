@@ -225,7 +225,7 @@ session_start();
                             <p>'.$item['Descricao'].'</p>
                           </div>
                           <div class="price-cards-items">
-                            <p>R$ '.$item['Preco'].'</p>
+                            <p>R$ '.$item['preco'].'</p>
                           </div>
                         </div>
                         <div class="cards-items-right">
@@ -266,11 +266,11 @@ session_start();
                             <p>'.$item['Descricao'].'</p>
                           </div>
                           <div class="price-cards-items">
-                            <p>R$ '.$item['Preco'].'</p>
+                            <p>R$ '.$item['preco'].'</p>
                           </div>
                         </div>
                         <div class="cards-items-right">
-                          <div class="cards-items-img">
+                          <div class="cards-items-img" style="background-color: #a1735e;">
                             <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
                           </div>
                         </div>
@@ -307,7 +307,7 @@ session_start();
                             <p>'.$item['Descricao'].'</p>
                           </div>
                           <div class="price-cards-items">
-                            <p>R$ '.$item['Preco'].'</p>
+                            <p>R$ '.$item['preco'].'</p>
                           </div>
                         </div>
                         <div class="cards-items-right">
@@ -347,11 +347,11 @@ session_start();
                             <p>'.$item['Descricao'].'</p>
                           </div>
                           <div class="price-cards-items">
-                            <p>R$ '.$item['Preco'].'</p>
+                            <p>R$ '.$item['preco'].'</p>
                           </div>
                         </div>
                         <div class="cards-items-right">
-                          <div class="cards-items-img">
+                          <div class="cards-items-img" style="background-color: #a1735e;">
                             <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
                           </div>
                         </div>
@@ -387,11 +387,11 @@ session_start();
                             <p>'.$item['Descricao'].'</p>
                           </div>
                           <div class="price-cards-items">
-                            <p>R$ '.$item['Preco'].'</p>
+                            <p>R$ '.$item['preco'].'</p>
                           </div>
                         </div>
                         <div class="cards-items-right">
-                          <div class="cards-items-img">
+                          <div class="cards-items-img" style="background-color: #d6390d;">
                             <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
                           </div>
                         </div>
@@ -415,22 +415,5 @@ session_start();
 
 
 <?php
-if (isset($_SESSION['cpf'])) {
-  $cpf = $_SESSION['cpf'];
-  $query = "SELECT nome, cpf FROM cliente WHERE cpf = '$cpf'";
-  $result = mysqli_query($con, $query);
-
-  if ($result && mysqli_num_rows($result) > 0) {
-    $user_data = mysqli_fetch_assoc($result);
-    echo "<h1>CPF: " . $user_data['cpf'] . "<br></h1>";
-    echo "Nome: " . $user_data['nome'] . "<br>";
-  } else {
-    echo "";
-  }
-} else {
-  echo "";
-}
-
-
 mysqli_close($con);
 ?>

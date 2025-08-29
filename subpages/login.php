@@ -120,13 +120,6 @@ mysqli_close($con);
                   <option value="1ds">1°DS</option>
                   <option value="2ds">2°DS</option>
                   <option value="3ds">3°DS</option>
-                  <option value="1adm">1°ADM</option>
-                  <option value="2ds">2°ADM</option>
-                  <option value="3ds">3°ADM</option>
-                  <option value="1ds">1°JD</option>
-                  <option value="2ds">2°RH</option>
-                  <option value="3ds">3°RH</option>
-                  <option value="3ds">1°DG</option>
                 </select>
                 
                 <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
