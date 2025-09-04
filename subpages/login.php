@@ -89,19 +89,20 @@ mysqli_close($con);
   <header>
     <nav class="navbar">
       <div class="nav-links">
-        <div class="nav-logo"> 
-          <img src="/cantinarepositorio/main/assets/img/logoCantina.png" style="padding-bottom: 0.5rem;" alt=""> 
-        </div>
-        <div class="nav-items">
-          <ul>
-            <li>
-              <h1> <a href="/cantinarepositorio/main/index.php" style="text-decoration: none; color: inherit;">Início</a> </h1>
-            </li>
-            <li>
-              <h1> <a href="/cantinarepositorio/main/index.php" style="text-decoration: none; color: inherit;">Sobre Nós</a> </h1>
-            </li>
-          </ul>
-        </div>
+          <button style="display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    background-color: transparent;
+                                    color: var(--cor-primaria);
+                                    font-family: var(--font-titulo);
+                                    font-weight: 600;
+                                    border: none;
+                                    height: 6vh;
+                                    width: 8%;
+                                    gap: 1.2vh;">
+            <a style="color: inherit;
+    text-decoration: none;" href="/cantinarepositorio/main/index.php">  <i class="fa-solid fa-caret-left"></i> Voltar</a>
+          </button>
       </div>
     </nav>
   </header>

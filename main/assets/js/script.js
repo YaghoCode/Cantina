@@ -163,3 +163,5 @@ const swiper = new Swiper('.swiper', {
     },
     mousewheel: true, // Permite rolagem com o mouse
 });
+
+

@@ -23,6 +23,8 @@ html{
     outline: 0px;
     border: 0px;
 }
+
+
 /*Ajutes gerais*/
 
 
@@ -51,15 +53,11 @@ html{
 
 .nav-logo{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 8vh;
     width: 22%;
     padding: 2em;
-}
-
-.nav-logo img{
-    height: 12vh;
 }
 
 .nav-links ul{
@@ -79,9 +77,9 @@ html{
 
 .nav-items{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    width: 36%;
+    width: 46%;
 }
 
 .nav-items ul{
@@ -92,7 +90,7 @@ html{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 40%;
+    width: 22%;
     height: 3vh;
     gap: 3vh;
 }

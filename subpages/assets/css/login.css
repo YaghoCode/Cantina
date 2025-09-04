@@ -24,7 +24,6 @@ html{
 
 body {
     font-family: var(--font-titulo);
-    background-color: var(--cor-cinza);
 }
 
 /* NAVBAR */
@@ -33,8 +32,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 9vh;
-    background-color: #f4f4f4;
     width: 100%;
+    background-color: white;
     border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
@@ -43,57 +42,12 @@ body {
     justify-content: flex-start;
     align-items: center;
     width: 100%;
+    height: 100%;
+    padding: 1rem;
 }
 
-.nav-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 8vh;
-    width: 22%;
-}
-
-.nav-logo img {
-    height: 12vh;
-}
-
-.nav-links ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-links ul h1 {
-    font-size: 1rem;
-    color: var(--cor-primaria);
-    font-family: var(--font-titulo);
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.nav-items {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 36%;
-}
-
-.nav-items ul {
-    gap: 5vh;
-}
-
-.nav-buttons {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 40%;
-    height: 3vh;
-    gap: 6vh;
-}
 
 .container{
-    
     background-color: #fff;
     position: absolute;
     overflow: hidden;
@@ -175,7 +129,7 @@ body {
     border: none;
     border-radius: 8px;
     height: 4.3vh;
-    width: 80%;
+    width: 80%;        
     color: rgba(0, 0, 0, 0.562);
     margin: 0.2rem;
 }
