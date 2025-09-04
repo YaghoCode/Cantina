@@ -17,6 +17,7 @@ session_start();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <title>Cantina PJ - Main</title>
 </head>
 
@@ -69,15 +70,10 @@ session_start();
         } else {
           echo '  <div class="nav-buttons">
                 <div class="btn-cadastrar-se">
-                                <h1 class="botaocadastro">
-                                <a href="/cantinarepositorio/subpages/login.php" style=" color:inherit; text-decoration:none;">Cadastrar</a>
-                                </h1>
+                                <button>
+                                  <a href="/cantinarepositorio/subpages/login.php" style=" color:inherit; text-decoration:none;"><i class="fa-regular fa-user"></i> Entrar</a>
+                                </button>
                             </div>
-                              <div class="btn-login" >
-                                  <button>
-                                    <a href="/cantinarepositorio/subpages/login.php" style=" color:white; text-decoration:none;">Login</a> 
-                                  </button>
-                              </div>
                 </div>';
         }
         ?>
@@ -212,46 +208,31 @@ session_start();
   <!--Main, titulo ,carousel e MP (Mais Pedidos)-->
 
   <main>
-    <!--Titulo Main-->
-    <div class="Carousel-tittle" id="inicio">
-      <h1>
-        Bateu a fome? Vai de <br> <Span> #Cantina PJ</Span>
-      </h1>
+      <!--Espaço navbar-->
+    <div class="Espaco-navbar" id="inicio">
     </div>
 
     <!--Carousel-->
 
-    <div class="container-carousel">
-      <div class="container-carousel-divisao">
+          <div class="container-carousel">
+                <div class="container-carousel">
+                  <button class="carousel-btn prev">&#10094;</button>
 
-      </div>
-      <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="./assets/img/carousel-1.png" class="d-block w-100" alt="...">
+                  <div class="carousel-slide" id="carouselSlide">
+                    <div class="carousel-item"><img src="./assets/img/carousel-1.png" alt=""></div>
+                    <div class="carousel-item"><img src="./assets/img/carousel-2.png" alt=""></div>
+                    <div class="carousel-item"><img src="./assets/img/carousel-3.png" alt=""></div>
+                  </div>
+
+                  <button class="carousel-btn next">&#10095;</button>
+
+                  <div class="carousel-dots" id="carouselDots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                  </div>
+                </div>
           </div>
-          <div class="carousel-item">
-            <img src="./assets/img/carousel-2.png" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="./assets/img/carousel-3.png" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
 
     <!--MP - Mais pedidos-->
 
@@ -1128,6 +1109,7 @@ session_start();
   <script type="module" src="./assets/js/cardapio.js"></script>
   <!-- Bootstrap 5 JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Swiper.js JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

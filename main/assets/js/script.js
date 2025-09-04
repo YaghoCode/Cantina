@@ -165,3 +165,41 @@ const swiper = new Swiper('.swiper', {
 });
 
 
+const slide = document.getElementById('carouselSlide');
+const dots = document.querySelectorAll('.dot');
+const totalSlides = dots.length;
+
+let currentIndex = 0;
+
+function updateCarousel() {
+  slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentIndex);
+  });
+}
+
+document.querySelector('.next').addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % totalSlides;
+  updateCarousel();
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+  updateCarousel();
+});
+
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    currentIndex = index;
+    updateCarousel();
+  });
+});
+
+// Auto-slide a cada 5 segundos
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % totalSlides;
+  updateCarousel();
+}, 5000);
+
+
+
