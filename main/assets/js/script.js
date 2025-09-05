@@ -202,4 +202,30 @@ setInterval(() => {
 }, 5000);
 
 
+//swiper Mais PEdidos
+const wrapper = document.querySelector('.slider-wrapper');
+  const slides = document.querySelectorAll('.slider-item');
+  const btnLeft = document.querySelector('.arrow.left');
+  const btnRight = document.querySelector('.arrow.right');
 
+  let index = 0;
+const visibleItems = 3;
+
+btnRight.addEventListener('click', () => {
+  if (index < slides.length - visibleItems) {
+    index += visibleItems;
+    if(index > slides.length - visibleItems) index = slides.length - visibleItems;
+    updateSlider();
+  }
+});
+
+btnLeft.addEventListener('click', () => {
+  if (index > 0) {
+    index -= visibleItems;
+    if(index < 0) index = 0;
+    updateSlider();
+  }
+});
+
+
+  window.addEventListener('resize', updateSlider);

@@ -9,15 +9,11 @@ session_start();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <title>Cantina PJ - Main</title>
 </head>
 
@@ -28,7 +24,7 @@ session_start();
     <nav class="navbar">
       <div class="nav-links">
         <div class="nav-logo">
-          <img src="./assets/img/logo.png" style="height: 20vh;" alt="">
+          <img src="./assets/img/logo2.png" style="height: 26vh;" alt="">
         </div>
         <div class="nav-items">
           <ul>
@@ -47,6 +43,11 @@ session_start();
                 <a href="#Sobre-Nos" style="text-decoration: none; color: inherit;">Sobre Nós</a>
               </h1>
             </li>
+            <li>
+              <h1>
+                <a href="#Avaliacoes" style="text-decoration: none; color: inherit;">Avaliações</a>
+              </h1>
+            </li>
           </ul>
         </div>
         <?php
@@ -58,12 +59,14 @@ session_start();
 
           if ($result && mysqli_num_rows($result) > 0) {
 
-            echo '<div class="nav-buttons">
+            echo '<div class="nav-buttons" style="gap:3vh;">
                   <div class="btn-user" id="btn-user-nav" >
+                    <button>
                       <i class="fa-regular fa-user"></i>
+                    </button>
                   </div>
                   <div class="btn-cart" id="btn-cart-nav">
-                      <i class="fa-solid fa-cart-shopping"></i>
+                    <button><i class="fa-solid fa-cart-shopping"></i>Carrinho</button>
                   </div>
               </div>';
           }
@@ -214,95 +217,162 @@ session_start();
 
     <!--Carousel-->
 
-          <div class="container-carousel">
-                <div class="container-carousel">
-                  <button class="carousel-btn prev">&#10094;</button>
-
-                  <div class="carousel-slide" id="carouselSlide">
-                    <div class="carousel-item"><img src="./assets/img/carousel-1.png" alt=""></div>
-                    <div class="carousel-item"><img src="./assets/img/carousel-2.png" alt=""></div>
-                    <div class="carousel-item"><img src="./assets/img/carousel-3.png" alt=""></div>
+         <div class="container-carousel">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                 <div class="carousel-indicators custom-indicators">
+                    <button id="a" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button id="a" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button id="a" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                   </div>
-
-                  <button class="carousel-btn next">&#10095;</button>
-
-                  <div class="carousel-dots" id="carouselDots">
-                    <div class="dot active"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                  </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                      <img src="./assets/img/carousel-img.png" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block" id="carousel">
+                          <div class="title-carousel">
+                            <h1>Refeições Saudáveis</h1>
+                              <h5>Feitas com amor e igredientes frescos.</h5>
+                          </div>
+                            <div class="description-carousel">
+                                <p>Manter uma alimentação equilibrada é essencial para potencializar a concentração, a memória e o rendimento durante os estudos.</p>
+                            </div>
+                                <div class="btn-carousel">
+                                  <button>
+                                      <a href="#cardapio">Ver Cardápio</a>
+                                  </button>
+                                  <button>
+                                      <a href="/cantinarepositorio/subpages/login.php">Fazer Login</a>
+                                  </button>
+                                </div>
+                        </div>
                 </div>
+                <div class="carousel-item">
+                  <img src="./assets/img/carousel-img-2.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block" id="carousel">
+                          <div class="title-carousel">
+                            <h1>Refeições Saudáveis</h1>
+                              <h5>Feitas com amor e igredientes frescos.</h5>
+                          </div>
+                            <div class="description-carousel">
+                                <p>Manter uma alimentação equilibrada é essencial para potencializar a concentração, a memória e o rendimento durante os estudos.</p>
+                            </div>
+                                <div class="btn-carousel">
+                                  <button>
+                                      <a href="#cardapio">Ver Cardápio</a>
+                                  </button>
+                                  <button>
+                                      <a href="/cantinarepositorio/subpages/login.php">Fazer Login</a>
+                                  </button>
+                                </div>
+                        </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="./assets/img/carousel-img-3.png" class="d-block w-100" alt="...">
+                     <div class="carousel-caption d-none d-md-block" id="carousel">
+                          <div class="title-carousel">
+                            <h1>Refeições Saudáveis</h1>
+                              <h5>Feitas com amor e igredientes frescos.</h5>
+                          </div>
+                            <div class="description-carousel">
+                                <p>Manter uma alimentação equilibrada é essencial para potencializar a concentração, a memória e o rendimento durante os estudos.</p>
+                            </div>
+                                <div class="btn-carousel">
+                                  <button>
+                                      <a href="#cardapio">Ver Cardápio</a>
+                                  </button>
+                                  <button>
+                                      <a href="/cantinarepositorio/subpages/login.php">Fazer Login</a>
+                                  </button>
+                                </div>
+                        </div>
+                </div>
+              </div>
+              <div class="carousel-controls-bottom">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Próximo</span>
+                </button>
+              </div>
+            </div>
           </div>
 
-    <!--MP - Mais pedidos-->
 
-    <div class="container-mais-pedidos" id="Cardapio">
-      <div class="content-mp-1">
-        <div class="content-tittle">
-          <h1>
-            Mais Pedidos
-          </h1>
+        <div class="container-info">
+            <div class="title-container-info">
+                <h1>Porque escolher nossa cantina?</h1>
+            </div>
+              <div class="content-info">
+                  <div class="cards-info">
+                    <div class="icon-cards-info">
+                        <i class="fa-brands fa-envira" style="background-color: #bdd4cfff;color: #276254;"></i>
+                    </div>
+                        <div class="title-cards-info">
+                          <h1>
+                            Igredientes frescos
+                          </h1>
+                        </div>
+                          <div class="description-cards-info">
+                              <p>Utilizamos apenas ingredientes frescos e de qualidade, selecionados diariamente para garantir o melhor sabor e nutrição.</p>
+                          </div>
+                  </div>
+                  <div class="cards-info">
+                    <div class="icon-cards-info">
+                        <i class="fa-regular fa-heart" style="background-color: #dbc9c4ff; color: #d6390d" ></i>
+                    </div>
+                        <div class="title-cards-info">
+                          <h1>
+                            Feito com Carinho
+                          </h1>
+                        </div>
+                          <div class="description-cards-info">
+                              <p>Cada refeição é preparada com dedicação pela nossa equipe, pensando na saúde e bem-estar dos nossos estudantes.</p>
+                          </div>
+                  </div>
+                  <div class="cards-info">
+                    <div class="icon-cards-info">
+                        <i class="fa-regular fa-star" style="background-color: #bdd4cfff;color: #276254;"></i>
+                    </div>
+                        <div class="title-cards-info">
+                          <h1>
+                            Qualidade Garantida
+                          </h1>
+                        </div>
+                          <div class="description-cards-info">
+                              <p>Seguimos rigorosos padrões de higiene e qualidade, garantindo refeições seguras e nutritivas todos os dias.</p>
+                          </div>
+                  </div>
+              </div>
         </div>
-        <div class="content-cards">
-          <div class="cards-MP" id="cards-modal">
-            <div class="cards-img-1">
-              <img src="./assets/img/esfiha5.png" alt="">
-            </div>
-            <div class="cards-tittle">
-              <h3>
-                Esfiha de Carne
-              </h3>
-            </div>
-            <div class="cards-price">
-              <h6>
-                R$ 6,99
-              </h6>
-            </div>
-          </div>
-          <div class="cards-MP" id="cards-modal">
-            <div class="cards-img-2">
-              <img src="./assets/img/esfiha5.png" alt="">
-            </div>
-            <div class="cards-tittle">
-              <h3>
-                Esfiha de Carne
-              </h3>
-            </div>
-            <div class="cards-price">
-              <h6>
-                R$ 6,99
-              </h6>
-            </div>
-          </div>
-          <div class="cards-MP" id="cards-modal">
-            <div class="cards-img-3">
-              <img src="./assets/img/esfiha5.png" alt="">
-            </div>
-            <div class="cards-tittle">
-              <h3>
-                Esfiha de Carne
-              </h3>
-            </div>
-            <div class="cards-price">
-              <h6>
-                R$ 6,99
-              </h6>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="content-mp-2">
-        <div class="divisao-cardapio">
 
-        </div>
-      </div>
-    </div>
+          <div class="container-mais-pedidos">
+            <div class="title-container-mp">
+              <h1>Mais Pedidos</h1>
+                <h5>Os pratos favoritos dos nossos estudantes! Experimente os sabores que conquistaram corações.</h5>
+            </div>
+              <div class="content-mp">
+                  <button class="arrow left">&#10094;</button>
+                    <ul class="slider-wrapper">
+                      <li class="slider-item"><div>Prato 1</div></li>
+                      <li class="slider-item"><div>Prato 2</div></li>
+                      <li class="slider-item"><div>Prato 3</div></li>
+                      <li class="slider-item"><div>Prato 4</div></li>
+                      <li class="slider-item"><div>Prato 5</div></li>
+                      <li class="slider-item"><div>Prato 6</div></li>
+                    </ul>
+                  <button class="arrow right">&#10095;</button>
+              </div>
+             
+          </div>
+
   </main>
 
   <!-- Section Cardapio, Salgados-->
 
   <section>
-    <div class="container-cardapio">
+    <div class="container-cardapio" id="cardapio">
       <div class="cardapio-tittle">
         <h1>
           Salgados
@@ -687,7 +757,7 @@ session_start();
 
   <section>
 
-    <div class="tittle-avaliacoes">
+    <div class="tittle-avaliacoes" id="Avaliacoes">
       <h1>
         AVALIAÇÕES
       </h1>

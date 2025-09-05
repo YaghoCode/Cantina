@@ -452,3 +452,203 @@ itens cardapio
       </div>
     </div>
   </div>
+
+  
+    <!--MP - Mais pedidos-->
+
+    <div class="container-mais-pedidos" id="Cardapio">
+      <div class="content-mp-1">
+        <div class="content-tittle">
+          <h1>
+            Mais Pedidos
+          </h1>
+        </div>
+        <div class="content-cards">
+          <div class="cards-MP" id="cards-modal">
+            <div class="cards-img-1">
+              <img src="./assets/img/esfiha5.png" alt="">
+            </div>
+            <div class="cards-tittle">
+              <h3>
+                Esfiha de Carne
+              </h3>
+            </div>
+            <div class="cards-price">
+              <h6>
+                R$ 6,99
+              </h6>
+            </div>
+          </div>
+          <div class="cards-MP" id="cards-modal">
+            <div class="cards-img-2">
+              <img src="./assets/img/esfiha5.png" alt="">
+            </div>
+            <div class="cards-tittle">
+              <h3>
+                Esfiha de Carne
+              </h3>
+            </div>
+            <div class="cards-price">
+              <h6>
+                R$ 6,99
+              </h6>
+            </div>
+          </div>
+          <div class="cards-MP" id="cards-modal">
+            <div class="cards-img-3">
+              <img src="./assets/img/esfiha5.png" alt="">
+            </div>
+            <div class="cards-tittle">
+              <h3>
+                Esfiha de Carne
+              </h3>
+            </div>
+            <div class="cards-price">
+              <h6>
+                R$ 6,99
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-mp-2">
+        <div class="divisao-cardapio">
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  /*MP - Mais Pedidos*/
+
+.container-mais-pedidos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 90vh;
+    width: 100%;
+}
+
+.content-mp-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 60%;
+    width: 100%;
+    background-color: #e3261b;
+}
+
+.content-mp-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    width: 100%;
+}
+
+.content-tittle{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 60%;
+    width: 90%;
+    transform: translateY(-10%);
+}
+
+.content-tittle h1{
+    font-size: 3.6rem;
+    font-family: var(--font-titulo);
+    font-weight: 800;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    transform: translateY(40%);
+}
+
+.content-cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    width: 80%;
+    gap: 6vh;
+    padding-top: 6vh;
+}
+
+.cards-MP{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 30vh;
+    width: 21vw;
+    background-color: #fffefe;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cards-MP:hover{
+    transform: translatey(-25%);
+}
+
+.cards-img-1, .cards-img-2, .cards-img-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55%;
+    width: 80%;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cards-img-1{
+    background-color: var(--cor-secundaria)
+}
+
+.cards-img-2{
+    background-color: var(--cor--botao-accept);
+    
+}
+
+.cards-img-3{
+    background-color: var(--cor-terciaria)
+    
+}
+
+.cards-img-1 img, .cards-img-2 img, .cards-img-3 img{
+    height: 27vh;
+    width: 13vw;
+    padding-bottom: 1vh;
+}
+
+.cards-tittle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 23%;
+    width: 80%;
+}
+
+.cards-tittle h3{
+    font-size: 1.6rem;
+    font-family: var(--font-titulo);
+    font-weight: 800;
+}
+
+.cards-price{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 6%;
+    width: 80%;
+}
+
+.cards-price h6{
+    font-size: 1.2rem;
+    font-family: var(--font-titulo);
+    font-weight: 800;
+    color: var(--cor-itemdesconto);
+}
