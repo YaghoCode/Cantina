@@ -652,3 +652,174 @@ itens cardapio
     font-weight: 800;
     color: var(--cor-itemdesconto);
 }
+
+//
+
+<div class="content-cardapio-salgados">
+                          <div class="cards-salgados">
+                              <div class="cards-img">
+                                  <img src="./assets/img/varios.png" alt="">
+                              </div>
+                                  <div class="cards-title">
+                                      <h3>Coxinha</h3>
+                                  </div>
+                                      <div class="cards-priceEbtn">
+                                          <h4>R$ 6,00</h4>
+                                          <button><i class="fa-solid fa-plus"></i></button>
+                                      </div>
+                          </div>
+                          <div class="cards-salgados">
+                              <div class="cards-img">
+                                  <img src="./assets/img/varios.png" alt="">
+                              </div>
+                                  <div class="cards-title">
+                                      <h3>Coxinha</h3>
+                                  </div>
+                                      <div class="cards-priceEbtn">
+                                          <h4>R$ 6,00</h4>
+                                          <button><i class="fa-solid fa-plus"></i></button>
+                                      </div>
+                          </div>
+                          <div class="cards-salgados">
+                              <div class="cards-img">
+                                  <img src="./assets/img/varios.png" alt="">
+                              </div>
+                                  <div class="cards-title">
+                                      <h3>Coxinha</h3>
+                                  </div>
+                                      <div class="cards-priceEbtn">
+                                          <h4>R$ 6,00</h4>
+                                          <button><i class="fa-solid fa-plus"></i></button>
+                                      </div>
+                          </div>
+                      </div>
+                  </div>
+                      <!--Folhados-->
+
+                      <div class="content-cardapio-folhados" style="display: none;">
+                          <div class="cards-folhados">
+                              <div class="cards-img">
+                                  <img src="./assets/img/varios.png" alt="">
+                              </div>
+                                  <div class="cards-title">
+                                      <h3>Coxinhaaaaaaaaaa</h3>
+                                  </div>
+                                      <div class="cards-priceEbtn">
+                                          <h4>R$ 6,00</h4>
+                                          <button><i class="fa-solid fa-plus"></i></button>
+                                      </div>
+                          </div>
+                          <div class="cards-folhados">
+                              <div class="cards-img">
+                                  <img src="./assets/img/varios.png" alt="">
+                              </div>
+                                  <div class="cards-title">
+                                      <h3>Coxinha</h3>
+                                  </div>
+                                      <div class="cards-priceEbtn">
+                                          <h4>R$ 6,00</h4>
+                                          <button><i class="fa-solid fa-plus"></i></button>
+                                      </div>
+                          </div>
+                          <div class="cards-folhados">
+                              <div class="cards-img">
+                                  <img src="./assets/img/varios.png" alt="">
+                              </div>
+                                  <div class="cards-title">
+                                      <h3>Coxinha</h3>
+                                  </div>
+                                      <div class="cards-priceEbtn">
+                                          <h4>R$ 6,00</h4>
+                                          <button><i class="fa-solid fa-plus"></i></button>
+                                      </div>
+                          </div>
+
+                          .content-cardapio-salgados, .content-cardapio-doces, .content-cardapio-bebidas, .content-cardapio-outros{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 80%;
+        width: 90%;
+        margin: auto;
+        overflow: hidden;
+        border-radius: 10px;
+        padding: 10px 0;
+        gap: 5vh;
+      }
+
+      .cards-salgados, .cards-folhados, .cards-bebidas, .cards-doces, .cards-outros{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transition: transform 0.4s ease;
+        width: 30%;
+        height: 90%;
+        border: 1px solid rgba(0, 0, 0, 0.171);
+        background-color: white;
+        border-radius: 1rem;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .cards-salgados:hover button, .cards-folhados:hover button, .cards-bebidas:hover button, .cards-doces:hover button, .cards-outros:hover button{
+        background-color: var(--cor-primaria);
+        transform: translateY(-10%);
+      }
+      
+
+      .cards-img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60%;
+        width: 100%;
+        background-color: #f7f7f7;
+        border-radius: 1rem;
+      }
+
+      .cards-img img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+      }
+
+      .cards-title{
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        height: 15%;
+        width: 100%;
+        padding: 1rem;
+      }
+
+      .cards-priceEbtn{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 25%;
+        width: 100%;
+        padding: 1rem;
+      }
+
+      .cards-priceEbtn h4{
+        font-size: 1.6rem;
+        font-family: var(--font-titulo);
+        color: var(--cor-primaria);
+        font-weight: 600;
+      }
+
+      .cards-priceEbtn button{
+        font-size: 1.2rem;
+        font-family: var(--font-titulo);
+        background-color: var(--cor--botao-accept);
+        color: white;
+        border-radius: 50%;
+        height: 80%;
+        width: 9%;
+        font-weight: 600;
+        transition: 0.3s ease;
+      }
