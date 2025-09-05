@@ -236,10 +236,10 @@ session_start();
                                 <p>Manter uma alimentação equilibrada é essencial para potencializar a concentração, a memória e o rendimento durante os estudos.</p>
                             </div>
                                 <div class="btn-carousel">
-                                  <button>
+                                  <button class="btn-1-carousel">
                                       <a href="#cardapio">Ver Cardápio</a>
                                   </button>
-                                  <button>
+                                  <button class="btn-1-carousel">
                                       <a href="/cantinarepositorio/subpages/login.php">Fazer Login</a>
                                   </button>
                                 </div>
@@ -256,10 +256,10 @@ session_start();
                                 <p>Manter uma alimentação equilibrada é essencial para potencializar a concentração, a memória e o rendimento durante os estudos.</p>
                             </div>
                                 <div class="btn-carousel">
-                                  <button>
+                                  <button class="btn-2-carousel">
                                       <a href="#cardapio">Ver Cardápio</a>
                                   </button>
-                                  <button>
+                                  <button class="btn-2-carousel">
                                       <a href="/cantinarepositorio/subpages/login.php">Fazer Login</a>
                                   </button>
                                 </div>
@@ -347,365 +347,132 @@ session_start();
               </div>
         </div>
 
-          <div class="container-mais-pedidos">
+        <div class="container-mais-pedidos">
             <div class="title-container-mp">
               <h1>Mais Pedidos</h1>
-                <h5>Os pratos favoritos dos nossos estudantes! Experimente os sabores que conquistaram corações.</h5>
+              <h5>Os pratos favoritos dos nossos estudantes! Experimente os sabores que conquistaram corações.</h5>
             </div>
-              <div class="content-mp">
-                  <button class="arrow left">&#10094;</button>
-                    <ul class="slider-wrapper">
-                      <li class="slider-item"><div>Prato 1</div></li>
-                      <li class="slider-item"><div>Prato 2</div></li>
-                      <li class="slider-item"><div>Prato 3</div></li>
-                      <li class="slider-item"><div>Prato 4</div></li>
-                      <li class="slider-item"><div>Prato 5</div></li>
-                      <li class="slider-item"><div>Prato 6</div></li>
-                    </ul>
-                  <button class="arrow right">&#10095;</button>
+
+            <div class="content-mp">
+              <button class="arrow left-mp">&#8249;</button>
+
+              <div class="swiper-mp">
+                <div class="item-mp">1</div>
+                <div class="item-mp">2</div>
+                <div class="item-mp">3</div>
+                <div class="item-mp">4</div>
+                <div class="item-mp">5</div>
               </div>
-             
-          </div>
+
+              <button class="arrow right-mp">&#8250;</button>
+            </div>
+        </div>
+
 
   </main>
 
-  <!-- Section Cardapio, Salgados-->
+        <section>
+           <div class="container-cardapio">
+              <div class="title-cardapio">
+                  <h1>Conheça nosso cardapio</h1>
+                   <p>
+                    Experimente nossa variedade de pratos deliciosos e saudáveis, feitos com ingredientes frescos e selecionados para você.
+                   </p>
+              </div>
+                <div class="options-cardapio">
+                    <div class="title-options">
+                    <button class="btn-option salgados">Salgados</button>
+                    <button class="btn-option folhados">Folhados</button>
+                    <button class="btn-option doces">Doces</button>
+                    <button class="btn-option bebidas">Bebidas</button>
+                    <button class="btn-option outros">Outros</button>
 
-  <section>
-    <div class="container-cardapio" id="cardapio">
-      <div class="cardapio-tittle">
-        <h1>
-          Salgados
-        </h1>
-      </div>
-      <div class="content-cardapio">
-        <div class="cards-cardapio" id="cards-modal">
-          <div class="cards-img-c-1">
-            <img src="./assets/img/esfiha3.png" alt="">
-          </div>
-          <div class="cards-tittle-c">
-            <h3>
-              Esfiha de Frango
-            </h3>
-          </div>
-          <div class="cards-price-c">
-            <div class="price">
-              <h6>
-                R$ 6,00
-              </h6>
-            </div>
-            <div class="cards-btn-c">
-              <button>
-                <P>
-                  +
-                </P>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="cards-cardapio" id="cards-modal">
-          <div class="cards-img-c-2">
-            <img src="./assets/img/esfiha5.png" alt="">
-          </div>
-          <div class="cards-tittle-c">
-            <h3>
-              Esfiha de Carne
-            </h3>
-          </div>
-          <div class="cards-price-c">
-            <div class="price">
-              <h6>
-                R$ 7,00
-              </h6>
-            </div>
-            <div class="cards-btn-c">
-              <button>
-                <P>
-                  +
-                </P>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="cards-cardapio" id="cards-modal">
-          <div class="cards-img-c-3">
-            <img src="./assets/img/coxinha.png" alt="">
-          </div>
-          <div class="cards-tittle-c">
-            <h3>
-              Coxinha
-            </h3>
-          </div>
-          <div class="cards-price-c">
-            <div class="price">
-              <h6>
-                R$ 6,00
-              </h6>
-            </div>
-            <div class="cards-btn-c">
-              <button>
-                <P>
-                  +
-                </P>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="cards-cardapio" id="cards-modal">
-          <div class="cards-img-c-4">
-            <img src="./assets/img/bauru.png" alt="">
-          </div>
-          <div class="cards-tittle-c">
-            <h3>
-              Bauru
-            </h3>
-          </div>
-          <div class="cards-price-c">
-            <div class="price">
-              <h6>
-                R$ 6,00
-              </h6>
-            </div>
-            <div class="cards-btn-c">
-              <button>
-                <P>
-                  +
-                </P>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-  </section>
+                    </div>
+                </div>
+                  <div class="content-cardapio">
+                      <div class="content-cardapio-salgados">
+                          <div class="cards-salgados">
+                              <div class="cards-img">
+                                  <img src="./assets/img/varios.png" alt="">
+                              </div>
+                                  <div class="cards-title">
+                                      <h3>Coxinha</h3>
+                                  </div>
+                                      <div class="cards-priceEbtn">
+                                          <h4>R$ 6,00</h4>
+                                          <button><i class="fa-solid fa-plus"></i></button>
+                                      </div>
+                          </div>
+                          <div class="cards-salgados">
+                              <div class="cards-img">
+                                  <img src="./assets/img/varios.png" alt="">
+                              </div>
+                                  <div class="cards-title">
+                                      <h3>Coxinha</h3>
+                                  </div>
+                                      <div class="cards-priceEbtn">
+                                          <h4>R$ 6,00</h4>
+                                          <button><i class="fa-solid fa-plus"></i></button>
+                                      </div>
+                          </div>
+                          <div class="cards-salgados">
+                              <div class="cards-img">
+                                  <img src="./assets/img/varios.png" alt="">
+                              </div>
+                                  <div class="cards-title">
+                                      <h3>Coxinha</h3>
+                                  </div>
+                                      <div class="cards-priceEbtn">
+                                          <h4>R$ 6,00</h4>
+                                          <button><i class="fa-solid fa-plus"></i></button>
+                                      </div>
+                          </div>
+                      </div>
+                  </div>
+                      <!--Folhados-->
 
-  <!-- Section Cardapio, Doces-->
+                      <div class="content-cardapio-folhados" style="display: none;">
+                          <div class="cards-folhados">
+                              <div class="cards-img">
+                                  <img src="./assets/img/varios.png" alt="">
+                              </div>
+                                  <div class="cards-title">
+                                      <h3>Coxinhaaaaaaaaaa</h3>
+                                  </div>
+                                      <div class="cards-priceEbtn">
+                                          <h4>R$ 6,00</h4>
+                                          <button><i class="fa-solid fa-plus"></i></button>
+                                      </div>
+                          </div>
+                          <div class="cards-folhados">
+                              <div class="cards-img">
+                                  <img src="./assets/img/varios.png" alt="">
+                              </div>
+                                  <div class="cards-title">
+                                      <h3>Coxinha</h3>
+                                  </div>
+                                      <div class="cards-priceEbtn">
+                                          <h4>R$ 6,00</h4>
+                                          <button><i class="fa-solid fa-plus"></i></button>
+                                      </div>
+                          </div>
+                          <div class="cards-folhados">
+                              <div class="cards-img">
+                                  <img src="./assets/img/varios.png" alt="">
+                              </div>
+                                  <div class="cards-title">
+                                      <h3>Coxinha</h3>
+                                  </div>
+                                      <div class="cards-priceEbtn">
+                                          <h4>R$ 6,00</h4>
+                                          <button><i class="fa-solid fa-plus"></i></button>
+                                      </div>
+                          </div>
+                      </div>
+                  </div>
 
-  <section>
-    <div class="container-cardapio-doces">
-      <div class="cardapio-doces-tittle">
-        <h1>
-          Doces
-        </h1>
-      </div>
-      <div class="content-cardapio-doces">
-        <div class="cards-cardapio-doces" id="cards-modal">
-          <div class="cards-img-d-1">
-            <img src="./assets/img/pudim.png" alt="">
-          </div>
-          <div class="cards-tittle-d">
-            <h3>
-              Pudim
-            </h3>
-          </div>
-          <div class="cards-price-d">
-            <div class="price">
-              <h6>
-                R$ 7,00
-              </h6>
-            </div>
-            <div class="cards-btn-d">
-              <button>
-                <P>
-                  +
-                </P>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="cards-cardapio-doces" id="cards-modal">
-          <div class="cards-img-d-2">
-            <img src="./assets/img/croissant2.png" alt="">
-          </div>
-          <div class="cards-tittle-d">
-            <h3>
-              Croissant de Chocolate
-            </h3>
-          </div>
-          <div class="cards-price-d">
-            <div class="price">
-              <h6>
-                R$ 7,00
-              </h6>
-            </div>
-            <div class="cards-btn-d">
-              <button>
-                <P>
-                  +
-                </P>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="cards-cardapio-doces" id="cards-modal">
-          <div class="cards-img-d-3">
-            <img src="./assets/img/beijinho.png" alt="">
-          </div>
-          <div class="cards-tittle-d">
-            <h3>
-              Beijinho
-            </h3>
-          </div>
-          <div class="cards-price-d">
-            <div class="price">
-              <h6>
-                R$ 6,00
-              </h6>
-            </div>
-            <div class="cards-btn-d">
-              <button>
-                <P>
-                  +
-                </P>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="cards-cardapio-doces" id="cards-modal">
-          <div class="cards-img-d-4">
-            <img src="./assets/img/brigadeiro.png" alt="">
-          </div>
-          <div class="cards-tittle-d">
-            <h3>
-              Brigadeiro
-            </h3>
-          </div>
-          <div class="cards-price-d">
-            <div class="price">
-              <h6>
-                R$ 6,00
-              </h6>
-            </div>
-            <div class="cards-btn-d">
-              <button>
-                <P>
-                  +
-                </P>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-  </section>
-
-  <!--Section Cadapio, Bebidas-->
-
-  <section>
-
-    <div class="container-cardapio-bebidas">
-      <div class="cardapio-bebidas-tittle">
-        <h1>
-          Bebidas
-        </h1>
-      </div>
-      <div class="content-cardapio-bebidas">
-        <div class="cards-cardapio-bebidas" id="cards-modal">
-          <div class="cards-img-tittle-b">
-            <div class="cards-tittle-b">
-              <h3>
-                Coca-Cola 350ml
-              </h3>
-            </div>
-            <div class="cards-img-b-1">
-              <img src="./assets/img/coca.png" alt="">
-            </div>
-          </div>
-          <div class="cards-price-b">
-            <div class="price">
-              <h6>
-                R$ 7,00
-              </h6>
-            </div>
-            <div class="cards-btn-b">
-              <button>
-                <P>
-                  +
-                </P>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="cards-cardapio-bebidas" id="cards-modal">
-          <div class="cards-img-tittle-b">
-            <div class="cards-tittle-b">
-              <h3>
-                Coca-Cola <br>Zero 350ml
-              </h3>
-            </div>
-            <div class="cards-img-b-2">
-              <img src="./assets/img/cocazero.png" alt="">
-            </div>
-          </div>
-          <div class="cards-price-b">
-            <div class="price">
-              <h6>
-                R$ 7,00
-              </h6>
-            </div>
-            <div class="cards-btn-b">
-              <button>
-                <P>
-                  +
-                </P>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="cards-cardapio-bebidas" id="cards-modal">
-          <div class="cards-img-tittle-b">
-            <div class="cards-tittle-b">
-              <h3>
-                Coca Cola 350ml
-              </h3>
-            </div>
-            <div class="cards-img-b-3">
-              <img src="./assets/img/coca.png" alt="">
-            </div>
-          </div>
-          <div class="cards-price-b">
-            <div class="price">
-              <h6>
-                R$ 7,00
-              </h6>
-            </div>
-            <div class="cards-btn-b">
-              <button>
-                <P>
-                  +
-                </P>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="cards-cardapio-bebidas" id="cards-modal">
-          <div class="cards-img-tittle-b">
-            <div class="cards-tittle-b">
-              <h3>
-                Coca Cola 350ml
-              </h3>
-            </div>
-            <div class="cards-img-b-4">
-              <img src="./assets/img/coca.png" alt="">
-            </div>
-          </div>
-          <div class="cards-price-b">
-            <div class="price">
-              <h6>
-                R$ 7,00
-              </h6>
-            </div>
-            <div class="cards-btn-b">
-              <button>
-                <P>
-                  +
-                </P>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section>
+           </div>
+        </section>
 
   <!--Section Sobre Nós-->
 

@@ -1,7 +1,7 @@
 
 // modal ///////////////////////////////////////////////////////
 
-const cardsModal = document.querySelectorAll('.cards-MP, .cards-cardapio, .cards-cardapio-doces, .cards-cardapio-bebidas'); // Seleciona todos os elementos com essa classe
+const cardsModal = document.querySelectorAll('.cards-salgados'); // Seleciona todos os elementos com essa classe
 const modalAlert = document.getElementById('modal-alert');     // Seleciona o modal
 const btnCloseModal = document.querySelectorAll('.btnCLoseModaL')
 

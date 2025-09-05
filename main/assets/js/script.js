@@ -229,3 +229,69 @@ btnLeft.addEventListener('click', () => {
 
 
   window.addEventListener('resize', updateSlider);
+
+
+
+  ////CARDAPIO
+
+  const OptionSalgados = document.querySelector('.btn-option-salgados');
+  const OptionFolhados = document.querySelector('.btn-option-folhados');
+  const OptionDoces = document.querySelector('.btn-option-doces');
+  const OptionBebidas = document.querySelector('.btn-option-bebidas');
+  const OptionOutros = document.querySelector('.btn-option-outros');  
+const contentSalgados = document.querySelector('.content-cardapio-salgados')
+const contentFolhados = document.querySelector('.content-cardapio-folhados')
+const contentDoces = document.querySelector('.content-cardapio-doces')
+const contentBebidas = document.querySelector('.content-cardapio-bebidas')
+const contentOutros = document.querySelector('.content-cardapio-outros')
+
+OptionSalgados.style.backgroundColor = '#e3261b';
+OptionSalgados.style.color = '#ffff';
+
+
+OptionSalgados.addEventListener('click', () => {
+    if (contentSalgados.style.display !== 'flex'){
+        //mudar o conteudo
+        contentSalgados.style.display = 'flex';
+        contentFolhados.style.display = 'none';
+        contentDoces.style.display = 'none';
+        contentBebidas.style.display = 'none';
+        contentOutros.style.display = 'none';
+
+        //mudar a cor e backgroud dos buttons yesirr
+        OptionSalgados.style.backgroundColor = '#e3261b';
+        OptionSalgados.style.color = '#ffff'; 
+        OptionFolhados.style.backgroundColor = '#ffff';
+        OptionFolhados.style.color = '#000000'; 
+        OptionDoces.style.backgroundColor = '#ffff';
+        OptionDoces.style.color = '#000000'; 
+        OptionBebidas.style.backgroundColor = '#ffff';
+        OptionBebidas.style.color = '#000000'; 
+        OptionOutros.style.backgroundColor = '#ffff';
+        OptionOutros.style.color = '#000000'; 
+        
+    }
+});
+
+OptionFolhados.addEventListener('click', () => {
+    if (contentFolhados.style.display !== 'flex'){
+              //mudar o conteudo
+        contentFolhados.style.display = 'flex';
+        contentSalgados.style.display = 'none';
+        contentDoces.style.display = 'none';
+        contentBebidas.style.display = 'none';
+        contentOutros.style.display = 'none';
+
+                //mudar a cor e backgroud dos buttons yesirr
+                OptionFolhados.style.backgroundColor = '#e3261b';
+                OptionFolhados.style.color = '#ffff'; 
+                OptionSalgados.style.backgroundColor = '#ffff';
+                OptionSalgados.style.color = '#000000'; 
+                OptionDoces.style.backgroundColor = '#ffff';
+                OptionDoces.style.color = '#000000'; 
+                OptionBebidas.style.backgroundColor = '#ffff';
+                OptionBebidas.style.color = '#000000'; 
+                OptionOutros.style.backgroundColor = '#ffff';
+                OptionOutros.style.color = '#000000';  
+    }
+});
