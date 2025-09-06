@@ -212,7 +212,7 @@ session_start();
     <!--Carousel-->
 
     <div class="container-carousel">
-      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-indicators custom-indicators">
           <button id="a" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button id="a" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -349,6 +349,9 @@ session_start();
         <h1>Mais Pedidos</h1>
         <h5>Os pratos favoritos dos nossos estudantes! Experimente os sabores que conquistaram corações.</h5>
       </div>
+        <div class="content-mais-pedidos">
+            
+        </div>
 
 
   </main>

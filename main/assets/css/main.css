@@ -854,6 +854,21 @@ html {
     font-size: 1rem;
 }
 
+.carousel-item {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.carousel-item-next,
+.carousel-item-prev {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.carousel-item.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
 /*Mais Pedidos*/
 
 .container-mais-pedidos {
@@ -892,17 +907,13 @@ html {
     font-family: var(--font-titulo);
 }
 
-.content-mp {
+.content-mais-pedidos {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    width: 90%;
-    margin: auto;
-    overflow: hidden;
-    background-color: var(--cor-terciaria);
-    border-radius: 10px;
-    padding: 10px 0;
+    width: 100%;
+    height: 70%;
+    border: 1px solid;
 }
 
 /*Cardapio*/
@@ -1108,7 +1119,6 @@ html {
     height: 80%;
     width: 9%;
     font-weight: 600;
-    transition: 0.3s ease;
 }
 
 /*Section Sobre Nós*/
