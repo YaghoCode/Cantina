@@ -461,39 +461,39 @@ session_start();
           <!--DOCES-->
           <div class="cards-doces">
             <div class="cards-img">
-              <img src="./assets/img/brigadeiro.png" alt="">
+              <img src="./assets/img/beijinho2.jpg" alt="">
             </div>
             <div class="cards-title">
-              <h3>Coxinha</h3>
+              <h3>Beijinho Und.</h3>
             </div>
             <div class="cards-priceEbtn">
-              <h4>R$ 6,00</h4>
+              <h4>R$ 3,00</h4>
               <button><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
 
           <div class="cards-doces">
             <div class="cards-img">
-              <img src="./assets/img/brigadeiro.png" alt="">
+              <img src="./assets/img/brigadeiro2.jpg" alt="">
             </div>
             <div class="cards-title">
-              <h3>Coxinha</h3>
+              <h3>Brigadeiro Und.</h3>
             </div>
             <div class="cards-priceEbtn">
-              <h4>R$ 6,00</h4>
+              <h4>R$ 3,00</h4>
               <button><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
 
           <div class="cards-doces">
             <div class="cards-img">
-              <img src="./assets/img/brigadeiro.png" alt="">
+              <img src="./assets/img/bolochocolate.jpg" alt="">
             </div>
             <div class="cards-title">
-              <h3>Coxinha</h3>
+              <h3>Bolo de Chocolate Fatia</h3>
             </div>
             <div class="cards-priceEbtn">
-              <h4>R$ 6,00</h4>
+              <h4>R$ 7,00</h4>
               <button><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
@@ -502,39 +502,39 @@ session_start();
           <!--Bebidas-->
           <div class="cards-bebidas">
             <div class="cards-img">
-              <img src="./assets/img/coca.png" alt="">
+              <img src="./assets/img/coca350.png" alt="">
             </div>
             <div class="cards-title">
-              <h3>Coxinha</h3>
+              <h3>Coca Cola 350ml.</h3>
             </div>
             <div class="cards-priceEbtn">
-              <h4>R$ 6,00</h4>
+              <h4>R$ 8,00</h4>
               <button><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
 
           <div class="cards-bebidas">
             <div class="cards-img">
-              <img src="./assets/img/coca.png" alt="">
+              <img src="./assets/img/cocazero2.webp" alt="">
             </div>
             <div class="cards-title">
-              <h3>Coxinha</h3>
+              <h3>Coca Cola Zero 350ml.</h3>
             </div>
             <div class="cards-priceEbtn">
-              <h4>R$ 6,00</h4>
+              <h4>R$ 8,00</h4>
               <button><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
 
           <div class="cards-bebidas">
             <div class="cards-img">
-              <img src="./assets/img/coca.png" alt="">
+              <img src="./assets/img/agua.png" alt="">
             </div>
             <div class="cards-title">
-              <h3>Coxinha</h3>
+              <h3>Água 510ml.</h3>
             </div>
             <div class="cards-priceEbtn">
-              <h4>R$ 6,00</h4>
+              <h4>R$ 3,00</h4>
               <button><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
@@ -543,39 +543,39 @@ session_start();
           <!--Outros-->
           <div class="cards-outros">
             <div class="cards-img">
-              <img src="./assets/img/varios.png" alt="">
+              <img src="./assets/img/combo1.png" alt="">
             </div>
             <div class="cards-title">
-              <h3>Coxinha</h3>
+              <h3>Pizza + Doly</h3>
             </div>
             <div class="cards-priceEbtn">
-              <h4>R$ 6,00</h4>
+              <h4>R$ 25,00</h4>
               <button><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
 
           <div class="cards-outros">
             <div class="cards-img">
-              <img src="./assets/img/varios.png" alt="">
+              <img src="./assets/img/combo1.png" alt="">
             </div>
             <div class="cards-title">
-              <h3>Coxinha</h3>
+              <h3>Combo Lanche + Refri</h3>
             </div>
             <div class="cards-priceEbtn">
-              <h4>R$ 6,00</h4>
+              <h4>R$ 10,00</h4>
               <button><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
 
           <div class="cards-outros">
             <div class="cards-img">
-              <img src="./assets/img/varios.png" alt="">
+              <img src="./assets/img/combo1.png" alt="">
             </div>
             <div class="cards-title">
-              <h3>Coxinha</h3>
+              <h3>Combo Lanche + Brigadeiro</h3>
             </div>
             <div class="cards-priceEbtn">
-              <h4>R$ 6,00</h4>
+              <h4>R$ 8,00</h4>
               <button><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
