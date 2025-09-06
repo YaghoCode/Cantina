@@ -237,9 +237,6 @@ session_start();
                 <button class="btn-1-carousel">
                   <a href="#cardapio">Ver Cardápio</a>
                 </button>
-                <button class="btn-1-carousel">
-                  <a href="/cantinarepositorio/subpages/login.php">Fazer Login</a>
-                </button>
               </div>
             </div>
           </div>
@@ -257,9 +254,6 @@ session_start();
                 <button class="btn-2-carousel">
                   <a href="#cardapio">Ver Cardápio</a>
                 </button>
-                <button class="btn-2-carousel">
-                  <a href="/cantinarepositorio/subpages/login.php">Fazer Login</a>
-                </button>
               </div>
             </div>
           </div>
@@ -276,9 +270,6 @@ session_start();
               <div class="btn-carousel">
                 <button class="btn-3-carousel">
                   <a href="#cardapio">Ver Cardápio</a>
-                </button>
-                <button class="btn-3-carousel">
-                  <a href="/cantinarepositorio/subpages/login.php">Fazer Login</a>
                 </button>
               </div>
             </div>

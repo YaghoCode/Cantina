@@ -1,6 +1,6 @@
 // modal ///////////////////////////////////////////////////////
 
-const cardsModal = document.querySelectorAll('.carrousel-track-mais-pedidos, .cards-salgados, .content-cardapio-options .cards-folhados, .content-cardapio-options .cards-doces, .content-cardapio-options .cards-bebidas, .content-cardapio-options .cards-outros');
+const cardsModal = document.querySelectorAll('.carrousel-track-mais-pedidos, .cards-mp, .cards-salgados, .content-cardapio-options .cards-folhados, .content-cardapio-options .cards-doces, .content-cardapio-options .cards-bebidas, .content-cardapio-options .cards-outros');
 const modalAlert = document.getElementById('modal-alert'); // Seleciona o modal
 const btnCloseModal = document.querySelectorAll('.btnCLoseModaL'); // Botões de fechar
 const overlay = document.getElementById('modal-overlay'); // Seleciona o overlay
