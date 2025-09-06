@@ -913,8 +913,71 @@ html {
     justify-content: center;
     width: 100%;
     height: 70%;
-    border: 1px solid;
+    border: 1px solidA;
 }
+
+.carrosel-mais-pedidos {
+  overflow: hidden;
+  width: 80%;
+  padding-right: 3%;
+}
+
+.carrousel-track-mais-pedidos {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 3vh;
+}
+
+.carrousel-item-mp {
+  flex: 0 0 33.3333%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+  background-color: white;
+  border-radius: 1rem;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: scale(0.8);
+  opacity: 0.6;
+}
+
+.carrousel-item-mp.active {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.botao-left-mp,
+.botao-right-mp {
+  background-color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 1rem;
+  z-index: 1;
+}
+
+.item-conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.item-conteudo img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.item-conteudo p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+}
+
 
 /*Cardapio*/
 

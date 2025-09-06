@@ -350,8 +350,15 @@ session_start();
         <h5>Os pratos favoritos dos nossos estudantes! Experimente os sabores que conquistaram corações.</h5>
       </div>
         <div class="content-mais-pedidos">
-            
+          <button class="botao-left-mp">‹</button>
+            <div class="carrosel-mais-pedidos">
+              <div class="carrousel-track-mais-pedidos">
+                
+              </div>
+            </div>
+          <button class="botao-right-mp">›</button>
         </div>
+    </div>
 
 
   </main>
@@ -745,6 +752,7 @@ session_start();
   <!--LINKS DO JS-->
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/navbar.js"></script>
+  <script src="./assets/js/carrouselMP.js"></script>
 
   <!--LOGIN PHP VERIFICACAO-->
   <?php
