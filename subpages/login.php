@@ -99,6 +99,7 @@ mysqli_close($con);
                                     border: none;
                                     height: 6vh;
                                     width: 8%;
+                                    font-size:1.5rem;
                                     gap: 1.2vh;">
             <a style="color: inherit;
     text-decoration: none;" href="/cantinarepositorio/main/index.php">  <i class="fa-solid fa-caret-left"></i> Voltar</a>
@@ -132,7 +133,7 @@ mysqli_close($con);
         </div>
         <div class="form-container sign-in" id="form-login">
             <form action="login.php" method="post">
-                <h1 class="h1-sign">Bem-vindo á <br>#Cantina-PJ</h1>
+              <div style="text-align:center;"><h1 class="h1-sign">Bem-vindo ao site da <br> #Cantina-PJ</h1></div>
                 <span>Faça o login
                   e aproveite a experiência</span>
                 <input type="text" name="cpf" id="cpf" maxlength="11" placeholder="000.000.000-00" pattern="\d{11}" required>

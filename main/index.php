@@ -176,7 +176,10 @@ session_start();
     </div>
   </div>
 
-  <!--Alert Modal login-->
+  <!-- Overlay para o modal -->
+  <div class="modal-overlay" id="modal-overlay"></div>
+
+  <!-- Modal alert -->
   <div class="container-modal-alert" id="modal-alert">
     <div class="content-modal-alert">
       <div class="btnSair-modal-alert">
@@ -184,20 +187,21 @@ session_start();
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
-      <div class="title-modal-alert">
+     <div class="title-modal-alert">
+        <i class="fa-solid fa-lock"></i>
         <h1>
-          Faça login ou cadastre-se
+          Acesso Necessário
         </h1>
-      </div>
-      <div class="description-modal-alert">
-        <p>
-          É rápido, gratuito e o próximo passo para aproveitar tudo o que temos a oferecer!
-        </p>
-      </div>
+     </div>
+        <div class="description-modal-alert">
+            <p>Para continuar navegando e aproveitar todos os recursos, você precisa fazer login em sua conta.</p>
+        </div>
+
       <div class="btn-modal-alert">
-        <button>
-          <a href="/cantinarepositorio/subpages/login.php" style="color: inherit; text-decoration: none;">Continuar</a>
+        <button id="btn-voltar-modal-alert" style="background-color: #f7f7f7; border: 1px solid #00000079; color: #000000c2;">
+          Voltar
         </button>
+          <a class="a-link-btn-continuar" href="/cantinarepositorio/subpages/login.php" style="color: white; text-decoration: none;">Continuar</a>
       </div>
     </div>
   </div>
@@ -350,13 +354,19 @@ session_start();
         <h5>Os pratos favoritos dos nossos estudantes! Experimente os sabores que conquistaram corações.</h5>
       </div>
         <div class="content-mais-pedidos">
-          <button class="botao-left-mp">‹</button>
+          <button class="botao-left-mp">
+            <h1><</h1>
+          </button>
             <div class="carrosel-mais-pedidos">
               <div class="carrousel-track-mais-pedidos">
                 
               </div>
             </div>
-          <button class="botao-right-mp">›</button>
+          <button class="botao-right-mp">
+            <h1>
+              >
+            </h1>
+          </button>
         </div>
     </div>
 

@@ -4,34 +4,74 @@ const rightBtn = document.querySelector(".botao-right-mp");
 
 const itemsData = [
   `
-  <div class="item-conteudo">
-    <img src="img/pizza.jpg" alt="Pizza">
-    <p>Pizza</p>
-  </div>
+  <div class="cards-mp">
+            <div class="cards-img-mp">
+              <img src="./assets/img/esfihadecarne.jpg" alt="">
+            </div>
+            <div class="cards-title-mp">
+              <h3>Esfiha de Carne</h3>
+            </div>
+            <div class="cards-priceEbtn-mp">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+    </div>
   `,
   `
-  <div class="item-conteudo">
-    <img src="img/hamburguer.jpg" alt="Hambúrguer">
-    <p>Hambúrguer</p>
-  </div>
+   <div class="cards-mp">
+            <div class="cards-img-mp">
+              <img src="./assets/img/esfihadecarne.jpg" alt="">
+            </div>
+            <div class="cards-title-mp">
+              <h3>Esfiha de Carne</h3>
+            </div>
+            <div class="cards-priceEbtn-mp">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+    </div>
   `,
   `
-  <div class="item-conteudo">
-    <img src="img/lasanha.jpg" alt="Lasanha">
-    <p>Lasanha</p>
-  </div>
+   <div class="cards-mp">
+            <div class="cards-img-mp">
+              <img src="./assets/img/esfihadecarne.jpg" alt="">
+            </div>
+            <div class="cards-title-mp">
+              <h3>Esfiha de Carne</h3>
+            </div>
+            <div class="cards-priceEbtn-mp">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+    </div>
   `,
   `
-  <div class="item-conteudo">
-    <img src="img/salada.jpg" alt="Salada">
-    <p>Salada</p>
-  </div>
+   <div class="cards-mp">
+            <div class="cards-img-mp">
+              <img src="./assets/img/esfihadecarne.jpg" alt="">
+            </div>
+            <div class="cards-title-mp">
+              <h3>Esfiha de Carne</h3>
+            </div>
+            <div class="cards-priceEbtn-mp">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+    </div>
   `,
   `
-  <div class="item-conteudo">
-    <img src="img/sorvete.jpg" alt="Sorvete">
-    <p>Sorvete</p>
-  </div>
+   <div class="cards-mp">
+            <div class="cards-img-mp">
+              <img src="./assets/img/esfihadecarne.jpg" alt="">
+            </div>
+            <div class="cards-title-mp">
+              <h3>Esfiha de Carne</h3>
+            </div>
+            <div class="cards-priceEbtn-mp">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+    </div>
   `
 ];
 
