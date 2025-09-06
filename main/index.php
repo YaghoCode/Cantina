@@ -53,7 +53,7 @@ session_start();
           </ul>
         </div>
 
-                  <!--PHP VERIFICAÇÂO LOGIN-->
+        <!--PHP VERIFICAÇÂO LOGIN-->
         <?php
         if (isset($_SESSION['cpf'])) {
           $cpf = $_SESSION['cpf'];
@@ -242,12 +242,12 @@ session_start();
           <div class="carousel-item">
             <img src="./assets/img/carousel-img-2.png" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block" id="carousel">
-              <div class="title-carousel">
-                <h1>Refeições Saudáveis</h1>
-                <h5>Feitas com amor e igredientes frescos.</h5>
+              <div class="title-carousel-2">
+                <h1>Momentos especiais</h1>
+                <h5>Criando memórias através da comida.</h5>
               </div>
-              <div class="description-carousel">
-                <p>Manter uma alimentação equilibrada é essencial para potencializar a concentração, a memória e o rendimento durante os estudos.</p>
+              <div class="description-carousel-2">
+                <p>Um espaço onde estudantes se reúnem para compartilhar bons momentos, trocar ideias, fortalecer amizades e criar memórias inesquecíveis.</p>
               </div>
               <div class="btn-carousel">
                 <button class="btn-2-carousel">
@@ -263,17 +263,17 @@ session_start();
             <img src="./assets/img/carousel-img-3.png" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block" id="carousel">
               <div class="title-carousel">
-                <h1>Refeições Saudáveis</h1>
-                <h5>Feitas com amor e igredientes frescos.</h5>
+                <h1>Bem-vindo ao Coração da Escola</h1>
+                <h5>Mais que uma cantina — um espaço de sabores, sorrisos e convivência.</h5>
               </div>
               <div class="description-carousel">
-                <p>Manter uma alimentação equilibrada é essencial para potencializar a concentração, a memória e o rendimento durante os estudos.</p>
+                <p>Aqui, cada refeição é preparada com carinho e ingredientes selecionados para garantir saúde, energia e bem-estar aos nossos estudantes.</p>
               </div>
               <div class="btn-carousel">
-                <button>
+                <button class="btn-3-carousel">
                   <a href="#cardapio">Ver Cardápio</a>
                 </button>
-                <button>
+                <button class="btn-3-carousel">
                   <a href="/cantinarepositorio/subpages/login.php">Fazer Login</a>
                 </button>
               </div>
@@ -293,7 +293,7 @@ session_start();
       </div>
     </div>
 
-      <!--INFO USER POS CAROUSEL-->
+    <!--INFO USER POS CAROUSEL-->
 
     <div class="container-info">
       <div class="title-container-info">
@@ -342,7 +342,7 @@ session_start();
       </div>
     </div>
 
-      <!--MAIS PEDIDOS-->
+    <!--MAIS PEDIDOS-->
 
     <div class="container-mais-pedidos">
       <div class="title-container-mp">
@@ -353,10 +353,10 @@ session_start();
 
   </main>
 
-      <!--SECTION CARDAPIO-->
+  <!--SECTION CARDAPIO-->
 
   <section>
-    <div class="container-cardapio">
+    <div class="container-cardapio" id="cardapio">
       <div class="title-cardapio">
         <h1>Conheça nosso cardápio</h1>
         <p>
@@ -376,19 +376,210 @@ session_start();
 
       <div class="content-cardapio">
         <div class="content-cardapio-options active">
-          <h1>SALGADOS</h1>
+          <!--SALGADOS-->
+          <div class="cards-salgados">
+            <div class="cards-img">
+              <img src="./assets/img/esfihadecarne.jpg" alt="">
+            </div>
+            <div class="cards-title">
+              <h3>Esfiha de Carne</h3>
+            </div>
+            <div class="cards-priceEbtn">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+
+          <div class="cards-salgados">
+            <div class="cards-img">
+              <img src="./assets/img/coxinha2.webp" alt="">
+            </div>
+            <div class="cards-title">
+              <h3>Esfiha de Frango</h3>
+            </div>
+            <div class="cards-priceEbtn">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+
+          <div class="cards-salgados">
+            <div class="cards-img">
+              <img src="./assets/img/esfihadefrango.jfif" alt="">
+            </div>
+            <div class="cards-title">
+              <h3>Esfiha de Frango</h3>
+            </div>
+            <div class="cards-priceEbtn">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
         </div>
         <div class="content-cardapio-options">
-          <h1>FOLHADOS</h1>
+          <!--FOLHADOS-->
+          <div class="cards-folhados">
+            <div class="cards-img">
+              <img class="img-folhados" src="./assets/img/croissant-chocolate2.png" alt="">
+            </div>
+            <div class="cards-title">
+              <h3>Croassaint de Chocolate</h3>
+            </div>
+            <div class="cards-priceEbtn">
+              <h4>R$ 7,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+
+          <div class="cards-folhados">
+            <div class="cards-img">
+              <img src="./assets/img/folhado-1.jpg" alt="">
+            </div>
+            <div class="cards-title">
+              <h3>Folhado de Carne</h3>
+            </div>
+            <div class="cards-priceEbtn">
+              <h4>R$ 7,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+
+          <div class="cards-folhados">
+            <div class="cards-img">
+              <img src="./assets/img//folhado-2.jpg" alt="">
+            </div>
+            <div class="cards-title">
+              <h3>Folhado de 4 Queijo</h3>
+            </div>
+            <div class="cards-priceEbtn">
+              <h4>R$ 7,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
         </div>
         <div class="content-cardapio-options">
-          <h1>DOCES</h1>
+          <!--DOCES-->
+          <div class="cards-doces">
+            <div class="cards-img">
+              <img src="./assets/img/brigadeiro.png" alt="">
+            </div>
+            <div class="cards-title">
+              <h3>Coxinha</h3>
+            </div>
+            <div class="cards-priceEbtn">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+
+          <div class="cards-doces">
+            <div class="cards-img">
+              <img src="./assets/img/brigadeiro.png" alt="">
+            </div>
+            <div class="cards-title">
+              <h3>Coxinha</h3>
+            </div>
+            <div class="cards-priceEbtn">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+
+          <div class="cards-doces">
+            <div class="cards-img">
+              <img src="./assets/img/brigadeiro.png" alt="">
+            </div>
+            <div class="cards-title">
+              <h3>Coxinha</h3>
+            </div>
+            <div class="cards-priceEbtn">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
         </div>
         <div class="content-cardapio-options">
-          <h1>BEBIDAS</h1>
+          <!--Bebidas-->
+          <div class="cards-bebidas">
+            <div class="cards-img">
+              <img src="./assets/img/coca.png" alt="">
+            </div>
+            <div class="cards-title">
+              <h3>Coxinha</h3>
+            </div>
+            <div class="cards-priceEbtn">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+
+          <div class="cards-bebidas">
+            <div class="cards-img">
+              <img src="./assets/img/coca.png" alt="">
+            </div>
+            <div class="cards-title">
+              <h3>Coxinha</h3>
+            </div>
+            <div class="cards-priceEbtn">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+
+          <div class="cards-bebidas">
+            <div class="cards-img">
+              <img src="./assets/img/coca.png" alt="">
+            </div>
+            <div class="cards-title">
+              <h3>Coxinha</h3>
+            </div>
+            <div class="cards-priceEbtn">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
         </div>
         <div class="content-cardapio-options">
-          <h1>OUTROS</h1>
+          <!--Outros-->
+          <div class="cards-outros">
+            <div class="cards-img">
+              <img src="./assets/img/varios.png" alt="">
+            </div>
+            <div class="cards-title">
+              <h3>Coxinha</h3>
+            </div>
+            <div class="cards-priceEbtn">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+
+          <div class="cards-outros">
+            <div class="cards-img">
+              <img src="./assets/img/varios.png" alt="">
+            </div>
+            <div class="cards-title">
+              <h3>Coxinha</h3>
+            </div>
+            <div class="cards-priceEbtn">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+
+          <div class="cards-outros">
+            <div class="cards-img">
+              <img src="./assets/img/varios.png" alt="">
+            </div>
+            <div class="cards-title">
+              <h3>Coxinha</h3>
+            </div>
+            <div class="cards-priceEbtn">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -447,23 +638,80 @@ session_start();
 
     <div class="tittle-avaliacoes" id="Avaliacoes">
       <h1>
-        AVALIAÇÕES
+        Nossas Avaliações
       </h1>
+        <p>A opinião da nossa comunidade escolar é o que mais importa para nós. Veja o que estudantes, professores e funcionários têm a dizer.</p>
     </div>
     <div class="container-avaliacoes">
       <div class="content-avaliacoes">
+          <div class="content-avaliacoes-top">
+              <div class="item-avaliacao">
+                  <div class="nota-avaliacao">
+                      <h1>4.8</h1>
+                  </div>
+                    <div class="stars-avaliacao">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half"></i>
+                    </div>
+                      <div class="item-title">
+                        <h2>Avaliação Média</h2>
+                      </div>
+              </div>
+              <div class="item-avaliacao">
+                  <div class="numero-avaliacao">
+                      <h1>49</h1> <i class="fa-solid fa-plus"></i>
+                  </div>
+                    <div class="item-title-2">
+                        <h2>Avaliações Positivas</h2>
+                    </div>
+              </div>
+              <div class="item-avaliacao">
+                    <div class="numero-avaliacao-2">
+                      <h1>92%</h1>
+                    </div>
+                      <div class="item-title">
+                        <h2>Clientes Satisfeitos</h2>
+                      </div>
+              </div>
+          </div>
+            <div class="content-avaliacoes-bottom">
+                  <div class="row-cards-avaliacao">
+                      <div class="cards-avaliacao">
 
+                      </div>
+                      <div class="cards-avaliacao">
+
+                      </div>
+                      <div class="cards-avaliacao">
+
+                      </div>
+                  </div>
+                    <div class="row-cards-avaliacao">
+                      <div class="cards-avaliacao">
+
+                      </div>
+                      <div class="cards-avaliacao">
+
+                      </div>
+                      <div class="cards-avaliacao">
+
+                      </div>
+                    </div>
+            </div>
       </div>
     </div>
   </section>
 
-              <!--DIVISAO-->
+  <!--DIVISAO-->
 
   <div class="container-divisao-3">
     <div class="divisao-3"></div>
   </div>
 
-              <!--FOOTER-->
+  <!--FOOTER-->
 
   <footer>
     <div class="container-footer" style="height: 10vh; width: 100%;">
@@ -491,11 +739,11 @@ session_start();
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 
-              <!--LINKS DO JS-->
+  <!--LINKS DO JS-->
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/navbar.js"></script>
 
-              <!--LOGIN PHP VERIFICACAO-->
+  <!--LOGIN PHP VERIFICACAO-->
   <?php
   if (isset($_SESSION['cpf'])) {
     $cpf = $_SESSION['cpf'];

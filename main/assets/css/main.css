@@ -613,7 +613,7 @@ html {
     transform: translateY(-10%);
 }
 
-.title-carousel {
+.title-carousel, .title-carousel-2 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -628,18 +628,35 @@ html {
     font-family: var(--font-titulo);
 }
 
+.title-carousel-2 h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: var(--font-titulo);
+}
+
+.title-carousel-2 h5{
+    font-size: 1.6rem;
+    color: var(--cor-primaria);
+    font-family: var(--font-titulo);
+}
+
 .title-carousel h5 {
     font-size: 1.6rem;
     color: var(--cor-secundaria);
     font-family: var(--font-titulo);
 }
 
-.description-carousel {
+.description-carousel, .description-carousel-2 {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     height: 40%;
+}
+
+.description-carousel-2 p{
+    font-size: 1.5rem;
+    font-family: var(--font-titulo);
 }
 
 .description-carousel p {
@@ -674,6 +691,11 @@ html {
 }
 
 .btn-2-carousel:hover {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.btn-3-carousel:hover {
     background-color: var(--cor-primaria);
     color: white;
 }
@@ -928,7 +950,7 @@ html {
     gap: 5vh;
     height: 7%;
     width: 50%;
-    border: 1px solid #00000036;
+    background-color: white;
     border-radius: 1rem;
 }
 
@@ -945,7 +967,7 @@ html {
     font-size: 1.3rem;
     font-family: var(--font-titulo);
     font-weight: 500;
-    height: 90%;
+    height: 80%;
     width: 18%;
     background-color: inherit;
     transition: 0.3s ease;
@@ -954,13 +976,13 @@ html {
 
 .title-options button:hover {
     color: white;
-    background-color: var(--cor-primaria);
+    background-color: var(--cor--botao-accept);
     border-radius: 1rem;
     cursor: pointer;
 }
 
-.btn-option.active{
-    background-color: var(--cor-primaria);
+.btn-option.active {
+    background-color: var(--cor--botao-accept);
     color: white;
 }
 
@@ -973,12 +995,18 @@ html {
 }
 
 .content-cardapio-options {
-    display: none; /* Esconde tudo inicialmente */
-    height: 80%;
-    width: 80%;
-    background-color: #000;
+    display: none;
+    /* Esconde tudo inicialmente */
     align-items: center;
     justify-content: center;
+    position: relative;
+    height: 80%;
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 10px 0;
+    gap: 5vh;
 }
 
 .content-cardapio-options h1 {
@@ -986,9 +1014,103 @@ html {
 }
 
 
-.content-cardapio-options.active{
+.content-cardapio-options.active {
     display: flex;
 }
+
+.cards-salgados,
+.cards-folhados,
+.cards-bebidas,
+.cards-doces,
+.cards-outros {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: transform 0.4s ease;
+    width: 30%;
+    height: 90%;
+    border: 1px solid rgba(0, 0, 0, 0.171);
+    background-color: white;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.cards-salgados:hover button,
+.cards-folhados:hover button,
+.cards-bebidas:hover button,
+.cards-doces:hover button,
+.cards-outros:hover button {
+    background-color: var(--cor-primaria);
+    transform: translateY(-10%);
+}
+
+
+.cards-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+    width: 100%;
+    background-color: #f7f7f7;
+    border-radius: 1rem;
+}
+
+.cards-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.img-folhados{
+    height: 100%;
+    width: 100%;
+    object-position: center 80%;
+    object-fit: cover;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.cards-title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 15%;
+    width: 100%;
+    padding: 1rem;
+}
+
+.cards-priceEbtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 25%;
+    width: 100%;
+    padding: 1rem;
+}
+
+.cards-priceEbtn h4 {
+    font-size: 1.6rem;
+    font-family: var(--font-titulo);
+    color: #000000b5;
+    font-weight: 600;
+}
+
+.cards-priceEbtn button {
+    font-size: 1.2rem;
+    font-family: var(--font-titulo);
+    background-color: var(--cor--botao-accept);
+    color: white;
+    border-radius: 50%;
+    height: 80%;
+    width: 9%;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
 /*Section Sobre Nós*/
 
 .container-divisao-2 {
@@ -1114,21 +1236,32 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20vh;
+    flex-direction: column;
+    height: 30vh;
     width: 100%;
+    text-align: center;
 }
 
 .tittle-avaliacoes h1 {
+    font-size: 3rem;
     font-family: var(--font-titulo);
-    color: #276254;
+    color: rgba(0, 0, 0, 0.831);
     font-weight: 700;
+}
+
+.tittle-avaliacoes p {
+    max-width: 70%;
+    font-size: 1.4rem;
+    font-family: var(--font-titulo);
+    color: #000000a7;
+    font-weight: 500;
 }
 
 .container-avaliacoes {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 37vh;
+    height: 60vh;
     width: 100%;
 }
 
@@ -1136,13 +1269,135 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    flex-direction: column;
+    height: 95%;
+    width: 100%;
+}
+
+.content-avaliacoes-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30%;
     width: 90%;
-    /* ← aumentei aqui */
-    margin: auto;
-    overflow: hidden;
-    background-color: var(--cor-terciaria);
-    border-radius: 10px;
+    gap: 3vh;
+}
+
+.item-avaliacao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 95%;
+    width: 30%;
+}
+
+.nota-avaliacao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+    width: 100%;
+}
+
+.nota-avaliacao h1{
+    font-size: 3.8rem;
+    color: var(--cor-primaria);
+    font-family: var(--font-titulo);
+    font-weight: 700;
+}
+
+.stars-avaliacao i{
+    color: rgb(219, 219, 36);
+}
+
+.item-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30%;
+}
+
+.item-title h2{
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.631);
+    font-family: var(--font-titulo);
+    font-weight: 400;
+}
+
+.numero-avaliacao, .numero-avaliacao-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30%;
+    width: 100%;
+    gap: 1vh;
+    padding-bottom: 3vh;
+}
+
+.numero-avaliacao h1{
+    font-size: 3.8rem;
+    color: var(--cor-secundaria);
+    font-family: var(--font-titulo);
+    font-weight: 700;
+}
+
+.numero-avaliacao-2 h1{
+    font-size: 3.8rem;
+    color: var(--cor-itemdesconto);
+    font-family: var(--font-titulo);
+    font-weight: 700;
+}
+
+.item-avaliacao-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40%;
+}
+
+.item-avaliacao h2{
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.631);
+    font-family: var(--font-titulo);
+    font-weight: 400;
+}
+
+.content-avaliacoes-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+    width: 90%;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+.row-cards-avaliacao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    width: 90%;
+    gap: 3vh;
+}
+
+.cards-avaliacao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ede5e5;
+    width: 30%;
+    height: 100%;
+    border-radius: 0.4rem;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.cards-avaliacao:hover{
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Suave e discreto */
 }
 
 
