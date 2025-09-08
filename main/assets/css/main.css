@@ -24,6 +24,11 @@ html {
     border: 0px;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 
 /*Ajutes gerais*/
 
@@ -153,7 +158,7 @@ html {
     width: 4vw;
     font-family: var(--font-titulo);
     font-weight: 500;
-    background-color: #f4f4f4;
+    background-color: white;
     color: rgba(0, 0, 0, 0.76);
     border-radius: 0.4em;
     cursor: pointer;
@@ -521,7 +526,7 @@ html {
 }
 
 .modal-overlay.active, .container-modal-alert.active {
-  display: block; /* Exibe o overlay */
+  display: flex; /* Exibe o overlay */
   opacity: 1;
 }
 
@@ -865,7 +870,6 @@ html {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #f7f7f7;
     height: 70%;
     width: 25%;
     border-radius: 2rem;
@@ -1271,6 +1275,14 @@ html {
     transition: 0.3s ease;
 }
 
+.cards-salgados:hover,
+.cards-folhados:hover,
+.cards-bebidas:hover,
+.cards-doces:hover,
+.cards-outros:hover{
+    transform: scale(1.02);
+}
+
 .cards-salgados button:hover,
 .cards-folhados button:hover,
 .cards-bebidas button:hover,
@@ -1494,7 +1506,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60vh;
+    height: 70vh;
     width: 100%;
 }
 
@@ -1622,18 +1634,100 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ede5e5;
+    flex-direction: column;
     width: 30%;
     height: 100%;
     border-radius: 0.4rem;
     transition: box-shadow 0.3s ease;
     cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.267);
 }
 
 .cards-avaliacao:hover {
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.199);
     /* Suave e discreto */
 }
+
+.cards-avaliacao-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 45%;
+}
+
+.icon-user-avaliacao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 15%;
+}
+
+.icon-user-avaliacao i{
+    font-size: 3rem;
+}
+
+.title-user-info{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 65%;
+    height: 100%;
+    padding: 1rem;
+}
+
+.title-user-info h1{
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.title-user-info p{
+    height: 20%;
+    font-size: 1.2rem;
+    color: #0000007c;
+}
+
+.icon-avaliacao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 20%;
+}
+
+.icon-avaliacao i{
+    font-size: 2rem;
+    color: #e3251b49;
+}
+
+.cards-avaliacao-mid{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 90%;
+    height: 10%;
+}
+
+.stars-avaliacao-2{
+    display: flex;
+    color: rgb(226, 208, 43);
+}
+
+.cards-avaliacao-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 45%;
+}
+
+.description-avaliacao p{
+    font-family: var(--font-titulo);
+    color: #00000079;
+}
+
 
 
 /*Footer*/
@@ -1642,7 +1736,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 40vh;
+    height: 45vh;
     width: 100%;
     margin-top: 5vh;
     border-top: 1px solid rgba(0, 0, 0, 0.151);
@@ -1661,7 +1755,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80%;
+    height: 75%;
     width: 95%;
 }
 
@@ -1669,8 +1763,10 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80%;
+    height: 25%;
     width: 100%;
+    margin-top: 2vh;
+    border-top: 1px solid #00000042;
 }
 
 .item-footer{
@@ -1686,15 +1782,14 @@ html {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 50%;
+    height: 40%;
     width: 100%;
 }
 
 .info-cantina-img img{
-    height: 80%;
-    width: 100%;
     transform: translateX(-5%);
     object-fit: cover;
+    height: 200%;
 }
 
 .info-cantina-description{
@@ -1709,7 +1804,7 @@ html {
     font-size: 1.1rem;
     font-family: var(--font-titulo);
     font-weight: 400;
-    color: #000000c2;
+    color:  #00000098;
 }
 
 .info-icon{
@@ -1724,17 +1819,123 @@ html {
 
 
 .info-icon i{
-    padding: 0.5rem;
+    padding: 0.6rem;
     color: white;
     border-radius: 50%;
-    height: 100%;
-    width: 13%;
+    height: 60%;
+    width: 11%;
     background-color: var(--cor-primaria);
-    font-size: 2rem;
+    font-size: 1.3rem;
     cursor: pointer;
     transition: 0.3s ease;
 }
 
 .info-icon i:hover{
     transform: scale(1.1);
+}
+
+.title-footer-links{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 40%;
+    width: 100%;
+    padding-left: 15vh;
+}
+
+.title-footer-links h1{
+    font-size: 1.6rem;
+    font-family: var(--font-titulo);
+    color: #000000c7;
+}
+
+.footer-links{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 60%;
+    width: 30%;
+}
+
+.footer-links ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    list-style: none;
+    padding: 1rem;
+}
+
+.footer-links ul li h6{
+    width: 100%;
+    font-size: 1.2rem;
+    font-family: var(--font-titulo);
+    color:  #00000098;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.footer-links ul li h6 a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-links ul li h6:hover{
+    transform: scale(1.1);
+}
+
+.footer-links-local{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 60%;
+    width: 100%;
+}
+
+.footer-links-local ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    list-style: none;
+    padding: 1rem;
+}
+
+.footer-links-local ul li h6{
+    display: flex;
+    padding-left: 14vh;
+    gap: 1vh;
+    width: 100%;
+    font-size: 1.1rem;
+    font-family: var(--font-titulo);
+    color:  #00000098;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.footer-links-local ul li h6:hover{
+    transform: scale(1.1);
+}
+
+.title-footer-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 30%;
+    height: 100%;
+}
+
+.title-footer-bottom-2{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 70%;
+    height: 100%;
+    gap: 4vh;
+}
+
+.title-footer-bottom h1, .title-footer-bottom a, .title-footer-bottom-2 h1, .title-footer-bottom-2 a{
+    font-size: 1.2rem;
+    color:  #00000098;
+    text-decoration: none;
+    font-family: var(--font-titulo);
+    cursor: pointer;
 }

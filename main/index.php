@@ -187,18 +187,18 @@ session_start();
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
-     <div class="title-modal-alert">
+      <div class="title-modal-alert">
         <i class="fa-solid fa-lock"></i>
         <h1>
           Acesso Necessário
         </h1>
-     </div>
-        <div class="description-modal-alert">
-            <p>Para continuar navegando e aproveitar todos os recursos, você precisa fazer login em sua conta.</p>
-        </div>
+      </div>
+      <div class="description-modal-alert">
+        <p>Para continuar navegando e aproveitar todos os recursos, você precisa fazer login em sua conta.</p>
+      </div>
 
       <div class="btn-modal-alert">
-          <a class="a-link-btn-continuar" href="/cantinarepositorio/subpages/login.php" style="color: white; text-decoration: none;">Continuar</a>
+        <a class="a-link-btn-continuar" href="/cantinarepositorio/subpages/login.php" style="color: white; text-decoration: none;">Continuar</a>
       </div>
     </div>
   </div>
@@ -341,21 +341,23 @@ session_start();
         <h1>Mais Pedidos</h1>
         <h5>Os pratos favoritos dos nossos estudantes! Experimente os sabores que conquistaram corações.</h5>
       </div>
-        <div class="content-mais-pedidos">
-          <button class="botao-left-mp">
-            <h1><</h1>
-          </button>
-            <div class="carrosel-mais-pedidos">
-              <div class="carrousel-track-mais-pedidos">
-                
-              </div>
-            </div>
-          <button class="botao-right-mp">
-            <h1>
-              >
-            </h1>
-          </button>
+      <div class="content-mais-pedidos">
+        <button class="botao-left-mp">
+          <h1>
+            < 
+          </h1>
+        </button>
+        <div class="carrosel-mais-pedidos">
+          <div class="carrousel-track-mais-pedidos">
+
+          </div>
         </div>
+        <button class="botao-right-mp">
+          <h1>
+            >
+          </h1>
+        </button>
+      </div>
     </div>
 
 
@@ -632,7 +634,7 @@ session_start();
         <div class="content-right">
           <div class="movie" id="video-container">
             <div class="ratio ratio-16x9">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/O1iBfvighSo?si=v8wQ_udFzU5NITMl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe style="border-radius: 2vh;" width="560" height="315" src="https://www.youtube.com/embed/O1iBfvighSo?si=v8wQ_udFzU5NITMl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>
         </div>
@@ -648,67 +650,253 @@ session_start();
       <h1>
         Nossas Avaliações
       </h1>
-        <p>A opinião da nossa comunidade escolar é o que mais importa para nós. Veja o que estudantes, professores e funcionários têm a dizer.</p>
+      <p>A opinião da nossa comunidade escolar é o que mais importa para nós. Veja o que estudantes, professores e funcionários têm a dizer.</p>
     </div>
     <div class="container-avaliacoes">
       <div class="content-avaliacoes">
-          <div class="content-avaliacoes-top">
-              <div class="item-avaliacao">
-                  <div class="nota-avaliacao">
-                      <h1>4.8</h1>
-                  </div>
-                    <div class="stars-avaliacao">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half"></i>
-                    </div>
-                      <div class="item-title">
-                        <h2>Avaliação Média</h2>
-                      </div>
-              </div>
-              <div class="item-avaliacao">
-                  <div class="numero-avaliacao">
-                      <h1>49</h1> <i class="fa-solid fa-plus"></i>
-                  </div>
-                    <div class="item-title-2">
-                        <h2>Avaliações Positivas</h2>
-                    </div>
-              </div>
-              <div class="item-avaliacao">
-                    <div class="numero-avaliacao-2">
-                      <h1>92%</h1>
-                    </div>
-                      <div class="item-title">
-                        <h2>Clientes Satisfeitos</h2>
-                      </div>
-              </div>
-          </div>
-            <div class="content-avaliacoes-bottom">
-                  <div class="row-cards-avaliacao">
-                      <div class="cards-avaliacao">
-
-                      </div>
-                      <div class="cards-avaliacao">
-
-                      </div>
-                      <div class="cards-avaliacao">
-
-                      </div>
-                  </div>
-                    <div class="row-cards-avaliacao">
-                      <div class="cards-avaliacao">
-
-                      </div>
-                      <div class="cards-avaliacao">
-
-                      </div>
-                      <div class="cards-avaliacao">
-
-                      </div>
-                    </div>
+        <div class="content-avaliacoes-top">
+          <div class="item-avaliacao">
+            <div class="nota-avaliacao">
+              <h1>4.8</h1>
             </div>
+            <div class="stars-avaliacao">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half"></i>
+            </div>
+            <div class="item-title">
+              <h2>Avaliação Média</h2>
+            </div>
+          </div>
+          <div class="item-avaliacao">
+            <div class="numero-avaliacao">
+              <h1>49</h1> <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="item-title-2">
+              <h2>Avaliações Positivas</h2>
+            </div>
+          </div>
+          <div class="item-avaliacao">
+            <div class="numero-avaliacao-2">
+              <h1>92%</h1>
+            </div>
+            <div class="item-title">
+              <h2>Clientes Satisfeitos</h2>
+            </div>
+          </div>
+        </div>
+        <div class="content-avaliacoes-bottom">
+          <div class="row-cards-avaliacao">
+            <div class="cards-avaliacao">
+              <div class="cards-avaliacao-top">
+                <div class="icon-user-avaliacao">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="title-user-info">
+                  <h1>
+                    Maria Silva
+                  </h1>
+                  <p>
+                    Estudante do 3º ano ADM
+                  </p>
+                </div>
+                <div class="icon-avaliacao">
+                  <i class="fa-solid fa-quote-right"></i>
+                </div>
+              </div>
+              <div class="cards-avaliacao-mid">
+                <div class="stars-avaliacao-2">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <div class="cards-avaliacao-bottom">
+                <div class="description-avaliacao">
+                  <p>
+                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A equipe é super simpática e o atendimento é rápido."
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="cards-avaliacao">
+            <div class="cards-avaliacao-top">
+                <div class="icon-user-avaliacao">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="title-user-info">
+                  <h1>
+                    Maria Silva
+                  </h1>
+                  <p>
+                    Estudante do 3º ano ADM
+                  </p>
+                </div>
+                <div class="icon-avaliacao">
+                  <i class="fa-solid fa-quote-right"></i>
+                </div>
+              </div>
+              <div class="cards-avaliacao-mid">
+                <div class="stars-avaliacao-2">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <div class="cards-avaliacao-bottom">
+                <div class="description-avaliacao">
+                  <p>
+                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A equipe é super simpática e o atendimento é rápido."
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="cards-avaliacao">
+            <div class="cards-avaliacao-top">
+                <div class="icon-user-avaliacao">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="title-user-info">
+                  <h1>
+                    Maria Silva
+                  </h1>
+                  <p>
+                    Estudante do 3º ano ADM
+                  </p>
+                </div>
+                <div class="icon-avaliacao">
+                  <i class="fa-solid fa-quote-right"></i>
+                </div>
+              </div>
+              <div class="cards-avaliacao-mid">
+                <div class="stars-avaliacao-2">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <div class="cards-avaliacao-bottom">
+                <div class="description-avaliacao">
+                  <p>
+                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A equipe é super simpática e o atendimento é rápido."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row-cards-avaliacao">
+            <div class="cards-avaliacao">
+            <div class="cards-avaliacao-top">
+                <div class="icon-user-avaliacao">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="title-user-info">
+                  <h1>
+                    Maria Silva
+                  </h1>
+                  <p>
+                    Estudante do 3º ano ADM
+                  </p>
+                </div>
+                <div class="icon-avaliacao">
+                  <i class="fa-solid fa-quote-right"></i>
+                </div>
+              </div>
+              <div class="cards-avaliacao-mid">
+                <div class="stars-avaliacao-2">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <div class="cards-avaliacao-bottom">
+                <div class="description-avaliacao">
+                  <p>
+                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A equipe é super simpática e o atendimento é rápido."
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="cards-avaliacao">
+            <div class="cards-avaliacao-top">
+                <div class="icon-user-avaliacao">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="title-user-info">
+                  <h1>
+                    Maria Silva
+                  </h1>
+                  <p>
+                    Estudante do 3º ano ADM
+                  </p>
+                </div>
+                <div class="icon-avaliacao">
+                  <i class="fa-solid fa-quote-right"></i>
+                </div>
+              </div>
+              <div class="cards-avaliacao-mid">
+                <div class="stars-avaliacao-2">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <div class="cards-avaliacao-bottom">
+                <div class="description-avaliacao">
+                  <p>
+                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A equipe é super simpática e o atendimento é rápido."
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="cards-avaliacao">
+            <div class="cards-avaliacao-top">
+                <div class="icon-user-avaliacao">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="title-user-info">
+                  <h1>
+                    Maria Silva
+                  </h1>
+                  <p>
+                    Estudante do 3º ano ADM
+                  </p>
+                </div>
+                <div class="icon-avaliacao">
+                  <i class="fa-solid fa-quote-right"></i>
+                </div>
+              </div>
+              <div class="cards-avaliacao-mid">
+                <div class="stars-avaliacao-2">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <div class="cards-avaliacao-bottom">
+                <div class="description-avaliacao">
+                  <p>
+                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A equipe é super simpática e o atendimento é rápido."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -725,26 +913,114 @@ session_start();
     <div class="container-footer">
       <div class="content-footer">
         <div class="content-top-footer">
-            <div class="item-footer">
-              <div class="info-cantina-img">
-                  <img src="./assets/img/logo2.png" alt="">
-              </div>
-                <div class="info-cantina-description">
-                    <p>Alimentando conhecimento e criando memórias através de sabores únicos há mais de 10 anos na nossa comunidade escolar.</p>
-                </div>
-                  <div class="info-icon">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-x-twitter"></i>
-                  </div>
+          <div class="item-footer">
+            <div class="info-cantina-img">
+              <img src="./assets/img/logo-footer.png" alt="">
             </div>
-            <div class="item-footer"></div>
-            <div class="item-footer"></div>
-            <div class="item-footer"></div>
-        </div>
-          <div class="content-bottom-footer">
-
+            <div class="info-cantina-description">
+              <p>Alimentando conhecimento e criando memórias através de sabores únicos há mais de 10 anos na nossa comunidade escolar.</p>
+            </div>
+            <div class="info-icon">
+              <i class="fa-brands fa-whatsapp"></i>
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-x-twitter"></i>
+            </div>
           </div>
+          <div class="item-footer">
+            <div class="title-footer-links">
+              <h1>Links Rápidos</h1>
+            </div>
+            <div class="footer-links">
+              <ul>
+                <li>
+                  <h6 style="width: 50%;">
+                    <a href="#inicio">Início</a>
+                  </h6>
+                </li>
+                <li>
+                  <h6>
+                    <a href="#cardapio">Cardápio</a>
+                  </h6>
+                </li>
+                <li>
+                  <h6>
+                    <a href="#Sobre-nos">Sobre Nós</a>
+                  </h6>
+                </li>
+                <li>
+                  <h6>
+                    <a href="#Avaliacoes">Avaliações</a>
+                  </h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="item-footer">
+            <div class="title-footer-links">
+              <h1>Contato</h1>
+            </div>
+            <div class="footer-links-local">
+              <ul>
+                <li>
+                  <h6>
+                    <a href="https://www.bing.com/search?q=maps%20Av%20Cruzeiro%20Do%20Sul%2C%202630%20-%20Carandiru&qs=n&form=QBRE&sp=-1&lq=0&pq=maps%20av%20cruzeiro%20do%20sul%2C%202630%20-%20carandiru&sc=0-41&sk=&cvid=08A936946DAF43F9B1FC74F782A823B6">
+                      <i class="fa-solid fa-location-dot"></i>
+                      Av Cruzeiro Do Sul, 2630 - Carandiru.
+                    </a>
+                  </h6>
+                </li>
+                <li>
+                  <h6>
+                    <a href="https://vestibulinho.etec.sp.gov.br/fale-conosco">
+                      <i class="fa-solid fa-location-dot"></i>
+                      (11) 3471-4071.
+                    </a>
+                  </h6>
+                </li>
+                <li>
+                  <h6><i class="fa-solid fa-envelope"></i> Furafila@gmail.com</h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="item-footer">
+            <div class="title-footer-links">
+              <h1>Horários de Funcionamento</h1>
+            </div>
+            <div class="footer-links">
+              <ul>
+                <li>
+                  <h6 style="width: 230%; display:flex; gap: 1vh;"><i class="fa-solid fa-clock"></i> Manha: 10:00 - 10:20.</h6>
+                </li>
+                <li>
+                  <h6 style="width: 230%; display:flex; gap: 1vh;"><i class="fa-solid fa-clock"></i> Tarde: 16:00 - 16:20.</h6>
+                </li>
+                <li>
+                  <h6 style="width: 235%; display:flex; gap: 1vh; padding-bottom:2vh;"><i class="fa-solid fa-clock"></i> Noite: 20:00 - 20:20.</h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="content-bottom-footer">
+          <div class="title-footer-bottom">
+            <h1>
+              © 2025 FURA-FILA. Todos os direitos reservados.
+            </h1>
+          </div>
+          <div class="title-footer-bottom-2">
+            <h1>
+              <a href="">
+                Política e Privacidade
+              </a>
+            </h1>
+            <h1>
+              <a href="">
+                Termos de uso
+              </a>
+            </h1>
+          </div>
+        </div>
       </div>
     </div>
   </footer>
