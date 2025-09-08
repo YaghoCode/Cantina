@@ -198,9 +198,6 @@ session_start();
         </div>
 
       <div class="btn-modal-alert">
-        <button id="btn-voltar-modal-alert" style="background-color: #f7f7f7; border: 1px solid #00000079; color: #000000c2;">
-          Voltar
-        </button>
           <a class="a-link-btn-continuar" href="/cantinarepositorio/subpages/login.php" style="color: white; text-decoration: none;">Continuar</a>
       </div>
     </div>
@@ -725,21 +722,29 @@ session_start();
   <!--FOOTER-->
 
   <footer>
-    <div class="container-footer" style="height: 10vh; width: 100%;">
+    <div class="container-footer">
       <div class="content-footer">
-        <div class="footer-left">
+        <div class="content-top-footer">
+            <div class="item-footer">
+              <div class="info-cantina-img">
+                  <img src="./assets/img/logo2.png" alt="">
+              </div>
+                <div class="info-cantina-description">
+                    <p>Alimentando conhecimento e criando memórias através de sabores únicos há mais de 10 anos na nossa comunidade escolar.</p>
+                </div>
+                  <div class="info-icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </div>
+            </div>
+            <div class="item-footer"></div>
+            <div class="item-footer"></div>
+            <div class="item-footer"></div>
+        </div>
+          <div class="content-bottom-footer">
 
-        </div>
-        <div class="footer-description">
-          <h6>
-            © Copyright 2025 - Fura-Fila - Todos os direitos reservados Cantinas PJ <br>com Agência de Restaurantes Online S.A
-          </h6>
-        </div>
-        <div class="footer-right">
-          <div class="footer-icons">
-            <i class="fa-brands fa-whatsapp"></i> <i class="fa-brands fa-instagram"></i> <i class="fa-brands fa-twitter"></i>
           </div>
-        </div>
       </div>
     </div>
   </footer>

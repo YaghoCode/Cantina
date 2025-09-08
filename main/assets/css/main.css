@@ -494,6 +494,8 @@ html {
 
 .container-modal-alert {
     display: none;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -501,8 +503,8 @@ html {
     background: white;
     border: 1px solid #0000005d;
     z-index: 9999;
-    height: 60vh;
-    width: 80vh;
+    height: 50vh;
+    width: 70vh;
     border-radius: 15px;
 }
 
@@ -545,7 +547,7 @@ html {
     align-items: center;
     justify-content: center;
     height: 50%;
-    width: 5.3%;
+    width: 5.5%;
     border-radius: 50%;
     background-color: var(--cor-primaria);
     color: white;
@@ -619,7 +621,8 @@ html {
 
 .btn-modal-alert button, .btn-modal-alert a{
     text-align: center;
-    height: 35%;
+    padding: 0.3rem;
+    height: 45%;
     width: 80%;
     border-radius: 1.5vh;
     background-color: var(--cor-primaria);
@@ -1639,48 +1642,98 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 15vh;
+    height: 40vh;
     width: 100%;
+    border-top: 1px solid;
 }
 
 .content-footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 80%;
     height: 95%;
 }
 
-.footer-left {
-    height: 100%;
-    width: 30%;
-}
-
-.footer-description {
+.content-top-footer{
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 80%;
+    width: 95%;
+}
+
+.content-bottom-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 100%;
+}
+
+.item-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 25%;
     height: 100%;
-    width: 40%;
+}
+
+.info-cantina-img{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 50%;
+    width: 100%;
+}
+
+.info-cantina-img img{
+    height: 80%;
+    width: 100%;
+    transform: translateX(-5%);
+    object-fit: cover;
+}
+
+.info-cantina-description{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 40%;
+    width: 100%;
+}
+
+.info-cantina-description p{
+    font-size: 1.1rem;
+    font-family: var(--font-titulo);
+    font-weight: 400;
+    color: #000000c2;
+}
+
+.info-icon{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 30%;
+    width: 100%;
+    gap: 2vh;
     text-align: center;
 }
 
-.footer-description h6 {
-    font-family: var(--font-titulo);
-    color: #989595;
-}
 
-.footer-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.info-icon i{
+    padding: 0.5rem;
+    color: white;
+    border-radius: 50%;
     height: 100%;
-    width: 30%;
+    width: 13%;
+    background-color: var(--cor-primaria);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
-.footer-icons i {
-    font-size: 2rem;
-    padding: 1vh;
-    color: #e3261b;
-    cursor: pointer;
+.info-icon i:hover{
+    transform: scale(1.1);
 }
