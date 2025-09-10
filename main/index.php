@@ -57,7 +57,7 @@ session_start();
         <?php
         if (isset($_SESSION['cpf'])) {
           $cpf = $_SESSION['cpf'];
-          $query = "SELECT nome, cpf, turma FROM cliente WHERE cpf = '$cpf'";
+          $query = "SELECT nome, cpf, turma, email FROM cliente WHERE cpf = '$cpf'";
           $result = mysqli_query($con, $query);
           $user_data = mysqli_fetch_assoc($result);
 
@@ -91,45 +91,30 @@ session_start();
   <!--POPUP DO USER-->
 
   <div class="pop-up-user" id="pop-up-user">
-
+    <div class="btn-pp-close" id="btn-close-user-nav">
+        <i class="fa-solid fa-xmark"></i>
+    </div>
     <div class="content-pp-user">
+        <div class="content-pp-top">
+            <div class="top-circle-info-user">
 
-      <div class="top-content">
-
-        <div class="icon-user">
-          <i class="fa-solid fa-user"></i> <!--PHP ICONS IMAGES-->
+            </div>
+              <div class="top-info-user">
+                  
+              </div>
         </div>
+          <div class="content-pp-bottom">
 
-        <div class="btn-close-pp">
-          <i class="fa-solid fa-xmark" id="btn-close-user-nav"></i>
-        </div>
-      </div>
-
-      <div class="bottom-content">
-
-
-        <div class="info-user">
-          <div class="name-user">
-            <h4>
-              ALUNO: <?php echo $user_data['nome']; ?><!--ADICIONAR PHP-->
-            </h4>
           </div>
-          <div class="turma-user">
-            <h4>
-              TURMA: <?php echo $user_data['turma']; ?> <!--Adicionar PHP-->
-            </h4>
-          </div>
-          <div class="logout-user">
-            <button>
-              <a href="/cantinarepositorio/subpages/logout.php">Logout</a>
-            </button>
-            <a href=""><i class="fa-solid fa-pen"></i></a>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
-
+      <!-- <i class="fa-solid fa-xmark" id="btn-close-user-nav"></i>      <a href="/cantinarepositorio/subpages/logout.php">Logout</a>  <p>
+                      Cliente: <php echo $user_data['nome']; ?>
+                    </p>
+                        <p>
+                        TURMA: <php echo $user_data['turma']; ?> 
+                        </p> -->
+ 
   <!--Popup carrinho-->
   <div class="pop-up-cart" id="pop-up-cart">
     <div class="content-pp-cart">

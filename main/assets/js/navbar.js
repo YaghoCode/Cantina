@@ -7,8 +7,8 @@ const btnCloseUserNav = document.getElementById('btn-close-user-nav');
 
 
 btnUserNav.addEventListener('click', () => {
-  if (containerPopUpUser.style.display !== 'block') {
-    containerPopUpUser.style.display = 'block';
+  if (containerPopUpUser.style.display !== 'flex') {
+    containerPopUpUser.style.display = 'flex';
   }else{
     containerPopUpUser.style.display = 'none';
   }
