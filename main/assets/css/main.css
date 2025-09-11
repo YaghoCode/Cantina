@@ -212,7 +212,7 @@ a{
 .pop-up-user {
     display: none;
     position: fixed;
-    height: 20%;
+    height: 25%;
     width: 20%;
     background-color: white;
     top: 8%;
@@ -224,7 +224,7 @@ a{
 
 .btn-pp-close{
     position: absolute;
-    height: 13%;
+    height: 11%;
     width: 7%;
     background-color: var(--cor--botao-reject);
     border-radius: 100%;
@@ -255,7 +255,6 @@ a{
     flex-direction: column;
     height: 70%;
     width: 95%;
-    border: 1px solid;
 }
 
 
@@ -264,27 +263,99 @@ a{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 20%;
+    height: 10%;
     width: 95%;
-    border: 1px solid;
 }
+
+.content-pp-bottom a{
+    text-align: center;
+    height: 100%;
+    width: 20%;
+    border-radius: 0.4rem;
+    color: white;
+    font-family: var(--font-titulo);
+    font-weight: 600;
+    background-color: var(--cor-primaria);
+}
+
 
 .top-circle-info-user{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 60%;
-    width: 80%;
+    width: 85%;
     background-color: #0000000e;
     border-radius: 1rem;
+    gap: 0.3vh;
+}
+
+.top-circle-info-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 95%;
+}
+
+.top-circle-info-img img{
+    height: 80%;
+    width: 70%;
+    background-color: #000000;
+    border-radius: 50%;
+}
+
+.top-circle-info-text{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+    height: 95%;
+}
+
+.top-circle-info-text h6{
+    padding-top: 8%;
+    height: 35%;
+    font-size: 1rem;
+}
+
+.top-circle-info-text p{
+    font-size: 0.9rem;
 }
 
 .top-info-user{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 20%;
-    width: 80%;
+    height: 50%;
+    width: 85%;
+}
+
+.top-info-user-text{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    height: 80%;
+    width: 100%;
+    gap: 1.5vh;
+}
+
+.top-info-user-text h6{
+    color: rgba(0, 0, 0, 0.878);
+    font-family: var(--font-titulo);
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding-top: 10%;
+    height: 10%;
+}
+
+.top-info-user-text p{
+    font-family: var(--font-titulo);
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.878);
 }
 
 
@@ -1478,6 +1549,7 @@ a{
     height: 30%;
     width: 90%;
     gap: 3vh;
+    padding-bottom: 5%;
 }
 
 .item-avaliacao {

@@ -97,23 +97,34 @@ session_start();
     <div class="content-pp-user">
         <div class="content-pp-top">
             <div class="top-circle-info-user">
-
+                <div class="top-circle-info-img">
+                  <img src="" alt="">
+                </div>
+                  <div class="top-circle-info-text">
+                      <h6>
+                        <?php echo $user_data['nome']; ?> 
+                      </h6>
+                        <p>
+                        <?php echo $user_data['email']; ?> 
+                      </p>
+                  </div>
             </div>
               <div class="top-info-user">
-                  
+                   <div class="top-info-user-text">
+                      <h6>
+                        Turma: <?php echo $user_data['turma']; ?> 
+                      </h6>
+                        <p>
+                        CPF:  <?php echo $user_data['cpf']; ?> 
+                      </p>
+                   </div>
               </div>
         </div>
           <div class="content-pp-bottom">
-
+              <a href="/cantinarepositorio/subpages/logout.php">Logout</a>
           </div>
     </div>
   </div>
-      <!-- <i class="fa-solid fa-xmark" id="btn-close-user-nav"></i>      <a href="/cantinarepositorio/subpages/logout.php">Logout</a>  <p>
-                      Cliente: <php echo $user_data['nome']; ?>
-                    </p>
-                        <p>
-                        TURMA: <php echo $user_data['turma']; ?> 
-                        </p> -->
  
   <!--Popup carrinho-->
   <div class="pop-up-cart" id="pop-up-cart">
