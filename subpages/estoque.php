@@ -239,14 +239,13 @@ if(isset($_SESSION['cpf'])){
                     header("Location: /cantinarepositorio/subpages/estoque.php");
                     exit;
                 } else {
-                    throw new Exception("Erro ao inserir produto no banco de dados.");
+                    throw new Exception();
                 }
                 } else {
-                    throw new Exception("Erro ao mover o arquivo para o diretório de destino.");
+                    throw new Exception();
                 }
                 } else {
-                    throw new Exception("Tipo de arquivo não permitido. Apenas JPG, JPEG, PNG e GIF são aceitos.");
-                
+                    throw new Exception();
             } }}
 
 

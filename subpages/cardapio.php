@@ -73,33 +73,30 @@ session_start();
           <?php
         if (isset($_SESSION['cpf'])) {
           $cpf = $_SESSION['cpf'];
-          $query = "SELECT nome, cpf, turma FROM cliente WHERE cpf = '$cpf'";
+          $query = "SELECT nome, cpf, turma, email FROM cliente WHERE cpf = '$cpf'";
           $result = mysqli_query($con, $query);
           $user_data = mysqli_fetch_assoc($result);
 
           if ($result && mysqli_num_rows($result) > 0) {
 
-            echo '<div class="nav-buttons">
+            echo '<div class="nav-buttons" style="gap:3vh;">
                   <div class="btn-user" id="btn-user-nav" >
+                    <button>
                       <i class="fa-regular fa-user"></i>
+                    </button>
                   </div>
                   <div class="btn-cart" id="btn-cart-nav">
-                      <i class="fa-solid fa-cart-shopping"></i>
+                    <button><i class="fa-solid fa-cart-shopping"></i>Carrinho</button>
                   </div>
               </div>';
           }
         } else {
           echo '  <div class="nav-buttons">
                 <div class="btn-cadastrar-se">
-                                <h1 class="botaocadastro">
-                                <a href="/subpages/login.php" style=" color:inherit; text-decoration:none;">Cadastrar</a>
-                                </h1>
+                                <button>
+                                  <a href="/cantinarepositorio/subpages/login.php" style=" color:inherit; text-decoration:none;"><i class="fa-regular fa-user"></i> Entrar</a>
+                                </button>
                             </div>
-                              <div class="btn-login" >
-                                  <button>
-                                    <a href="/cantinarepositorio/subpages/login.php" style=" color:white; text-decoration:none;">Login</a> 
-                                  </button>
-                              </div>
                 </div>';
         }
         ?>
@@ -109,46 +106,43 @@ session_start();
 
   <!--POPUP DO USER-->
 
+
   <div class="pop-up-user" id="pop-up-user">
-
-    <div class="content-pp-user">
-
-      <div class="top-content">
-
-        <div class="icon-user">
-          <i class="fa-solid fa-user"></i> <!--PHP ICONS IMAGES-->
-        </div>
-
-        <div class="btn-close-pp">
-          <i class="fa-solid fa-xmark" id="btn-close-user-nav"></i>
-        </div>
-      </div>
-
-      <div class="bottom-content">
-
-
-        <div class="info-user">
-          <div class="name-user">
-            <h4>
-              ALUNO: <?php echo $user_data['nome']; ?><!--ADICIONAR PHP-->
-            </h4>
-          </div>
-          <div class="turma-user">
-            <h4>
-              TURMA:  <?php echo $user_data['turma']; ?> <!--Adicionar PHP-->
-            </h4>
-          </div>
-          <div class="logout-user">
-              <button style="    border: none;">
-                  <a href="/cantinarepositorio/subpages/logout.php">Logout</a>
-              </button>
-              <a href=""><i class="fa-solid fa-pen"></i></a>
-          </div>
-        </div>
-      </div>
+    <div class="btn-pp-close" id="btn-close-user-nav">
+        <i class="fa-solid fa-xmark"></i>
     </div>
-
+    <div class="content-pp-user">
+        <div class="content-pp-top">
+            <div class="top-circle-info-user">
+                <div class="top-circle-info-img">
+                  <img src="" alt="">
+                </div>
+                  <div class="top-circle-info-text">
+                      <h6>
+                        <?php echo $user_data['nome']; ?> 
+                      </h6>
+                        <p>
+                        <?php echo $user_data['email']; ?> 
+                      </p>
+                  </div>
+            </div>
+              <div class="top-info-user">
+                   <div class="top-info-user-text">
+                      <h6>
+                        Turma: <?php echo $user_data['turma']; ?> 
+                      </h6>
+                        <p>
+                        CPF:  <?php echo $user_data['cpf']; ?> 
+                      </p>
+                   </div>
+              </div>
+        </div>
+          <div class="content-pp-bottom">
+              <a href="/cantinarepositorio/subpages/logout.php">Logout</a>
+          </div>
+    </div>
   </div>
+
 
   <!--Popup carrinho-->
   <div class="pop-up-cart" id="pop-up-cart">
