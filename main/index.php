@@ -147,7 +147,9 @@ session_start();
           <div class="container-items">
             <div class="swiper">
               <div class="swiper-wrapper">
-                <div class="swiper-slide bg-light p-3 border rounded">Slide 1</div>
+                <div class="swiper-slide bg-light p-3 border rounded">
+                    
+                </div>
                 <div class="swiper-slide bg-light p-3 border rounded">Slide 2</div>
                 <div class="swiper-slide bg-light p-3 border rounded">Slide 3</div>
                 <div class="swiper-slide bg-light p-3 border rounded">Slide 1</div>

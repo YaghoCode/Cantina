@@ -309,20 +309,26 @@ a{
 .top-circle-info-text{
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: column;
     width: 70%;
-    height: 95%;
+    height: 100%;
 }
 
 .top-circle-info-text h6{
-    padding-top: 8%;
-    height: 35%;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 95%;
 }
 
 .top-circle-info-text p{
-    font-size: 0.9rem;
+    font-size: 1rem;
+    max-width: 95%; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .top-info-user{
@@ -1306,16 +1312,6 @@ a{
 .cards-outros:hover{
     transform: scale(1.02);
 }
-
-.cards-salgados button:hover,
-.cards-folhados button:hover,
-.cards-bebidas button:hover,
-.cards-doces button:hover,
-.cards-outros button:hover {
-    background-color: var(--cor-primaria);
-    transform: scale(1.05);
-}
-
 
 .cards-img {
     display: flex;
