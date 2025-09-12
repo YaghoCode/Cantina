@@ -38,6 +38,7 @@ btnCloseCartNav.addEventListener('click', () => {
 const swiper = new Swiper('.swiper', {
     direction: 'vertical', // Define a direção como vertical
     slidesPerView: 'auto', // Mostra os slides conforme o tamanho do conteúdo
+    spaceBetween: 5, // Espaçamento entre os slides em pixels
     freeMode: true, // Permite rolagem livre
     scrollbar: {
         el: '.swiper-scrollbar', // Ativa a barra de rolagem

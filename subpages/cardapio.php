@@ -45,27 +45,27 @@ session_start();
           <ul>
             <li>
               <h1>
-                <a href="#salgados" style="text-decoration: none; color: #f0a956;">Salgados</a>
+                <a class="nav-items-ul-s" href="#salgados">Salgados</a>
               </h1>
             </li>
             <li>
               <h1>
-                <a href="#folhados" style="text-decoration: none; color: #a1735e;">Folhados</a>
+                <a class="nav-items-ul-f"  href="#folhados">Folhados</a>
               </h1>
             </li>
             <li>
               <h1>
-                <a href="#doces" style="text-decoration: none; color:  #f0a956;">Doces</a>
+                <a class="nav-items-ul-d"  href="#doces">Doces</a>
               </h1>
             </li>
             <li>
               <h1>
-                <a href="#bebidas" style="text-decoration: none; color: #a1735e;">Bebidas</a>
+                <a class="nav-items-ul-b"  href="#bebidas">Bebidas</a>
               </h1>
             </li>
             <li>
               <h1>
-                <a href="#outros" style="text-decoration: none; color: inherit;">Outros</a>
+                <a class="nav-items-ul-o"  href="#outros">Outros</a>
               </h1>
             </li>
           </ul>
@@ -82,7 +82,7 @@ session_start();
             echo '<div class="nav-buttons" style="gap:3vh;">
                   <div class="btn-user" id="btn-user-nav" >
                     <button>
-                      <i class="fa-regular fa-user"></i>
+                      <i class="fa-regular fa-user"></i> Perfil
                     </button>
                   </div>
                   <div class="btn-cart" id="btn-cart-nav">
@@ -193,7 +193,7 @@ session_start();
 
 
   <!--Main-->
-    <div class="divisao-navbar" style="height: 12vh;">
+    <div class="divisao-navbar" style="height: 10vh;">
 
     </div>
 
@@ -211,7 +211,12 @@ session_start();
 
                       echo '
                       <div class="cards-items">
-                        <div class="cards-items-left">
+                        <div class="cards-items-top">
+                          <div class="cards-items-img">
+                            <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
+                          </div>
+                        </div>
+                        <div class="cards-items-bottom">
                           <div class="title-cards-items">
                             <h1>'.$item['Nome'].'</h1>
                           </div>
@@ -219,12 +224,14 @@ session_start();
                             <p>'.$item['Descricao'].'</p>
                           </div>
                           <div class="price-cards-items">
-                            <p>R$ '.$item['preco'].'</p>
-                          </div>
-                        </div>
-                        <div class="cards-items-right">
-                          <div class="cards-items-img">
-                            <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
+                            <div class="price-cards-items-p">
+                              <p>R$ '.$item['preco'].'</p>
+                            </div>
+                              <div class="price-cards-items-button">
+                                  <button class="cardapio-btn-cards">
+                                      <i class="fa-solid fa-circle-plus" style="color: #276264;"></i>
+                                  </button>
+                              </div>
                           </div>
                         </div>
                       </div>';
@@ -252,7 +259,12 @@ session_start();
 
                       echo '
                       <div class="cards-items">
-                        <div class="cards-items-left">
+                        <div class="cards-items-top">
+                          <div class="cards-items-img">
+                            <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
+                          </div>
+                        </div>
+                        <div class="cards-items-bottom">
                           <div class="title-cards-items">
                             <h1>'.$item['Nome'].'</h1>
                           </div>
@@ -260,12 +272,14 @@ session_start();
                             <p>'.$item['Descricao'].'</p>
                           </div>
                           <div class="price-cards-items">
-                            <p>R$ '.$item['preco'].'</p>
-                          </div>
-                        </div>
-                        <div class="cards-items-right">
-                          <div class="cards-items-img" style="background-color: #a1735e;">
-                            <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
+                            <div class="price-cards-items-p">
+                              <p>R$ '.$item['preco'].'</p>
+                            </div>
+                              <div class="price-cards-items-button">
+                                  <button class="cardapio-btn-cards">
+                                      <i class="fa-solid fa-circle-plus" style="color: #276264;"></i>
+                                  </button>
+                              </div>
                           </div>
                         </div>
                       </div>';
@@ -291,9 +305,14 @@ session_start();
               if(mysqli_num_rows($query_run) > 0){
                   foreach($query_run as $item){
 
-                      echo '
+                      echo  '
                       <div class="cards-items">
-                        <div class="cards-items-left">
+                        <div class="cards-items-top">
+                          <div class="cards-items-img">
+                            <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
+                          </div>
+                        </div>
+                        <div class="cards-items-bottom">
                           <div class="title-cards-items">
                             <h1>'.$item['Nome'].'</h1>
                           </div>
@@ -301,12 +320,14 @@ session_start();
                             <p>'.$item['Descricao'].'</p>
                           </div>
                           <div class="price-cards-items">
-                            <p>R$ '.$item['preco'].'</p>
-                          </div>
-                        </div>
-                        <div class="cards-items-right">
-                          <div class="cards-items-img">
-                            <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
+                            <div class="price-cards-items-p">
+                              <p>R$ '.$item['preco'].'</p>
+                            </div>
+                              <div class="price-cards-items-button">
+                                  <button class="cardapio-btn-cards">
+                                      <i class="fa-solid fa-circle-plus" style="color: #276264;"></i>
+                                  </button>
+                              </div>
                           </div>
                         </div>
                       </div>';
@@ -331,9 +352,14 @@ session_start();
               if(mysqli_num_rows($query_run) > 0){
                   foreach($query_run as $item){
 
-                      echo '
+                      echo  '
                       <div class="cards-items">
-                        <div class="cards-items-left">
+                        <div class="cards-items-top">
+                          <div class="cards-items-img">
+                            <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
+                          </div>
+                        </div>
+                        <div class="cards-items-bottom">
                           <div class="title-cards-items">
                             <h1>'.$item['Nome'].'</h1>
                           </div>
@@ -341,12 +367,14 @@ session_start();
                             <p>'.$item['Descricao'].'</p>
                           </div>
                           <div class="price-cards-items">
-                            <p>R$ '.$item['preco'].'</p>
-                          </div>
-                        </div>
-                        <div class="cards-items-right">
-                          <div class="cards-items-img" style="background-color: #a1735e;">
-                            <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
+                            <div class="price-cards-items-p">
+                              <p>R$ '.$item['preco'].'</p>
+                            </div>
+                              <div class="price-cards-items-button">
+                                  <button class="cardapio-btn-cards">
+                                      <i class="fa-solid fa-circle-plus" style="color: #276264;"></i>
+                                  </button>
+                              </div>
                           </div>
                         </div>
                       </div>';
@@ -371,9 +399,14 @@ session_start();
               if(mysqli_num_rows($query_run) > 0){
                   foreach($query_run as $item){
 
-                      echo '
+                      echo  '
                       <div class="cards-items">
-                        <div class="cards-items-left">
+                        <div class="cards-items-top">
+                          <div class="cards-items-img">
+                            <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
+                          </div>
+                        </div>
+                        <div class="cards-items-bottom">
                           <div class="title-cards-items">
                             <h1>'.$item['Nome'].'</h1>
                           </div>
@@ -381,12 +414,14 @@ session_start();
                             <p>'.$item['Descricao'].'</p>
                           </div>
                           <div class="price-cards-items">
-                            <p>R$ '.$item['preco'].'</p>
-                          </div>
-                        </div>
-                        <div class="cards-items-right">
-                          <div class="cards-items-img" style="background-color: #d6390d;">
-                            <img src="/cantinarepositorio/subpages/imgbd/'.$item['img'].'" alt="">
+                            <div class="price-cards-items-p">
+                              <p>R$ '.$item['preco'].'</p>
+                            </div>
+                              <div class="price-cards-items-button">
+                                  <button class="cardapio-btn-cards">
+                                      <i class="fa-solid fa-circle-plus" style="color: #276264;"></i>
+                                  </button>
+                              </div>
                           </div>
                         </div>
                       </div>';
@@ -395,7 +430,26 @@ session_start();
             ?>
                       </div>
                 </div>
+              
+               <!-- Overlay para o modal -->
+    <div class="modal-overlay-cardapio" id="modal-overlay-cardapio"></div>
 
+        <!-- Modal alert -->
+        <div class="container-modal-cardapio" id="modal-cardapio">
+          <div class="content-modal-cardapio">
+            <div class="btn-sair-modal-cardapio">
+              <button class="btn-close-modaL" style="cursor: pointer;">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+  <script type="module" src="./assets/js/cardapioModal.js"></script>
   <script type="module" src="./assets/js/cardapio.js"></script>
   <!-- Bootstrap 5 JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

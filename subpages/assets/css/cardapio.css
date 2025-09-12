@@ -32,7 +32,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 9vh;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
     z-index: 10000;
     width: 100%;
 }
@@ -73,10 +73,35 @@ body {
 
 .nav-links ul h1 {
     font-size: 1.4rem;
-    color: var(--cor-primaria);
     font-family: var(--font-titulo);
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 400;
+}
+
+.nav-links ul h1 a{
+    transition: 0.3s ease;
+    color: #000000;
+    text-decoration: none;
+}
+
+.nav-items-ul-s:hover{
+    color: var(--cor-secundaria);
+}
+
+.nav-items-ul-f:hover{
+    color: var(--cor-terciaria);
+}
+
+.nav-items-ul-d:hover{
+    color: var(--cor-secundaria);
+}
+
+.nav-items-ul-b:hover{
+    color: var(--cor-terciaria);
+}
+
+.nav-items-ul-o:hover{
+    color: var(--cor-primaria);
 }
 
 .nav-items {
@@ -106,9 +131,13 @@ body {
 }
 
 .btn-user button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2vh;
     font-size: 1.2rem;
     height: 4vh;
-    width: 4vw;
+    width: 6vw;
     font-family: var(--font-titulo);
     font-weight: 500;
     background-color: white;
@@ -120,8 +149,7 @@ body {
 }
 
 .btn-user i {
-    padding-top: 0.3rem;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: inherit;
     cursor: pointer;
 }
@@ -414,7 +442,7 @@ body {
 .swiper {
     width: 95%;
     height: 100%;
-    padding: 1rem 0;
+    padding: 1rem;
 }
 
 .swiper-slide {
@@ -434,9 +462,10 @@ body {
 
 .swiper-scrollbar {
     background: rgba(0, 0, 0, 0.1); /* Cor da barra de rolagem */
-    border-radius: 10px;
+    border-radius: 1px;
     cursor: pointer;
-    min-width: 1.5%;    
+    min-width: 2.0%;    
+    transform: translateX(50%);
 }
 
 
@@ -549,8 +578,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     min-height: 21vh;
-    flex: 0 0 32%;
+    max-height: 35vh;
+    flex: 0 0 32%; /* Largura padrão: 25% */
     border-bottom: 3px solid rgba(0, 0, 0, 0.080);
     border-radius: 0.4rem;
     cursor: pointer;
@@ -562,22 +593,50 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.10);
 }
 
-.cards-items-left,
-.cards-items-right {
+.cards-items-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+    width: 100%;
+}
+
+.cards-items-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 80%;
+    border-radius: 0.5rem;
+    border-radius: 1rem;
+}
+
+.cards-items-img img {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+
+.cards-items-bottom{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100%;
-    width: 50%;
+    height: 40%;
+    width: 100%;
 }
 
 .title-cards-items {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 90%;
-    height: 33%;
+    width: 92%;
+    height: 20%;
     padding-left: 0.2rem;
 }
 
@@ -590,15 +649,14 @@ body {
   }
   
 .description-cards-items {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    height: 30%;
-    width: 100%;
-    padding-left: 1rem;
-    word-break: break-all;
+display: -webkit-box;
+  -webkit-line-clamp: 2;   /* máximo de 2 linhas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;  /* evita cortar palavra no meio */
+  max-width: 90%;
+  min-width: 90%;
 }
 
 .description-cards-items p {
@@ -607,36 +665,122 @@ body {
 
 .price-cards-items {
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    height: 30%;
-    width: 100%;
-    padding-left: 1rem;
+    align-items: center;
+    justify-content: center;
+    height: 45%;
+    width: 90%;
+}
+
+.price-cards-items-p{
+   display: flex;
+   align-items: flex-end;
+   justify-content: flex-start;
+   width: 90%;
+   height: 100%;
 }
 
 .price-cards-items p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 
-.cards-items-img {
+.price-cards-items-button{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 70%;
-    width: 70%;
-    background-color: #f0a856ed;
-    border-radius: 0.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    height: 100%;
+    width: 10%;
 }
 
-.cards-items-img img {
-    max-width: 95%;
-    max-height: 95%;
-    padding: 0.2rem;
+.price-cards-items-button button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    height: 60%;
+    width: 85%;
+    border-radius: 100%;
+    transition: 0.3s ease;
+    
+}
+
+.price-cards-items-button button i{
+    font-size: 2.2rem;
+}
+
+
+.price-cards-items-button button:hover{
+    transform: scale(1.02);
+}
+
+/*Modal Cardapio*/
+
+.container-modal-cardapio {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #0000005d;
+    z-index: 11111112;
+    height: 50vh;
+    width: 70vh;
+    border-radius: 15px;
+}
+
+.modal-overlay-cardapio {
+  display: none; /* Inicialmente escondido */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+  z-index: 11111111; /* Abaixo do modal */
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay-cardapio.active, .container-modal-cardapio.active {
+  display: flex; /* Exibe o overlay */
+  opacity: 1;
+}
+
+.content-modal-cardapio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 95%;
+    width: 95%;
+}
+
+.btn-sair-modal-cardapio {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 15%;
     width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 1rem;
-  }
-  
+}
+
+.btn-sair-modal-cardapio button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 5.5%;
+    border-radius: 50%;
+    background-color: var(--cor-primaria);
+    color: white;
+    font-size: 1.4rem;
+    transition: 0.3s ease;
+    border: none;
+}
+
+.btn-sair-modal-cardapio button:hover{
+    transform: scale(1.05);
+    
+}
+

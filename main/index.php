@@ -66,7 +66,7 @@ session_start();
             echo '<div class="nav-buttons" style="gap:3vh;">
                   <div class="btn-user" id="btn-user-nav" >
                     <button>
-                      <i class="fa-regular fa-user"></i>
+                      <i class="fa-regular fa-user"></i> Perfil
                     </button>
                   </div>
                   <div class="btn-cart" id="btn-cart-nav">
@@ -942,7 +942,7 @@ session_start();
                 </li>
                 <li>
                   <h6>
-                    <a href="#Sobre-nos">Sobre Nós</a>
+                    <a href="#Sobre-Nos">Sobre Nós</a>
                   </h6>
                 </li>
                 <li>
