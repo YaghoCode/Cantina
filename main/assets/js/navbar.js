@@ -40,6 +40,7 @@ const swiper = new Swiper('.swiper', {
     direction: 'vertical', // Define a direção como vertical
     slidesPerView: 'auto', // Mostra os slides conforme o tamanho do conteúdo
     freeMode: true, // Permite rolagem livre
+    spaceBetween: 5, // Espaçamento entre os slides em pixels
     scrollbar: {
         el: '.swiper-scrollbar', // Ativa a barra de rolagem
         draggable: true, // Permite arrastar a barra

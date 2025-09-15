@@ -372,6 +372,8 @@ a{
 
 /*pop-up-cart*/
 
+/*pop-up-cart*/
+
 .pop-up-cart {
     position: fixed;
     height: 90.9%;
@@ -404,24 +406,29 @@ a{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 5%;
+    height: 0%;
     width: 95%;
 }
 
 .content-pp-cart-top button {
-    height: 50%;
+    position: absolute;
+    top: 1%;
+    height: 4.3%;
     width: 8%;
-    background-color: transparent;
+    background-color: var(--cor-primaria);
+    color: rgb(255, 255, 255);
     border: none;
     font-size: 1.6rem;
+    border-radius: 100%;
 }
+
 
 .content-pp-cart-bottom {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 95%;
+    max-height: 90%;
     width: 95%;
 }
 
@@ -463,8 +470,9 @@ a{
 
 .swiper {
     width: 95%;
-    height: 100%;
-    padding: 1rem 0;
+    height: 90%;
+    padding: 1rem;
+    background-color: white;
 }
 
 .swiper-slide {
@@ -474,7 +482,7 @@ a{
     font-size: 18px;
     font-weight: bold;
     color: #333;
-    background-color: #f8f9fa;
+    background-color: white;
     border: 1px solid #ddd;
     border-radius: 5px;
     min-width: 95%;
@@ -485,9 +493,11 @@ a{
 .swiper-scrollbar {
     background: rgba(0, 0, 0, 0.1);
     /* Cor da barra de rolagem */
-    border-radius: 10px;
+    border-radius: 1px;
     cursor: pointer;
-    min-width: 1.5%;
+    min-width: 2.0%;
+    max-height: 56%;
+    transform: translateY(32%);
 }
 
 
@@ -496,7 +506,7 @@ a{
     justify-content: space-between;
     align-items: center;
     padding: 0.2rem;
-    height: 5%;
+    height: 3%;
     width: 90%;
 }
 
@@ -514,7 +524,7 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 10%;
+    height: 18%;
     width: 95%;
 }
 
@@ -523,11 +533,138 @@ a{
     background-color: #e3261b;
     color: white;
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: 600;
     height: 80%;
     width: 98%;
     border-radius: 2rem;
+    margin-bottom: 2%;
 }
+
+.carrinho-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+
+.carrinho-item-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 100%;
+}
+
+.carrinho-item-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.235);
+    border-radius: 1rem;
+    background-color: white;
+}
+
+.carrinho-item-img img {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carrinho-item-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 55%;
+    height: 100%;
+}
+
+.carrinho-item-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 50%;
+    width: 90%;
+}
+
+.carrinho-item-title h3 {
+    font-size: 1rem;
+    font-family: var(--font-titulo);
+}
+
+.carrinho-item-calc-preco{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 90%;
+    height: 40%;
+}
+
+.carrinho-item-quantidade {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 40%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.235);
+  border-radius: 0.5rem;
+}
+
+.carrinho-item-quantidade button {
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 30%;
+  background-color: white;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.carrinho-item-quantidade button:hover{
+    color: var(--cor-primaria);
+}
+
+.carrinho-item-quantidade .input-quantidade {
+  width: 1.5rem;
+  height: 100%;
+  text-align: center;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.carrinho-item-preco{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: 60%;
+    height: 70%;
+}
+
+.carrinho-item-preco p{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
 
 /*Modal alert*/
 

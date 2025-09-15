@@ -27,7 +27,7 @@ if(isset($_SESSION['cpf'])){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/estoque.css">
-    <title>Cantina PJ - Estoque</title>
+    <title>FURA FILA - Estoque</title>
 </head>
 
 <body>

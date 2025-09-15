@@ -16,7 +16,7 @@ session_start();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!--LINK CSS-->
   <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
-  <title>Cantina PJ - Main</title>
+  <title>FURA FILA - Main</title>
 </head>
 
 <body>
@@ -126,12 +126,12 @@ session_start();
     </div>
   </div>
  
-  <!--Popup carrinho-->
+ <!--Popup carrinho-->
   <div class="pop-up-cart" id="pop-up-cart">
     <div class="content-pp-cart">
-      <div class="content-pp-cart-top">
+      <div class="content-pp-cart-top" id="btn-close-cart-nav">
         <button>
-          <i class="fa-solid fa-xmark" id="btn-close-cart-nav"></i>
+          <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
       <div class="content-pp-cart-bottom">
@@ -147,31 +147,69 @@ session_start();
           <div class="container-items">
             <div class="swiper">
               <div class="swiper-wrapper">
-                <div class="swiper-slide bg-light p-3 border rounded">
-                    
-                </div>
-                <div class="swiper-slide bg-light p-3 border rounded">Slide 2</div>
-                <div class="swiper-slide bg-light p-3 border rounded">Slide 3</div>
-                <div class="swiper-slide bg-light p-3 border rounded">Slide 1</div>
-                <div class="swiper-slide bg-light p-3 border rounded">Slide 2</div>
-                <div class="swiper-slide bg-light p-3 border rounded">Slide 3</div>
+                  <div class="swiper-slide p-3 border rounded">
+                      <div class="carrinho-item">
+                    <div class="carrinho-item-left">
+                      <div class="carrinho-item-img">
+                        <img src="./assets/img/img comidas/croissant2.png" alt="">
+                      </div>
+                    </div>
+                    <div class="carrinho-item-right">
+                      <div class="carrinho-item-title">
+                        <h3>Coxinha de Frango</h3>
+                      </div>
+                      <div class="carrinho-item-calc-preco">
+                        <div class="carrinho-item-quantidade">
+                            <button class="btn-decrement">-</button>
+                              <input type="number" class="input-quantidade" value="1" min="1" max="99" step="1">
+                              <button class="btn-increment">+</button>
+                        </div>
+                          
+                          <div class="carrinho-item-preco">
+                            <p>R$ 6,00</p>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 1</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 1</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 1</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 1</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
+                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
               </div>
-              <div class="swiper-scrollbar"></div>
             </div>
+            <div class="swiper-scrollbar"></div>
           </div>
+        </div>
 
-        </div>
-        <div class="cart-total-price">
-          <h5>Total:</h5>
-          <h6>R$: 00,00 <!--Price calculado--></h6>
-        </div>
-        <div class="finalizar-pedido">
-          <button id="btn-finalizar-pedidos">
-            Finalizar Pedido
-          </button>
-        </div>
+      </div>
+      <div class="cart-total-price">
+        <h5>Total:</h5>
+        <h6>R$: 00,00 <!--Price calculado--></h6>
+      </div>
+      <div class="finalizar-pedido">
+        <button id="btn-finalizar-pedidos">
+          Finalizar Pedido
+        </button>
       </div>
     </div>
+  </div>
   </div>
 
   <!-- Overlay para o modal -->
@@ -1008,12 +1046,12 @@ session_start();
           </div>
           <div class="title-footer-bottom-2">
             <h1>
-              <a href="">
+              <a href="/cantinarepositorio/subpages/termos.php">
                 Política e Privacidade
               </a>
             </h1>
             <h1>
-              <a href="">
+              <a href="/cantinarepositorio/subpages/termos.php">
                 Termos de uso
               </a>
             </h1>
