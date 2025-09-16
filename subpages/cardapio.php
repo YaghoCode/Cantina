@@ -543,6 +543,8 @@ if (isset($_SESSION['cpf'])) {
       overlayModalCardapio.classList.remove('active'); // Esconde o overlay
     });
   });
+
+  
   </script>
 
   <script type="module" src="./assets/js/cardapioModal.js"></script>
