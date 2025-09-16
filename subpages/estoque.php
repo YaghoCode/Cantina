@@ -3,16 +3,16 @@ include('/xampp/htdocs/cantinarepositorio/main/database.php');
 session_start();
 
 
-if(isset($_SESSION['cpf'])){
+if (isset($_SESSION['cpf'])) {
     $cpf = $_SESSION['cpf'];
     $query = "SELECT nome, cpf FROM cliente WHERE cpf = '$cpf'";
     $result = mysqli_query($con, $query);
-  
-    if($result && mysqli_num_rows($result) == 0){
-      header("Location: .login.php");
-      exit;
+
+    if ($result && mysqli_num_rows($result) == 0) {
+        header("Location: .login.php");
+        exit;
     }
-  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,71 +31,69 @@ if(isset($_SESSION['cpf'])){
 </head>
 
 <body>
+    <!-- header, navbar -->
     <header>
         <nav class="navbar">
             <div class="nav-links">
                 <div class="nav-logo">
-                    <img src="./assets/img/img comidas/logoCantina.png" alt="">
+                    <img src="/cantinarepositorio/main/assets/img/logo2.png" style="height: 26vh;" alt="">
                 </div>
-
                 <div class="nav-items">
                     <ul>
                         <li>
                             <h1>
-                                <a href="#inicio" style="text-decoration: none; color: #e3261b">Gerenciamento de Estoque
-                                    e Pedidos</a>
+                                <a href="#inicio" style="text-decoration: none; color: inherit;">Gerenciamento de Estoque e Pedidos</a>
                             </h1>
                         </li>
                     </ul>
                 </div>
-                <div class="nav-buttons">
+                <div class="nav-buttons" style="gap:3vh;">
                     <div class="btn-user" id="btn-user-nav">
-                        <i class="fa-regular fa-user"></i>
+                        <button>
+                            <i class="fa-regular fa-user"></i> Perfil
+                        </button>
                     </div>
+                </div>
+        </nav>
+    </header>
 
+    <!--POPUP DO USER-->
 
-                    <div class="pop-up-user" id="pop-up-user">
-
-                        <div class="content-pp-user">
-
-                            <div class="top-content">
-
-                                <div class="icon-user">
-                                    <i>
-                                        <i class="fa-solid fa-user"></i> <!--PHP ICONS IMAGES-->
-                                    </i>
-                                </div>
-
-                                <div class="btn-close-pp">
-                                    <i>
-                                        <i class="fa-solid fa-xmark" id="btn-close-user-nav"></i>
-                                    </i>
-                                </div>
-                            </div>
-
-                            <div class="bottom-content">
-                                <div class="info-user">
-                                    <div class="name-user">
-                                        <h4>
-                                            <Span>ALUNO:</Span> Admin1<!--ADICIONAR PHP-->
-                                        </h4>
-                                    </div>
-                                    <div class="turma-user">
-                                        <h4>
-                                            <Span>TURMA:</Span> Cantina <!--Adicionar PHP-->
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="edit-user">
-                                    <i class="fa-solid fa-pen"></i>
-                                </div>
-                            </div>
-                        </div>
-
+    <div class="pop-up-user" id="pop-up-user">
+        <div class="btn-pp-close" id="btn-close-user-nav">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="content-pp-user">
+            <div class="content-pp-top">
+                <div class="top-circle-info-user">
+                    <div class="top-circle-info-img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="top-circle-info-text">
+                        <h6>
+                            <?php echo $user_data['nome']; ?>
+                        </h6>
+                        <p>
+                            <?php echo $user_data['email']; ?>
+                        </p>
+                    </div>
+                </div>
+                <div class="top-info-user">
+                    <div class="top-info-user-text">
+                        <h6>
+                            Turma: <?php echo $user_data['turma']; ?>
+                        </h6>
+                        <p>
+                            CPF: <?php echo $user_data['cpf']; ?>
+                        </p>
                     </div>
                 </div>
             </div>
-        </nav>
+            <div class="content-pp-bottom">
+                <a href="/cantinarepositorio/subpages/logout.php">Logout</a>
+            </div>
+        </div>
+    </div>
     </header>
 
     <main>
@@ -178,14 +176,14 @@ if(isset($_SESSION['cpf'])){
                                 <button type="submit" name="cadastrar-produto" class="btn btn-primary">Criar Produto</button>
                             </div>
                     </div>
-                        </div>
-                        <div class="modal-content-right">
-                        <div class="btn-close-modal">
+                </div>
+                <div class="modal-content-right">
+                    <div class="btn-close-modal">
                         <button id="btn-close-modal-p">
                             <i class="fa-solid fa-xmark" id="btn-close-modal-p"></i>
                         </button>
-                         </div>
-                         <div class="upload-imagem">
+                    </div>
+                    <div class="upload-imagem">
                         <label for="label-imagem">Escolha uma imagem para o produto:</label>
                         <input type="file" id="imagem-produto" name="imagem-produto" accept="image/*"
                             style="display: none;">
@@ -214,47 +212,49 @@ if(isset($_SESSION['cpf'])){
 </html
 
     <?php
-     if($_SERVER["REQUEST_METHOD"] === "POST") {
-        
-            if (isset($_POST['cadastrar-produto'])) {
-                // Sanitização dos dados
-                $nome = filter_input(INPUT_POST, 'nome-produto', FILTER_SANITIZE_SPECIAL_CHARS);
-                $descricao = filter_input(INPUT_POST, 'descricao-produto', FILTER_SANITIZE_SPECIAL_CHARS);
-                $preco = filter_input(INPUT_POST, 'preco-produto', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-                $quantidade = filter_input(INPUT_POST, 'quantidade-produto', FILTER_SANITIZE_NUMBER_INT);
-                $categoria = filter_input(INPUT_POST, 'categoria-produto', FILTER_SANITIZE_SPECIAL_CHARS);
-                $nomearquivo = $_FILES['imagem-produto']['name'];
-                $ext = pathinfo($nomearquivo, PATHINFO_EXTENSION);
-                $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
-                $tempName = $_FILES['imagem-produto']['tmp_name'];
-                $TargetPath = "/xampp/htdocs/cantinarepositorio/subpages/imgbd/" . $nomearquivo;
-                echo $nomearquivo;
-                // Inserção no banco de dados
-                // Quando a gente fez isso embaixo???
-                if (in_array($ext, $allowedTypes)) {
-                    if (move_uploaded_file($tempName, $TargetPath)) {
-                        $sql = "INSERT INTO estoque (Nome, Descricao, Preco, Quantidade, Categoria, img) VALUES ('$nome', '$descricao', '$preco', '$quantidade', '$categoria', '$nomearquivo')";
-                if (mysqli_query($con, $sql)) {
-                    // Redireciona após sucesso
-                    header("Location: /cantinarepositorio/subpages/estoque.php");
-                    exit;
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+        if (isset($_POST['cadastrar-produto'])) {
+            // Sanitização dos dados
+            $nome = filter_input(INPUT_POST, 'nome-produto', FILTER_SANITIZE_SPECIAL_CHARS);
+            $descricao = filter_input(INPUT_POST, 'descricao-produto', FILTER_SANITIZE_SPECIAL_CHARS);
+            $preco = filter_input(INPUT_POST, 'preco-produto', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+            $quantidade = filter_input(INPUT_POST, 'quantidade-produto', FILTER_SANITIZE_NUMBER_INT);
+            $categoria = filter_input(INPUT_POST, 'categoria-produto', FILTER_SANITIZE_SPECIAL_CHARS);
+            $nomearquivo = $_FILES['imagem-produto']['name'];
+            $ext = pathinfo($nomearquivo, PATHINFO_EXTENSION);
+            $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
+            $tempName = $_FILES['imagem-produto']['tmp_name'];
+            $TargetPath = "/xampp/htdocs/cantinarepositorio/subpages/imgbd/" . $nomearquivo;
+            echo $nomearquivo;
+            // Inserção no banco de dados
+            // Quando a gente fez isso embaixo???
+            if (in_array($ext, $allowedTypes)) {
+                if (move_uploaded_file($tempName, $TargetPath)) {
+                    $sql = "INSERT INTO estoque (Nome, Descricao, Preco, Quantidade, Categoria, img) VALUES ('$nome', '$descricao', '$preco', '$quantidade', '$categoria', '$nomearquivo')";
+                    if (mysqli_query($con, $sql)) {
+                        // Redireciona após sucesso
+                        header("Location: /cantinarepositorio/subpages/estoque.php");
+                        exit;
+                    } else {
+                        throw new Exception();
+                    }
                 } else {
                     throw new Exception();
                 }
-                } else {
-                    throw new Exception();
-                }
-                } else {
-                    throw new Exception();
-            } }}
+            } else {
+                throw new Exception();
+            }
+        }
+    }
 
 
     $query = "SELECT * from estoque";
     $query_run = mysqli_query($con, $query);
 
-    if(mysqli_num_rows($query_run) > 0){
+    if (mysqli_num_rows($query_run) > 0) {
 
-        foreach($query_run as $item){
+        foreach ($query_run as $item) {
             echo $item['id'];
         }
     }
