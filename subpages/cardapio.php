@@ -164,8 +164,8 @@ if (isset($_SESSION['cpf'])) {
           <div class="container-items">
             <div class="swiper">
               <div class="swiper-wrapper">
-                  <div class="swiper-slide p-3 border rounded">
-                      <div class="carrinho-item">
+                <div class="swiper-slide p-3 border rounded">
+                  <div class="carrinho-item">
                     <div class="carrinho-item-left">
                       <div class="carrinho-item-img">
                         <img src="./assets/img/img comidas/croissant2.png" alt="">
@@ -177,38 +177,38 @@ if (isset($_SESSION['cpf'])) {
                       </div>
                       <div class="carrinho-item-calc-preco">
                         <div class="carrinho-item-quantidade">
-                            <button class="btn-decrement">-</button>
-                              <input type="number" class="input-quantidade" value="1" min="1" max="99" step="1">
-                              <button class="btn-increment">+</button>
+                          <button class="btn-decrement">-</button>
+                          <input type="number" class="input-quantidade" value="1" min="1" max="99" step="1">
+                          <button class="btn-increment">+</button>
                         </div>
-                          
-                          <div class="carrinho-item-preco">
-                            <p>R$ 6,00</p>
-                          </div>
+
+                        <div class="carrinho-item-preco">
+                          <p>R$ 6,00</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  </div>
-                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 1</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 1</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 1</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 1</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
+                </div>
+                <div class="swiper-slide p-3 border rounded">Slide 2</div>
+                <div class="swiper-slide p-3 border rounded">Slide 3</div>
+                <div class="swiper-slide p-3 border rounded">Slide 1</div>
+                <div class="swiper-slide p-3 border rounded">Slide 2</div>
+                <div class="swiper-slide p-3 border rounded">Slide 3</div>
+                <div class="swiper-slide p-3 border rounded">Slide 2</div>
+                <div class="swiper-slide p-3 border rounded">Slide 3</div>
+                <div class="swiper-slide p-3 border rounded">Slide 1</div>
+                <div class="swiper-slide p-3 border rounded">Slide 2</div>
+                <div class="swiper-slide p-3 border rounded">Slide 3</div>
+                <div class="swiper-slide p-3 border rounded">Slide 2</div>
+                <div class="swiper-slide p-3 border rounded">Slide 3</div>
+                <div class="swiper-slide p-3 border rounded">Slide 1</div>
+                <div class="swiper-slide p-3 border rounded">Slide 2</div>
+                <div class="swiper-slide p-3 border rounded">Slide 3</div>
+                <div class="swiper-slide p-3 border rounded">Slide 2</div>
+                <div class="swiper-slide p-3 border rounded">Slide 3</div>
+                <div class="swiper-slide p-3 border rounded">Slide 1</div>
+                <div class="swiper-slide p-3 border rounded">Slide 2</div>
+                <div class="swiper-slide p-3 border rounded">Slide 3</div>
               </div>
             </div>
             <div class="swiper-scrollbar"></div>
@@ -249,7 +249,7 @@ if (isset($_SESSION['cpf'])) {
         foreach ($query_run as $item) {
 
           echo '
-                      <div class="cards-items">
+                      <div class="cards-items" data-id="' . $item['id'] . '">
                         <div class="cards-items-top">
                           <div class="cards-items-img">
                             <img src="/cantinarepositorio/subpages/imgbd/' . $item['img'] . '" alt="">
@@ -297,7 +297,7 @@ if (isset($_SESSION['cpf'])) {
         foreach ($query_run as $item) {
 
           echo '
-                      <div class="cards-items">
+                      <div class="cards-items" ' . $item['id'] . '>
                         <div class="cards-items-top">
                           <div class="cards-items-img">
                             <img src="/cantinarepositorio/subpages/imgbd/' . $item['img'] . '" alt="">
@@ -345,7 +345,7 @@ if (isset($_SESSION['cpf'])) {
         foreach ($query_run as $item) {
 
           echo  '
-                      <div class="cards-items">
+                      <div class="cards-items" ' . $item['id'] . '>
                         <div class="cards-items-top">
                           <div class="cards-items-img">
                             <img src="/cantinarepositorio/subpages/imgbd/' . $item['img'] . '" alt="">
@@ -392,7 +392,7 @@ if (isset($_SESSION['cpf'])) {
         foreach ($query_run as $item) {
 
           echo  '
-                      <div class="cards-items">
+                      <div class="cards-items" ' . $item['id'] . '>
                         <div class="cards-items-top">
                           <div class="cards-items-img">
                             <img src="/cantinarepositorio/subpages/imgbd/' . $item['img'] . '" alt="">
@@ -439,7 +439,7 @@ if (isset($_SESSION['cpf'])) {
         foreach ($query_run as $item) {
 
           echo  '
-                      <div class="cards-items">
+                      <div class="cards-items" ' . $item['id'] . '>
                         <div class="cards-items-top">
                           <div class="cards-items-img">
                             <img src="/cantinarepositorio/subpages/imgbd/' . $item['img'] . '" alt="">
@@ -469,16 +469,19 @@ if (isset($_SESSION['cpf'])) {
       ?>
     </div>
   </div>
+  <?php
+  $query = "SELECT * from estoque WHERE categoria = 'Salgados'";
+  $query_run = mysqli_query($con, $query);
 
-  <!-- Overlay para o modal -->
-  <div class="modal-overlay-cardapio" id="modal-overlay-cardapio"></div>
+  if (mysqli_num_rows($query_run) > 0) {
+    foreach ($query_run as $item) {
 
-  <!-- Modal alert -->
-  <div class="container-modal-cardapio" id="modal-cardapio">
+      echo '<div class="modal-overlay-cardapio" id="modal-overlay-cardapio"></div>
+  <div class="container-modal-cardapio" id="' . $item['id'] . '">
     <div class="content-modal-cardapio">
         <div class="content-modal-cardapio-left">
             <div class="modal-left-img">
-                <img src="/cantinarepositorio/main/assets/img/carousel-img-3.png" alt="">
+             <img src="/cantinarepositorio/subpages/imgbd/' . $item['img'] . '" alt="">
             </div>
         </div>
           <div class="content-modal-cardapio-right">
@@ -486,11 +489,11 @@ if (isset($_SESSION['cpf'])) {
               <i class="fa-solid fa-xmark"></i>
             </button>
                 <div class="modal-right-title">
-                    <h3>Coxinha de Frango</h3>
+                    <h3>' . $item['Nome'] . '</h3>
                 </div>
                   <div class="modal-right-description">
                       <p>
-                        a a a a a aa a a aaaa Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi illum facere suscipit deserunt neque ipsa ipsum veritatis iure consequatur odit, unde magnam dolor velit fugit eaque sed quo exercitationem tenetur.
+                        ' . $item['Descricao'] . '
                       </p>
                   </div>
                       <div class="modal-right-conteudo">
@@ -500,16 +503,47 @@ if (isset($_SESSION['cpf'])) {
                             <button class="btn-increment">+</button>
                         </div>
                           <div class="modal-right-preco">
-                              <h4>R$ 00,00</h4>
+                              <h4>R$ ' . $item['preco'] . '</h4>
                           </div>
                       </div>
           </div>
     </div>
-  </div>
+  </div>';
+    }
+  }
+  ?>
 
 
 
+  <script>
+    const btnCardapioCards = document.querySelectorAll('.cards-items');
+    const btnCloseModalCardapio = document.querySelectorAll('.btn-close-modaL')
+    const overlayModalCardapio = document.getElementById('modal-overlay-cardapio')
 
+    btnCardapioCards.forEach(card => {
+      const modalId = card.getAttribute('data-id');
+      const modalCardapio = document.getElementById(modalId);
+      card.addEventListener('click', () => {
+        if (modalCardapio) {
+          modalCardapio.classList.add('active');
+          overlayModalCardapio.classList.add('active');
+        }
+      });
+        // Fecha o modal e o overlay ao clicar no botão de fechar
+    btnCloseModalCardapio.forEach(btn => {
+      btn.addEventListener('click', () => {
+        modalCardapio.classList.remove('active'); // Esconde o modal
+        overlayModalCardapio.classList.remove('active'); // Esconde o overlay
+      });
+    });
+
+    // Fecha o modal e o overlay ao clicar no overlay
+      overlayModalCardapio.addEventListener('click', () => {
+      modalCardapio.classList.remove('active'); // Esconde o modal
+      overlayModalCardapio.classList.remove('active'); // Esconde o overlay
+    });
+  });
+  </script>
 
   <script type="module" src="./assets/js/cardapioModal.js"></script>
   <script type="module" src="./assets/js/cardapio.js"></script>
