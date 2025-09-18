@@ -504,6 +504,9 @@ if (isset($_SESSION['cpf'])) {
                         </div>
                           <div class="modal-right-preco">
                               <h4>R$ ' . $item['preco'] . '</h4>
+                              <button class="btn-mandar-modal" id="btn'. $item['id'] . '">
+                                Mandar
+                              </button>
                           </div>
                       </div>
           </div>
@@ -544,6 +547,22 @@ if (isset($_SESSION['cpf'])) {
     });
   });
 
+
+  
+  const ModalAll = document.querySelectorAll('.container-modal-cardapio');
+
+  ModalAll.forEach(modal => {
+    const btnModalMandar = document.querySelector('.btn-mandar-modal');
+    const ButtonId = modal.getAttribute('id');
+    btnModalMandar.addEventListener('click', () =>{
+      alert(ButtonId);
+    });
+
+ //   const ModalAll = document.getElementById(ButtonId);
+//    ModalAll.addEventListener('click', () => {
+ //     alert('meupiru');
+//    });
+ });
   
   </script>
 

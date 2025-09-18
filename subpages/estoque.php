@@ -139,6 +139,7 @@ if (isset($_SESSION['cpf'])) {
                             Crie um novo produto:
                         </h1>
                     </div>
+                    <!--Form de cadastrar produto-->
                     <div class="modal-form-produto">
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-novo-produto" enctype="multipart/form-data">
                             <div class="form-group">
@@ -165,8 +166,8 @@ if (isset($_SESSION['cpf'])) {
                                 <label for="categoria">Categoria:</label>
                                 <select id="categoria" name="categoria-produto" class="form-control" required>
                                     <option value="Salgados">Salgado</option>
+                                    <option value="Folhados">Folhados</option>
                                     <option value="Doces">Doces</option>
-                                    <option value="Folhados">Folhado</option>
                                     <option value="Bebidas">Bebidas</option>
                                     <option value="Outros">Outros</option>
                                 </select>
