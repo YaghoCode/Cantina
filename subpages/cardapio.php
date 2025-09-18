@@ -504,7 +504,7 @@ if (isset($_SESSION['cpf'])) {
                         </div>
                           <div class="modal-right-preco">
                               <h4>R$ ' . $item['preco'] . '</h4>
-                              <button class="btn-mandar-modal" id="btn'. $item['id'] . '">
+                              <button class="btn-mandar-modal" id="btn'. $item['id'] . ' onClick="..">
                                 Mandar
                               </button>
                           </div>
@@ -554,6 +554,7 @@ if (isset($_SESSION['cpf'])) {
   ModalAll.forEach(modal => {
     const btnModalMandar = document.querySelector('.btn-mandar-modal');
     const ButtonId = modal.getAttribute('id');
+    
     btnModalMandar.addEventListener('click', () =>{
       alert(ButtonId);
     });
