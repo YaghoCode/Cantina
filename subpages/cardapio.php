@@ -478,7 +478,7 @@ if (isset($_SESSION['cpf'])) {
 
       echo '<div class="modal-overlay-cardapio" id="modal-overlay-cardapio"></div>
   <div class="container-modal-cardapio" id="' . $item['id'] . '">
-    <div class="content-modal-cardapio">
+    <div class="content-modal-cardapio" data-id="' . $item['id'] . '" data-nome="' . $item['Nome'] . '" data-descricao="' . $item['Descricao'] . '" data-preco="' . $item['preco'] . '">
         <div class="content-modal-cardapio-left">
             <div class="modal-left-img">
              <img src="/cantinarepositorio/subpages/imgbd/' . $item['img'] . '" alt="">
@@ -504,7 +504,7 @@ if (isset($_SESSION['cpf'])) {
                         </div>
                           <div class="modal-right-preco">
                               <h4>R$ ' . $item['preco'] . '</h4>
-                              <button class="btn-mandar-modal" id="btn'. $item['id'] . ' onClick="..">
+                              <button class="btn-mandar" id="btn'. $item['id'] . ' onClick="..">
                                 Mandar
                               </button>
                           </div>
@@ -516,6 +516,62 @@ if (isset($_SESSION['cpf'])) {
   }
   ?>
 
+<script>
+  // Quando clicar em "Mandar"
+  document.querySelectorAll('.btn-mandar').forEach(btn => {
+    btn.addEventListener('click', function () {
+      // Encontra o item correspondente
+      const itemDiv = this.closest('.content-modal-cardapio');
+      const id = itemDiv.dataset.id;
+      const nome = itemDiv.dataset.nome;
+      const descricao = itemDiv.dataset.descricao;
+      const preco = parseFloat(itemDiv.dataset.preco);
+
+      const item = {
+        id: id,
+        nome: nome,
+        descricao: descricao,
+        preco: preco,
+        quantidade: 1
+      };
+
+      // 🧠 Salvar no localStorage (adicionando ao carrinho local)
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+      const existente = carrinho.find(i => i.id === id);
+      if (existente) {
+        existente.quantidade++;
+      } else {
+        carrinho.push(item);
+      }
+
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+      alert(item.id);
+      // 🖼️ Atualizar a interface local
+     // atualizarCarrinhoVisual();
+    });
+  });
+
+  //DAQUI PRA CIMA TA CERTO
+
+  
+  function atualizarCarrinhoVisual() {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const lista = document.getElementById('lista-carrinho');
+    lista.innerHTML = '';
+
+    carrinho.forEach(item => {
+      const li = document.createElement('li');
+      const total = (item.preco * item.quantidade).toFixed(2);
+      li.textContent = `${item.quantidade}x ${item.nome} - R$ ${total}`;
+      lista.appendChild(li);
+    });
+  }
+
+  // Atualizar visual ao abrir a página
+  // atualizarCarrinhoVisual();
+</script>
 
 
   <script>
@@ -548,23 +604,7 @@ if (isset($_SESSION['cpf'])) {
   });
 
 
-  
-  const ModalAll = document.querySelectorAll('.container-modal-cardapio');
-
-  ModalAll.forEach(modal => {
-    const btnModalMandar = document.querySelector('.btn-mandar-modal');
-    const ButtonId = modal.getAttribute('id');
-    
-    btnModalMandar.addEventListener('click', () =>{
-      alert(ButtonId);
-    });
-
- //   const ModalAll = document.getElementById(ButtonId);
-//    ModalAll.addEventListener('click', () => {
- //     alert('meupiru');
-//    });
- });
-  
+ 
   </script>
 
   <script type="module" src="./assets/js/cardapioModal.js"></script>
@@ -583,3 +623,8 @@ if (isset($_SESSION['cpf'])) {
 <?php
 mysqli_close($con);
 ?>
+
+
+
+
+
