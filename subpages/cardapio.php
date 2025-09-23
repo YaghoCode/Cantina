@@ -163,7 +163,7 @@ if (isset($_SESSION['cpf'])) {
         <div class="cart-items">
           <div class="container-items">
             <div class="swiper">
-              <div class="swiper-wrapper">
+              <div class="swiper-wrapper" id="carrinho-itens-wrapper">
                 <div class="swiper-slide p-3 border rounded">
                   <div class="carrinho-item">
                     <div class="carrinho-item-left">
@@ -502,13 +502,15 @@ if (isset($_SESSION['cpf'])) {
                               <input type="number" class="input-modal-quantidade" value="1" min="1" max="99" step="1">
                             <button class="btn-increment">+</button>
                         </div>
+                      </div>
+                        <div class="modal-right-adicionar">
                           <div class="modal-right-preco">
                               <h4>R$ ' . $item['preco'] . '</h4>
-                              <button class="btn-mandar" id="btn'. $item['id'] . ' onClick="..">
-                                Mandar
-                              </button>
                           </div>
-                      </div>
+                               <button class="btn-mandar" id="btn'. $item['id'] . '" value"Adicionar">
+                                  Adicionar
+                              </button>
+                        </div>
           </div>
     </div>
   </div>';
@@ -557,17 +559,50 @@ if (isset($_SESSION['cpf'])) {
 
   
   function atualizarCarrinhoVisual() {
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    const lista = document.getElementById('lista-carrinho');
-    lista.innerHTML = '';
+  const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+  const container = document.getElementById('carrinho-itens-wrapper');
+  container.innerHTML = '';
 
-    carrinho.forEach(item => {
-      const li = document.createElement('li');
-      const total = (item.preco * item.quantidade).toFixed(2);
-      li.textContent = `${item.quantidade}x ${item.nome} - R$ ${total}`;
-      lista.appendChild(li);
-    });
-  }
+  let total = 0;
+
+  carrinho.forEach(item => {
+    const subtotal = item.preco * item.quantidade;
+    total += subtotal;
+
+    const slide = document.createElement('div');
+    slide.classList.add('swiper-slide', 'p-3', 'border', 'rounded');
+
+    slide.innerHTML = `
+      <div class="carrinho-item">
+        <div class="carrinho-item-left">
+          <div class="carrinho-item-img">
+            <img src="/cantinarepositorio/subpages/imgbd/${item.id}.png" alt="">
+          </div>
+        </div>
+        <div class="carrinho-item-right">
+          <div class="carrinho-item-title">
+            <h3>${item.nome}</h3>
+          </div>
+          <div class="carrinho-item-calc-preco">
+            <div class="carrinho-item-quantidade">
+              <button class="btn-decrement" data-id="${item.id}">-</button>
+              <input type="number" class="input-quantidade" value="${item.quantidade}" min="1" max="99" step="1" data-id="${item.id}">
+              <button class="btn-increment" data-id="${item.id}">+</button>
+            </div>
+            <div class="carrinho-item-preco">
+              <p>R$ ${(subtotal).toFixed(2)}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    container.appendChild(slide);
+  });
+
+  // Atualiza o total:
+  document.querySelector('.cart-total-price h6').textContent = `R$: ${total.toFixed(2)}`;
+}
 
   // Atualizar visual ao abrir a página
   // atualizarCarrinhoVisual();

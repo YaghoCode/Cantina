@@ -923,7 +923,17 @@ input[type="number"] {
     gap: 1vw;
 }
 
-.content-modal-cardapio-left, .content-modal-cardapio-right{
+.content-modal-cardapio-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 49%;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.content-modal-cardapio-right{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -992,7 +1002,7 @@ input[type="number"] {
 .modal-right-description{
    display: flex;
    align-items: center;
-   justify-content: center;
+   justify-content: flex-start;
    max-height: 30%;
    max-width: 95%;
 }
@@ -1010,11 +1020,11 @@ input[type="number"] {
 
 .modal-right-conteudo{
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
-    height: 50%;
-    gap: 50%;
+    height: 40%;
+    padding-left: 0.8rem;
 }
 
 .modal-right-quantidade{
@@ -1026,8 +1036,8 @@ input[type="number"] {
   border: none;
   border-radius: 30%;
   background-color: white;
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   font-size: 1.2rem;
   cursor: pointer;
   transition: 0.3s ease;
@@ -1044,5 +1054,43 @@ input[type="number"] {
   border: none;
   border-radius: 0.3rem;
   font-size: 1rem;
+}
+
+.modal-right-adicionar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 20%;
+    border-top: 1px solid rgba(0, 0, 0, 0.312);
+}
+
+.modal-right-preco{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 40%;
+}
+
+.modal-right-preco h4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-family: var(--font-titulo);
+    height: 100%;
+}
+
+.modal-right-adicionar button{
+    width: 100%;
+    height: 50%;
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.3rem;
+    font-family: var(--font-titulo);
 }
 

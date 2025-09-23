@@ -36,7 +36,9 @@ if (isset($_SESSION['cpf'])) {
         <nav class="navbar">
             <div class="nav-links">
                 <div class="nav-logo">
-                    <img src="/cantinarepositorio/main/assets/img/logo2.png" style="height: 26vh;" alt="">
+                    <div class="aside-icon">
+                        <i class="fa-solid fa-outdent"></i>
+                    </div>
                 </div>
                 <div class="nav-items">
                     <ul>
@@ -71,20 +73,20 @@ if (isset($_SESSION['cpf'])) {
                     </div>
                     <div class="top-circle-info-text">
                         <h6>
-                            <?php echo $user_data['nome']; ?>
+                            
                         </h6>
                         <p>
-                            <?php echo $user_data['email']; ?>
+                            
                         </p>
                     </div>
                 </div>
                 <div class="top-info-user">
                     <div class="top-info-user-text">
                         <h6>
-                            Turma: <?php echo $user_data['turma']; ?>
+                            Turma: 
                         </h6>
                         <p>
-                            CPF: <?php echo $user_data['cpf']; ?>
+                            CPF: 
                         </p>
                     </div>
                 </div>
@@ -96,115 +98,30 @@ if (isset($_SESSION['cpf'])) {
     </div>
     </header>
 
-    <main>
-        <div class="main-container">
-            <div class="main-title">
-                <div class="pedidos-title">
-                    <button id="btn-pedidos">
-                        Pedidos
-                    </button>
-                </div>
-                <div class="estoque-title">
-                    <button id="btn-estoque">
-                        Ajustes do Estoque
-                    </button>
-                </div>
-            </div>
-            <div class="main-content-pedidos" id="content-pedidos">
-
-            </div>
-            <div class="main-content-estoque" id="content-estoque">
-                <div class="content-estoque-buttons">
-                    <div class="estoque-btn-novo-produto">
-                        <button id="btn-adicionar-produto">
-                            Adicionar Produto +
-                        </button>
-                    </div>
-                </div>
-                <div class="table-estoque">
-
-                </div>
+    <div class="aside-options">
+        <div class="aside-top">
+         <div class="btn-close-aside">
+            <i class="fa-solid fa-outdent"></i>
+         </div>
+            <div class="aside-top-logo">
+                <img src="/cantinarepositorio/main/assets/img/logo-footer.png" alt="">
             </div>
         </div>
-
-
-        <!--FUNCAO CLICK DO BOTAO "NOVO"-->
-
-        <!--Alert Modal login-->
-        <div class="modal-novo-produto" id="modal-novo-p">
-            <div class="modal-content">
-                <div class="modal-content-left">
-                    <div class="modal-title">
-                        <h1>
-                            Crie um novo produto:
-                        </h1>
-                    </div>
-                    <!--Form de cadastrar produto-->
-                    <div class="modal-form-produto">
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-novo-produto" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="titulo">Título do Produto:</label>
-                                <input type="text" id="titulo" name="nome-produto" class="form-control" placeholder="Digite o título do produto" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="descricao">Descrição do Produto:</label>
-                                <input type="text" id="descricao" name="descricao-produto" class="form-control" placeholder="Digite a descrição do produto" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="preco">Preço:</label>
-                                <input type="number" id="preco" name="preco-produto" class="form-control" placeholder="Digite o preço do produto" step="0.01" min="0" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="quantidade">Quantidade:</label>
-                                <input type="number" id="quantidade" name="quantidade-produto" class="form-control" placeholder="Digite a quantidade disponível" min="0" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="categoria">Categoria:</label>
-                                <select id="categoria" name="categoria-produto" class="form-control" required>
-                                    <option value="Salgados">Salgado</option>
-                                    <option value="Folhados">Folhados</option>
-                                    <option value="Doces">Doces</option>
-                                    <option value="Bebidas">Bebidas</option>
-                                    <option value="Outros">Outros</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <button type="submit" name="cadastrar-produto" class="btn btn-primary">Criar Produto</button>
-                            </div>
-                    </div>
+            <div class="aside-bottom">
+                <div class="aside-bottom-title">
+                    <h6>Menu principal</h6>
                 </div>
-                <div class="modal-content-right">
-                    <div class="btn-close-modal">
-                        <button id="btn-close-modal-p">
-                            <i class="fa-solid fa-xmark" id="btn-close-modal-p"></i>
-                        </button>
+                    <div class="aside-lista">
+                        <ul>
+                            <li><i class="fa-solid fa-box-open"></i> Estoque</li>
+                            <li><i class="fa-solid fa-users"></i> Clientes</li>
+                            <li><i class="fa-regular fa-chart-bar"></i> Relatórios</li>
+                            <li><i class="fa-solid fa-gear"></i> Configurações</li>
+                        </ul>
                     </div>
-                    <div class="upload-imagem">
-                        <label for="label-imagem">Escolha uma imagem para o produto:</label>
-                        <input type="file" id="imagem-produto" name="imagem-produto" accept="image/*"
-                            style="display: none;">
-                        <div class="preview-imagem">
-                            <button id="btn-remove-preview" class="btn-remove-preview"
-                                style="display: none;">&times;</button>
-                            <img id="preview" src="#" alt="Pré-visualização da imagem" style="display: none;">
-                        </div>
-                        <label for="imagem-produto" class="btn-upload">
-                            <i class="fa-solid fa-upload"></i> Escolher Imagem
-                        </label>
-                        </form>
-                    </div>
-                </div>
             </div>
-        </div>
+    </div>
 
-
-
-    </main>
 
 
     <script type="module" src="./assets/js/estoque.js"></script>
@@ -212,51 +129,3 @@ if (isset($_SESSION['cpf'])) {
 
 </html
 
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-        if (isset($_POST['cadastrar-produto'])) {
-            // Sanitização dos dados
-            $nome = filter_input(INPUT_POST, 'nome-produto', FILTER_SANITIZE_SPECIAL_CHARS);
-            $descricao = filter_input(INPUT_POST, 'descricao-produto', FILTER_SANITIZE_SPECIAL_CHARS);
-            $preco = filter_input(INPUT_POST, 'preco-produto', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-            $quantidade = filter_input(INPUT_POST, 'quantidade-produto', FILTER_SANITIZE_NUMBER_INT);
-            $categoria = filter_input(INPUT_POST, 'categoria-produto', FILTER_SANITIZE_SPECIAL_CHARS);
-            $nomearquivo = $_FILES['imagem-produto']['name'];
-            $ext = pathinfo($nomearquivo, PATHINFO_EXTENSION);
-            $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
-            $tempName = $_FILES['imagem-produto']['tmp_name'];
-            $TargetPath = "/xampp/htdocs/cantinarepositorio/subpages/imgbd/" . $nomearquivo;
-            echo $nomearquivo;
-            // Inserção no banco de dados
-            // Quando a gente fez isso embaixo???
-            if (in_array($ext, $allowedTypes)) {
-                if (move_uploaded_file($tempName, $TargetPath)) {
-                    $sql = "INSERT INTO estoque (Nome, Descricao, Preco, Quantidade, Categoria, img) VALUES ('$nome', '$descricao', '$preco', '$quantidade', '$categoria', '$nomearquivo')";
-                    if (mysqli_query($con, $sql)) {
-                        // Redireciona após sucesso
-                        header("Location: /cantinarepositorio/subpages/estoque.php");
-                        exit;
-                    } else {
-                        throw new Exception();
-                    }
-                } else {
-                    throw new Exception();
-                }
-            } else {
-                throw new Exception();
-            }
-        }
-    }
-
-
-    $query = "SELECT * from estoque";
-    $query_run = mysqli_query($con, $query);
-
-    if (mysqli_num_rows($query_run) > 0) {
-
-        foreach ($query_run as $item) {
-            echo $item['id'];
-        }
-    }
-    ?>
