@@ -5,11 +5,17 @@ session_start();
 
 if (isset($_SESSION['cpf'])) {
     $cpf = $_SESSION['cpf'];
-    $query = "SELECT nome, cpf FROM cliente WHERE cpf = '$cpf'";
+    $query = "SELECT nome, admin, cpf, turma, email FROM cliente WHERE cpf = '$cpf'";
     $result = mysqli_query($con, $query);
-
-    if ($result && mysqli_num_rows($result) == 0) {
-        header("Location: .login.php");
+    $user_data = mysqli_fetch_assoc($result);
+    
+    if ($result && mysqli_num_rows($result) > 0) {
+        if ($user_data['admin'] != 1) {
+            header("Location: ./cardapio.php");
+            exit;
+        }
+    } else {
+        header("Location: ./login.php");
         exit;
     }
 }
@@ -73,20 +79,20 @@ if (isset($_SESSION['cpf'])) {
                     </div>
                     <div class="top-circle-info-text">
                         <h6>
-                            
+                            <?php echo $user_data['nome']; ?>
                         </h6>
                         <p>
-                            
+                            <?php echo $user_data['email']; ?>
                         </p>
                     </div>
                 </div>
                 <div class="top-info-user">
                     <div class="top-info-user-text">
                         <h6>
-                            Turma: 
+                            Turma: <?php echo $user_data['turma']; ?>
                         </h6>
                         <p>
-                            CPF: 
+                            CPF: <?php echo $user_data['cpf']; ?>
                         </p>
                     </div>
                 </div>
