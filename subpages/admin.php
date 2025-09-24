@@ -2,6 +2,23 @@
 include('/xampp/htdocs/cantinarepositorio/main/database.php');
 session_start();
 
+if (isset($_SESSION['cpf'])) {
+    $cpf = $_SESSION['cpf'];
+    $query = "SELECT nome, admin FROM cliente WHERE cpf = '$cpf'";
+    $result = mysqli_query($con, $query);
+    $user_data = mysqli_fetch_assoc($result);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        if ($user_data['admin'] != 1) {
+            header("Location: ./cardapio.php");
+            exit;
+        }
+    } else {
+        header("Location: ./login.php");
+        exit;
+    }
+}
+
 ?>
 
 <!DOCTYPE html>

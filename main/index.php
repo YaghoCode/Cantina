@@ -1,6 +1,15 @@
 <?php
 include('./database.php');
 session_start();
+if (isset($_SESSION['cpf'])) {
+          $cpf = $_SESSION['cpf'];
+          $query = "SELECT nome, cpf, admin, turma, email FROM cliente WHERE cpf = '$cpf'";
+          $result = mysqli_query($con, $query);
+          $user_data = mysqli_fetch_assoc($result);
+}
+else {
+  $user_data = null;
+}
 ?>
 
 <!DOCTYPE html>
@@ -50,6 +59,14 @@ session_start();
                 <a href="#Avaliacoes" style="text-decoration: none; color: inherit;">Avaliações</a>
               </h1>
             </li>
+            <?php
+            if (isset($_SESSION['cpf']) && $user_data['admin'] == 1) { ?>
+            <li>
+              <h1>
+                <a href="/cantinarepositorio/subpages/admin.php" style="text-decoration: none; color: inherit;">Admin</a>
+              </h1>
+            </li>
+            <?php }?>
           </ul>
         </div>
 

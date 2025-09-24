@@ -19,6 +19,17 @@ if (isset($_SESSION['cpf'])) {
         exit;
     }
 }
+
+
+$query = "SELECT * from estoque";
+$query_run = mysqli_query($con, $query);
+$total_products = mysqli_num_rows($query_run);
+$query_low = "SELECT * from estoque WHERE quantidade < 1";
+$low_products_count = mysqli_num_rows($low_products = mysqli_query($con, $query_low));
+$query_total_value = "SELECT SUM(preco * quantidade) AS total_value FROM estoque";
+$total_value_result = mysqli_query($con, $query_total_value);
+$total_value_row = mysqli_fetch_assoc($total_value_result);
+$total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, ',', '.');
 ?>
 
 <!DOCTYPE html>
@@ -151,7 +162,7 @@ if (isset($_SESSION['cpf'])) {
                             </div>
                         </div>
                         <div class="cards-number-stats">
-                            <h1>3</h1> <!--PHP-->
+                            <h1><?php echo $total_products; ?></h1> <!--PHP-->
                         </div>
                     </div>
                     <div class="cards-estoque-stats">
@@ -164,7 +175,7 @@ if (isset($_SESSION['cpf'])) {
                             </div>
                         </div>
                         <div class="cards-number-stats">
-                            <h1>0</h1> <!--PHP-->
+                            <h1><?php echo $low_products_count; ?></h1> <!--PHP-->
                         </div>
                     </div>
                     <div class="cards-estoque-stats">
@@ -177,7 +188,7 @@ if (isset($_SESSION['cpf'])) {
                             </div>
                         </div>
                         <div class="cards-number-stats">
-                            <h1>R$ 322,25</h1> <!--PHP-->
+                            <h1><?php echo $total_value_result; ?></h1> <!--PHP-->
                         </div>
                     </div>
                 </div>
