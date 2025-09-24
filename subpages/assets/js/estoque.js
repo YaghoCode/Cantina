@@ -32,3 +32,47 @@ btnCloseAside.addEventListener('click', () => {
   contentAside.classList.remove('all');    // remove "aberto"
   contentAside.classList.add('hidden');    // adiciona "fechado"
 });
+
+// logica aside + contents
+
+const btnAsideEstoque = document.getElementById('btn-estoque');
+const btnAsideClientes = document.getElementById('btn-clientes');
+const btnAsidePedidos = document.getElementById('btn-pedidos');
+const btnAsideConfig = document.getElementById('btn-configuracoes');
+
+const conteudoAsideEstoque = document.getElementById('conteudo-estoque');
+const conteudoAsideClientes = document.getElementById('conteudo-clientes');
+const conteudoAsidePedidos = document.getElementById('conteudo-pedidos');
+const conteudoAsideConfig = document.getElementById('conteudo-configuracoes');
+
+// Função para esconder todos e mostrar só o clicado
+function mostrarConteudo(ativo) {
+    conteudoAsideEstoque.classList.remove("active");
+    conteudoAsideClientes.classList.remove("active");
+    conteudoAsidePedidos.classList.remove("active");
+    conteudoAsideConfig.classList.remove("active");
+
+    conteudoAsideEstoque.classList.add("close");
+    conteudoAsideClientes.classList.add("close");
+    conteudoAsidePedidos.classList.add("close");
+    conteudoAsideConfig.classList.add("close");
+
+    ativo.classList.remove("close");
+    ativo.classList.add("active");
+}
+
+btnAsideEstoque.addEventListener("click", () => {
+    mostrarConteudo(conteudoAsideEstoque);
+});
+
+btnAsideClientes.addEventListener("click", () => {
+    mostrarConteudo(conteudoAsideClientes);
+});
+
+btnAsidePedidos.addEventListener("click", () => {
+    mostrarConteudo(conteudoAsidePedidos);
+});
+
+btnAsideConfig.addEventListener("click", () => {
+    mostrarConteudo(conteudoAsideConfig);
+});

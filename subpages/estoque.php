@@ -50,7 +50,7 @@ if (isset($_SESSION['cpf'])) {
                     <ul>
                         <li>
                             <h1>
-                                <a href="#inicio" style="text-decoration: none; color: inherit;">Gerenciamento de Estoque e Pedidos</a>
+                                <a href="#inicio" style="text-decoration: none; color: inherit;">Página de Gerenciamento do Admin</a>
                             </h1>
                         </li>
                     </ul>
@@ -79,20 +79,20 @@ if (isset($_SESSION['cpf'])) {
                     </div>
                     <div class="top-circle-info-text">
                         <h6>
-                            <?php echo $user_data['nome']; ?>
+                             Caiopicciarelli           <!--<php echo $user_data['nome']; ?>-->
                         </h6>
                         <p>
-                            <?php echo $user_data['email']; ?>
+                            Caio@gmail.com                           <!--<php echo $user_data['email']; ?>-->
                         </p>
                     </div>
                 </div>
                 <div class="top-info-user">
                     <div class="top-info-user-text">
                         <h6>
-                            Turma: <?php echo $user_data['turma']; ?>
+                            Turma: 3DS            <!--<php echo $user_data['turma']; ?>-->
                         </h6>
                         <p>
-                            CPF: <?php echo $user_data['cpf']; ?>
+                            CPF: 999999999                <!--<php echo $user_data['cpf']; ?>-->
                         </p>
                     </div>
                 </div>
@@ -103,7 +103,6 @@ if (isset($_SESSION['cpf'])) {
         </div>
     </div>
     </header>
-
     <div class="aside-options">
         <div class="aside-top">
          <div class="btn-close-aside">
@@ -119,14 +118,53 @@ if (isset($_SESSION['cpf'])) {
                 </div>
                     <div class="aside-lista">
                         <ul>
-                            <li><i class="fa-solid fa-box-open"></i> Estoque</li>
-                            <li><i class="fa-solid fa-users"></i> Clientes</li>
-                            <li><i class="fa-regular fa-chart-bar"></i> Relatórios</li>
-                            <li><i class="fa-solid fa-gear"></i> Configurações</li>
+                            <li id="btn-estoque"><i class="fa-solid fa-box-open"></i> Estoque</li>
+                            <li id="btn-clientes"><i class="fa-solid fa-users"></i> Clientes</li>
+                            <li id="btn-pedidos"><i class="fa-solid fa-clipboard-list"></i> Pedidos</li>
+                            <li id="btn-configuracoes"><i class="fa-solid fa-gear"></i> Configurações</li>
                         </ul>
                     </div>
             </div>
     </div>
+
+    <main>
+        <div class="container-estoque" id="conteudo-estoque">
+            <div class="title-estoque">
+                <h1>Gerenciar Estoque</h1>
+            </div>
+                <div class="content-estoque">
+
+                </div>
+        </div>
+
+            <!--Paginas com display none-->
+                <div class="container-clientes" id="conteudo-clientes">
+                    <div class="title-clientes">
+                        <h1>Gerenciar Clientes</h1>
+                    </div>
+                        <div class="content-clientes">
+
+                        </div>
+                </div>
+
+                    <div class="container-pedidos" id="conteudo-pedidos">
+                    <div class="title-pedidos">
+                        <h1>Gerenciar pedidos</h1>
+                    </div>
+                        <div class="content-pedidos">
+
+                        </div>
+                </div>
+
+                    <div class="container-configuracoes" id="conteudo-configuracoes">
+                    <div class="title-configuracoes">
+                        <h1>Gerenciar funcionários</h1>
+                    </div>
+                        <div class="content-configuracoes">
+
+                        </div>
+                </div>
+    </main>
 
 
 

@@ -330,7 +330,7 @@ a{
 .top-circle-info-text{
     display: flex;
     align-items: flex-start;
-    justify-content: flex-end;
+    justify-content: center;
     flex-direction: column;
     width: 70%;
     height: 100%;
@@ -342,6 +342,8 @@ a{
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 95%;
+    font-family: var(--font-titulo);
+    font-weight: 400;
 }
 
 .top-circle-info-text p{
@@ -350,6 +352,7 @@ a{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-family: var(--font-titulo);
 }
 
 .top-info-user{
@@ -367,7 +370,7 @@ a{
     flex-direction: column;
     height: 80%;
     width: 100%;
-    gap: 1.5vh;
+    gap: 2vh;
 }
 
 .top-info-user-text h6{
@@ -385,6 +388,7 @@ a{
     font-weight: 300;
     color: rgba(0, 0, 0, 0.878);
 }
+
 
 /*Aside*/
 
@@ -522,4 +526,51 @@ a{
 
 .aside-lista ul li:hover{
     background-color: rgba(0, 0, 0, 0.04);
+}
+
+
+/*Main*/
+
+
+.container-estoque {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    transform: translateY(11%);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.container-clientes,
+.container-pedidos,
+.container-configuracoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    transform: translateY(11%);
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+/* Classe para mostrar com fade */
+.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+/* Classe para esconder com fade */
+.close {
+    opacity: 0;
+    visibility: hidden;
+    z-index: 0;
 }
