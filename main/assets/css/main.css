@@ -171,7 +171,7 @@ a{
 }
 
 .btn-user i {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     color: inherit;
     cursor: pointer;
 }
@@ -731,9 +731,12 @@ input[type="number"] {
     transition: 0.3s ease;
 }
 
+.btnSair-modal-alert button i{
+    padding-top: 10%;
+}
+
 .btnSair-modal-alert button:hover{
-    transform: scale(1.05);
-    
+    background-color: #e3251bb6;
 }
 
 .title-modal-alert {
@@ -795,7 +798,7 @@ input[type="number"] {
     gap: 2vh;
 }
 
-.btn-modal-alert button, .btn-modal-alert a{
+.btn-modal-alert a{
     text-align: center;
     padding: 0.3rem;
     height: 45%;
@@ -806,6 +809,11 @@ input[type="number"] {
     font-family: var(--font-titulo);
     font-size: 2rem;
     font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.btn-modal-alert a:hover{
+    background-color: #e3251bb6;
 }
 
 
@@ -1045,12 +1053,7 @@ input[type="number"] {
     width: 25%;
     border-radius: 2rem;
     border: 1px solid rgba(0, 0, 0, 0.368);
-    cursor: pointer;
     transition: 0.5s ease;
-}
-
-.cards-info:hover {
-    transform: translateY(-1%);
 }
 
 .icon-cards-info {
@@ -1251,7 +1254,7 @@ input[type="number"] {
 }
 
 .cards-priceEbtn-mp button:hover{
-    transform: scale(1.1);
+    background-color: #276254b2;
 }
 
 
@@ -1270,6 +1273,7 @@ input[type="number"] {
     border-radius: 50%;
     position: relative;
     top: -10%;
+    transition: 0.3s ease;
 }
 
 .botao-left-mp:hover,
@@ -1451,7 +1455,7 @@ input[type="number"] {
 .cards-bebidas:hover,
 .cards-doces:hover,
 .cards-outros:hover{
-    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.113);
 }
 
 .cards-img {
@@ -1515,6 +1519,11 @@ input[type="number"] {
     height: 80%;
     width: 9%;
     font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.cards-priceEbtn button:hover{
+    background-color: #276254cf;
 }
 
 /*Section Sobre Nós*/
@@ -1981,6 +1990,9 @@ input[type="number"] {
 
 
 .info-icon i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.6rem;
     color: white;
     border-radius: 50%;
@@ -1993,7 +2005,7 @@ input[type="number"] {
 }
 
 .info-icon i:hover{
-    transform: scale(1.1);
+    background-color: #e3251bca;
 }
 
 .title-footer-links{
@@ -2042,7 +2054,8 @@ input[type="number"] {
 }
 
 .footer-links ul li h6:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
+    color: var(--cor-primaria);
 }
 
 .footer-links-local{
@@ -2074,7 +2087,8 @@ input[type="number"] {
 }
 
 .footer-links-local ul li h6:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
+    color: var(--cor-primaria);
 }
 
 .title-footer-bottom{
@@ -2094,10 +2108,23 @@ input[type="number"] {
     gap: 4vh;
 }
 
-.title-footer-bottom h1, .title-footer-bottom a, .title-footer-bottom-2 h1, .title-footer-bottom-2 a{
+.title-footer-bottom h1{
+    font-size: 1.2rem;
+    color:  #00000098;
+    text-decoration: none;
+    font-family: var(--font-titulo);
+}
+
+.title-footer-bottom a, .title-footer-bottom-2 h1, .title-footer-bottom-2 a{
     font-size: 1.2rem;
     color:  #00000098;
     text-decoration: none;
     font-family: var(--font-titulo);
     cursor: pointer;
 }
+
+.title-footer-bottom a:hover,
+ .title-footer-bottom-2 h1:hover,
+ .title-footer-bottom-2 a:hover{
+    color: var(--cor-primaria);
+ }

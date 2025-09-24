@@ -8,7 +8,7 @@ if (isset($_SESSION['cpf'])) {
     $query = "SELECT nome, admin, cpf, turma, email FROM cliente WHERE cpf = '$cpf'";
     $result = mysqli_query($con, $query);
     $user_data = mysqli_fetch_assoc($result);
-    
+
     if ($result && mysqli_num_rows($result) > 0) {
         if ($user_data['admin'] != 1) {
             header("Location: ./cardapio.php");
@@ -31,6 +31,7 @@ if (isset($_SESSION['cpf'])) {
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/estoque.css">
     <title>FURA FILA - Estoque</title>
@@ -79,20 +80,20 @@ if (isset($_SESSION['cpf'])) {
                     </div>
                     <div class="top-circle-info-text">
                         <h6>
-                             Caiopicciarelli           <!--<php echo $user_data['nome']; ?>-->
+                            Caiopicciarelli <!--<php echo $user_data['nome']; ?>-->
                         </h6>
                         <p>
-                            Caio@gmail.com                           <!--<php echo $user_data['email']; ?>-->
+                            Caio@gmail.com <!--<php echo $user_data['email']; ?>-->
                         </p>
                     </div>
                 </div>
                 <div class="top-info-user">
                     <div class="top-info-user-text">
                         <h6>
-                            Turma: 3DS            <!--<php echo $user_data['turma']; ?>-->
+                            Turma: 3DS <!--<php echo $user_data['turma']; ?>-->
                         </h6>
                         <p>
-                            CPF: 999999999                <!--<php echo $user_data['cpf']; ?>-->
+                            CPF: 999999999 <!--<php echo $user_data['cpf']; ?>-->
                         </p>
                     </div>
                 </div>
@@ -105,71 +106,135 @@ if (isset($_SESSION['cpf'])) {
     </header>
     <div class="aside-options">
         <div class="aside-top">
-         <div class="btn-close-aside">
-            <i class="fa-solid fa-outdent"></i>
-         </div>
+            <div class="btn-close-aside">
+                <i class="fa-solid fa-outdent"></i>
+            </div>
             <div class="aside-top-logo">
                 <img src="/cantinarepositorio/main/assets/img/logo-footer.png" alt="">
             </div>
         </div>
-            <div class="aside-bottom">
-                <div class="aside-bottom-title">
-                    <h6>Menu principal</h6>
-                </div>
-                    <div class="aside-lista">
-                        <ul>
-                            <li id="btn-estoque"><i class="fa-solid fa-box-open"></i> Estoque</li>
-                            <li id="btn-clientes"><i class="fa-solid fa-users"></i> Clientes</li>
-                            <li id="btn-pedidos"><i class="fa-solid fa-clipboard-list"></i> Pedidos</li>
-                            <li id="btn-configuracoes"><i class="fa-solid fa-gear"></i> Configurações</li>
-                        </ul>
-                    </div>
+        <div class="aside-bottom">
+            <div class="aside-bottom-title">
+                <h6>Menu principal</h6>
             </div>
+            <div class="aside-lista">
+                <ul>
+                    <li id="btn-estoque"><i class="fa-solid fa-box-open"></i> Estoque</li>
+                    <li id="btn-clientes"><i class="fa-solid fa-users"></i> Clientes</li>
+                    <li id="btn-pedidos"><i class="fa-solid fa-clipboard-list"></i> Pedidos</li>
+                    <li id="btn-configuracoes"><i class="fa-solid fa-gear"></i> Configurações</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <main>
         <div class="container-estoque" id="conteudo-estoque">
             <div class="title-estoque">
-                <h1>Gerenciar Estoque</h1>
-            </div>
-                <div class="content-estoque">
-
+                <div class="title-estoque-text">
+                    <h1>Gerenciar Estoque</h1>
+                    <p>Controle e monitore seus produtos.</p>
                 </div>
+                <div class="btn-adicionar-estoque">
+                    <button><i class="fa-solid fa-plus"></i> Adicionar Produto</button>
+                </div>
+            </div>
+            <div class="content-estoque">
+                <div class="content-estoque-top">
+                    <div class="cards-estoque-stats">
+                        <div class="title-cards-stats">
+                            <div class="title-cards-stats-text">
+                                <h1>Total de produtos: </h1>
+                            </div>
+                            <div class="title-cards-stats-icon">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                        </div>
+                        <div class="cards-number-stats">
+                            <h1>3</h1> <!--PHP-->
+                        </div>
+                    </div>
+                    <div class="cards-estoque-stats">
+                        <div class="title-cards-stats">
+                            <div class="title-cards-stats-text">
+                                <h1>Produtos com estoque baixo: </h1>
+                            </div>
+                            <div class="title-cards-stats-icon">
+                                <i class="fa-solid fa-triangle-exclamation" style="color: #FFD43B;"></i>
+                            </div>
+                        </div>
+                        <div class="cards-number-stats">
+                            <h1>0</h1> <!--PHP-->
+                        </div>
+                    </div>
+                    <div class="cards-estoque-stats">
+                        <div class="title-cards-stats">
+                            <div class="title-cards-stats-text">
+                                <h1>Valor total em estoque:</h1>
+                            </div>
+                            <div class="title-cards-stats-icon">
+                                <i class="fa-solid fa-dollar-sign" style="color: #14ff18;"></i>
+                            </div>
+                        </div>
+                        <div class="cards-number-stats">
+                            <h1>R$ 322,25</h1> <!--PHP-->
+                        </div>
+                    </div>
+                </div>
+                <div class="content-estoque-bottom">
+                    <div class="estoque-options">
+                        <button id="dropdownButton" class="btn btn-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-filter me-2" aria-hidden="true"></i>
+                            <span id="dropdownLabel">Todos os Produtos</span>
+                        </button>
+
+                        <ul class="dropdown-menu" id="dropdownMenu">
+                            <li><a class="dropdown-item active" href="#" data-value="all">Todos os Produtos</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="low">Estoque Baixo</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="drinks">Bebidas</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="snacks">Salgados</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="sweets">Doces</a></li>
+                        </ul>
+                    </div>
+                    <div class="table-estoque">
+
+                    </div>
+                </div>
+            </div>
         </div>
 
-            <!--Paginas com display none-->
-                <div class="container-clientes" id="conteudo-clientes">
-                    <div class="title-clientes">
-                        <h1>Gerenciar Clientes</h1>
-                    </div>
-                        <div class="content-clientes">
+        <!--Paginas com display none-->
+        <div class="container-clientes" id="conteudo-clientes">
+            <div class="title-clientes">
+                <h1>Gerenciar Clientes</h1>
+            </div>
+            <div class="content-clientes">
 
-                        </div>
-                </div>
+            </div>
+        </div>
 
-                    <div class="container-pedidos" id="conteudo-pedidos">
-                    <div class="title-pedidos">
-                        <h1>Gerenciar pedidos</h1>
-                    </div>
-                        <div class="content-pedidos">
+        <div class="container-pedidos" id="conteudo-pedidos">
+            <div class="title-pedidos">
+                <h1>Gerenciar pedidos</h1>
+            </div>
+            <div class="content-pedidos">
 
-                        </div>
-                </div>
+            </div>
+        </div>
 
-                    <div class="container-configuracoes" id="conteudo-configuracoes">
-                    <div class="title-configuracoes">
-                        <h1>Gerenciar funcionários</h1>
-                    </div>
-                        <div class="content-configuracoes">
+        <div class="container-configuracoes" id="conteudo-configuracoes">
+            <div class="title-configuracoes">
+                <h1>Gerenciar funcionários</h1>
+            </div>
+            <div class="content-configuracoes">
 
-                        </div>
-                </div>
+            </div>
+        </div>
     </main>
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="./assets/js/estoque.js"></script>
 </body>
 
 </html
-

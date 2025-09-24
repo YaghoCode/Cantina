@@ -76,3 +76,22 @@ btnAsidePedidos.addEventListener("click", () => {
 btnAsideConfig.addEventListener("click", () => {
     mostrarConteudo(conteudoAsideConfig);
 });
+
+
+//dropwdow filtro
+
+const dropdownLabel = document.getElementById("dropdownLabel");
+    const dropdownItems = document.querySelectorAll("#dropdownMenu .dropdown-item");
+
+    dropdownItems.forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.preventDefault();
+
+        // só troca o texto, o ícone e a seta continuam iguais
+        dropdownLabel.textContent = this.textContent;
+
+        // troca a seleção visual
+        dropdownItems.forEach(i => i.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });

@@ -188,7 +188,7 @@ a{
 }
 
 .btn-user i {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     color: inherit;
     cursor: pointer;
 }
@@ -536,6 +536,7 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     height: 100vh;
     width: 100%;
     transform: translateY(11%);
@@ -573,4 +574,209 @@ a{
     opacity: 0;
     visibility: hidden;
     z-index: 0;
+}
+
+.title-estoque{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 10%;
+    width: 100%;
+}
+
+.title-estoque-text{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    height: 90%;
+}
+
+.title-estoque-text h1{
+    font-size: 1.8rem;
+    font-family: var(--font-titulo);
+    color: #000000;
+    font-weight: 600;
+}
+
+.title-estoque-text p{
+    font-size: 1.2rem;
+    font-family: var(--font-titulo);
+    color: #00000091;
+    font-weight: 400;
+}
+
+.btn-adicionar-estoque{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 90%;
+    width: 15%;
+}
+
+.btn-adicionar-estoque button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+    background-color: var(--cor-primaria);
+    color: white;
+    border-radius: 0.5rem;
+    height: 60%;
+    width: 75%;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-titulo);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-adicionar-estoque button:hover{
+    background-color: #e3251bc1;
+}
+
+.content-estoque{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1vh;
+    height: 90%;
+    width: 100%;
+}
+
+.content-estoque-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 20%;
+    width: 97%;
+}
+
+.cards-estoque-stats{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 30%;
+    height: 85%;
+    border: 1px solid rgba(0, 0, 0, 0.200);
+    border-radius: 0.6rem;
+    padding: 1.5rem;
+}
+
+.title-cards-stats{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50%;
+    width: 100%;
+}
+
+.title-cards-stats-text h1{
+    font-size: 1.2rem;
+    font-family: var(--font-titulo);
+    font-weight: 500;
+}
+
+.title-cards-stats-icon i{
+    font-size: 1.2rem;
+    color: var(--cor-primaria);
+}
+
+.cards-number-stats{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 50%;
+    width: 100%;
+}
+
+.cards-number-stats h1{
+    font-size: 2rem;
+    font-family: var(--font-titulo);
+    font-weight: 500;
+}
+
+.content-estoque-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 75%;
+    width: 98%;
+}
+
+.estoque-options{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 10%;
+    padding: 0.5rem;
+}
+
+#dropdownButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.197);
+    transition: 0.3s ease;
+    background-color: white;
+    color: black;
+    width: 12%;
+    height: 100%;
+}
+
+#dropdownButton span{
+    font-family: var(--font-titulo);
+}
+
+#dropdownButton i{
+    color: var(--cor-primaria);
+}
+
+#dropdownLabel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5vh;
+    height: 100%;
+    width: 100%;
+}
+
+.dropdown-menu{
+    width: 10%;
+}
+
+.dropdown-item{
+    margin-bottom: 0.2rem;
+    transform: translateX(4%);
+    height: 95%;
+    width: 92%;
+    border-radius: 0.4rem;
+}
+
+.dropdown-item:hover{
+    background-color: #0000003b;
+}
+
+.dropdown-item.active{
+    background-color: var(--cor-primaria);
+}
+
+.dropdown-toggle::after {
+      margin-left: .5rem;
+      font-size: 1.2rem;
+      color: rgba(0, 0, 0, 0.781);
+}
+
+.table-estoque{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    width: 100%;
+    border: 1px solid;
 }

@@ -662,7 +662,7 @@ session_start();
           </div>
           <div class="content-left-btn">
             <button>
-              <a href="./propaganda.html" style="color: inherit; text-decoration: none;">Saiba Mais</a>
+              <a href="/cantinarepositorio/subpages/termos.php" style="color: inherit; text-decoration: none;">Saiba Mais</a>
             </button>
           </div>
         </div>
