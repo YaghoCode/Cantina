@@ -67,6 +67,12 @@ if (isset($_SESSION['cpf'])) {
                 <a class="nav-items-ul-o" href="#outros">Outros</a>
               </h1>
             </li>
+             <!--Tira depois esse item-->
+            <li>
+              <h1>
+                <a id="btn-limpar-carrinho" class="nav-items-ul-clear">Limpa</a>
+              </h1>
+            </li>
           </ul>
         </div>
         <?php
@@ -236,6 +242,7 @@ if (isset($_SESSION['cpf'])) {
 
   </div>
 
+  <!--SALGADOS-->
   <div class="container-salgados">
     <div class="title-salgados" id="salgados">
       <h1>Salgados</h1>
@@ -297,7 +304,7 @@ if (isset($_SESSION['cpf'])) {
         foreach ($query_run as $item) {
 
           echo '
-                      <div class="cards-items" ' . $item['id'] . '>
+                      <div class="cards-items" data-id="' . $item['id'] . '">
                         <div class="cards-items-top">
                           <div class="cards-items-img">
                             <img src="/cantinarepositorio/subpages/imgbd/' . $item['img'] . '" alt="">
@@ -344,8 +351,8 @@ if (isset($_SESSION['cpf'])) {
       if (mysqli_num_rows($query_run) > 0) {
         foreach ($query_run as $item) {
 
-          echo  '
-                      <div class="cards-items" ' . $item['id'] . '>
+          echo  ' . $i
+                      <div class="cards-items" data-id="' . $item['id'] . '">
                         <div class="cards-items-top">
                           <div class="cards-items-img">
                             <img src="/cantinarepositorio/subpages/imgbd/' . $item['img'] . '" alt="">
@@ -392,7 +399,7 @@ if (isset($_SESSION['cpf'])) {
         foreach ($query_run as $item) {
 
           echo  '
-                      <div class="cards-items" ' . $item['id'] . '>
+                      <div class="cards-items" data-id="' . $item['id'] . '">
                         <div class="cards-items-top">
                           <div class="cards-items-img">
                             <img src="/cantinarepositorio/subpages/imgbd/' . $item['img'] . '" alt="">
@@ -439,7 +446,7 @@ if (isset($_SESSION['cpf'])) {
         foreach ($query_run as $item) {
 
           echo  '
-                      <div class="cards-items" ' . $item['id'] . '>
+                      <div class="cards-items" data-id="' . $item['id'] . '">
                         <div class="cards-items-top">
                           <div class="cards-items-img">
                             <img src="/cantinarepositorio/subpages/imgbd/' . $item['img'] . '" alt="">
@@ -469,54 +476,63 @@ if (isset($_SESSION['cpf'])) {
       ?>
     </div>
   </div>
+
   <?php
-  $query = "SELECT * from estoque WHERE categoria = 'Salgados'";
-  $query_run = mysqli_query($con, $query);
+$query = "SELECT * from estoque";
+$query_run = mysqli_query($con, $query);
 
-  if (mysqli_num_rows($query_run) > 0) {
+if (mysqli_num_rows($query_run) > 0) {
     foreach ($query_run as $item) {
-
-      echo '<div class="modal-overlay-cardapio" id="modal-overlay-cardapio"></div>
-  <div class="container-modal-cardapio" id="' . $item['id'] . '">
-    <div class="content-modal-cardapio" data-id="' . $item['id'] . '" data-nome="' . $item['Nome'] . '" data-descricao="' . $item['Descricao'] . '" data-preco="' . $item['preco'] . '">
-        <div class="content-modal-cardapio-left">
-            <div class="modal-left-img">
-             <img src="/cantinarepositorio/subpages/imgbd/' . $item['img'] . '" alt="">
-            </div>
-        </div>
-          <div class="content-modal-cardapio-right">
-            <button class="btn-close-modaL" id="btn-close-modaL">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-                <div class="modal-right-title">
-                    <h3>' . $item['Nome'] . '</h3>
+        echo '
+        <div class="container-modal-cardapio" id="modal-' . $item['id'] . '">
+            <div class="content-modal-cardapio" 
+                 data-id="' . $item['id'] . '" 
+                 data-nome="' . $item['Nome'] . '" 
+                 data-descricao="' . $item['Descricao'] . '" 
+                 data-preco="' . $item['preco'] . '"  
+                 data-img="/cantinarepositorio/subpages/imgbd/' . $item['img'] . '">
+                 
+                <div class="content-modal-cardapio-left">
+                    <div class="modal-left-img">
+                        <img src="/cantinarepositorio/subpages/imgbd/' . $item['img'] . '" alt="">
+                    </div>
                 </div>
-                  <div class="modal-right-description">
-                      <p>
-                        ' . $item['Descricao'] . '
-                      </p>
-                  </div>
-                      <div class="modal-right-conteudo">
+
+                <div class="content-modal-cardapio-right">
+                    <button class="btn-close-modaL">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div class="modal-right-title">
+                        <h3>' . $item['Nome'] . '</h3>
+                    </div>
+                    <div class="modal-right-description">
+                        <p>' . $item['Descricao'] . '</p>
+                    </div>
+                    <div class="modal-right-conteudo">
                         <div class="modal-right-quantidade">
                             <button class="btn-decrement">-</button>
-                              <input type="number" class="input-modal-quantidade" value="1" min="1" max="99" step="1">
+                            <input type="number" class="input-modal-quantidade" value="1" min="1" max="99" step="1">
                             <button class="btn-increment">+</button>
                         </div>
-                      </div>
-                        <div class="modal-right-adicionar">
-                          <div class="modal-right-preco">
-                              <h4>R$ ' . $item['preco'] . '</h4>
-                          </div>
-                               <button class="btn-mandar" id="btn'. $item['id'] . '" value"Adicionar">
-                                  Adicionar
-                              </button>
+                    </div>
+                    <div class="modal-right-adicionar">
+                        <div class="modal-right-preco">
+                            <h4>R$ ' . $item['preco'] . '</h4>
                         </div>
-          </div>
-    </div>
-  </div>';
+                        <button class="btn-mandar" id="btn' . $item['id'] . '">
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>';
     }
-  }
-  ?>
+}
+?>
+
+
+ <div class="modal-overlay-cardapio" id="modal-overlay-cardapio"></div>
+   
 
 <script>
   // Quando clicar em "Mandar"
@@ -534,7 +550,8 @@ if (isset($_SESSION['cpf'])) {
         nome: nome,
         descricao: descricao,
         preco: preco,
-        quantidade: 1
+        quantidade: 1,
+        img: itemDiv.dataset.img
       };
 
       // 🧠 Salvar no localStorage (adicionando ao carrinho local)
@@ -551,7 +568,7 @@ if (isset($_SESSION['cpf'])) {
 
       alert(item.id);
       // 🖼️ Atualizar a interface local
-     // atualizarCarrinhoVisual();
+     atualizarCarrinhoVisual();
     });
   });
 
@@ -576,7 +593,7 @@ if (isset($_SESSION['cpf'])) {
       <div class="carrinho-item">
         <div class="carrinho-item-left">
           <div class="carrinho-item-img">
-            <img src="/cantinarepositorio/subpages/imgbd/${item.id}.png" alt="">
+           <img src="${item.img}" alt="">
           </div>
         </div>
         <div class="carrinho-item-right">
@@ -602,44 +619,110 @@ if (isset($_SESSION['cpf'])) {
 
   // Atualiza o total:
   document.querySelector('.cart-total-price h6').textContent = `R$: ${total.toFixed(2)}`;
+
+  addCarrinhoListeners()
 }
 
   // Atualizar visual ao abrir a página
   // atualizarCarrinhoVisual();
+
+
+  function addCarrinhoListeners() {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+    //Botões de incremento
+    document.querySelectorAll('.btn-increment').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.id;
+        const item = carrinho.find(i => i.id === id);
+        if (item) {
+          item.quantidade++;
+          localStorage.setItem('carrinho', JSON.stringify(carrinho));
+          atualizarCarrinhoVisual();
+        }
+      })
+    })
+
+    //Botões de decremento 
+    document.querySelectorAll('.btn-decrement').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.id;
+        const item = carrinho.find(i => i.id === id);
+        if (item && item.quantidade > 1) {
+          item.quantidade--;
+          localStorage.setItem('carrinho', JSON.stringify(carrinho));
+          atualizarCarrinhoVisual();
+        }
+      })
+    })
+
+    //Inputs de quantidade
+    document.querySelectorAll('.input-quantidade').forEach(input => {
+      input.addEventListener('change', () => {
+        const id = input.dataset.id;
+        const item = carrinho.find (i => i.id === id);
+        let valor = parseInt(input.value);
+
+        if (item){
+          if (isNaN(valor) || valor < 1) valor = 1;
+          if (valor > 99) valor = 99;
+
+          item.quantidade = valor;
+          localStorage.setItem('carrinho', JSON.stringify(carrinho));
+          atualizarCarrinhoVisual();
+        }
+      })
+    })
+  }
 </script>
 
 
   <script>
-    const btnCardapioCards = document.querySelectorAll('.cards-items');
-    const btnCloseModalCardapio = document.querySelectorAll('.btn-close-modaL')
-    const overlayModalCardapio = document.getElementById('modal-overlay-cardapio')
+    //modal cardapio
+   const btnCardapioCards = document.querySelectorAll('.cards-items');
+const overlayModalCardapio = document.getElementById('modal-overlay-cardapio');
 
-    btnCardapioCards.forEach(card => {
-      const modalId = card.getAttribute('data-id');
-      const modalCardapio = document.getElementById(modalId);
-      card.addEventListener('click', () => {
+btnCardapioCards.forEach(card => {
+    const modalId = card.getAttribute('data-id');
+    const modalCardapio = document.getElementById('modal-' + modalId);
+
+    card.addEventListener('click', () => {
         if (modalCardapio) {
-          modalCardapio.classList.add('active');
-          overlayModalCardapio.classList.add('active');
+            modalCardapio.classList.add('active');
+            overlayModalCardapio.classList.add('active');
         }
-      });
-        // Fecha o modal e o overlay ao clicar no botão de fechar
-    btnCloseModalCardapio.forEach(btn => {
-      btn.addEventListener('click', () => {
-        modalCardapio.classList.remove('active'); // Esconde o modal
-        overlayModalCardapio.classList.remove('active'); // Esconde o overlay
-      });
     });
+});
 
-    // Fecha o modal e o overlay ao clicar no overlay
-      overlayModalCardapio.addEventListener('click', () => {
-      modalCardapio.classList.remove('active'); // Esconde o modal
-      overlayModalCardapio.classList.remove('active'); // Esconde o overlay
+document.querySelectorAll('.btn-close-modaL').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.container-modal-cardapio').forEach(modal => {
+            modal.classList.remove('active');
+        });
+        overlayModalCardapio.classList.remove('active');
     });
-  });
+});
+
+overlayModalCardapio.addEventListener('click', () => {
+    document.querySelectorAll('.container-modal-cardapio').forEach(modal => {
+        modal.classList.remove('active');
+    });
+    overlayModalCardapio.classList.remove('active');
+});
 
 
- 
+//limpar carrinho
+function limparCarrinho() {
+    localStorage.removeItem('carrinho'); // Remove o carrinho do armazenamento
+    atualizarCarrinhoVisual();           // Atualiza a interface
+}
+
+document.getElementById('btn-limpar-carrinho').addEventListener('click', () => {
+    if (confirm("Tem certeza que quer limpar o carrinho?")) {
+        limparCarrinho();
+    }
+});
+
   </script>
 
   <script type="module" src="./assets/js/cardapioModal.js"></script>
