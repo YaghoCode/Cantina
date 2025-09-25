@@ -195,26 +195,6 @@ if (isset($_SESSION['cpf'])) {
                     </div>
                   </div>
                 </div>
-                <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                <div class="swiper-slide p-3 border rounded">Slide 1</div>
-                <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                <div class="swiper-slide p-3 border rounded">Slide 1</div>
-                <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                <div class="swiper-slide p-3 border rounded">Slide 1</div>
-                <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                <div class="swiper-slide p-3 border rounded">Slide 1</div>
-                <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                <div class="swiper-slide p-3 border rounded">Slide 3</div>
               </div>
             </div>
             <div class="swiper-scrollbar"></div>

@@ -32,6 +32,55 @@ $total_value_row = mysqli_fetch_assoc($total_value_result);
 $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, ',', '.');
 ?>
 
+ <?php
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+        if (isset($_POST['cadastrar-produto'])) {
+            // Sanitização dos dados
+            $nome = filter_input(INPUT_POST, 'nome-produto', FILTER_SANITIZE_SPECIAL_CHARS);
+            $descricao = filter_input(INPUT_POST, 'descricao-produto', FILTER_SANITIZE_SPECIAL_CHARS);
+            $preco = filter_input(INPUT_POST, 'preco-produto', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+            $quantidade = filter_input(INPUT_POST, 'quantidade-produto', FILTER_SANITIZE_NUMBER_INT);
+            $categoria = filter_input(INPUT_POST, 'categoria-produto', FILTER_SANITIZE_SPECIAL_CHARS);
+            $nomearquivo = $_FILES['imagem-produto']['name'];
+            $ext = pathinfo($nomearquivo, PATHINFO_EXTENSION);
+            $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
+            $tempName = $_FILES['imagem-produto']['tmp_name'];
+            $TargetPath = "/xampp/htdocs/cantinarepositorio/subpages/imgbd/" . $nomearquivo;
+            echo $nomearquivo;
+            // Inserção no banco de dados
+            // Quando a gente fez isso embaixo???
+            if (in_array($ext, $allowedTypes)) {
+                if (move_uploaded_file($tempName, $TargetPath)) {
+                    $sql = "INSERT INTO estoque (Nome, Descricao, Preco, Quantidade, Categoria, img) VALUES ('$nome', '$descricao', '$preco', '$quantidade', '$categoria', '$nomearquivo')";
+                    if (mysqli_query($con, $sql)) {
+                        // Redireciona após sucesso
+                        header("Location: /cantinarepositorio/subpages/estoque.php");
+                        exit;
+                    } else {
+                        throw new Exception();
+                    }
+                } else {
+                    throw new Exception();
+                }
+            } else {
+                throw new Exception();
+            }
+        }
+    }
+
+
+    $query = "SELECT * from estoque";
+    $query_run = mysqli_query($con, $query);
+
+    if (mysqli_num_rows($query_run) > 0) {
+
+        foreach ($query_run as $item) {
+            echo $item['id'];
+        }
+    }
+    ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -147,7 +196,7 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                     <p>Controle e monitore seus produtos.</p>
                 </div>
                 <div class="btn-adicionar-estoque">
-                    <button><i class="fa-solid fa-plus"></i> Adicionar Produto</button>
+                    <button id="btn-adicionar-produto"><i class="fa-solid fa-plus"></i> Adicionar Produto</button>
                 </div>
             </div>
             <div class="content-estoque">
@@ -242,6 +291,79 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
             </div>
         </div>
     </main>
+
+    <!--tabela novo produto-->
+
+     <div class="modal-novo-produto" id="modal-novo-p">
+            <div class="modal-content">
+                <div class="modal-content-left">
+                    <div class="modal-title">
+                        <h1>
+                            Crie um novo produto:
+                        </h1>
+                    </div>
+                    <!--Form de cadastrar produto-->
+                    <div class="modal-form-produto">
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-novo-produto" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="titulo">Título do Produto:</label>
+                                <input type="text" id="titulo" name="nome-produto" class="form-control" placeholder="Digite o título do produto" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="descricao">Descrição do Produto:</label>
+                                <input type="text" id="descricao" name="descricao-produto" class="form-control" placeholder="Digite a descrição do produto" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="preco">Preço:</label>
+                                <input type="number" id="preco" name="preco-produto" class="form-control" placeholder="Digite o preço do produto" step="0.01" min="0" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="quantidade">Quantidade:</label>
+                                <input type="number" id="quantidade" name="quantidade-produto" class="form-control" placeholder="Digite a quantidade disponível" min="0" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="categoria">Categoria:</label>
+                                <select id="categoria" name="categoria-produto" class="form-control" required>
+                                    <option value="Salgados">Salgados</option>
+                                    <option value="Folhados">Folhados</option>
+                                    <option value="Doces">Doces</option>
+                                    <option value="Bebidas">Bebidas</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" name="cadastrar-produto" class="btn btn-primary">Criar Produto</button>
+                            </div>
+                    </div>
+                </div>
+                <div class="modal-content-right">
+                    <div class="btn-close-modal">
+                        <button id="btn-close-modal-p">
+                            <i class="fa-solid fa-xmark" id="btn-close-modal-p"></i>
+                        </button>
+                    </div>
+                    <div class="upload-imagem">
+                        <label for="label-imagem">Escolha uma imagem para o produto:</label>
+                        <input type="file" id="imagem-produto" name="imagem-produto" accept="image/*"
+                            style="display: none;">
+                        <div class="preview-imagem">
+                            <button id="btn-remove-preview" class="btn-remove-preview"
+                                style="display: none;">&times;</button>
+                            <img id="preview" src="#" alt="Pré-visualização da imagem" style="display: none;">
+                        </div>
+                        <label for="imagem-produto" class="btn-upload">
+                            <i class="fa-solid fa-upload"></i> Escolher Imagem
+                        </label>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
