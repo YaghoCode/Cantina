@@ -67,12 +67,6 @@ if (isset($_SESSION['cpf'])) {
                 <a class="nav-items-ul-o" href="#outros">Outros</a>
               </h1>
             </li>
-            <!--Tira depois esse item-->
-            <li>
-              <h1>
-                <a id="btn-limpar-carrinho" class="nav-items-ul-clear">Limpa</a>
-              </h1>
-            </li>
           </ul>
         </div>
         <?php
@@ -152,20 +146,23 @@ if (isset($_SESSION['cpf'])) {
   <!--Popup carrinho-->
   <div class="pop-up-cart" id="pop-up-cart">
     <div class="content-pp-cart">
-      <div class="content-pp-cart-top" id="btn-close-cart-nav">
-        <button>
+        <button id="btn-close-cart-nav">
           <i class="fa-solid fa-xmark"></i>
         </button>
+          <button id="btn-limpar-carrinho">
+             <i class="fa-solid fa-trash-can"></i>
+          </button>
+      <div class="content-pp-cart-top">
+          <div class="cart-title">
+            <h6>
+              Itens Adicionados:
+            </h6>
+          </div>
+            <div class="barra-divisao">
+
+            </div>
       </div>
       <div class="content-pp-cart-bottom">
-        <div class="cart-title">
-          <h6>
-            Itens Adicionados:
-          </h6>
-        </div>
-        <div class="barra-divisao">
-
-        </div>
         <div class="cart-items">
           <div class="container-items">
             <div class="swiper">
@@ -187,7 +184,6 @@ if (isset($_SESSION['cpf'])) {
         </button>
       </div>
     </div>
-  </div>
   </div>
 
 
