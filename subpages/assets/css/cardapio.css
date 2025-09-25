@@ -388,7 +388,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 0%;
+    height: 10%;
     width: 95%;
 }
 
@@ -411,7 +411,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    max-height: 90%;
+    max-height: 80%;
     width: 95%;
 }
 
@@ -458,6 +458,7 @@ body {
     background-color: white;
 }
 
+
 .swiper-slide {
     display: flex;
     align-items: center;
@@ -469,8 +470,8 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     min-width: 95%;
-    min-height: 25%;
-    max-height: 25%;
+    min-height: 12vh;
+    max-height: 12vh;
 }
 
 .swiper-scrollbar {

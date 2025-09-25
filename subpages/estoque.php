@@ -70,15 +70,6 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
     }
 
 
-    $query = "SELECT * from estoque";
-    $query_run = mysqli_query($con, $query);
-
-    if (mysqli_num_rows($query_run) > 0) {
-
-        foreach ($query_run as $item) {
-            echo $item['id'];
-        }
-    }
     ?>
 
 <!DOCTYPE html>

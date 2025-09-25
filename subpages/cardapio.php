@@ -67,7 +67,7 @@ if (isset($_SESSION['cpf'])) {
                 <a class="nav-items-ul-o" href="#outros">Outros</a>
               </h1>
             </li>
-             <!--Tira depois esse item-->
+            <!--Tira depois esse item-->
             <li>
               <h1>
                 <a id="btn-limpar-carrinho" class="nav-items-ul-clear">Limpa</a>
@@ -170,31 +170,6 @@ if (isset($_SESSION['cpf'])) {
           <div class="container-items">
             <div class="swiper">
               <div class="swiper-wrapper" id="carrinho-itens-wrapper">
-                <div class="swiper-slide p-3 border rounded">
-                  <div class="carrinho-item">
-                    <div class="carrinho-item-left">
-                      <div class="carrinho-item-img">
-                        <img src="./assets/img/img comidas/croissant2.png" alt="">
-                      </div>
-                    </div>
-                    <div class="carrinho-item-right">
-                      <div class="carrinho-item-title">
-                        <h3>Coxinha de Frango</h3>
-                      </div>
-                      <div class="carrinho-item-calc-preco">
-                        <div class="carrinho-item-quantidade">
-                          <button class="btn-decrement">-</button>
-                          <input type="number" class="input-quantidade" value="1" min="1" max="99" step="1">
-                          <button class="btn-increment">+</button>
-                        </div>
-
-                        <div class="carrinho-item-preco">
-                          <p>R$ 6,00</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
             <div class="swiper-scrollbar"></div>
@@ -458,12 +433,12 @@ if (isset($_SESSION['cpf'])) {
   </div>
 
   <?php
-$query = "SELECT * from estoque";
-$query_run = mysqli_query($con, $query);
+  $query = "SELECT * from estoque";
+  $query_run = mysqli_query($con, $query);
 
-if (mysqli_num_rows($query_run) > 0) {
+  if (mysqli_num_rows($query_run) > 0) {
     foreach ($query_run as $item) {
-        echo '
+      echo '
         <div class="container-modal-cardapio" id="modal-' . $item['id'] . '">
             <div class="content-modal-cardapio" 
                  data-id="' . $item['id'] . '" 
@@ -507,69 +482,70 @@ if (mysqli_num_rows($query_run) > 0) {
             </div>
         </div>';
     }
-}
-?>
+  }
+  ?>
 
 
- <div class="modal-overlay-cardapio" id="modal-overlay-cardapio"></div>
-   
+  <div class="modal-overlay-cardapio" id="modal-overlay-cardapio"></div>
 
-<script>
-  // Quando clicar em "Mandar"
-  document.querySelectorAll('.btn-mandar').forEach(btn => {
-    btn.addEventListener('click', function () {
-      // Encontra o item correspondente
-      const itemDiv = this.closest('.content-modal-cardapio');
-      const id = itemDiv.dataset.id;
-      const nome = itemDiv.dataset.nome;
-      const descricao = itemDiv.dataset.descricao;
-      const preco = parseFloat(itemDiv.dataset.preco);
 
-      const item = {
-        id: id,
-        nome: nome,
-        descricao: descricao,
-        preco: preco,
-        quantidade: 1,
-        img: itemDiv.dataset.img
-      };
+  <script>
+    //modal cardapio ///////////////////////////////////////
 
-      // 🧠 Salvar no localStorage (adicionando ao carrinho local)
-      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const btnCardapioCards = document.querySelectorAll('.cards-items');
+    const overlayModalCardapio = document.getElementById('modal-overlay-cardapio');
 
-      const existente = carrinho.find(i => i.id === id);
-      if (existente) {
-        existente.quantidade++;
-      } else {
-        carrinho.push(item);
-      }
+    btnCardapioCards.forEach(card => {
+      const modalId = card.getAttribute('data-id');
+      const modalCardapio = document.getElementById('modal-' + modalId);
 
-      localStorage.setItem('carrinho', JSON.stringify(carrinho));
-
-      alert(item.id);
-      // 🖼️ Atualizar a interface local
-     atualizarCarrinhoVisual();
+      card.addEventListener('click', () => {
+        if (modalCardapio) {
+          modalCardapio.classList.add('active');
+          overlayModalCardapio.classList.add('active');
+        }
+      });
     });
-  });
 
-  //DAQUI PRA CIMA TA CERTO
+    //////////// atribuindo id modal acima 
 
-  
-  function atualizarCarrinhoVisual() {
-  const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-  const container = document.getElementById('carrinho-itens-wrapper');
-  container.innerHTML = '';
+    document.querySelectorAll('.btn-close-modaL').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.container-modal-cardapio').forEach(modal => {
+          modal.classList.remove('active');
+        });
+        overlayModalCardapio.classList.remove('active');
+      });
+    });
 
-  let total = 0;
+    overlayModalCardapio.addEventListener('click', () => {
+      document.querySelectorAll('.container-modal-cardapio').forEach(modal => {
+        modal.classList.remove('active');
+      });
+      overlayModalCardapio.classList.remove('active');
+    });
 
-  carrinho.forEach(item => {
-    const subtotal = item.preco * item.quantidade;
-    total += subtotal;
+    //////////////////////fecha o modal e o overlay com o button close
 
-    const slide = document.createElement('div');
-    slide.classList.add('swiper-slide', 'p-3', 'border', 'rounded');
 
-    slide.innerHTML = `
+    //funcoes carrinho////////////////////////////////////
+
+
+    function atualizarCarrinhoVisual() {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      const container = document.getElementById('carrinho-itens-wrapper');
+      container.innerHTML = '';
+
+      let total = 0;
+
+      carrinho.forEach(item => {
+        const subtotal = item.preco * item.quantidade;
+        total += subtotal;
+
+        const slide = document.createElement('div');
+        slide.classList.add('swiper-slide', 'p-3', 'border', 'rounded');
+
+        slide.innerHTML = `
       <div class="carrinho-item">
         <div class="carrinho-item-left">
           <div class="carrinho-item-img">
@@ -594,116 +570,133 @@ if (mysqli_num_rows($query_run) > 0) {
       </div>
     `;
 
-    container.appendChild(slide);
-  });
+        container.appendChild(slide);
+      });
 
-  // Atualiza o total:
-  document.querySelector('.cart-total-price h6').textContent = `R$: ${total.toFixed(2)}`;
+      // Atualiza o total:
+      document.querySelector('.cart-total-price h6').textContent = `R$: ${total.toFixed(2)}`;
 
-  addCarrinhoListeners()
-}
+      addCarrinhoListeners()
+    }
 
-  // Atualizar visual ao abrir a página
-  // atualizarCarrinhoVisual();
+    /////////////////limpa carrinho
 
+    function limparCarrinho() {
+      localStorage.removeItem('carrinho'); // Remove o carrinho do armazenamento
+      atualizarCarrinhoVisual(); // Atualiza a interface
+    }
 
-  function addCarrinhoListeners() {
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-
-    //Botões de incremento
-    document.querySelectorAll('.btn-increment').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.dataset.id;
-        const item = carrinho.find(i => i.id === id);
-        if (item) {
-          item.quantidade++;
-          localStorage.setItem('carrinho', JSON.stringify(carrinho));
-          atualizarCarrinhoVisual();
-        }
-      })
-    })
-
-    //Botões de decremento 
-    document.querySelectorAll('.btn-decrement').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.dataset.id;
-        const item = carrinho.find(i => i.id === id);
-        if (item && item.quantidade > 1) {
-          item.quantidade--;
-          localStorage.setItem('carrinho', JSON.stringify(carrinho));
-          atualizarCarrinhoVisual();
-        }
-      })
-    })
-
-    //Inputs de quantidade
-    document.querySelectorAll('.input-quantidade').forEach(input => {
-      input.addEventListener('change', () => {
-        const id = input.dataset.id;
-        const item = carrinho.find (i => i.id === id);
-        let valor = parseInt(input.value);
-
-        if (item){
-          if (isNaN(valor) || valor < 1) valor = 1;
-          if (valor > 99) valor = 99;
-
-          item.quantidade = valor;
-          localStorage.setItem('carrinho', JSON.stringify(carrinho));
-          atualizarCarrinhoVisual();
-        }
-      })
-    })
-  }
-</script>
-
-
-  <script>
-    //modal cardapio
-   const btnCardapioCards = document.querySelectorAll('.cards-items');
-const overlayModalCardapio = document.getElementById('modal-overlay-cardapio');
-
-btnCardapioCards.forEach(card => {
-    const modalId = card.getAttribute('data-id');
-    const modalCardapio = document.getElementById('modal-' + modalId);
-
-    card.addEventListener('click', () => {
-        if (modalCardapio) {
-            modalCardapio.classList.add('active');
-            overlayModalCardapio.classList.add('active');
-        }
+    document.getElementById('btn-limpar-carrinho').addEventListener('click', () => {
+      if (confirm("Tem certeza que quer limpar o carrinho?")) {
+        limparCarrinho();
+      }
     });
-});
 
-document.querySelectorAll('.btn-close-modaL').forEach(btn => {
-    btn.addEventListener('click', () => {
+    function abrirCarrinhoModal() {
+      const containerPopUpCart = document.getElementById('pop-up-cart');
+      containerPopUpCart.classList.add('active');
+
+    }
+
+
+    ////////////// funcao modal + carrinho (manda o item do modal para o carrinho)
+
+    document.querySelectorAll('.btn-mandar').forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Encontra o item correspondente
+        const itemDiv = this.closest('.content-modal-cardapio');
+        const id = itemDiv.dataset.id;
+        const nome = itemDiv.dataset.nome;
+        const descricao = itemDiv.dataset.descricao;
+        const preco = parseFloat(itemDiv.dataset.preco);
+
+        const item = {
+          id: id,
+          nome: nome,
+          descricao: descricao,
+          preco: preco,
+          quantidade: 1,
+          img: itemDiv.dataset.img
+        };
+
+        // 🧠 Salvar no localStorage (adicionando ao carrinho local)
+        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+        const existente = carrinho.find(i => i.id === id);
+        if (existente) {
+          existente.quantidade++;
+        } else {
+          carrinho.push(item);
+        }
+
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+
         document.querySelectorAll('.container-modal-cardapio').forEach(modal => {
-            modal.classList.remove('active');
+          modal.classList.remove('active');
         });
         overlayModalCardapio.classList.remove('active');
+        // 🖼️ Atualizar a interface local
+        atualizarCarrinhoVisual();
+        abrirCarrinhoModal();
+      });
     });
-});
 
-overlayModalCardapio.addEventListener('click', () => {
-    document.querySelectorAll('.container-modal-cardapio').forEach(modal => {
-        modal.classList.remove('active');
-    });
-    overlayModalCardapio.classList.remove('active');
-});
+    /////input butao quantidade carrinho items
 
+    function addCarrinhoListeners() {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
-//limpar carrinho
-function limparCarrinho() {
-    localStorage.removeItem('carrinho'); // Remove o carrinho do armazenamento
-    atualizarCarrinhoVisual();           // Atualiza a interface
-}
+      //Botões de incremento
+      document.querySelectorAll('.btn-increment').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.id;
+          const item = carrinho.find(i => i.id === id);
+          if (item) {
+            item.quantidade++;
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            atualizarCarrinhoVisual();
+          }
+        })
+      })
 
-document.getElementById('btn-limpar-carrinho').addEventListener('click', () => {
-    if (confirm("Tem certeza que quer limpar o carrinho?")) {
-        limparCarrinho();
+      //Botões de decremento 
+      document.querySelectorAll('.btn-decrement').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.id;
+          const item = carrinho.find(i => i.id === id);
+          if (item && item.quantidade > 1) {
+            item.quantidade--;
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            atualizarCarrinhoVisual();
+          }
+        })
+      })
+
+      //Inputs de quantidade
+      document.querySelectorAll('.input-quantidade').forEach(input => {
+        input.addEventListener('change', () => {
+          const id = input.dataset.id;
+          const item = carrinho.find(i => i.id === id);
+          let valor = parseInt(input.value);
+
+          if (item) {
+            if (isNaN(valor) || valor < 1) valor = 1;
+            if (valor > 99) valor = 99;
+
+            item.quantidade = valor;
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            atualizarCarrinhoVisual();
+          }
+        })
+      })
     }
-});
+    atualizarCarrinhoVisual();
+
+    ////////////////////////////////////////
 
   </script>
+
 
   <script type="module" src="./assets/js/cardapioModal.js"></script>
   <script type="module" src="./assets/js/cardapio.js"></script>
@@ -721,8 +714,3 @@ document.getElementById('btn-limpar-carrinho').addEventListener('click', () => {
 <?php
 mysqli_close($con);
 ?>
-
-
-
-
-

@@ -241,7 +241,7 @@ else {
         </button>
       </div>
       <div class="title-modal-alert">
-        <i class="fa-solid fa-lock"></i>
+        <i class="fa-regular fa-user"></i>
         <h1>
           Acesso Necessário
         </h1>
