@@ -440,19 +440,27 @@ else {
       <div class="content-cardapio">
         <div class="content-cardapio-options active">
           <!--SALGADOS-->
+          <?php
+          $query = "SELECT * FROM estoque WHERE categoria = 'Salgados' AND in_main = 1 LIMIT 3";
+          $result = mysqli_query($con, $query);
+          if ($result && mysqli_num_rows($result) > 0) {
+          foreach ($result as $row) {
+          ?>
           <div class="cards-salgados">
             <div class="cards-img">
-              <img src="./assets/img/esfihadecarne.jpg" alt="">
+              <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
             </div>
             <div class="cards-title">
-              <h3>Esfiha de Carne</h3>
+              <h3><?php echo $row['Nome']; ?></h3>
             </div>
             <div class="cards-priceEbtn">
-              <h4>R$ 6,00</h4>
+              <h4><?php echo $row['preco']; ?></h4>
               <button><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
-
+          <?php
+          }}
+          ?><!--
           <div class="cards-salgados">
             <div class="cards-img">
               <img src="./assets/img/coxinha2.webp" alt="">
@@ -477,130 +485,79 @@ else {
               <h4>R$ 6,00</h4>
               <button><i class="fa-solid fa-plus"></i></button>
             </div>
-          </div>
+          </div>-->
         </div>
         <div class="content-cardapio-options">
           <!--FOLHADOS-->
-          <div class="cards-folhados">
+          <?php
+          $query = "SELECT * FROM estoque WHERE categoria = 'Folhados' AND in_main = 1 LIMIT 3";
+          $result = mysqli_query($con, $query);
+          if ($result && mysqli_num_rows($result) > 0) {
+          foreach ($result as $row) {
+          ?>
+          <div class="cards-salgados">
             <div class="cards-img">
-              <img class="img-folhados" src="./assets/img/croissant-chocolate2.png" alt="">
+              <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
             </div>
             <div class="cards-title">
-              <h3>Croassaint de Chocolate</h3>
+              <h3><?php echo $row['Nome']; ?></h3>
             </div>
             <div class="cards-priceEbtn">
-              <h4>R$ 7,00</h4>
+              <h4><?php echo $row['preco']; ?></h4>
               <button><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
-
-          <div class="cards-folhados">
-            <div class="cards-img">
-              <img src="./assets/img/folhado-1.jpg" alt="">
-            </div>
-            <div class="cards-title">
-              <h3>Folhado de Carne</h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4>R$ 7,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
-
-          <div class="cards-folhados">
-            <div class="cards-img">
-              <img src="./assets/img//folhado-2.jpg" alt="">
-            </div>
-            <div class="cards-title">
-              <h3>Folhado de 4 Queijo</h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4>R$ 7,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
+          <?php
+          }}
+          ?>
         </div>
         <div class="content-cardapio-options">
           <!--DOCES-->
-          <div class="cards-doces">
+          <?php
+          $query = "SELECT * FROM estoque WHERE categoria = 'Doces' AND in_main = 1 LIMIT 3";
+          $result = mysqli_query($con, $query);
+          if ($result && mysqli_num_rows($result) > 0) {
+          foreach ($result as $row) {
+          ?>
+          <div class="cards-salgados">
             <div class="cards-img">
-              <img src="./assets/img/beijinho2.jpg" alt="">
+              <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
             </div>
             <div class="cards-title">
-              <h3>Beijinho Und.</h3>
+              <h3><?php echo $row['Nome']; ?></h3>
             </div>
             <div class="cards-priceEbtn">
-              <h4>R$ 3,00</h4>
+              <h4><?php echo $row['preco']; ?></h4>
               <button><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
-
-          <div class="cards-doces">
-            <div class="cards-img">
-              <img src="./assets/img/brigadeiro2.jpg" alt="">
-            </div>
-            <div class="cards-title">
-              <h3>Brigadeiro Und.</h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4>R$ 3,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
-
-          <div class="cards-doces">
-            <div class="cards-img">
-              <img src="./assets/img/bolochocolate.jpg" alt="">
-            </div>
-            <div class="cards-title">
-              <h3>Bolo de Chocolate Fatia</h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4>R$ 7,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
+          <?php
+          }}
+          ?>
         </div>
         <div class="content-cardapio-options">
           <!--Bebidas-->
-          <div class="cards-bebidas">
+          <?php
+          $query = "SELECT * FROM estoque WHERE categoria = 'Bebidas' AND in_main = 1 LIMIT 3";
+          $result = mysqli_query($con, $query);
+          if ($result && mysqli_num_rows($result) > 0) {
+          foreach ($result as $row) {
+          ?>
+          <div class="cards-salgados">
             <div class="cards-img">
-              <img src="./assets/img/coca350.png" alt="">
+              <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
             </div>
             <div class="cards-title">
-              <h3>Coca Cola 350ml.</h3>
+              <h3><?php echo $row['Nome']; ?></h3>
             </div>
             <div class="cards-priceEbtn">
-              <h4>R$ 8,00</h4>
+              <h4><?php echo $row['preco']; ?></h4>
               <button><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
-
-          <div class="cards-bebidas">
-            <div class="cards-img">
-              <img src="./assets/img/cocazero2.webp" alt="">
-            </div>
-            <div class="cards-title">
-              <h3>Coca Cola Zero 350ml.</h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4>R$ 8,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
-
-          <div class="cards-bebidas">
-            <div class="cards-img">
-              <img src="./assets/img/agua.png" alt="">
-            </div>
-            <div class="cards-title">
-              <h3>Água 510ml.</h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4>R$ 3,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
+          <?php
+          }}
+          ?>
         </div>
         <div class="content-cardapio-options">
           <!--Outros-->
