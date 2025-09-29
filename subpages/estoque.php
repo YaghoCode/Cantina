@@ -277,7 +277,7 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
                                                     <button id="btn-deletar-item">
-                                                        <i class="fa-solid fa-trash"></i>
+                                                        <i class="fa-regular fa-trash-can"></i>
                                                     </button>
                                         </td>
                                     </tr>
@@ -295,11 +295,11 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
                                                     <button id="btn-deletar-item">
-                                                        <i class="fa-solid fa-trash"></i>
+                                                        <i class="fa-regular fa-trash-can"></i>
                                                     </button>
                                         </td>
                                     </tr>
-                                        <tr>
+                                    <tr>
                                         <td> <img src="" alt=""> </td> <!--Img Item-->
                                         <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
                                         <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
@@ -313,11 +313,11 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
                                                     <button id="btn-deletar-item">
-                                                        <i class="fa-solid fa-trash"></i>
+                                                        <i class="fa-regular fa-trash-can"></i>
                                                     </button>
                                         </td>
                                     </tr>
-                                        <tr>
+                                    <tr>
                                         <td> <img src="" alt=""> </td> <!--Img Item-->
                                         <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
                                         <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
@@ -331,11 +331,11 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
                                                     <button id="btn-deletar-item">
-                                                        <i class="fa-solid fa-trash"></i>
+                                                        <i class="fa-regular fa-trash-can"></i>
                                                     </button>
                                         </td>
                                     </tr>
-                                        <tr>
+                                    <tr>
                                         <td> <img src="" alt=""> </td> <!--Img Item-->
                                         <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
                                         <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
@@ -349,11 +349,11 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
                                                     <button id="btn-deletar-item">
-                                                        <i class="fa-solid fa-trash"></i>
+                                                        <i class="fa-regular fa-trash-can"></i>
                                                     </button>
                                         </td>
                                     </tr>
-                                        <tr>
+                                    <tr>
                                         <td> <img src="" alt=""> </td> <!--Img Item-->
                                         <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
                                         <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
@@ -367,11 +367,11 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
                                                     <button id="btn-deletar-item">
-                                                        <i class="fa-solid fa-trash"></i>
+                                                        <i class="fa-regular fa-trash-can"></i>
                                                     </button>
                                         </td>
                                     </tr>
-                                        <tr>
+                                    <tr>
                                         <td> <img src="" alt=""> </td> <!--Img Item-->
                                         <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
                                         <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
@@ -385,7 +385,61 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
                                                     <button id="btn-deletar-item">
-                                                        <i class="fa-solid fa-trash"></i>
+                                                        <i class="fa-regular fa-trash-can"></i>
+                                                    </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> <img src="" alt=""> </td> <!--Img Item-->
+                                        <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
+                                        <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
+                                        <td> <h6>15</h6> </td> <!--Quantidade no Estoque-->
+                                        <td> <h6>15,00</h6> </td> <!--Preço Item-->
+                                        <td> <h6>245,00</h6> </td> <!--Preço X quantidade em estoque-->
+                                        <td id="table-acoes"> <button id="btn-editar-item">
+                                                <i class="fa-solid fa-eye"></i>
+                                             </button> 
+                                                <button id="btn-visualizar-item">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                    <button id="btn-deletar-item">
+                                                        <i class="fa-regular fa-trash-can"></i>
+                                                    </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> <img src="" alt=""> </td> <!--Img Item-->
+                                        <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
+                                        <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
+                                        <td> <h6>15</h6> </td> <!--Quantidade no Estoque-->
+                                        <td> <h6>15,00</h6> </td> <!--Preço Item-->
+                                        <td> <h6>245,00</h6> </td> <!--Preço X quantidade em estoque-->
+                                        <td id="table-acoes"> <button id="btn-editar-item">
+                                                <i class="fa-solid fa-eye"></i>
+                                             </button> 
+                                                <button id="btn-visualizar-item">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                    <button id="btn-deletar-item">
+                                                        <i class="fa-regular fa-trash-can"></i>
+                                                    </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> <img src="" alt=""> </td> <!--Img Item-->
+                                        <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
+                                        <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
+                                        <td> <h6>15</h6> </td> <!--Quantidade no Estoque-->
+                                        <td> <h6>15,00</h6> </td> <!--Preço Item-->
+                                        <td> <h6>245,00</h6> </td> <!--Preço X quantidade em estoque-->
+                                        <td id="table-acoes"> <button id="btn-editar-item">
+                                                <i class="fa-solid fa-eye"></i>
+                                             </button> 
+                                                <button id="btn-visualizar-item">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                    <button id="btn-deletar-item">
+                                                        <i class="fa-regular fa-trash-can"></i>
                                                     </button>
                                         </td>
                                     </tr>

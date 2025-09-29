@@ -396,7 +396,7 @@ a{
 /*Aside*/
 
 .aside-options{
-    position: absolute;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -467,21 +467,20 @@ a{
 
 .aside-bottom{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     flex-direction: column;
     height: 85%;
     width: 100%;
-    padding: 0.5rem;
+    gap: 1vh;
 }
 
 .aside-bottom-title{
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: flex-start;
-    height: 5%;
-    width: 100%;
-    padding-left: 0.5rem;
+    height: 15%;
+    width: 70%;
 }
 
 .aside-bottom-title h6{
@@ -493,7 +492,7 @@ a{
 
 .aside-lista{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     height: 30%;
     width: 100%;
@@ -505,9 +504,10 @@ a{
     justify-content: center;
     flex-direction: column;
     list-style: none;
-    width: 100%;
+    width: 80%;
     height: 100%;
     gap: 1vh;
+    padding-left: 0;
 }
 
 .aside-lista ul li{
@@ -522,9 +522,9 @@ a{
     transition: 0.3s ease;
     gap: 1vh;
     border-radius: 0.5rem;
-    padding-left: 0.5rem;
     font-weight: 300;
     color: #000000c7;
+    padding: 0 1rem;
 }
 
 .aside-lista ul li:hover{
@@ -776,51 +776,41 @@ a{
 }
 
 /*Tabelas do filtro*/
-
-.table-estoque-all{
+.table-estoque-all {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 90%;
+    height: 55vh;
     width: 100%;
 }
 
-/*tabelas display = none*/
-
-
-.table-estoque-all table{
+.table-estoque-all table {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
     height: 100%;
     width: 99%;
     border: 1px solid rgba(0, 0, 0, 0.345);
     border-radius: 0.5rem;
+    overflow: hidden;
 }
 
-.table-estoque-all table thead{
+.table-estoque-all table thead {
     display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     height: 7vh;
     border-bottom: 1px solid rgba(0, 0, 0, 0.345);
 }
 
-.table-estoque-all table thead tr{
+.table-estoque-all table thead tr {
     display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     height: 100%;
 }
 
-.table-estoque-all table thead tr td{
+.table-estoque-all table thead tr td {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 100%;
     width: 14.2%;
     padding: 0 3.8rem;
     font-size: 1.1rem;
@@ -829,28 +819,22 @@ a{
     font-weight: 600;
 }
 
-.table-estoque-all table tbody{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
+.table-estoque-all table tbody {
+    display: block;
     width: 100%;
-    /* Define altura fixa para permitir scroll */
-    min-height: calc(13% * 7);
-    max-height: calc(13% * 7); /* 7 itens * altura de cada item (13%) */
+    height: calc(55vh - 0vh);
     overflow-y: auto;
     overflow-x: hidden;
-    /* Espaçamento entre linhas */
-   scrollbar-width: thin; /* Firefox */
-    scrollbar-color: #c1c1c1 transparent; /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #c1c1c1 transparent;
 }
 
 .table-estoque-all table tbody::-webkit-scrollbar {
-    width: 6px; /* Largura da barra no Chrome */
+    
 }
 
 .table-estoque-all table tbody::-webkit-scrollbar-thumb {
-    background-color: #c1c1c1;
+    background-color: #d3d1d1;
     border-radius: 10px;
 }
 
@@ -858,37 +842,40 @@ a{
     background: transparent;
 }
 
-.table-estoque-all table tbody tr{
+/* cada item */
+.table-estoque-all table tbody tr {
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 100%;
-    height: 14.4%;
+    height: 8.2vh;
     border-bottom: 1px solid #00000034;
+    box-sizing: border-box;
 }
 
-.table-estoque-all table tbody tr td{
+.table-estoque-all table tbody tr td {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 100%;
-    width: 14.2%;   
+    width: 14.2%;
     padding: 0 3.8rem;
+    height: 100%;
+    font-family: var(--font-titulo);
 }
 
-.table-estoque-all table tbody tr td img{
-    height: 80%;
-    width: 60%;
+.table-estoque-all table tbody tr td img {
+    height: 70%;
+    width: 50%;
     background-color: #00000034;
     border-radius: 0.3rem;
 }
 
-#table-acoes{
+#table-acoes {
     display: flex;
     gap: 1vh;
 }
 
-.table-estoque-all table tbody tr td button{
+.table-estoque-all table tbody tr td button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -901,12 +888,12 @@ a{
     transition: 0.3s ease;
 }
 
-.table-estoque-all table tbody tr td button i.fa-solid.fa-trash{
+.table-estoque-all table tbody tr td button i.fa-regular.fa-trash-can {
     color: var(--cor-primaria);
 }
 
-.table-estoque-all table tbody tr td button:hover{
-    background-color: rgb(235, 231, 231);
+.table-estoque-all table tbody tr td button:hover {
+    background-color: rgba(235, 231, 231, 0.553);
 }
 
 
