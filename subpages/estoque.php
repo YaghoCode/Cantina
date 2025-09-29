@@ -265,11 +265,11 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                                 <tbody>
                                     <tr>
                                         <td> <img src="" alt=""> </td> <!--Img Item-->
-                                        <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
-                                        <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
-                                        <td> <h6>15</h6> </td> <!--Quantidade no Estoque-->
-                                        <td> <h6>15,00</h6> </td> <!--Preço Item-->
-                                        <td> <h6>245,00</h6> </td> <!--Preço X quantidade em estoque-->
+                                        <td> <h6>Coca-Cola 2L aaaaa aaa aa aaa </h6> </td> <!--Name Item-->
+                                        <td> <h6>Bebidasaaaaaaaaa</h6> </td> <!--Categoria Item-->
+                                        <td> <h6>1555555555555555</h6> </td> <!--Quantidade no Estoque-->
+                                        <td> <h6>15,000000000000</h6> </td> <!--Preço Item-->
+                                        <td> <h6>245,00aaaaaaaaaaaaa</h6> </td> <!--Preço X quantidade em estoque-->
                                         <td id="table-acoes"> <button id="btn-editar-item">
                                                 <i class="fa-solid fa-eye"></i>
                                              </button> 

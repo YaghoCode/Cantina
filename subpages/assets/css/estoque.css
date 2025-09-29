@@ -863,6 +863,13 @@ a{
     font-family: var(--font-titulo);
 }
 
+.table-estoque-all table tbody tr td h6{
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .table-estoque-all table tbody tr td img {
     height: 70%;
     width: 50%;
