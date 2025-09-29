@@ -285,14 +285,17 @@ a{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 10%;
+    height: 15%;
     width: 95%;
 }
 
 .content-pp-bottom a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    height: 100%;
-    width: 20%;
+    height: 80%;
+    width: 30%;
     border-radius: 0.4rem;
     color: white;
     font-family: var(--font-titulo);
@@ -330,7 +333,7 @@ a{
 .top-circle-info-text{
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: column;
     width: 70%;
     height: 100%;
@@ -772,14 +775,170 @@ a{
       color: rgba(0, 0, 0, 0.781);
 }
 
-.table-estoque{
+/*Tabelas do filtro*/
+
+.table-estoque-all{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 90%;
     width: 100%;
-    border: 1px solid;
 }
+
+/*tabelas display = none*/
+
+
+.table-estoque-all table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 99%;
+    border: 1px solid rgba(0, 0, 0, 0.345);
+    border-radius: 0.5rem;
+}
+
+.table-estoque-all table thead{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 7vh;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.345);
+}
+
+.table-estoque-all table thead tr{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.table-estoque-all table thead tr td{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 14.2%;
+    padding: 0 3.8rem;
+    font-size: 1.1rem;
+    color: #0000007c;
+    font-family: var(--font-titulo);
+    font-weight: 600;
+}
+
+.table-estoque-all table tbody{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    /* Define altura fixa para permitir scroll */
+    min-height: calc(13% * 7);
+    max-height: calc(13% * 7); /* 7 itens * altura de cada item (13%) */
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Espaçamento entre linhas */
+   scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #c1c1c1 transparent; /* Firefox */
+}
+
+.table-estoque-all table tbody::-webkit-scrollbar {
+    width: 6px; /* Largura da barra no Chrome */
+}
+
+.table-estoque-all table tbody::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;
+    border-radius: 10px;
+}
+
+.table-estoque-all table tbody::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.table-estoque-all table tbody tr{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 13%;
+}
+
+.table-estoque-all table tbody tr td{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 14.2%;   
+    padding: 0 3.8rem;
+}
+
+.table-estoque-all table tbody tr td img{
+    height: 80%;
+    width: 60%;
+    background-color: #00000034;
+    border-radius: 0.3rem;
+}
+
+#table-acoes{
+    display: flex;
+    gap: 1vh;
+}
+
+.table-estoque-all table tbody tr td button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 30%;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid #00000017;
+    border-radius: 0.3rem;
+    transition: 0.3s ease;
+}
+
+.table-estoque-all table tbody tr td button i.fa-solid.fa-trash{
+    color: var(--cor-primaria);
+}
+
+.table-estoque-all table tbody tr td button:hover{
+    background-color: rgb(235, 231, 231);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*modal novo produto*/
 

@@ -242,14 +242,174 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                         <ul class="dropdown-menu" id="dropdownMenu">
                             <li><a class="dropdown-item active" href="#" data-value="all">Todos os Produtos</a></li>
                             <li><a class="dropdown-item" href="#" data-value="low">Estoque Baixo</a></li>
-                            <li><a class="dropdown-item" href="#" data-value="drinks">Bebidas</a></li>
                             <li><a class="dropdown-item" href="#" data-value="snacks">Salgados</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="snacks2">Folhados</a></li>
                             <li><a class="dropdown-item" href="#" data-value="sweets">Doces</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="drinks">Bebidas</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="others">Outros</a></li>
                         </ul>
                     </div>
-                    <div class="table-estoque">
-
+                    <div class="table-estoque-all" id="table-all">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Imagem</td>
+                                    <td>Produto</td>
+                                    <td>Categoria</td>
+                                    <td>Estoque</td>
+                                    <td>Preço</td>
+                                    <td>Valor Total</td>
+                                    <td>Ações</td>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> <img src="" alt=""> </td> <!--Img Item-->
+                                        <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
+                                        <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
+                                        <td> <h6>15</h6> </td> <!--Quantidade no Estoque-->
+                                        <td> <h6>15,00</h6> </td> <!--Preço Item-->
+                                        <td> <h6>245,00</h6> </td> <!--Preço X quantidade em estoque-->
+                                        <td id="table-acoes"> <button id="btn-editar-item">
+                                                <i class="fa-solid fa-eye"></i>
+                                             </button> 
+                                                <button id="btn-visualizar-item">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                    <button id="btn-deletar-item">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
+                                        </td>
+                                    </tr>
+                                        <tr>
+                                        <td> <img src="" alt=""> </td> <!--Img Item-->
+                                        <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
+                                        <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
+                                        <td> <h6>15</h6> </td> <!--Quantidade no Estoque-->
+                                        <td> <h6>15,00</h6> </td> <!--Preço Item-->
+                                        <td> <h6>245,00</h6> </td> <!--Preço X quantidade em estoque-->
+                                        <td id="table-acoes"> <button id="btn-editar-item">
+                                                <i class="fa-solid fa-eye"></i>
+                                             </button> 
+                                                <button id="btn-visualizar-item">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                    <button id="btn-deletar-item">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
+                                        </td>
+                                    </tr>
+                                        <tr>
+                                        <td> <img src="" alt=""> </td> <!--Img Item-->
+                                        <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
+                                        <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
+                                        <td> <h6>15</h6> </td> <!--Quantidade no Estoque-->
+                                        <td> <h6>15,00</h6> </td> <!--Preço Item-->
+                                        <td> <h6>245,00</h6> </td> <!--Preço X quantidade em estoque-->
+                                        <td id="table-acoes"> <button id="btn-editar-item">
+                                                <i class="fa-solid fa-eye"></i>
+                                             </button> 
+                                                <button id="btn-visualizar-item">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                    <button id="btn-deletar-item">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
+                                        </td>
+                                    </tr>
+                                        <tr>
+                                        <td> <img src="" alt=""> </td> <!--Img Item-->
+                                        <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
+                                        <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
+                                        <td> <h6>15</h6> </td> <!--Quantidade no Estoque-->
+                                        <td> <h6>15,00</h6> </td> <!--Preço Item-->
+                                        <td> <h6>245,00</h6> </td> <!--Preço X quantidade em estoque-->
+                                        <td id="table-acoes"> <button id="btn-editar-item">
+                                                <i class="fa-solid fa-eye"></i>
+                                             </button> 
+                                                <button id="btn-visualizar-item">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                    <button id="btn-deletar-item">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
+                                        </td>
+                                    </tr>
+                                        <tr>
+                                        <td> <img src="" alt=""> </td> <!--Img Item-->
+                                        <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
+                                        <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
+                                        <td> <h6>15</h6> </td> <!--Quantidade no Estoque-->
+                                        <td> <h6>15,00</h6> </td> <!--Preço Item-->
+                                        <td> <h6>245,00</h6> </td> <!--Preço X quantidade em estoque-->
+                                        <td id="table-acoes"> <button id="btn-editar-item">
+                                                <i class="fa-solid fa-eye"></i>
+                                             </button> 
+                                                <button id="btn-visualizar-item">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                    <button id="btn-deletar-item">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
+                                        </td>
+                                    </tr>
+                                        <tr>
+                                        <td> <img src="" alt=""> </td> <!--Img Item-->
+                                        <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
+                                        <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
+                                        <td> <h6>15</h6> </td> <!--Quantidade no Estoque-->
+                                        <td> <h6>15,00</h6> </td> <!--Preço Item-->
+                                        <td> <h6>245,00</h6> </td> <!--Preço X quantidade em estoque-->
+                                        <td id="table-acoes"> <button id="btn-editar-item">
+                                                <i class="fa-solid fa-eye"></i>
+                                             </button> 
+                                                <button id="btn-visualizar-item">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                    <button id="btn-deletar-item">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
+                                        </td>
+                                    </tr>
+                                        <tr>
+                                        <td> <img src="" alt=""> </td> <!--Img Item-->
+                                        <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
+                                        <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
+                                        <td> <h6>15</h6> </td> <!--Quantidade no Estoque-->
+                                        <td> <h6>15,00</h6> </td> <!--Preço Item-->
+                                        <td> <h6>245,00</h6> </td> <!--Preço X quantidade em estoque-->
+                                        <td id="table-acoes"> <button id="btn-editar-item">
+                                                <i class="fa-solid fa-eye"></i>
+                                             </button> 
+                                                <button id="btn-visualizar-item">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                    <button id="btn-deletar-item">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                        </table>
                     </div>
+                        <div class="table-estoque-baixo" id="table-low">
+
+                        </div>
+                            <div class="table-estoque-salgados" id="table-salgados">
+
+                            </div>
+                                <div class="table-estoque-folhados" id="table-folhados">
+
+                                </div>
+                                    <div class="table-estoque-doces" id="table-doces">
+
+                                    </div>
+                                        <div class="table-estoque-bebidas" id="table-bebidas">
+
+                                        </div>
+                                            <div class="table-estoque-outros" id="table-outros">
+
+                                            </div>
                 </div>
             </div>
         </div>
