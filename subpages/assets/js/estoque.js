@@ -137,3 +137,71 @@ btnRemovePreview.addEventListener('click', () => {
     btnRemovePreview.style.display = 'none';
     inputImagem.value = ''; // Reseta o campo de upload
 });
+
+
+
+////// Filtro das tabelas
+const tableAllEstoque = document.getElementById('table-all');
+const tableLowEstoque = document.getElementById('table-low');
+const tableSalgadosEstoque = document.getElementById('table-salgados');
+const tableFolhadosEstoque = document.getElementById('table-folhados');
+const tableDocesEstoque = document.getElementById('table-doces');
+const tableBebidasEstoque = document.getElementById('table-bebidas');
+const tableOutrosEstoque = document.getElementById('table-outros');
+
+const btnAllFiltro = document.getElementById('btn-all-produtos');
+const btnLowFiltro = document.getElementById('btn-low-produtos');
+const btnSalgadosFiltro = document.getElementById('btn-salgados-produtos');
+const btnFolhadosFiltro = document.getElementById('btn-folhados-produtos');
+const btnDocesFiltro = document.getElementById('btn-doces-produtos');
+const btnBebidasFiltro = document.getElementById('btn-bebidas-produtos');
+const btnOutrosFiltro = document.getElementById('btn-outros-produtos');
+
+function mostrarConteudoTableEstoque(ItemAtivo) {
+    tableAllEstoque.classList.remove("activeTable");
+    tableLowEstoque.classList.remove("activeTable");
+    tableSalgadosEstoque.classList.remove("activeTable");
+    tableFolhadosEstoque.classList.remove("activeTable");
+    tableDocesEstoque.classList.remove("activeTable");
+    tableBebidasEstoque.classList.remove("activeTable");
+    tableOutrosEstoque.classList.remove("activeTable");
+
+    tableAllEstoque.classList.add("closeTable");
+    tableLowEstoque.classList.add("closeTable");
+    tableSalgadosEstoque.classList.add("closeTable");
+    tableFolhadosEstoque.classList.add("closeTable");
+    tableDocesEstoque.classList.add("closeTable");
+    tableBebidasEstoque.classList.add("closeTable");
+    tableOutrosEstoque.classList.add("closeTable");
+
+    ItemAtivo.classList.remove("closeTable");
+    ItemAtivo.classList.add("activeTable");
+}
+
+btnAllFiltro.addEventListener("click", () => {
+    mostrarConteudoTableEstoque(tableAllEstoque);
+});
+
+btnLowFiltro.addEventListener("click", () => {
+    mostrarConteudoTableEstoque(tableLowEstoque);
+});
+
+btnSalgadosFiltro.addEventListener("click", () => {
+    mostrarConteudoTableEstoque(tableSalgadosEstoque);
+});
+
+btnFolhadosFiltro.addEventListener("click", () => {
+    mostrarConteudoTableEstoque(tableFolhadosEstoque);
+});
+
+btnDocesFiltro.addEventListener("click", () => {
+    mostrarConteudoTableEstoque(tableDocesEstoque);
+});
+
+btnBebidasFiltro.addEventListener("click", () => {
+    mostrarConteudoTableEstoque(tableBebidasEstoque);
+});
+
+btnOutrosFiltro.addEventListener("click", () => {
+    mostrarConteudoTableEstoque(tableOutrosEstoque);
+});

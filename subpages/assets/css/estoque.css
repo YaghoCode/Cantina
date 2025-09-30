@@ -829,10 +829,6 @@ a{
     scrollbar-color: #c1c1c1 transparent;
 }
 
-.table-estoque-all table tbody::-webkit-scrollbar {
-    
-}
-
 .table-estoque-all table tbody::-webkit-scrollbar-thumb {
     background-color: #d3d1d1;
     border-radius: 10px;
@@ -903,8 +899,217 @@ a{
     background-color: rgba(235, 231, 231, 0.553);
 }
 
+/*tabelas do filtro com display none*/
+
+.table-estoque-baixo,
+.table-estoque-salgados,
+.table-estoque-folhados,
+.table-estoque-doces,
+.table-estoque-bebidas,
+.table-estoque-outros{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 55vh;
+    width: 100%;
+}
+
+.table-estoque-baixo table,
+.table-estoque-salgados table,
+.table-estoque-folhados table,
+.table-estoque-doces table,
+.table-estoque-bebidas table,
+.table-estoque-outros table
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 99%;
+    border: 1px solid rgba(0, 0, 0, 0.345);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.table-estoque-baixo table thead,
+.table-estoque-salgados table thead,
+.table-estoque-folhados table thead,
+.table-estoque-doces table thead,
+.table-estoque-bebidas table thead,
+.table-estoque-outros table thead
+ {
+    display: flex;
+    width: 100%;
+    height: 7vh;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.345);
+}
+
+.table-estoque-baixo table thead tr,
+.table-estoque-salgados table thead tr,
+.table-estoque-folhados table thead tr,
+.table-estoque-doces table thead tr,
+.table-estoque-bebidas table thead tr,
+.table-estoque-outros table thead tr {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.table-estoque-baixo table thead tr td,
+.table-estoque-salgados table thead tr td,
+.table-estoque-folhados table thead tr td,
+.table-estoque-doces table thead tr td,
+.table-estoque-bebidas table thead tr td,
+.table-estoque-outros table thead tr td {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 14.2%;
+    padding: 0 3.8rem;
+    font-size: 1.1rem;
+    color: #0000007c;
+    font-family: var(--font-titulo);
+    font-weight: 600;
+}
+
+.table-estoque-baixo table tbody,
+.table-estoque-salgados table tbody,
+.table-estoque-folhados table tbody,
+.table-estoque-doces table tbody,
+.table-estoque-bebidas table tbody,
+.table-estoque-outros table tbody {
+    display: block;
+    width: 100%;
+    height: calc(55vh - 0vh);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #c1c1c1 transparent;
+}
+
+.table-estoque-baixo table tbody::-webkit-scrollbar-thumb,
+.table-estoque-salgados table tbody::-webkit-scrollbar-thumb,
+.table-estoque-folhados table tbody::-webkit-scrollbar-thumb,
+.table-estoque-doces table tbody::-webkit-scrollbar-thumb,
+.table-estoque-bebidas table tbody::-webkit-scrollbar-thumb,
+.table-estoque-outros table tbody::-webkit-scrollbar-thumb {
+    background-color: #d3d1d1;
+    border-radius: 10px;
+}
+
+.table-estoque-baixo table tbody::-webkit-scrollbar-track,
+.table-estoque-salgados table tbody::-webkit-scrollbar-track,
+.table-estoque-folhados table tbody::-webkit-scrollbar-track,
+.table-estoque-doces table tbody::-webkit-scrollbar-track,
+.table-estoque-bebidas table tbody::-webkit-scrollbar-track,
+.table-estoque-outros table tbody::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* cada item */
+.table-estoque-baixo table tbody tr,
+.table-estoque-salgados table tbody tr,
+.table-estoque-folhados table tbody tr,
+.table-estoque-doces table tbody tr,
+.table-estoque-bebidas table tbody tr,
+.table-estoque-outros table tbody tr {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 8.2vh;
+    border-bottom: 1px solid #00000034;
+    box-sizing: border-box;
+}
+
+.table-estoque-baixo table tbody tr td,
+.table-estoque-salgados table tbody tr td,
+.table-estoque-folhados table tbody tr td,
+.table-estoque-doces table tbody tr td,
+.table-estoque-bebidas table tbody tr td,
+.table-estoque-outros table tbody tr td {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 14.2%;
+    padding: 0 3.8rem;
+    height: 100%;
+    font-family: var(--font-titulo);
+}
+
+.table-estoque-baixo table tbody tr td h6,
+.table-estoque-salgados table tbody tr td h6,
+.table-estoque-folhados table tbody tr td h6,
+.table-estoque-doces table tbody tr td h6,
+.table-estoque-bebidas table tbody tr td h6,
+.table-estoque-outros table tbody tr td h6{
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 
+.table-estoque-baixo table tbody tr td img,
+.table-estoque-salgados table tbody tr td img,
+.table-estoque-folhados table tbody tr td img,
+.table-estoque-doces table tbody tr td img,
+.table-estoque-bebidas table tbody tr td img,
+.table-estoque-outros table tbody tr td img {
+    height: 70%;
+    width: 50%;
+    background-color: #00000034;
+    border-radius: 0.3rem;
+}
+
+#table-acoes {
+    display: flex;
+    gap: 1vh;
+}
+
+
+.table-estoque-baixo table tbody tr td button,
+.table-estoque-salgados table tbody tr td button,
+.table-estoque-folhados table tbody tr td button,
+.table-estoque-doces table tbody tr td button,
+.table-estoque-bebidas table tbody tr td button,
+.table-estoque-outros table tbody tr td button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 30%;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid #00000017;
+    border-radius: 0.3rem;
+    transition: 0.3s ease;
+}
+
+.table-estoque-baixo table tbody tr td button i.fa-regular.fa-trash-can,
+.table-estoque-salgados table tbody tr td button i.fa-regular.fa-trash-can,
+.table-estoque-folhados table tbody tr td button i.fa-regular.fa-trash-can,
+.table-estoque-doces table tbody tr td button i.fa-regular.fa-trash-can,
+.table-estoque-bebidas table tbody tr td button i.fa-regular.fa-trash-can,
+.table-estoque-outros table tbody tr td button i.fa-regular.fa-trash-can {
+    color: var(--cor-primaria);
+}
+
+.table-estoque-baixo table tbody tr td button:hover,
+.table-estoque-salgados table tbody tr td button:hover,
+.table-estoque-folhados table tbody tr td button:hover,
+.table-estoque-doces table tbody tr td button:hover,
+.table-estoque-bebidas table tbody tr td button:hover,
+.table-estoque-outros table tbody tr td button:hover {
+    background-color: rgba(235, 231, 231, 0.553);
+}
+
+.activeTable{
+    display: flex;
+}
+
+.closeTable{
+    display: none;
+}
 
 
 
