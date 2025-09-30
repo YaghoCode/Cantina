@@ -131,20 +131,20 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                     </div>
                     <div class="top-circle-info-text">
                         <h6>
-                            Caiopicciarelli <!--<php echo $user_data['nome']; ?>-->
+                            <?php echo $user_data['nome']; ?>
                         </h6>
                         <p>
-                            Caio@gmail.com <!--<php echo $user_data['email']; ?>-->
+                            <?php echo $user_data['email']; ?>
                         </p>
                     </div>
                 </div>
                 <div class="top-info-user">
                     <div class="top-info-user-text">
                         <h6>
-                            Turma: 3DS <!--<php echo $user_data['turma']; ?>-->
+                            Turma: <?php echo $user_data['turma']; ?>
                         </h6>
                         <p>
-                            CPF: 999999999 <!--<php echo $user_data['cpf']; ?>-->
+                            CPF: <?php echo $user_data['cpf']; ?>
                         </p>
                     </div>
                 </div>
@@ -263,42 +263,34 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                                 </tr>
                             </thead>
                                 <tbody>
-                                    <tr>
-                                        <td> <img src="" alt=""> </td> <!--Img Item-->
-                                        <td> <h6>tabela all items</h6> </td> <!--Name Item-->
-                                        <td> <h6>Bebidasaaaaaaaaa</h6> </td> <!--Categoria Item-->
-                                        <td> <h6>1555555555555555</h6> </td> <!--Quantidade no Estoque-->
-                                        <td> <h6>15,000000000000</h6> </td> <!--Preço Item-->
-                                        <td> <h6>245,00aaaaaaaaaaaaa</h6> </td> <!--Preço X quantidade em estoque-->
-                                        <td id="table-acoes"> <button id="btn-editar-item">
-                                                <i class="fa-solid fa-eye"></i>
-                                             </button> 
-                                                <button id="btn-visualizar-item">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </button>
-                                                    <button id="btn-deletar-item">
-                                                        <i class="fa-regular fa-trash-can"></i>
+                                    
+                                        <?php
+                                            $query = "SELECT * from estoque";
+                                            $query_run = mysqli_query($con, $query);
+                                            if (mysqli_num_rows($query_run) > 0) {
+                                                foreach ($query_run as $item) {
+                                                    $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
+                                                    ?>
+                                                    <tr>
+                                            <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
+                                            <td> <h6><?php echo $item['Nome']; ?></h6> </td> <!--Name Item-->
+                                            <td> <h6><?php echo $item['Categoria']; ?></h6> </td> <!--Categoria Item-->
+                                            <td> <h6><?php echo $item['Quantidade']; ?></h6> </td> <!--Quantidade no Estoque-->
+                                            <td> <h6><?php echo $item['preco']; ?></h6> </td> <!--Preço Item-->
+                                            <td> <h6><?php echo $item['valor_total']; ?></h6> </td> <!--Preço X quantidade em estoque-->
+                                            <td id="table-acoes"> <button id="btn-editar-item">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </button> 
+                                                    <button id="btn-visualizar-item">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
                                                     </button>
-                                        </td>
-                                    </tr>
-                                        <tr>
-                                        <td> <img src="" alt=""> </td> <!--Img Item-->
-                                        <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
-                                        <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
-                                        <td> <h6>15</h6> </td> <!--Quantidade no Estoque-->
-                                        <td> <h6>15,00</h6> </td> <!--Preço Item-->
-                                        <td> <h6>245,00</h6> </td> <!--Preço X quantidade em estoque-->
-                                        <td id="table-acoes"> <button id="btn-editar-item">
-                                                <i class="fa-solid fa-eye"></i>
-                                             </button> 
-                                                <button id="btn-visualizar-item">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </button>
-                                                    <button id="btn-deletar-item">
-                                                        <i class="fa-regular fa-trash-can"></i>
-                                                    </button>
-                                        </td>
-                                    </tr>
+                                                        <button id="btn-deletar-item">
+                                                            <i class="fa-regular fa-trash-can"></i>
+                                                        </button>
+                                            </td>
+                                            
+                                        </tr>
+                                        <?php }} ?>
                                 </tbody>
                         </table>
                     </div>
@@ -316,13 +308,20 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                                     </tr>
                                 </thead>
                                     <tbody>
-                                        <tr>
-                                            <td> <img src="" alt=""> </td> <!--Img Item-->
-                                            <td> <h6>tabela low items </h6> </td> <!--Name Item-->
-                                            <td> <h6>Bebidasaaaaaaaaa</h6> </td> <!--Categoria Item-->
-                                            <td> <h6>1555555555555555</h6> </td> <!--Quantidade no Estoque-->
-                                            <td> <h6>15,000000000000</h6> </td> <!--Preço Item-->
-                                            <td> <h6>245,00aaaaaaaaaaaaa</h6> </td> <!--Preço X quantidade em estoque-->
+                                        <?php
+                                            $query = "SELECT * from estoque WHERE Quantidade < 1";
+                                            $query_run = mysqli_query($con, $query);
+                                            if (mysqli_num_rows($query_run) > 0) {
+                                                foreach ($query_run as $item) {
+                                                    $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
+                                                    ?>
+                                                    <tr>
+                                            <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
+                                            <td> <h6><?php echo $item['Nome']; ?></h6> </td> <!--Name Item-->
+                                            <td> <h6><?php echo $item['Categoria']; ?></h6> </td> <!--Categoria Item-->
+                                            <td> <h6><?php echo $item['Quantidade']; ?></h6> </td> <!--Quantidade no Estoque-->
+                                            <td> <h6><?php echo $item['preco']; ?></h6> </td> <!--Preço Item-->
+                                            <td> <h6><?php echo $item['valor_total']; ?></h6> </td> <!--Preço X quantidade em estoque-->
                                             <td id="table-acoes"> <button id="btn-editar-item">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button> 
@@ -333,61 +332,9 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                                                             <i class="fa-regular fa-trash-can"></i>
                                                         </button>
                                             </td>
+                                            
                                         </tr>
-                                            <tr>
-                                            <td> <img src="" alt=""> </td> <!--Img Item-->
-                                            <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
-                                            <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
-                                            <td> <h6>15</h6> </td> <!--Quantidade no Estoque-->
-                                            <td> <h6>15,00</h6> </td> <!--Preço Item-->
-                                            <td> <h6>245,00</h6> </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> <button id="btn-editar-item">
-                                                    <i class="fa-solid fa-eye"></i>
-                                                </button> 
-                                                    <button id="btn-visualizar-item">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </button>
-                                                        <button id="btn-deletar-item">
-                                                            <i class="fa-regular fa-trash-can"></i>
-                                                        </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <img src="" alt=""> </td> <!--Img Item-->
-                                            <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
-                                            <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
-                                            <td> <h6>15</h6> </td> <!--Quantidade no Estoque-->
-                                            <td> <h6>15,00</h6> </td> <!--Preço Item-->
-                                            <td> <h6>245,00</h6> </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> <button id="btn-editar-item">
-                                                    <i class="fa-solid fa-eye"></i>
-                                                </button> 
-                                                    <button id="btn-visualizar-item">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </button>
-                                                        <button id="btn-deletar-item">
-                                                            <i class="fa-regular fa-trash-can"></i>
-                                                        </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <img src="" alt=""> </td> <!--Img Item-->
-                                            <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
-                                            <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
-                                            <td> <h6>15</h6> </td> <!--Quantidade no Estoque-->
-                                            <td> <h6>15,00</h6> </td> <!--Preço Item-->
-                                            <td> <h6>245,00</h6> </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> <button id="btn-editar-item">
-                                                    <i class="fa-solid fa-eye"></i>
-                                                </button> 
-                                                    <button id="btn-visualizar-item">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </button>
-                                                        <button id="btn-deletar-item">
-                                                            <i class="fa-regular fa-trash-can"></i>
-                                                        </button>
-                                            </td>
-                                        </tr>
+                                        <?php }} ?>
                                     </tbody>
                             </table>
                         </div>
@@ -405,23 +352,33 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                                             </tr>
                                         </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td> <img src="" alt=""> </td> <!--Img Item-->
-                                                    <td> <h6>tabela salgados items</h6> </td> <!--Name Item-->
-                                                    <td> <h6>Bebidasaaaaaaaaa</h6> </td> <!--Categoria Item-->
-                                                    <td> <h6>1555555555555555</h6> </td> <!--Quantidade no Estoque-->
-                                                    <td> <h6>15,000000000000</h6> </td> <!--Preço Item-->
-                                                    <td> <h6>245,00aaaaaaaaaaaaa</h6> </td> <!--Preço X quantidade em estoque-->
-                                                    <td id="table-acoes"> <button id="btn-editar-item">
-                                                            <i class="fa-solid fa-eye"></i>
-                                                        </button> 
-                                                            <button id="btn-visualizar-item">
-                                                                <i class="fa-solid fa-pen-to-square"></i>
-                                                            </button>
-                                                                <button id="btn-deletar-item">
-                                                                    <i class="fa-regular fa-trash-can"></i>
-                                                                </button>
-                                                    </td>
+                                        <?php
+                                            $query = "SELECT * from estoque WHERE Categoria = 'Salgados'";
+                                            $query_run = mysqli_query($con, $query);
+                                            if (mysqli_num_rows($query_run) > 0) {
+                                                foreach ($query_run as $item) {
+                                                    $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
+                                                    ?>
+                                                    <tr>
+                                            <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
+                                            <td> <h6><?php echo $item['Nome']; ?></h6> </td> <!--Name Item-->
+                                            <td> <h6><?php echo $item['Categoria']; ?></h6> </td> <!--Categoria Item-->
+                                            <td> <h6><?php echo $item['Quantidade']; ?></h6> </td> <!--Quantidade no Estoque-->
+                                            <td> <h6><?php echo $item['preco']; ?></h6> </td> <!--Preço Item-->
+                                            <td> <h6><?php echo $item['valor_total']; ?></h6> </td> <!--Preço X quantidade em estoque-->
+                                            <td id="table-acoes"> <button id="btn-editar-item">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </button> 
+                                                    <button id="btn-visualizar-item">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                        <button id="btn-deletar-item">
+                                                            <i class="fa-regular fa-trash-can"></i>
+                                                        </button>
+                                            </td>
+                                            
+                                        </tr>
+                                        <?php }} ?>
                                             </tbody>
                                     </table>
                             </div>
@@ -439,42 +396,34 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td> <img src="" alt=""> </td> <!--Img Item-->
-                                                <td> <h6>tabela folhados items </h6> </td> <!--Name Item-->
-                                                <td> <h6>Bebidasaaaaaaaaa</h6> </td> <!--Categoria Item-->
-                                                <td> <h6>1555555555555555</h6> </td> <!--Quantidade no Estoque-->
-                                                <td> <h6>15,000000000000</h6> </td> <!--Preço Item-->
-                                                <td> <h6>245,00aaaaaaaaaaaaa</h6> </td> <!--Preço X quantidade em estoque-->
-                                                <td id="table-acoes"> <button id="btn-editar-item">
-                                                        <i class="fa-solid fa-eye"></i>
-                                                    </button> 
-                                                        <button id="btn-visualizar-item">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                            
+                                        <?php
+                                            $query = "SELECT * from estoque WHERE Categoria = 'Folhados'";
+                                            $query_run = mysqli_query($con, $query);
+                                            if (mysqli_num_rows($query_run) > 0) {
+                                                foreach ($query_run as $item) {
+                                                    $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
+                                                    ?>
+                                                    <tr>
+                                            <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
+                                            <td> <h6><?php echo $item['Nome']; ?></h6> </td> <!--Name Item-->
+                                            <td> <h6><?php echo $item['Categoria']; ?></h6> </td> <!--Categoria Item-->
+                                            <td> <h6><?php echo $item['Quantidade']; ?></h6> </td> <!--Quantidade no Estoque-->
+                                            <td> <h6><?php echo $item['preco']; ?></h6> </td> <!--Preço Item-->
+                                            <td> <h6><?php echo $item['valor_total']; ?></h6> </td> <!--Preço X quantidade em estoque-->
+                                            <td id="table-acoes"> <button id="btn-editar-item">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </button> 
+                                                    <button id="btn-visualizar-item">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                        <button id="btn-deletar-item">
+                                                            <i class="fa-regular fa-trash-can"></i>
                                                         </button>
-                                                            <button id="btn-deletar-item">
-                                                                <i class="fa-regular fa-trash-can"></i>
-                                                            </button>
-                                                </td>
-                                            </tr>
-                                                <tr>
-                                                <td> <img src="" alt=""> </td> <!--Img Item-->
-                                                <td> <h6>Coca-Cola 2L</h6> </td> <!--Name Item-->
-                                                <td> <h6>Bebidas</h6> </td> <!--Categoria Item-->
-                                                <td> <h6>15</h6> </td> <!--Quantidade no Estoque-->
-                                                <td> <h6>15,00</h6> </td> <!--Preço Item-->
-                                                <td> <h6>245,00</h6> </td> <!--Preço X quantidade em estoque-->
-                                                <td id="table-acoes"> <button id="btn-editar-item">
-                                                        <i class="fa-solid fa-eye"></i>
-                                                    </button> 
-                                                        <button id="btn-visualizar-item">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </button>
-                                                            <button id="btn-deletar-item">
-                                                                <i class="fa-regular fa-trash-can"></i>
-                                                            </button>
-                                                </td>
-                                            </tr>
+                                            </td>
+                                            
+                                        </tr>
+                                        <?php }} ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -492,24 +441,34 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td> <img src="" alt=""> </td> <!--Img Item-->
-                                                    <td> <h6>tabela doces items</h6> </td> <!--Name Item-->
-                                                    <td> <h6>Bebidasaaaaaaaaa</h6> </td> <!--Categoria Item-->
-                                                    <td> <h6>1555555555555555</h6> </td> <!--Quantidade no Estoque-->
-                                                    <td> <h6>15,000000000000</h6> </td> <!--Preço Item-->
-                                                    <td> <h6>245,00aaaaaaaaaaaaa</h6> </td> <!--Preço X quantidade em estoque-->
-                                                    <td id="table-acoes"> <button id="btn-editar-item">
-                                                            <i class="fa-solid fa-eye"></i>
-                                                        </button> 
-                                                            <button id="btn-visualizar-item">
-                                                                <i class="fa-solid fa-pen-to-square"></i>
-                                                            </button>
-                                                                <button id="btn-deletar-item">
-                                                                    <i class="fa-regular fa-trash-can"></i>
-                                                                </button>
-                                                    </td>
-                                                </tr>
+                                                
+                                        <?php
+                                            $query = "SELECT * from estoque WHERE Categoria = 'Doces'";
+                                            $query_run = mysqli_query($con, $query);
+                                            if (mysqli_num_rows($query_run) > 0) {
+                                                foreach ($query_run as $item) {
+                                                    $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
+                                                    ?>
+                                                    <tr>
+                                            <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
+                                            <td> <h6><?php echo $item['Nome']; ?></h6> </td> <!--Name Item-->
+                                            <td> <h6><?php echo $item['Categoria']; ?></h6> </td> <!--Categoria Item-->
+                                            <td> <h6><?php echo $item['Quantidade']; ?></h6> </td> <!--Quantidade no Estoque-->
+                                            <td> <h6><?php echo $item['preco']; ?></h6> </td> <!--Preço Item-->
+                                            <td> <h6><?php echo $item['valor_total']; ?></h6> </td> <!--Preço X quantidade em estoque-->
+                                            <td id="table-acoes"> <button id="btn-editar-item">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </button> 
+                                                    <button id="btn-visualizar-item">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                        <button id="btn-deletar-item">
+                                                            <i class="fa-regular fa-trash-can"></i>
+                                                        </button>
+                                            </td>
+                                            
+                                        </tr>
+                                        <?php }} ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -527,23 +486,33 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                        <?php
+                                            $query = "SELECT * from estoque WHERE Categoria = 'Bebidas'";
+                                            $query_run = mysqli_query($con, $query);
+                                            if (mysqli_num_rows($query_run) > 0) {
+                                                foreach ($query_run as $item) {
+                                                    $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
+                                                    ?>
                                                     <tr>
-                                                        <td> <img src="" alt=""> </td> <!--Img Item-->
-                                                        <td> <h6>tabela bebidas items</h6> </td> <!--Name Item-->
-                                                        <td> <h6>Bebidasaaaaaaaaa</h6> </td> <!--Categoria Item-->
-                                                        <td> <h6>1555555555555555</h6> </td> <!--Quantidade no Estoque-->
-                                                        <td> <h6>15,000000000000</h6> </td> <!--Preço Item-->
-                                                        <td> <h6>245,00aaaaaaaaaaaaa</h6> </td> <!--Preço X quantidade em estoque-->
-                                                        <td id="table-acoes"> <button id="btn-editar-item">
-                                                                <i class="fa-solid fa-eye"></i>
-                                                            </button> 
-                                                                <button id="btn-visualizar-item">
-                                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                                </button>
-                                                                    <button id="btn-deletar-item">
-                                                                        <i class="fa-regular fa-trash-can"></i>
-                                                                    </button>
-                                                        </td>
+                                            <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
+                                            <td> <h6><?php echo $item['Nome']; ?></h6> </td> <!--Name Item-->
+                                            <td> <h6><?php echo $item['Categoria']; ?></h6> </td> <!--Categoria Item-->
+                                            <td> <h6><?php echo $item['Quantidade']; ?></h6> </td> <!--Quantidade no Estoque-->
+                                            <td> <h6><?php echo $item['preco']; ?></h6> </td> <!--Preço Item-->
+                                            <td> <h6><?php echo $item['valor_total']; ?></h6> </td> <!--Preço X quantidade em estoque-->
+                                            <td id="table-acoes"> <button id="btn-editar-item">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </button> 
+                                                    <button id="btn-visualizar-item">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                        <button id="btn-deletar-item">
+                                                            <i class="fa-regular fa-trash-can"></i>
+                                                        </button>
+                                            </td>
+                                            
+                                        </tr>
+                                        <?php }} ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -561,23 +530,34 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td> <img src="" alt=""> </td> <!--Img Item-->
-                                                            <td> <h6>tabela outros items </h6> </td> <!--Name Item-->
-                                                            <td> <h6>Bebidasaaaaaaaaa</h6> </td> <!--Categoria Item-->
-                                                            <td> <h6>1555555555555555</h6> </td> <!--Quantidade no Estoque-->
-                                                            <td> <h6>15,000000000000</h6> </td> <!--Preço Item-->
-                                                            <td> <h6>245,00aaaaaaaaaaaaa</h6> </td> <!--Preço X quantidade em estoque-->
-                                                            <td id="table-acoes"> <button id="btn-editar-item">
-                                                                    <i class="fa-solid fa-eye"></i>
-                                                                </button> 
-                                                                    <button id="btn-visualizar-item">
-                                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                                    </button>
-                                                                        <button id="btn-deletar-item">
-                                                                            <i class="fa-regular fa-trash-can"></i>
-                                                                        </button>
-                                                            </td>
+                                                        
+                                        <?php
+                                            $query = "SELECT * from estoque WHERE Categoria = 'Outros'";
+                                            $query_run = mysqli_query($con, $query);
+                                            if (mysqli_num_rows($query_run) > 0) {
+                                                foreach ($query_run as $item) {
+                                                    $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
+                                                    ?>
+                                                    <tr>
+                                            <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
+                                            <td> <h6><?php echo $item['Nome']; ?></h6> </td> <!--Name Item-->
+                                            <td> <h6><?php echo $item['Categoria']; ?></h6> </td> <!--Categoria Item-->
+                                            <td> <h6><?php echo $item['Quantidade']; ?></h6> </td> <!--Quantidade no Estoque-->
+                                            <td> <h6><?php echo $item['preco']; ?></h6> </td> <!--Preço Item-->
+                                            <td> <h6><?php echo $item['valor_total']; ?></h6> </td> <!--Preço X quantidade em estoque-->
+                                            <td id="table-acoes"> <button id="btn-editar-item">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </button> 
+                                                    <button id="btn-visualizar-item">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                        <button id="btn-deletar-item">
+                                                            <i class="fa-regular fa-trash-can"></i>
+                                                        </button>
+                                            </td>
+                                            
+                                        </tr>
+                                        <?php }} ?>
                                                         </tr>
                                                     </tbody>
                                                 </table>
