@@ -205,3 +205,4 @@ btnBebidasFiltro.addEventListener("click", () => {
 btnOutrosFiltro.addEventListener("click", () => {
     mostrarConteudoTableEstoque(tableOutrosEstoque);
 });
+

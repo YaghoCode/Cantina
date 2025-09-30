@@ -867,10 +867,11 @@ a{
 }
 
 .table-estoque-all table tbody tr td img {
-    height: 70%;
-    width: 50%;
-    background-color: #00000034;
+    object-fit: cover;
+    height: 80%;
+    width: 60%;
     border-radius: 0.3rem;
+    background-color: #00000034;
 }
 
 #table-acoes {
@@ -1055,9 +1056,8 @@ a{
 .table-estoque-doces table tbody tr td img,
 .table-estoque-bebidas table tbody tr td img,
 .table-estoque-outros table tbody tr td img {
-    height: 70%;
-    width: 50%;
-    background-color: #00000034;
+    object-fit: cover;
+    height: 80%;
     border-radius: 0.3rem;
 }
 
@@ -1111,6 +1111,211 @@ a{
     display: none;
 }
 
+/*Modal estoque visualizar*/
+
+.modal-overlay-estoque{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 111111111111;
+    transition: opacity 0.3s ease;
+}
+
+.modal-estoque-visualizar-item{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #0000005d;
+    z-index: 111111111112;
+    height: 60vh;
+    width: 80vh;
+    border-radius: 15px;
+    gap: 0.3rem;
+}
+
+.activeModal{
+    display: flex !important;
+}
+
+.modal-estoque-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10%;
+    width: 95%;
+}
+
+.modal-estoque-title h1{
+    font-family: var(--font-titulo);
+    font-size: 1.4rem !important;
+    font-weight: 500;
+}
+
+.modal-estoque-btn-close{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 70%;
+    width: 18%;
+}
+
+.modal-estoque-btn-close button{
+    background-color: transparent;
+    height: 80%;
+    width: 23%;
+}
+
+.modal-estoque-btn-close button i:hover{
+    background-color: var(--cor-laranja);
+    color: white;
+}
+
+.modal-estoque-btn-close button i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-size: 1.3rem;
+    color: var(--cor-primaria);
+    cursor: pointer;
+    border-radius: 0.3rem;
+    transition: 0.3s ease;
+}
+
+.modal-estoque-mid{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35%;
+    width: 95%;
+}
+
+.modal-estoque-imagem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 30%;
+    border: 1px solid rgba(0, 0, 0, 0.263);
+    border-radius: 0.5rem;
+    background-color: #00000019;
+}
+
+.modal-estoque-imagem img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+.modal-estoque-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 95%;
+}
+
+.modal-description-estoque{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 95%;
+    width: 98%;
+}
+
+.modal-estoque-description-produto, 
+.modal-estoque-description-descrisao, 
+.modal-estoque-description-categoria, 
+.modal-estoque-description-quantidade, 
+.modal-estoque-description-preco, 
+.modal-estoque-description-total{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 16%;
+}
+
+.modal-estoque-description-produto-title,
+.modal-estoque-description-descrisao-title,
+.modal-estoque-description-categoria-title,
+.modal-estoque-description-quantidade-title,
+.modal-estoque-description-preco-title,
+.modal-estoque-description-total-title{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 35%;
+    height: 100%;
+}
+
+.modal-estoque-description-produto-title h1,
+.modal-estoque-description-descrisao-title h1,
+.modal-estoque-description-categoria-title h1,
+.modal-estoque-description-quantidade-title h1,
+.modal-estoque-description-preco-title h1,
+.modal-estoque-description-total-title h1{
+    font-size: 1rem;
+    font-family: var(--font-titulo);
+}
+
+.modal-estoque-description-produto-php,
+.modal-estoque-description-descrisao-php,
+.modal-estoque-description-categoria-php,
+.modal-estoque-description-quantidade-php,
+.modal-estoque-description-preco-php,
+.modal-estoque-description-total-php{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 65%;
+    height: 100%;
+}
+
+.modal-estoque-description-produto-php h2,
+.modal-estoque-description-descrisao-php h2,
+.modal-estoque-description-categoria-php h2,
+.modal-estoque-description-quantidade-php h2,
+.modal-estoque-description-preco-php h2,
+.modal-estoque-description-total-php h2{
+    font-family: var(--font-titulo);
+    font-size: 1rem;
+}
+
+.modal-estoque-description-descrisao-php h2{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* máximo de 2 linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    /* evita cortar palavra no meio */
+    max-width: 90%;
+    min-width: 90%;
+}
+
+.modal-estoque-description-quantidade-php h2{
+    padding-top: 0.33rem;
+    text-align: center;
+    height: 65%;
+    width: 6.5%;
+    background-color: #00000017;
+    border-radius: 100%;
+}
 
 
 
