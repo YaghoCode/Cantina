@@ -285,13 +285,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
                                             </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> <button id="btn-editar-item">
+                                            <td id="table-acoes"> 
+                                                <button class="btn-visualizar-item">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
-                                                <button class="btn-visualizar-item">
+                                                <button class="btn-editar-item">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button id="btn-deletar-item">
+                                                <button class="btn-deletar-item" id="btn-deletar-item">
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </button>
                                             </td>
@@ -340,13 +341,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
                                             </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> <button id="btn-editar-item">
+                                            <td id="table-acoes"> 
+                                                <button class="btn-visualizar-item">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
-                                                <button class="btn-visualizar-item">
+                                                <button class="btn-editar-item">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button id="btn-deletar-item">
+                                                <button class="btn-deletar-item" id="btn-deletar-item">
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </button>
                                             </td>
@@ -395,13 +397,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
                                             </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> <button id="btn-editar-item">
+                                            <td id="table-acoes"> 
+                                                <button class="btn-visualizar-item">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
-                                                <button class="btn-visualizar-item">
+                                                <button class="btn-editar-item">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button id="btn-deletar-item">
+                                                <button class="btn-deletar-item" id="btn-deletar-item">
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </button>
                                             </td>
@@ -451,13 +454,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
                                             </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> <button id="btn-editar-item">
+                                            <td id="table-acoes"> 
+                                                <button class="btn-visualizar-item">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
-                                                <button class="btn-visualizar-item">
+                                                <button class="btn-editar-item">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button id="btn-deletar-item">
+                                                <button class="btn-deletar-item" id="btn-deletar-item">
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </button>
                                             </td>
@@ -507,13 +511,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
                                             </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> <button id="btn-editar-item">
+                                            <td id="table-acoes"> 
+                                                <button class="btn-visualizar-item">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
-                                                <button class="btn-visualizar-item">
+                                                <button class="btn-editar-item">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button id="btn-deletar-item">
+                                                <button class="btn-deletar-item" id="btn-deletar-item">
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </button>
                                             </td>
@@ -562,13 +567,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
                                             </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> <button id="btn-editar-item">
+                                            <td id="table-acoes"> 
+                                                <button class="btn-visualizar-item">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
-                                                <button class="btn-visualizar-item">
+                                                <button class="btn-editar-item">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button id="btn-deletar-item">
+                                                <button class="btn-deletar-item" id="btn-deletar-item">
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </button>
                                             </td>
@@ -618,13 +624,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
                                             </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> <button id="btn-editar-item">
+                                            <td id="table-acoes"> 
+                                                <button class="btn-visualizar-item">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
-                                                <button class="btn-visualizar-item">
+                                                <button class="btn-editar-item">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button id="btn-deletar-item">
+                                                <button class="btn-deletar-item" id="btn-deletar-item">
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </button>
                                             </td>
@@ -642,8 +649,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <!--MODAIS ESTOQUE -->
 
-        <div class="modal-overlay-estoque">
-            <div class="modal-estoque-visualizar-item">
+        <div class="modal-overlay-estoque" id="overlay-modal-visualizar">
+            <div class="modal-estoque-visualizar-item" id="modal-visualizar-item">
                 <div class="modal-estoque-top">
                     <div class="modal-estoque-title">
                         <h1>Detalhes do Produto:</h1>
@@ -713,8 +720,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
 
 
-
-
+            <!--Modal estoque deletar item-->
+        <div class="modal-estoque-deletar-item" id="modal-deletar-item">
+            <div class="modal-deletar-content-top">
+                <h1>Tem certeza?</h1>
+                <p>Esta ação não pode ser desfeita. O produto "Esfiha de Carne" será permanentemente removido do estoque.</p>
+            </div>
+                <div class="modal-deletar-content-bottom">
+                    <button class="activeButtonCancelar" id="btn-cancelar-deletar-item">
+                        Cancelar
+                    </button>
+                        <button class="activeButtonExcluir">
+                            Excluir
+                        </button>
+                </div>
+        </div>
 
 
 

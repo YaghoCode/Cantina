@@ -206,3 +206,41 @@ btnOutrosFiltro.addEventListener("click", () => {
     mostrarConteudoTableEstoque(tableOutrosEstoque);
 });
 
+/// function abrir e fechar modal visualizar
+
+const overlayModalVisualizar = document.getElementById('overlay-modal-visualizar');
+const modalVisualizarItem = document.getElementById('modal-visualizar-item');
+const btnVisualizarItem = document.querySelectorAll('.btn-visualizar-item')
+const btnCloseModalVisualizar = document.getElementById('btn-close-modal-estoque');
+
+btnVisualizarItem.forEach((btn1) =>{
+    btn1.addEventListener('click', () =>{
+        modalVisualizarItem.style.display = 'flex';
+        overlayModalVisualizar.style.display = 'flex';
+    });
+});
+
+btnCloseModalVisualizar.addEventListener('click', () =>{
+    modalVisualizarItem.style.display = 'none';
+    overlayModalVisualizar.style.display = 'none';
+    console.log(btnVisualizarItem);
+});
+
+
+// function fechar modal deletar item
+
+const modalDeletarItem = document.getElementById('modal-deletar-item');
+const btnCancelarItem = document.getElementById('btn-cancelar-deletar-item');
+const btnDeletarItem = document.querySelectorAll('.btn-deletar-item');
+
+btnDeletarItem.forEach((btn2) =>{
+    btn2.addEventListener('click', () =>{
+        modalDeletarItem.style.display = 'flex';
+        overlayModalVisualizar.style.display = 'flex';
+    });
+});
+
+btnCancelarItem.addEventListener('click', () =>{
+    modalDeletarItem.style.display = 'none';
+    overlayModalVisualizar.style.display = 'none';
+});

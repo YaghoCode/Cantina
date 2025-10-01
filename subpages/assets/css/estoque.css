@@ -1143,10 +1143,6 @@ a{
     gap: 0.3rem;
 }
 
-.activeModal{
-    display: flex !important;
-}
-
 .modal-estoque-top{
     display: flex;
     align-items: center;
@@ -1316,6 +1312,83 @@ a{
     background-color: #00000017;
     border-radius: 100%;
 }
+
+/*Modal deletar item estoque*/
+
+.modal-estoque-deletar-item{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #0000005d;
+    z-index: 111111111112;
+    height: 22vh;
+    width: 70vh;
+    border-radius: 15px;
+    gap: 0.3rem;
+    padding: 0.5rem;
+}
+
+.modal-deletar-content-top{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 95%;
+    height: 70%;
+}
+
+.modal-deletar-content-top h1{
+    font-size: 1.6rem;
+    font-family: var(--font-titulo);
+    font-weight: 600;
+}
+
+.modal-deletar-content-top p{
+    font-family: var(--font-titulo);
+    color: #0000007b;
+}
+
+.modal-deletar-content-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 95%;
+    height: 25%;
+    gap: 2vh;
+}
+
+.modal-deletar-content-bottom button{
+    height: 100%;
+    width: 20%;
+    border-radius: 0.3rem;
+    border: 1px solid rgba(0, 0, 0, 0.163);
+    background-color: white;
+    font-family: var(--font-titulo);
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.activeButtonCancelar:hover{
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.activeButtonExcluir{
+    background-color: var(--cor-primaria) !important;
+    color: white !important;
+}
+
+.activeButtonExcluir:hover{
+    background-color: #e3251be2 !important;
+}
+
+
 
 
 
