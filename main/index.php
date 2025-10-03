@@ -143,15 +143,30 @@ else {
     </div>
   </div>
  
- <!--Popup carrinho-->
+  <!--Popup carrinho-->
   <div class="pop-up-cart" id="pop-up-cart">
     <div class="content-pp-cart">
-      <div class="content-pp-cart-top" id="btn-close-cart-nav">
-        <button>
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-      <div class="content-pp-cart-bottom">
+      <!--Buttons top carrinho-->
+
+      <button id="btn-bag-carrinho">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0" />
+          <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
+        </svg> Carrinho
+      </button>
+
+      <button id="btn-close-cart-nav">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+         <button id="btn-limpar-carrinho">
+             <i class="fa-solid fa-trash-can"></i> Esvaziar
+          </button>
+
+      <div class="content-pp-cart-top">
+        <div class="divisao-top">
+
+        </div>
         <div class="cart-title">
           <h6>
             Itens Adicionados:
@@ -160,55 +175,12 @@ else {
         <div class="barra-divisao">
 
         </div>
+      </div>
+      <div class="content-pp-cart-bottom">
         <div class="cart-items">
           <div class="container-items">
             <div class="swiper">
-              <div class="swiper-wrapper">
-                  <div class="swiper-slide p-3 border rounded">
-                      <div class="carrinho-item">
-                    <div class="carrinho-item-left">
-                      <div class="carrinho-item-img">
-                        <img src="./assets/img/img comidas/croissant2.png" alt="">
-                      </div>
-                    </div>
-                    <div class="carrinho-item-right">
-                      <div class="carrinho-item-title">
-                        <h3>Coxinha de Frango</h3>
-                      </div>
-                      <div class="carrinho-item-calc-preco">
-                        <div class="carrinho-item-quantidade">
-                            <button class="btn-decrement">-</button>
-                              <input type="number" class="input-quantidade" value="1" min="1" max="99" step="1">
-                              <button class="btn-increment">+</button>
-                        </div>
-                          
-                          <div class="carrinho-item-preco">
-                            <p>R$ 6,00</p>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                  </div>
-                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 1</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 1</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 1</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 1</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 2</div>
-                  <div class="swiper-slide p-3 border rounded">Slide 3</div>
+              <div class="swiper-wrapper" id="carrinho-itens-wrapper">
               </div>
             </div>
             <div class="swiper-scrollbar"></div>
@@ -217,7 +189,7 @@ else {
 
       </div>
       <div class="cart-total-price">
-        <h5>Total:</h5>
+        <h5>Total</h5>
         <h6>R$: 00,00 <!--Price calculado--></h6>
       </div>
       <div class="finalizar-pedido">
@@ -227,34 +199,8 @@ else {
       </div>
     </div>
   </div>
-  </div>
 
-  <!-- Overlay para o modal -->
-  <div class="modal-overlay" id="modal-overlay"></div>
 
-  <!-- Modal alert -->
-  <div class="container-modal-alert" id="modal-alert">
-    <div class="content-modal-alert">
-      <div class="btnSair-modal-alert">
-        <button class="btnCLoseModaL" style="cursor: pointer;">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-      <div class="title-modal-alert">
-        <i class="fa-regular fa-user"></i>
-        <h1>
-          Acesso Necessário
-        </h1>
-      </div>
-      <div class="description-modal-alert">
-        <p>Para continuar navegando e aproveitar todos os recursos, você precisa fazer login em sua conta.</p>
-      </div>
-
-      <div class="btn-modal-alert">
-        <a class="a-link-btn-continuar" href="/cantinarepositorio/subpages/login.php" style="color: white; text-decoration: none;">Continuar</a>
-      </div>
-    </div>
-  </div>
 
   <!--MAIN-->
   <main>
@@ -1045,6 +991,7 @@ else {
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/navbar.js"></script>
   <script src="./assets/js/carrouselMP.js"></script>
+  <script src="./assets/js/carrinhoMain.js"></script>
 
   <!--LOGIN PHP VERIFICACAO-->
   <?php
