@@ -442,7 +442,7 @@ if (isset($_SESSION['cpf'])) {
     </div>
   </div>
 
-  <?php
+  <?php //Modal Cardapio
   $query = "SELECT * from estoque";
   $query_run = mysqli_query($con, $query);
 

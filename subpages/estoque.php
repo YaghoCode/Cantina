@@ -285,8 +285,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
                                             </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> 
-                                                <button class="btn-visualizar-item">
+                                            <td id="table-acoes">
+                                                <button class="btn-visualizar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
                                                 <button class="btn-editar-item">
@@ -318,7 +318,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </thead>
                             <tbody>
                                 <?php
-                                $query = "SELECT * from estoque WHERE Quantidade < 1";
+                                $query = "SELECT * from estoque WHERE Quantidade < 5";
                                 $query_run = mysqli_query($con, $query);
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
@@ -341,8 +341,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
                                             </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> 
-                                                <button class="btn-visualizar-item">
+                                            <td id="table-acoes">
+                                                <button class="btn-visualizar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
                                                 <button class="btn-editar-item">
@@ -397,8 +397,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
                                             </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> 
-                                                <button class="btn-visualizar-item">
+                                            <td id="table-acoes">
+                                                <button class="btn-visualizar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
                                                 <button class="btn-editar-item">
@@ -454,8 +454,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
                                             </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> 
-                                                <button class="btn-visualizar-item">
+                                            <td id="table-acoes">
+                                                <button class="btn-visualizar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
                                                 <button class="btn-editar-item">
@@ -511,8 +511,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
                                             </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> 
-                                                <button class="btn-visualizar-item">
+                                            <td id="table-acoes">
+                                                <button class="btn-visualizar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
                                                 <button class="btn-editar-item">
@@ -567,8 +567,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
                                             </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> 
-                                                <button class="btn-visualizar-item">
+                                            <td id="table-acoes">
+                                                <button class="btn-visualizar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
                                                 <button class="btn-editar-item">
@@ -624,8 +624,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
                                             </td> <!--Preço X quantidade em estoque-->
-                                            <td id="table-acoes"> 
-                                                <button class="btn-visualizar-item">
+                                            <td id="table-acoes">
+                                                <button class="btn-visualizar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
                                                 <button class="btn-editar-item">
@@ -649,91 +649,139 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <!--MODAIS ESTOQUE -->
 
-        <div class="modal-overlay-estoque" id="overlay-modal-visualizar">
-            <div class="modal-estoque-visualizar-item" id="modal-visualizar-item">
-                <div class="modal-estoque-top">
-                    <div class="modal-estoque-title">
-                        <h1>Detalhes do Produto:</h1>
-                    </div>
-                    <div class="modal-estoque-btn-close">
-                        <button id="btn-close-modal-estoque"><i class="fa-solid fa-xmark"></i></button>
+        <?php //Modal Cardapio
+        $query = "SELECT * from estoque";
+        $query_run = mysqli_query($con, $query);
+
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $item) {
+                $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
+                $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
+        ?>
+                <div class="modal-overlay-estoque" id="modal-<?= $item['id'] ?>">
+                    <div class="modal-estoque-visualizar-item" id="modal-visualizar-item">
+                        <div class="modal-estoque-top">
+                            <div class="modal-estoque-title">
+                                <h1>Detalhes do Produto:</h1>
+                            </div>
+                            <div class="modal-estoque-btn-close">
+                                <button class="btn-close-modal-estoque" id="btn-close-modal-estoque"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                        </div>
+                        <div class="modal-estoque-mid">
+                            <div class="modal-estoque-imagem">
+                                <img src="./imgbd/<?php echo $item['img'] ?>" alt=""> <!--Php image item-->
+                            </div>
+                        </div>
+                        <div class="modal-estoque-bottom">
+                            <div class="modal-description-estoque">
+                                <div class="modal-estoque-description-produto">
+                                    <div class="modal-estoque-description-produto-title">
+                                        <h1>Produto:</h1>
+                                    </div>
+                                    <div class="modal-estoque-description-produto-php">
+                                        <h2><?php echo $item['Nome'] ?></h2> <!--PHP name item-->
+                                    </div>
+                                </div>
+                                <div class="modal-estoque-description-descrisao">
+                                    <div class="modal-estoque-description-descrisao-title">
+                                        <h1>Descrisão Produto:</h1>
+                                    </div>
+                                    <div class="modal-estoque-description-descrisao-php">
+                                        <h2> <?php echo $item['Descricao'] ?></h2> <!--PHP descrisao item-->
+                                    </div>
+                                </div>
+                                <div class="modal-estoque-description-categoria">
+                                    <div class="modal-estoque-description-categoria-title">
+                                        <h1>Categoria:</h1>
+                                    </div>
+                                    <div class="modal-estoque-description-categoria-php">
+                                        <h2><?php echo $item['Categoria'] ?></h2> <!--PHP CATEGORIA ITEM-->
+                                    </div>
+                                </div>
+                                <div class="modal-estoque-description-quantidade">
+                                    <div class="modal-estoque-description-quantidade-title">
+                                        <h1>Estoque:</h1>
+                                    </div>
+                                    <div class="modal-estoque-description-quantidade-php">
+                                        <h2><?php echo $item['Quantidade'] ?></h2> <!--PHP Estoque ITEM-->
+                                    </div>
+                                </div>
+                                <div class="modal-estoque-description-preco">
+                                    <div class="modal-estoque-description-preco-title">
+                                        <h1>Preço:</h1>
+                                    </div>
+                                    <div class="modal-estoque-description-preco-php">
+                                        <h2><?php echo $preco ?></h2> <!--PHP Preço ITEM-->
+                                    </div>
+                                </div>
+                                <div class="modal-estoque-description-total">
+                                    <div class="modal-estoque-description-total-title">
+                                        <h1>Valor Total:</h1>
+                                    </div>
+                                    <div class="modal-estoque-description-total-php">
+                                        <h2><?php echo $item['valor_total'] ?></h2> <!--PHP total valor ITEM-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-estoque-mid">
-                    <div class="modal-estoque-imagem">
-                        <img src="./assets/img/CocaCola.png" alt=""> <!--Php image item-->
-                    </div>
-                </div>
-                <div class="modal-estoque-bottom">
-                    <div class="modal-description-estoque">
-                        <div class="modal-estoque-description-produto">
-                            <div class="modal-estoque-description-produto-title">
-                                <h1>Produto:</h1>
-                            </div>
-                            <div class="modal-estoque-description-produto-php">
-                                <h2>Esfiha de carne</h2> <!--PHP name item-->
-                            </div>
-                        </div>
-                        <div class="modal-estoque-description-descrisao">
-                            <div class="modal-estoque-description-descrisao-title">
-                                <h1>Descrisão Produto:</h1>
-                            </div>
-                            <div class="modal-estoque-description-descrisao-php">
-                                <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit.Voluptatem veritatis in adipisci, voluptates quia veniam ullam repudiandae sapiente? Vel nihil exercitationem pariatur perferendis eos error quas dolorem doloribus quae saepe.</h2> <!--PHP descrisao item-->
-                            </div>
-                        </div>
-                        <div class="modal-estoque-description-categoria">
-                            <div class="modal-estoque-description-categoria-title">
-                                <h1>Categoria:</h1>
-                            </div>
-                            <div class="modal-estoque-description-categoria-php">
-                                <h2>Salgados</h2> <!--PHP CATEGORIA ITEM-->
-                            </div>
-                        </div>
-                        <div class="modal-estoque-description-quantidade">
-                            <div class="modal-estoque-description-quantidade-title">
-                                <h1>Estoque:</h1>
-                            </div>
-                            <div class="modal-estoque-description-quantidade-php">
-                                <h2>15</h2> <!--PHP Estoque ITEM-->
-                            </div>
-                        </div>
-                        <div class="modal-estoque-description-preco">
-                            <div class="modal-estoque-description-preco-title">
-                                <h1>Preço:</h1>
-                            </div>
-                            <div class="modal-estoque-description-preco-php">
-                                <h2>R$ 15,00</h2> <!--PHP Preço ITEM-->
-                            </div>
-                        </div>
-                        <div class="modal-estoque-description-total">
-                            <div class="modal-estoque-description-total-title">
-                                <h1>Valor Total:</h1>
-                            </div>
-                            <div class="modal-estoque-description-total-php">
-                                <h2>R$ 152,00</h2> <!--PHP total valor ITEM-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        <?php }
+        } ?>
+
+        <script>
+            // modal estoque table produtos visualizar button
+            document.addEventListener('DOMContentLoaded', () => {
+                const buttons = document.querySelectorAll('.btn-visualizar-item');
+
+                buttons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const modalId = button.getAttribute('data-id');
+                        const modal = document.getElementById('modal-' + modalId);
+                        console.log(modal)
+
+                        if (modal && !modal.classList.contains('active')) {
+                            modal.classList.add('active');
+                        }
+                    });
+                });
+
+                document.querySelectorAll('.modal-overlay-estoque').forEach(overlay => {
+                    const closeButton = overlay.querySelectorAll('.btn-close-modal-estoque');
 
 
-            <!--Modal estoque deletar item-->
+                    closeButton.forEach(btnFechar => {
+                        btnFechar.addEventListener('click', () => {
+                            overlay.classList.remove('active');
+                        })
+                    });
+
+                    overlay.addEventListener('click', (e) => {
+                        if (e.target === overlay) {
+                            overlay.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // modal deletar estoque button
+        </script>
+        <!--Modal estoque deletar item-->
         <div class="modal-estoque-deletar-item" id="modal-deletar-item">
             <div class="modal-deletar-content-top">
                 <h1>Tem certeza?</h1>
                 <p>Esta ação não pode ser desfeita. O produto "Esfiha de Carne" será permanentemente removido do estoque.</p>
             </div>
-                <div class="modal-deletar-content-bottom">
-                    <button class="activeButtonCancelar" id="btn-cancelar-deletar-item">
-                        Cancelar
-                    </button>
-                        <button class="activeButtonExcluir">
-                            Excluir
-                        </button>
-                </div>
+            <div class="modal-deletar-content-bottom">
+                <button class="activeButtonCancelar" id="btn-cancelar-deletar-item">
+                    Cancelar
+                </button>
+                <button class="activeButtonExcluir">
+                    Excluir
+                </button>
+            </div>
         </div>
 
 

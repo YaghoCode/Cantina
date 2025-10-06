@@ -1125,8 +1125,12 @@ a{
     transition: opacity 0.3s ease;
 }
 
+.modal-overlay-estoque.active {
+    display: flex;
+}
+
 .modal-estoque-visualizar-item{
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -1141,6 +1145,7 @@ a{
     width: 80vh;
     border-radius: 15px;
     gap: 0.3rem;
+    padding: 1rem;
 }
 
 .modal-estoque-top{
@@ -1293,7 +1298,7 @@ a{
 
 .modal-estoque-description-descrisao-php h2{
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     /* máximo de 2 linhas */
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -1302,6 +1307,9 @@ a{
     /* evita cortar palavra no meio */
     max-width: 90%;
     min-width: 90%;
+    font-size: 0.8rem;
+    color: rgb(0, 0, 0);
+    font-weight: 400;
 }
 
 .modal-estoque-description-quantidade-php h2{
