@@ -212,17 +212,25 @@ btnOutrosFiltro.addEventListener("click", () => {
 // function fechar modal deletar item
 
 const modalDeletarItem = document.getElementById('modal-deletar-item');
-const btnCancelarItem = document.getElementById('btn-cancelar-deletar-item');
+const btnCancelarExcluir = document.querySelectorAll('.activeButtonCancelar');
 const btnDeletarItem = document.querySelectorAll('.btn-deletar-item');
 
-btnDeletarItem.forEach((btn2) =>{
-    btn2.addEventListener('click', () =>{
-        modalDeletarItem.style.display = 'flex';
-        overlayModalVisualizar.style.display = 'flex';
+btnDeletarItem.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const produtoId = btn.getAttribute('data-id');
+        const modalDeletar = document.getElementById('modal-deletar-item-' + produtoId);
+        if (modalDeletar) {
+            modalDeletar.style.display = 'flex';
+        }
     });
 });
 
-btnCancelarItem.addEventListener('click', () =>{
-    modalDeletarItem.style.display = 'none';
-    overlayModalVisualizar.style.display = 'none';
+
+btnCancelarExcluir.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const modal = btn.closest('.modal-estoque-deletar-item');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    });
 });

@@ -292,7 +292,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-editar-item">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button class="btn-deletar-item" id="btn-deletar-item">
+                                                <button class="btn-deletar-item" data-id="<?= $item['id'] ?>" >
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </button>
                                             </td>
@@ -348,7 +348,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-editar-item">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button class="btn-deletar-item" id="btn-deletar-item">
+                                                <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </button>
                                             </td>
@@ -404,7 +404,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-editar-item">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button class="btn-deletar-item" id="btn-deletar-item">
+                                                <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </button>
                                             </td>
@@ -461,7 +461,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-editar-item">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button class="btn-deletar-item" id="btn-deletar-item">
+                                                <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </button>
                                             </td>
@@ -518,7 +518,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-editar-item">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button class="btn-deletar-item" id="btn-deletar-item">
+                                                <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </button>
                                             </td>
@@ -574,7 +574,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-editar-item">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button class="btn-deletar-item" id="btn-deletar-item">
+                                                <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </button>
                                             </td>
@@ -631,7 +631,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-editar-item">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button class="btn-deletar-item" id="btn-deletar-item">
+                                                <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </button>
                                             </td>
@@ -764,12 +764,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         }
                     });
                 });
-            });
-
-            // modal deletar estoque button
+            }); 
         </script>
         <!--Modal estoque deletar item-->
-        <div class="modal-estoque-deletar-item" id="modal-deletar-item">
+        
+        <?php
+        $query = "SELECT * from estoque";
+        $query_run = mysqli_query($con, $query);
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach($query_run as $item) {
+        ?>
+            
+            <div class="modal-estoque-deletar-item" id="modal-deletar-item-<?= $item['id'] ?>" data-id="<?= $item['id'] ?>">
             <div class="modal-deletar-content-top">
                 <h1>Tem certeza?</h1>
                 <p>Esta ação não pode ser desfeita. O produto "Esfiha de Carne" será permanentemente removido do estoque.</p>
@@ -778,13 +784,40 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <button class="activeButtonCancelar" id="btn-cancelar-deletar-item">
                     Cancelar
                 </button>
-                <button class="activeButtonExcluir">
+                <button class="activeButtonExcluir" data-id="<?= $item['id'] ?>">
                     Excluir
                 </button>
             </div>
         </div>
 
+        <?php }
+        } ?>
+        
+        <script>
+              // modal deletar estoque button
+        document.querySelectorAll('.activeButtonExcluir').forEach(button => {
+            button.addEventListener('click', () => {
+                const produtoId = button.getAttribute('data-id');
+                console.log('ID enviado:', produtoId);
+                fetch('/cantinarepositorio/subpages/delete_item.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: 'id=' + encodeURIComponent(produtoId)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Produto removido!');
+                    location.reload();
+                } else {
+                    alert('Erro ao remover produto!');
+                }
+            });
+        });
+    });
 
+    </script>
+        
 
 
         <!--Paginas com display none-->
