@@ -853,13 +853,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                         <div class="form-group">
                             <label for="categoria">Categoria:</label>
-                            <select id="categoria" name="categoria-produto" class="form-control" required>
-                                <option value="Salgados">Salgados</option>
-                                <option value="Folhados">Folhados</option>
-                                <option value="Doces">Doces</option>
-                                <option value="Bebidas">Bebidas</option>
-                                <option value="Outros">Outros</option>
-                            </select>
+                            <div class="select-container">
+                                <select id="categoria" name="categoria-produto" class="form-control" required>
+                                    <option value="Salgados">Salgados</option>
+                                    <option value="Folhados">Folhados</option>
+                                    <option value="Doces">Doces</option>
+                                    <option value="Bebidas">Bebidas</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                                <i class="fa-solid fa-caret-down"></i>
+                            </div>
                         </div>
 
                         <div class="form-group">
