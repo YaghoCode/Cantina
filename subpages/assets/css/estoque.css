@@ -1642,3 +1642,21 @@ a{
 .btn-remove-preview:hover {
     background-color: #e60000;
 }
+
+.select-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.select-container select {
+  width: 100%;
+  padding-right: 2rem; /* Espaço para o ícone */
+}
+
+.select-container i {
+  position: absolute;
+  right: 1rem; /* Posiciona o ícone à direita */
+  pointer-events: none; /* Garante que o ícone não interfira na interação com o select */
+  color: #333; /* Cor do ícone */
+}
