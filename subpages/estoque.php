@@ -24,7 +24,7 @@ if (isset($_SESSION['cpf'])) {
 $query = "SELECT * from estoque";
 $query_run = mysqli_query($con, $query);
 $total_products = mysqli_num_rows($query_run);
-$query_low = "SELECT * from estoque WHERE quantidade < 1";
+$query_low = "SELECT * from estoque WHERE quantidade < 5";
 $low_products_count = mysqli_num_rows($low_products = mysqli_query($con, $query_low));
 $query_total_value = "SELECT SUM(preco * quantidade) AS total_value FROM estoque";
 $total_value_result = mysqli_query($con, $query_total_value);
