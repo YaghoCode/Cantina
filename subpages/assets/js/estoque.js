@@ -206,31 +206,9 @@ btnOutrosFiltro.addEventListener("click", () => {
     mostrarConteudoTableEstoque(tableOutrosEstoque);
 });
 
-/// function abrir e fechar modal visualizar
 
 
-// function fechar modal deletar item
-
-const modalDeletarItem = document.getElementById('modal-deletar-item');
-const btnCancelarExcluir = document.querySelectorAll('.activeButtonCancelar');
-const btnDeletarItem = document.querySelectorAll('.btn-deletar-item');
-
-btnDeletarItem.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        const produtoId = btn.getAttribute('data-id');
-        const modalDeletar = document.getElementById('modal-deletar-item-' + produtoId);
-        if (modalDeletar) {
-            modalDeletar.style.display = 'flex';
-        }
-    });
-});
 
 
-btnCancelarExcluir.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        const modal = btn.closest('.modal-estoque-deletar-item');
-        if (modal) {
-            modal.style.display = 'none';
-        }
-    });
-});
+// function abrir e fechar modal editar item
+

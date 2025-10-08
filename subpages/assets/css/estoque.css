@@ -1397,35 +1397,6 @@ a{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*modal novo produto*/
 
 .modal-novo-produto{
@@ -1533,6 +1504,23 @@ a{
     background-color: rgb(180, 25, 25);
 }
 
+.form-control{
+    cursor: pointer;
+}
+
+.form-control option{
+    cursor: pointer;
+}
+
+.form-group i {
+  position: absolute;
+  pointer-events: none; /* Garante que o ícone não interfira na interação com o select */
+  color: #333; /* Cor do ícone */
+  left: 40%;
+  top: 80%;
+  font-size: 0.8rem;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .form-novo-produto {
@@ -1628,7 +1616,7 @@ a{
     color: #fff;
     border: none;
     border-radius: 50%;
-    width: 1.6rem;
+    width: 1.5rem;
     height: 1.4rem;
     font-size: 1rem;
     cursor: pointer;
@@ -1637,26 +1625,366 @@ a{
     justify-content: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.btn-remove-preview h1{
+    padding-top: 0.1rem;
+    font-size: 1.2rem;
 }
 
 .btn-remove-preview:hover {
-    background-color: #e60000;
+    background-color: #e60000cf;
 }
 
-.select-container {
-  position: relative;
+/* Overlay */
+.overlay-editar-produto {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000000000;
+  transition: 0.3s ease;
+}
+.overlay-editar-produto.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal principal */
+.modal-editar-produto {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  background: #fff;
+  border-radius: 1rem;
+  width: 50%;
+  max-height: 78vh;
+  overflow-y: auto;
+  padding: 2.5rem;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000000001;
+}
+.modal-editar-produto.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Botão X */
+.btn-fechar-editar {
+  position: absolute;
+  top: 3%;
+  right: 4%;
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  transition: 0.3s ease;
+}
+.btn-fechar-editar:hover {
+  color: var(--cor-primaria);
+}
+
+/* Título */
+.editar-produto-titulo {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-align: left;
+  font-family: var(--font-titulo);
+}
+
+/* Imagem */
+.editar-produto-imagem-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.editar-produto-imagem-box img {
+  width: 25%;
+  height: 20%;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+/* Trocar Imagem */
+.editar-produto-trocar-img {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5rem;
+  padding: 1rem 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.editar-produto-trocar-img h3{
+    font-family: var(--font-titulo);
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.editar-produto-trocar-img p{
+    color: rgba(0, 0, 0, 0.665);
+}
+
+/* Upload */
+.editar-produto-upload {
+  display: none;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.editar-produto-upload input {
+  width: 100%;
+}
+
+/* Oculta o input nativo */
+.editar-produto-upload input[type="file"] {
+  display: none;
+}
+
+/* Container lado a lado */
+.upload-container {
   display: flex;
   align-items: center;
-}
-
-.select-container select {
+  justify-content: center;
+  gap: 1vh;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.7rem 0.7rem;
   width: 100%;
-  padding-right: 2rem; /* Espaço para o ícone */
+  box-sizing: border-box;
 }
 
-.select-container i {
-  position: absolute;
-  right: 1rem; /* Posiciona o ícone à direita */
-  pointer-events: none; /* Garante que o ícone não interfira na interação com o select */
-  color: #333; /* Cor do ícone */
+/* Botão estilizado */
+.upload-label {
+  background-color: var(--cor-primaria);
+  color: #fff;
+  padding: 0.8rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+  font-family: var(--font-titulo);
 }
+
+.upload-label i{
+    padding-right: 0.3rem;
+}
+
+.upload-label:hover {
+  background-color: #e3251bbc
+}
+
+/* Texto do nome do arquivo */
+.upload-nome {
+  font-size: 0.9rem;
+  color: #333;
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-titulo);
+}
+
+/* Inputs */
+.editar-produto-inputs-duplo {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.input-grupo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.input-grupo select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background-color: #fff;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none; /* remove estilo nativo */
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23e3261b' height='80' viewBox='0 0 24 24' width='80' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+/* Hover no campo */
+.input-grupo select:hover {
+  border-color: #e3261b;
+}
+
+/* Foco */
+.input-grupo select:focus {
+  border-color: #e3261b;
+}
+
+.input-grupo label {
+  font-size: 1rem;
+  font-family: var(--font-titulo);
+  font-weight: 400;
+  margin-bottom: 0.3rem;
+}
+.input-grupo input,
+.input-grupo textarea {
+  border: 1px solid #d9d9d9;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition: 0.2s;
+  font-family: var(--cor--botao-accept);
+  color: #000000d7;
+}
+.input-grupo input:focus,
+.input-grupo textarea:focus {
+  border-color: var(--cor-primaria);
+}
+.input-grupo textarea {
+  resize: none;
+  height: 7rem;
+}
+
+.input-grupo.full{
+    margin-bottom: 1rem;
+}
+
+/* Botões */
+.editar-produto-botoes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+.btn-cancelar-editar,
+.btn-salvar-editar {
+  padding: 0.7rem 1.3rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+}
+.btn-cancelar-editar {
+  background: #f3f3f3;
+}
+.btn-salvar-editar {
+  background-color: var(--cor-primaria);
+  color: white;
+}
+.btn-cancelar-editar:hover {
+  background: #e0e0e0;
+}
+.btn-salvar-editar:hover {
+  background: #e3251be0
+}
+
+/* Switch toggle */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: var(--cor-primaria)
+}
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+/*scrollbar*/
+
+.modal-editar-produto::-webkit-scrollbar {
+  width: 0.7rem;
+}
+
+.modal-editar-produto::-webkit-scrollbar-track {
+  background: #f0f0f0; /* cor do fundo */
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+
+.modal-editar-produto::-webkit-scrollbar-thumb {
+  background: #c1c1c1; /* cor do “botão” */
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+
+.modal-editar-produto::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
