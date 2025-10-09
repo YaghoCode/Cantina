@@ -941,104 +941,69 @@ $query_run = mysqli_query($con, $query);
 if (mysqli_num_rows($query_run) > 0) {
     foreach ($query_run as $item) {
         $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
+        $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
 ?>
     <!-- MODAL EDITAR ITEM -->
     <div class="overlay-editar-produto" id="overlayEditar-<?= $item['id'] ?>">
-        <!-- Modal Editar Produto -->
-        <div class="modal-editar-produto" id="modalEditar-<?= $item['id'] ?>">
-            <button type="button" class="btn-fechar-editar" data-id="<?= $item['id'] ?>" title="Fechar modal">&times;</button>
-            <h2 class="editar-produto-titulo">Editar Produto:</h2>
+    <div class="modal-editar-produto" id="modalEditar-<?= $item['id'] ?>">
+        <button type="button" class="btn-fechar-editar" data-id="<?= $item['id'] ?>" title="Fechar modal">&times;</button>
+        <h2 class="editar-produto-titulo">Editar Produto:</h2>
+        <form id="formEditarProduto-<?= $item['id'] ?>" method="POST" action="atualizar_item.php" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?= $item['id'] ?>" />
 
-            <form id="formEditarProduto-<?= $item['id'] ?>" method="POST" action="atualizar_item.php" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="<?= $item['id'] ?>" />
+            <div class="editar-produto-imagem-box">
+                <img src="./imgbd/<?php echo $item['img'] ?>" alt="Imagem do produto" />
+            </div>
 
-                <!-- Imagem atual -->
-                <div class="editar-produto-imagem-box">
-                    <img
-                        src="./imgbd/<?php echo $item['img'] ?>"
-                        alt="Imagem do produto"
-                        id="editarProdutoPreviewImg-<?= $item['id'] ?>" />
+            <div class="editar-produto-trocar-img">
+                <div>
+                    <h3>Trocar Imagem</h3>
+                    <p>Ative para fazer upload de uma nova imagem</p>
                 </div>
-
-                <!-- Trocar Imagem -->
-                <div class="editar-produto-trocar-img">
-                    <div>
-                        <h3>Trocar Imagem</h3>
-                        <p>Ative para fazer upload de uma nova imagem</p>
-                    </div>
                     <label class="switch">
-                        <input type="checkbox" id="toggleTrocarImagem-<?= $item['id'] ?>" name="trocar_imagem" />
-                        <span class="slider"></span>
-                    </label>
-                </div>
+                    <input type="radio" id="toggleTrocarImagem-<?= $item['id'] ?>" name="trocar_imagem" value="1" />
+                    <span class="slider"></span>
+                </label>
+</div>
 
-                <!-- Upload de nova imagem -->
-                <div class="editar-produto-upload" id="editarProdutoUpload-<?= $item['id'] ?>">
-                    <div class="upload-container">
-                        <label for="inputNovaImagem-<?= $item['id'] ?>" class="upload-label">
-                            <i class="fa-solid fa-folder-open"></i> Escolher imagem</label>
-                        <span class="upload-nome" id="uploadNome-<?= $item['id'] ?>">Formatos aceitos: JPG, PNG, até 5MB</span>
-                    </div>
-                    <input type="file" id="inputNovaImagem-<?= $item['id'] ?>" name="imagem" accept="image/*" />
+            <div class="editar-produto-inputs-duplo">
+                <div class="input-grupo">
+                    <label>Produto *</label>
+                    <input type="text" name="produto" value="<?= htmlspecialchars($item['Nome']) ?>" required />
                 </div>
-
-                <!-- Campos -->
-                <div class="editar-produto-inputs-duplo">
-                    <div class="input-grupo">
-                        <label for="editarProdutoNome-<?= $item['id'] ?>">Produto *</label>
-                        <input
-                            type="text"
-                            id="editarProdutoNome-<?= $item['id'] ?>"
-                            name="produto"
-                            value="<?php echo htmlspecialchars($item['Nome']); ?>"
-                            required />
-                    </div>
-                    <div class="input-grupo">
-                        <label for="editarProdutoCategoria-<?= $item['id'] ?>">Categoria *</label>
-                        <select id="editarProdutoCategoria-<?= $item['id'] ?>" name="categoria" required>
-                            <option value="" disabled>Selecione uma categoria...</option>
-                            <option value="salgados" <?php echo $item['Categoria'] == "Salgados" ? 'selected' : ''; ?>>Salgados</option>
-                            <option value="folhados" <?php echo $item['Categoria'] == "Folhados" ? 'selected' : ''; ?>>Folhados</option>
-                            <option value="doces" <?php echo $item['Categoria'] == "Doces" ? 'selected' : ''; ?>>Doces</option>
-                            <option value="bebidas" <?php echo $item['Categoria'] == "Bebidas" ? 'selected' : ''; ?>>Bebidas</option>
-                            <option value="outros" <?php echo $item['Categoria'] == "Outros" ? 'selected' : ''; ?>>Outros</option>
-                        </select>
-                    </div>
+                <div class="input-grupo">
+                    <label>Categoria *</label>
+                    <select name="categoria" required>
+                        <option value="Salgados" <?= $item['Categoria'] == "Salgados" ? 'selected' : '' ?>>Salgados</option>
+                        <option value="Folhados" <?= $item['Categoria'] == "Folhados" ? 'selected' : '' ?>>Folhados</option>
+                        <option value="Doces" <?= $item['Categoria'] == "Doces" ? 'selected' : '' ?>>Doces</option>
+                        <option value="Bebidas" <?= $item['Categoria'] == "Bebidas" ? 'selected' : '' ?>>Bebidas</option>
+                        <option value="Outros" <?= $item['Categoria'] == "Outros" ? 'selected' : '' ?>>Outros</option>
+                    </select>
                 </div>
+            </div>
 
-                <div class="input-grupo full">
-                    <label for="editarProdutoDescricao-<?= $item['id'] ?>">Descrição do Produto *</label>
-                    <textarea
-                        id="editarProdutoDescricao-<?= $item['id'] ?>"
-                        name="descricao"
-                        required><?php echo htmlspecialchars($item['Descricao']); ?></textarea>
+            <div class="input-grupo full">
+                <label>Descrição *</label>
+                <textarea name="descricao" required><?= htmlspecialchars($item['Descricao']) ?></textarea>
+            </div>
+
+            <div class="editar-produto-inputs-duplo">
+                <div class="input-grupo">
+                    <label>Estoque *</label>
+                    <input type="number" name="quantidade" value="<?= $item['Quantidade'] ?>" required />
                 </div>
-
-                <div class="editar-produto-inputs-duplo">
-                    <div class="input-grupo">
-                        <label for="editarProdutoEstoque-<?= $item['id'] ?>">Estoque *</label>
-                        <input
-                            type="number"
-                            id="editarProdutoEstoque-<?= $item['id'] ?>"
-                            name="estoque"
-                            value="<?php echo $item['Quantidade']; ?>"
-                            required />
-                    </div>
-                    <div class="input-grupo">
-                        <label for="editarProdutoPreco-<?= $item['id'] ?>">Preço *</label>
-                        <input
-                            type="text"
-                            id="editarProdutoPreco-<?= $item['id'] ?>"
-                            name="preco"
-                            value="<?php echo number_format($item['preco'], 2, ',', '.'); ?>"
-                            required />
-                    </div>
+                <div class="input-grupo">
+                    <label>Preço *</label>
+                    <input type="number" step="0.01" name="preco" value="<?= $item['preco'] ?>" required />
                 </div>
+            </div>
 
-                <button type="submit" class="btn-salvar">Salvar Alterações</button>
-            </form>
-        </div>
+            <button type="button" class="btn-cancelar-editar" data-id="<?= $item['id'] ?>">Cancelar</button>
+            <button type="submit" class="btn-salvar-editar">Salvar Alterações</button>
+        </form>
     </div>
+</div>
 <?php
     }
 }
@@ -1046,97 +1011,62 @@ if (mysqli_num_rows($query_run) > 0) {
 
         <script>
             // editar item
-
-    // editar item
-    document.addEventListener('DOMContentLoaded', () => {
-        const overlayEditarProduto = document.querySelector('.overlay-editar-produto');
-        const buttons = document.querySelectorAll('.btn-editar-item');
-
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                const modalId = button.getAttribute('data-id');
-                const modal = document.getElementById('modalEditar-' + modalId);
-
-                if (modal && !modal.classList.contains('active')) {
-                    modal.classList.add('active');
-                    overlayEditarProduto.classList.add('active');
-                }
-            });
-        });
-
-        document.querySelectorAll('.overlay-editar-produto').forEach(overlay => {
-            const closeButton = overlay.querySelectorAll('.btn-fechar-editar');
-
-            closeButton.forEach(btnFechar => {
-                btnFechar.addEventListener('click', () => {
-                    overlay.classList.remove('active');
-                    const activeModal = overlay.querySelector('.modal-editar-produto.active');
-                    if (activeModal) {
-                        activeModal.classList.remove('active');
-                    }
-                });
-            });
-
-            overlay.addEventListener('click', (e) => {
-                if (e.target === overlay) {
-                    overlay.classList.remove('active');
-                    const activeModal = overlay.querySelector('.modal-editar-produto.active');
-                    if (activeModal) {
-                        activeModal.classList.remove('active');
-                    }
-                }
-            });
+   
+document.addEventListener('DOMContentLoaded', () => {
+    // Abrir modal de edição
+    document.querySelectorAll('.btn-editar-item').forEach(button => {
+        button.addEventListener('click', () => {
+            const itemId = button.getAttribute('data-id');
+            const overlay = document.getElementById(`overlayEditar-${itemId}`);
+            const modal = document.getElementById(`modalEditar-${itemId}`);
+            if (overlay && modal) {
+                overlay.classList.add('active');
+                modal.classList.add('active');
+            }
         });
     });
 
-    document.addEventListener('DOMContentLoaded', () => {
-        // Abrir modal de edição
-        document.querySelectorAll('.btn-editar-item').forEach(button => {
-            button.addEventListener('click', () => {
-                const itemId = button.getAttribute('data-id');
-                const overlay = document.getElementById(`overlayEditar-${itemId}`);
-                if (overlay) {
-                    overlay.classList.add('active');
-                }
-            });
+    // Fechar modal ao clicar no botão fechar
+    document.querySelectorAll('.btn-fechar-editar').forEach(button => {
+        button.addEventListener('click', () => {
+            const itemId = button.getAttribute('data-id');
+            const overlay = document.getElementById(`overlayEditar-${itemId}`);
+            const modal = document.getElementById(`modalEditar-${itemId}`);
+            if (overlay) overlay.classList.remove('active');
+            if (modal) modal.classList.remove('active');
         });
+    });
 
-        // Fechar modal de edição
-        document.querySelectorAll('.btn-fechar-editar').forEach(button => {
-            button.addEventListener('click', () => {
-                const itemId = button.getAttribute('data-id');
-                const overlay = document.getElementById(`overlayEditar-${itemId}`);
+    // Fechar modal ao clicar no overlay
+    document.querySelectorAll('.overlay-editar-produto').forEach(overlay => {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                const itemId = overlay.id.replace('overlayEditar-', '');
                 const modal = document.getElementById(`modalEditar-${itemId}`);
-                if (overlay) {
-                    overlay.classList.remove('active');
-                }
-                if (modal) {
-                    modal.classList.remove('active');
-                }
-            });
-        });
-
-        // Fechar modal ao clicar no overlay
-        document.querySelectorAll('.overlay-editar-produto').forEach(overlay => {
-            overlay.addEventListener('click', (e) => {
-                if (e.target === overlay) {
-                    overlay.classList.remove('active');
-                    const modal = overlay.querySelector('.modal-editar-produto');
-                    if (modal) {
-                        modal.classList.remove('active');
-                    }
-                }
-            });
+                overlay.classList.remove('active');
+                if (modal) modal.classList.remove('active');
+            }
         });
     });
+});
 
+    //Fechar modal ao clicar no botao cancelar
+    document.querySelectorAll('.btn-cancelar-editar').forEach(button => {
+    button.addEventListener('click', () => {
+        const itemId = button.getAttribute('data-id');
+        const overlay = document.getElementById(`overlayEditar-${itemId}`);
+        const modal = document.getElementById(`modalEditar-${itemId}`);
+        if (overlay) overlay.classList.remove('active');
+        if (modal) modal.classList.remove('active');
+    });
+});
 
             // Seletores
-            const overlayEditarProduto = document.querySelector('.overlay-editar-produto');
-            const modalEditarProduto = document.querySelector('.modal-editar-produto');
-            const btnAbrirEditarProduto = document.querySelector('.btn-editar-item');
-            const btnCancelarEditarProduto = document.querySelector('.btn-cancelar-editar');
-            const btnFecharEditar = document.querySelector('.btn-fechar-editar');
+            const overlayEditarProduto = document.querySelectorAll('.overlay-editar-produto');
+            const modalEditarProduto = document.querySelectorAll('.modal-editar-produto');
+            const btnAbrirEditarProduto = document.querySelectorAll('.btn-editar-item');
+            const btnCancelarEditarProduto = document.querySelectorAll('.btn-cancelar-editar');
+            const btnFecharEditar = document.querySelectorAll('.btn-fechar-editar');
             const toggleTrocarImagem = document.getElementById('toggleTrocarImagem');
             const editarProdutoUpload = document.getElementById('editarProdutoUpload');
             const inputNovaImagem = document.getElementById('inputNovaImagem');
