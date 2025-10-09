@@ -29,7 +29,7 @@ $low_products_count = mysqli_num_rows($low_products = mysqli_query($con, $query_
 $query_total_value = "SELECT SUM(preco * quantidade) AS total_value FROM estoque";
 $total_value_result = mysqli_query($con, $query_total_value);
 $total_value_row = mysqli_fetch_assoc($total_value_result);
-$total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, ',', ',');
+$total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, ',', '.');
 ?>
 
 <?php
@@ -368,7 +368,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-visualizar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
-                                                <button class="btn-editar-item">
+                                                <button class="btn-editar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
                                                 <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
@@ -424,7 +424,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-visualizar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
-                                                <button class="btn-editar-item">
+                                                <button class="btn-editar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
                                                 <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
@@ -480,7 +480,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-visualizar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
-                                                <button class="btn-editar-item">
+                                                <button class="btn-editar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
                                                 <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
@@ -537,7 +537,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-visualizar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
-                                                <button class="btn-editar-item">
+                                                <button class="btn-editar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
                                                 <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
@@ -594,7 +594,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-visualizar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
-                                                <button class="btn-editar-item">
+                                                <button class="btn-editar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
                                                 <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
@@ -650,8 +650,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-visualizar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
-                                                <button class="btn-editar-item">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                <button class="btn-editar-item" data-id="<?= $item['id'] ?>">
+                                                    <i class="fa-solid fa-pen-to-square" ></i>
                                                 </button>
                                                 <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-regular fa-trash-can"></i>
@@ -707,7 +707,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-visualizar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
-                                                <button class="btn-editar-item">
+                                                <button class="btn-editar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
                                                 <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
@@ -811,10 +811,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <?php }
         } ?>
-
-        <!--Modal editar item-->
-
-
 
         <script>
             // modal estoque table produtos visualizar button
@@ -935,21 +931,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             });
         </script>
 
-        <!--MODAL EDITAR ITEM-->
-        <div class="overlay-editar-produto"></div>
 
+
+
+<?php
+$query = "SELECT * from estoque";
+$query_run = mysqli_query($con, $query);
+
+if (mysqli_num_rows($query_run) > 0) {
+    foreach ($query_run as $item) {
+        $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
+?>
+    <!-- MODAL EDITAR ITEM -->
+    <div class="overlay-editar-produto" id="overlayEditar-<?= $item['id'] ?>">
         <!-- Modal Editar Produto -->
-        <div class="modal-editar-produto" id="modalEditarProduto">
-            <button type="button" class="btn-fechar-editar" title="Fechar modal">&times;</button>
+        <div class="modal-editar-produto" id="modalEditar-<?= $item['id'] ?>">
+            <button type="button" class="btn-fechar-editar" data-id="<?= $item['id'] ?>" title="Fechar modal">&times;</button>
             <h2 class="editar-produto-titulo">Editar Produto:</h2>
 
-            <form id="formEditarProduto">
+            <form id="formEditarProduto-<?= $item['id'] ?>" method="POST" action="atualizar_item.php" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= $item['id'] ?>" />
+
                 <!-- Imagem atual -->
                 <div class="editar-produto-imagem-box">
                     <img
-                        src="/cantinarepositorio/subpages/imgbd/Agua.png"
+                        src="./imgbd/<?php echo $item['img'] ?>"
                         alt="Imagem do produto"
-                        id="editarProdutoPreviewImg" /> <!--IMAGEM BD PHP-->
+                        id="editarProdutoPreviewImg-<?= $item['id'] ?>" />
                 </div>
 
                 <!-- Trocar Imagem -->
@@ -959,83 +967,170 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <p>Ative para fazer upload de uma nova imagem</p>
                     </div>
                     <label class="switch">
-                        <input type="checkbox" id="toggleTrocarImagem" />
+                        <input type="checkbox" id="toggleTrocarImagem-<?= $item['id'] ?>" name="trocar_imagem" />
                         <span class="slider"></span>
                     </label>
                 </div>
 
                 <!-- Upload de nova imagem -->
-                <div class="editar-produto-upload" id="editarProdutoUpload">
+                <div class="editar-produto-upload" id="editarProdutoUpload-<?= $item['id'] ?>">
                     <div class="upload-container">
-                        <label for="inputNovaImagem" class="upload-label">
+                        <label for="inputNovaImagem-<?= $item['id'] ?>" class="upload-label">
                             <i class="fa-solid fa-folder-open"></i> Escolher imagem</label>
-                        <span class="upload-nome" id="uploadNome">Formatos aceitos: JPG, PNG, até 5MB</span>
+                        <span class="upload-nome" id="uploadNome-<?= $item['id'] ?>">Formatos aceitos: JPG, PNG, até 5MB</span>
                     </div>
-                    <input type="file" id="inputNovaImagem" name="imagem" accept="image/*" />
+                    <input type="file" id="inputNovaImagem-<?= $item['id'] ?>" name="imagem" accept="image/*" />
                 </div>
 
                 <!-- Campos -->
                 <div class="editar-produto-inputs-duplo">
                     <div class="input-grupo">
-                        <label for="editarProdutoNome">Produto *</label>
+                        <label for="editarProdutoNome-<?= $item['id'] ?>">Produto *</label>
                         <input
                             type="text"
-                            id="editarProdutoNome"
+                            id="editarProdutoNome-<?= $item['id'] ?>"
                             name="produto"
-                            value="Croissant de calabresa"
-                            required /> <!--nome BD PHP NO LUGAR DE VALUE-->
+                            value="<?php echo htmlspecialchars($item['Nome']); ?>"
+                            required />
                     </div>
                     <div class="input-grupo">
-                        <label for="editarProdutoCategoria">Categoria *</label>
-                        <select id="editarProdutoCategoria" name="categoria" required>
-                            <option value="" disabled selected>Selecione uma categoria...</option>
-                            <option value="salgados" selected>Salgados</option>
-                            <option value="folhados">Folhados</option>
-                            <option value="doces">Doces</option>
-                            <option value="bebidas">Bebidas</option>
-                            <option value="outros">Outros</option>
+                        <label for="editarProdutoCategoria-<?= $item['id'] ?>">Categoria *</label>
+                        <select id="editarProdutoCategoria-<?= $item['id'] ?>" name="categoria" required>
+                            <option value="" disabled>Selecione uma categoria...</option>
+                            <option value="salgados" <?php echo $item['Categoria'] == "Salgados" ? 'selected' : ''; ?>>Salgados</option>
+                            <option value="folhados" <?php echo $item['Categoria'] == "Folhados" ? 'selected' : ''; ?>>Folhados</option>
+                            <option value="doces" <?php echo $item['Categoria'] == "Doces" ? 'selected' : ''; ?>>Doces</option>
+                            <option value="bebidas" <?php echo $item['Categoria'] == "Bebidas" ? 'selected' : ''; ?>>Bebidas</option>
+                            <option value="outros" <?php echo $item['Categoria'] == "Outros" ? 'selected' : ''; ?>>Outros</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="input-grupo full">
-                    <label for="editarProdutoDescricao">Descrição do Produto *</label>
+                    <label for="editarProdutoDescricao-<?= $item['id'] ?>">Descrição do Produto *</label>
                     <textarea
-                        id="editarProdutoDescricao"
+                        id="editarProdutoDescricao-<?= $item['id'] ?>"
                         name="descricao"
-                        required>Massa folhada leve e crocante, recheada com linguiça calabresa fatiada e queijo derretido, assada até ficar dourada.</textarea> <!--description BD PHP-->
+                        required><?php echo htmlspecialchars($item['Descricao']); ?></textarea>
                 </div>
 
                 <div class="editar-produto-inputs-duplo">
                     <div class="input-grupo">
-                        <label for="editarProdutoEstoque">Estoque *</label>
+                        <label for="editarProdutoEstoque-<?= $item['id'] ?>">Estoque *</label>
                         <input
                             type="number"
-                            id="editarProdutoEstoque"
+                            id="editarProdutoEstoque-<?= $item['id'] ?>"
                             name="estoque"
-                            value="12"
-                            required /> <!--Estoque BD PHP NO LUGAR DE VALUE-->
+                            value="<?php echo $item['Quantidade']; ?>"
+                            required />
                     </div>
                     <div class="input-grupo">
-                        <label for="editarProdutoPreco">Preço (R$) *</label>
+                        <label for="editarProdutoPreco-<?= $item['id'] ?>">Preço *</label>
                         <input
-                            type="number"
-                            id="editarProdutoPreco"
+                            type="text"
+                            id="editarProdutoPreco-<?= $item['id'] ?>"
                             name="preco"
-                            value="7"
-                            step="0.01"
-                            required /> <!--preco BD PHP NO LUGAR DE VALUE-->
+                            value="<?php echo number_format($item['preco'], 2, ',', '.'); ?>"
+                            required />
                     </div>
                 </div>
 
-                <!-- Botões -->
-                <div class="editar-produto-botoes">
-                    <button type="button" class="btn-cancelar-editar">Cancelar</button>
-                    <button type="submit" class="btn-salvar-editar">Salvar Alterações</button>
-                </div>
+                <button type="submit" class="btn-salvar">Salvar Alterações</button>
             </form>
         </div>
+    </div>
+<?php
+    }
+}
+?>
+
         <script>
+            // editar item
+
+    // editar item
+    document.addEventListener('DOMContentLoaded', () => {
+        const overlayEditarProduto = document.querySelector('.overlay-editar-produto');
+        const buttons = document.querySelectorAll('.btn-editar-item');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modalId = button.getAttribute('data-id');
+                const modal = document.getElementById('modalEditar-' + modalId);
+
+                if (modal && !modal.classList.contains('active')) {
+                    modal.classList.add('active');
+                    overlayEditarProduto.classList.add('active');
+                }
+            });
+        });
+
+        document.querySelectorAll('.overlay-editar-produto').forEach(overlay => {
+            const closeButton = overlay.querySelectorAll('.btn-fechar-editar');
+
+            closeButton.forEach(btnFechar => {
+                btnFechar.addEventListener('click', () => {
+                    overlay.classList.remove('active');
+                    const activeModal = overlay.querySelector('.modal-editar-produto.active');
+                    if (activeModal) {
+                        activeModal.classList.remove('active');
+                    }
+                });
+            });
+
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                    const activeModal = overlay.querySelector('.modal-editar-produto.active');
+                    if (activeModal) {
+                        activeModal.classList.remove('active');
+                    }
+                }
+            });
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Abrir modal de edição
+        document.querySelectorAll('.btn-editar-item').forEach(button => {
+            button.addEventListener('click', () => {
+                const itemId = button.getAttribute('data-id');
+                const overlay = document.getElementById(`overlayEditar-${itemId}`);
+                if (overlay) {
+                    overlay.classList.add('active');
+                }
+            });
+        });
+
+        // Fechar modal de edição
+        document.querySelectorAll('.btn-fechar-editar').forEach(button => {
+            button.addEventListener('click', () => {
+                const itemId = button.getAttribute('data-id');
+                const overlay = document.getElementById(`overlayEditar-${itemId}`);
+                const modal = document.getElementById(`modalEditar-${itemId}`);
+                if (overlay) {
+                    overlay.classList.remove('active');
+                }
+                if (modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Fechar modal ao clicar no overlay
+        document.querySelectorAll('.overlay-editar-produto').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                    const modal = overlay.querySelector('.modal-editar-produto');
+                    if (modal) {
+                        modal.classList.remove('active');
+                    }
+                }
+            });
+        });
+    });
+
+
             // Seletores
             const overlayEditarProduto = document.querySelector('.overlay-editar-produto');
             const modalEditarProduto = document.querySelector('.modal-editar-produto');
@@ -1048,17 +1143,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             const editarProdutoPreviewImg = document.getElementById('editarProdutoPreviewImg');
             const formEditarProduto = document.getElementById('formEditarProduto');
 
-            // Abrir modal
-            btnAbrirEditarProduto.addEventListener('click', () => {
-                modalEditarProduto.classList.add('active');
-                overlayEditarProduto.classList.add('active');
-            });
 
-            // Fechar modal (X e Cancelar)
-            const fecharModalEditar = () => {
-                modalEditarProduto.classList.remove('active');
-                overlayEditarProduto.classList.remove('active');
-            };
 
             btnCancelarEditarProduto.addEventListener('click', fecharModalEditar);
             btnFecharEditar.addEventListener('click', fecharModalEditar);
@@ -1117,4 +1202,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <script type="module" src="./assets/js/estoque.js"></script>
 </body>
 
-</html
+</html>
