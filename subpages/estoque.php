@@ -29,7 +29,7 @@ $low_products_count = mysqli_num_rows($low_products = mysqli_query($con, $query_
 $query_total_value = "SELECT SUM(preco * quantidade) AS total_value FROM estoque";
 $total_value_result = mysqli_query($con, $query_total_value);
 $total_value_row = mysqli_fetch_assoc($total_value_result);
-$total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, ',', '.');
+$total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, ',', ',');
 ?>
 
 <?php
