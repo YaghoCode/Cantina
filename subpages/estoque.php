@@ -1120,12 +1120,182 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div class="container-configuracoes" id="conteudo-configuracoes">
             <div class="title-configuracoes">
-                <h1>Gerenciar funcionários</h1>
+                <div class="title-configuracoes-text">
+                    <h1>Gerenciar funcionários</h1>
+                    <p>Gerencie sua conta e crie novos administradores.</p>
+                </div>
             </div>
             <div class="content-configuracoes">
+                <div class="content-top-config">
+                    <div class="table-admin">
+                        <div class="table-admin-title">
+                            <div class="table-admin-title-text">
+                                <h1>Administradores</h1>
+                                <p>Selecione um administrador para editar suas informações ou alterar senha.</p>
+                            </div>
+                        </div>
+                            <div class="table-admins">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                            <td>Email</td>
+                                            <td>Telefone</td>
+                                            <td>Função</td>
+                                            <td>Ações</td>
+                                        </tr>
+                                    </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><h6>Admin P.</h6></td>
+                                                <td><h6>AdminFurafila@gmail.com</h6></td>
+                                                <td><h6>(11)98476-3941</h6></td>
+                                                <td><h6>Administrador</h6></td>
+                                                <td>
+                                                    <button class="btn-editar-admin">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                    <button class="btn-deletar-admin">
+                                                        <i class="fa-regular fa-trash-can"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><h6>Admin P.</h6></td>
+                                                <td><h6>AdminFurafila@gmail.com</h6></td>
+                                                <td><h6>(11)98476-3941</h6></td>
+                                                <td><h6>Administrador</h6></td>
+                                                <td>
+                                                    <button class="btn-editar-admin">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                    <button class="btn-deletar-admin">
+                                                        <i class="fa-regular fa-trash-can"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><h6>Admin P.</h6></td>
+                                                <td><h6>AdminFurafila@gmail.com</h6></td>
+                                                <td><h6>(11)98476-3941</h6></td>
+                                                <td><h6>Administrador</h6></td>
+                                                <td>
+                                                    <button class="btn-editar-admin">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                    <button class="btn-deletar-admin">
+                                                        <i class="fa-regular fa-trash-can"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><h6>Admin P.</h6></td>
+                                                <td><h6>AdminFurafila@gmail.com</h6></td>
+                                                <td><h6>(11)98476-3941</h6></td>
+                                                <td><h6>Administrador</h6></td>
+                                                <td>
+                                                    <button class="btn-editar-admin">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                    <button class="btn-deletar-admin">
+                                                        <i class="fa-regular fa-trash-can"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                </table>
+                            </div>
+                    </div>
+                </div>
+                    <div class="content-mid-config">
 
+                    </div>
             </div>
         </div>
+
+        <!--Modal editar info admin-->
+        <div class="modal-overlay-editar-admin">
+            <div class="modal-editar-admin">
+             <button class="btn-close-modal-editar-admin">
+                <i class="fa-solid fa-xmark"></i>
+             </button>
+                <div class="form-editar-adm">
+                            <div class="form-editar-adm-title">
+                                <div class="form-editar-adm-title-text">
+                                    <h1>
+                                        Informações da Conta
+                                    </h1>
+                                    <p>
+                                        Edite as informações da sua conta de administrador.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-editar-adm-content">
+                                <form action="" class="form-editar-administrador">
+                                    <div class="form-adm-row">
+                                        <div class="form-adm-group">
+                                            <label for="nome">Nome:</label>
+                                            <input type="text" id="nome_admin" value="Admin 0001" required> <!--TEXT NAME ADMIN CONTA PHP EM VALUE-->
+                                        </div>
+                                        <div class="form-adm-group">
+                                            <label for="CPF">CPF:</label>
+                                            <input type="CPF" id="CPF_admin" value="55132867832" required> <!--CPF text admin conta php em value-->
+                                        </div>
+                                    </div>
+                                        <div class="form-adm-row">
+                                             <div class="form-adm-group">
+                                                <label for="telefone">Telefone:</label>
+                                                <input type="text" id="telefone_admin" value="(11) 99999-9999" required> <!--TEXT telefone ADMIN CONTA PHP EM VALUE-->    
+                                             </div>
+                                                <div class="form-adm-group">
+                                                    <label for="Email">Email:</label>
+                                                    <input type="Email" id="Email_admin" value="admin@gmail.com" required> <!--Email text admin conta php em value-->
+                                                </div>
+                                        </div>
+                                             <div class="form-adm-row">
+                                                <label for="funcao">Função</label>
+                                                <select id="funcao" name="funcao" required>
+                                                    <option value="Administrador Principal" selected>Administrador Principal</option>
+                                                    <option value="Administrador Secundário">Administrador Secundário</option>
+                                                </select><!--TEXT funcao ADMIN CONTA PHP EM VALUE-->    
+                                            </div>
+                                                <div class="form-adm-row-btn">
+                                                    <button type="submit" class="form-editar-adm-btn-cancelar">
+                                                        Cancelar
+                                                    </button>
+                                                    <button type="submit" class="form-editar-adm-btn-mandar">
+                                                        <i class="fa-solid fa-floppy-disk"></i> Salvar Alterações
+                                                    </button>
+                                                </div>
+                                </form>
+                            </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            //abrir modal editar 
+            const modalEditarAdmin = document.querySelector('.modal-editar-admin');
+            const overlayEditarAdmin = document.querySelector('.modal-overlay-editar-admin');
+            const btnEditarAdmin = document.querySelectorAll('.btn-editar-admin');
+            const btnCloseEditarAdmin = document.querySelectorAll('.btn-close-modal-editar-admin');
+
+            btnEditarAdmin.forEach((btn5) =>{
+                btn5.addEventListener('click', () =>{
+                    modalEditarAdmin.classList.add('active');
+                    overlayEditarAdmin.classList.add('active');
+                })
+            });
+
+            btnCloseEditarAdmin.forEach((btn6) =>{
+                btn6.addEventListener('click', () =>{
+                    modalEditarAdmin.classList.remove('active');
+                    overlayEditarAdmin.classList.remove('active');
+                })
+            });
+                
+            
+        </script>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
