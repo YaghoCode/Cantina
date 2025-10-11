@@ -1208,7 +1208,46 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                     <div class="content-mid-config">
-
+                        <div class="form-criar-adm">
+                            <div class="form-criar-adm-title">
+                                <div class="form-criar-adm-title-text">
+                                    <h1>Criar Novo Administrador</h1>
+                                    <p>Adicione um novo usuário com permissões de administrador.</p>
+                                </div>
+                            </div>
+                                <div class="form-criar-adm-content">
+                                    <form action="" class="form-criar-adiminstrador">
+                                        <div class="form-criar-adm-row">
+                                            <div class="form-criar-adm-group">
+                                                 <label for="nome">Nome:</label>
+                                                 <input type="text" id="nome_criar_admin" placeholder="Nome do administrador" required> 
+                                            </div>
+                                            <div class="form-criar-adm-group">
+                                                 <label for="cpf">CPF:</label>
+                                                 <input type="text" id="cpf_criar_admin" placeholder="CPF do administrador" required> 
+                                            </div>
+                                        </div>
+                                        <div class="form-criar-adm-row">
+                                            <div class="form-criar-adm-group">
+                                                 <label for="password">CPF:</label>
+                                                 <input type="password" id="senha_criar_admin" placeholder="Senha do administrador" required> 
+                                            </div>
+                                            <div class="form-criar-adm-group">
+                                                 <label for="email">Email:</label>
+                                                 <input type="text" id="email_criar_admin" placeholder="Email do administrador" required> 
+                                            </div>
+                                        </div>
+                                        <div class="form-criar-adm-row-btn">
+                                            <div class="form-criar-adm-group-btn">
+                                                <button>
+                                                   <i class="fa-solid fa-user-plus"></i>
+                                                    Criar Administrador
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                        </div>
                     </div>
             </div>
         </div>
@@ -1260,7 +1299,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                                 </select><!--TEXT funcao ADMIN CONTA PHP EM VALUE-->    
                                             </div>
                                                 <div class="form-adm-row-btn">
-                                                    <button type="submit" class="form-editar-adm-btn-cancelar">
+                                                    <button-0 class="form-editar-adm-btn-cancelar">
                                                         Cancelar
                                                     </button>
                                                     <button type="submit" class="form-editar-adm-btn-mandar">
