@@ -975,8 +975,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     <input type="file" id="inputNovaImagem-<?= $item['id'] ?>" name="nova_imagem" accept="image/*">
                                 </div>
 
-                                <div class="editar-produto-imagem-box" id="previewContainer-<?= $item['id'] ?>" style="margin-top:10px; display:none;">
-                                    <img id="editarProdutoPreviewImg-<?= $item['id'] ?>" src="" alt="Prévia da nova imagem" style="width:25%; border-radius:8px; object-fit:cover;">
+                                <div class="" id="previewContainer-<?= $item['id'] ?>" style="margin-top:10px; display:none;justify-content:center;align-items:center;">
+                                    <img id="editarProdutoPreviewImg-<?= $item['id'] ?>" src="" alt="Prévia da nova imagem" style="width:25%; border-radius:8px; object-fit:cover;margin-top:1vh;">
                                 </div>
                             </div>
 
@@ -1012,9 +1012,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     <input type="number" step="0.01" name="preco" value="<?= $item['preco'] ?>" required />
                                 </div>
                             </div>
-
-                            <button type="button" class="btn-cancelar-editar" data-id="<?= $item['id'] ?>">Cancelar</button>
-                            <button type="submit" class="btn-salvar-editar">Salvar Alterações</button>
+                            <div class="input-grupo-btn">
+                                <button type="button" class="btn-cancelar-editar" data-id="<?= $item['id'] ?>">Cancelar</button>
+                                <button type="submit" class="btn-salvar-editar"><i class="fa-solid fa-floppy-disk"></i> Salvar Alterações</button>
+                            </div>
                         </form>
                     </div>
                 </div>

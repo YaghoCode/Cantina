@@ -1718,7 +1718,7 @@ a {
 /* === BOTÃO X === */
 .btn-fechar-editar {
     position: absolute;
-    top: 3%;
+    top: 0%;
     right: 4%;
     font-size: 2rem;
     background-color: transparent;
@@ -1768,8 +1768,14 @@ a {
 
 .editar-produto-trocar-img h3 {
     font-family: var(--font-titulo);
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-weight: 500;
+}
+
+.editar-produto-trocar-img p{
+    font-family: var(--font-titulo);
+    font-size: 0.9rem;
+    color: #000000af;
 }
 
 /* === UPLOAD (oculto até o toggle ser ativado) === */
@@ -1777,6 +1783,30 @@ a {
     display: none;
     margin-bottom: 1rem;
     animation: fadeIn 0.3s ease;
+}
+
+/* Esconde o botão padrão do input file */
+input[type="file"] {
+  display: none;
+}
+
+/* Estilo do botão personalizado */
+.custom-file-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #e3261b;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.custom-file-label:hover {
+  background-color: #c81c13;
 }
 
 @keyframes fadeIn {
@@ -1846,7 +1876,7 @@ a {
 }
 
 .input-grupo label {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-family: var(--font-titulo);
     font-weight: 400;
     margin-bottom: 0.3rem;
@@ -1863,6 +1893,10 @@ a {
     transition: 0.2s;
     font-family: var(--font-titulo);
     color: #000000d7;
+}
+
+.input-grupo textarea{
+    margin-bottom: 2vh;
 }
 
 /* Foco */
@@ -1892,7 +1926,7 @@ a {
 }
 
 /* === BOTÕES === */
-.editar-produto-botoes {
+.input-grupo-btn {
     display: flex;
     justify-content: space-between;
     margin-top: 1.5rem;
@@ -1909,6 +1943,7 @@ a {
     cursor: pointer;
     transition: 0.3s;
     text-align: center;
+    font-family: var(--font-titulo);
 }
 
 .btn-cancelar-editar {
@@ -1922,6 +1957,10 @@ a {
 .btn-salvar-editar {
     background-color: #e3261b;
     color: white;
+}
+
+.btn-salvar-editar i{
+    padding-right: 0.2rem;
 }
 
 .btn-salvar-editar:hover {
