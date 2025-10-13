@@ -42,6 +42,10 @@ try{
         else {
             echo "<script> alert('CPF ou Senha invalidos!')</script>";
         }
+        
+    }
+    else {
+      echo "<script> alert('CPF ou Senha invalidos!')</script>";
     }
       }
     }

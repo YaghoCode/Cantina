@@ -6,13 +6,6 @@ function atualizarCarrinhoVisual() {
     container.innerHTML = ""; // Limpa itens antigos
     let total = 0;
 
-    if (carrinho.length === 0) {
-        container.innerHTML = `<div class="swiper-slide p-3 border rounded">
-            <p>Carrinho vazio.</p>
-        </div>`;
-        totalEl.textContent = "R$: 00,00";
-        return;
-    }
 
     carrinho.forEach(item => {
         const subtotal = item.preco * item.quantidade;
@@ -49,6 +42,15 @@ function atualizarCarrinhoVisual() {
 
     totalEl.textContent = `R$: ${total.toFixed(2)}`;
     addCarrinhoListeners();
+
+    
+    if (carrinho.length === 0) {
+        container.innerHTML = `<div class="swiper-slide p-3 border rounded">
+            <p>Carrinho vazio.</p>
+        </div>`;
+        totalEl.textContent = "R$: 00,00";
+        return;
+    }
 }
 
 function addCarrinhoListeners() {

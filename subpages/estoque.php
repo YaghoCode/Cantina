@@ -70,6 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 
+
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <ul>
                         <li>
                             <h1>
-                                <a href="#inicio" style="text-decoration: none; color: inherit;">Página de Gerenciamento do Admin</a>
+                                <a href="/cantinarepositorio/main/index.php" style="color: inherit; text-decoration:none;">Voltar Home</a>
                             </h1>
                         </li>
                     </ul>
@@ -203,7 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                             <div class="form-group">
                                 <label for="preco">Preço:</label>
-                                <input type="number" id="preco" name="preco-produto" class="form-control" placeholder="Digite o preço do produto" step="0.01" min="0" required>
+                                <input type="number" id="preco" name="preco-produto" class="form-control" placeholder="Digite o preço do produto" step="0.01" min="0.1" required>
                             </div>
 
                             <div class="form-group">
@@ -220,7 +221,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     <option value="Bebidas">Bebidas</option>
                                     <option value="Outros">Outros</option>
                                 </select>
-                                <i class="fa-solid fa-chevron-down"></i>
                             </div>
 
                             <div class="form-group">
@@ -961,7 +961,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     <p>Ative para fazer upload de uma nova imagem</p>
                                 </div>
                                 <label class="switch">
-                                    <input type="radio" id="toggleTrocarImagem-<?= $item['id'] ?>" name="trocar_imagem" value="1" />
+                                    <input type="radio" class="toggleTrocarImagem" id="toggleTrocarImagem-<?= $item['id'] ?>" name="trocar_imagem" value="1" />
                                     <span class="slider"></span>
                                 </label>
                             </div>
@@ -991,11 +991,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <div class="editar-produto-inputs-duplo">
                                 <div class="input-grupo">
                                     <label>Estoque *</label>
-                                    <input type="number" name="quantidade" value="<?= $item['Quantidade'] ?>" required />
+                                    <input type="number" name="quantidade" min="0" value="<?= $item['Quantidade'] ?>" required />
                                 </div>
                                 <div class="input-grupo">
                                     <label>Preço *</label>
-                                    <input type="number" step="0.01" name="preco" value="<?= $item['preco'] ?>" required />
+                                    <input type="number" step="0.01" name="preco" min="0.1" value="<?= $item['preco'] ?>" required />
                                 </div>
                             </div>
 
@@ -1067,7 +1067,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             const btnAbrirEditarProduto = document.querySelectorAll('.btn-editar-item');
             const btnCancelarEditarProduto = document.querySelectorAll('.btn-cancelar-editar');
             const btnFecharEditar = document.querySelectorAll('.btn-fechar-editar');
-            const toggleTrocarImagem = document.getElementById('toggleTrocarImagem');
+            const toggleTrocarImagem = document.querySelector('.toggleTrocarImagem');
             const editarProdutoUpload = document.getElementById('editarProdutoUpload');
             const inputNovaImagem = document.getElementById('inputNovaImagem');
             const editarProdutoPreviewImg = document.getElementById('editarProdutoPreviewImg');
@@ -1100,6 +1100,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
         <!--Paginas com display none-->
+
         <div class="container-clientes" id="conteudo-clientes">
             <div class="title-clientes">
                 <h1>Gerenciar Clientes</h1>
@@ -1117,6 +1118,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             </div>
         </div>
+
+
+
+
 
         <div class="container-configuracoes" id="conteudo-configuracoes">
             <div class="title-configuracoes">
@@ -1140,112 +1145,53 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     <tr>
                                         <td>Nome</td>
                                         <td>Email</td>
-                                        <td>Telefone</td>
+                                        <td>CPF</td>
                                         <td>Função</td>
                                         <td>Ações</td>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <h6>Admin P.</h6>
-                                        </td>
-                                        <td>
-                                            <h6>AdminFurafila@gmail.com</h6>
-                                        </td>
-                                        <td>
-                                            <h6>(11)98476-3941</h6>
-                                        </td>
-                                        <td>
-                                            <h6>Administrador</h6>
-                                        </td>
-                                        <td>
-                                            <button class="btn-editar-senha-admin">
-                                                <i class="fa-solid fa-key"></i>
-                                            </button>
-                                            <button class="btn-editar-admin">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </button>
-                                            <button class="btn-deletar-admin">
-                                                <i class="fa-regular fa-trash-can"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h6>Admin P.</h6>
-                                        </td>
-                                        <td>
-                                            <h6>AdminFurafila@gmail.com</h6>
-                                        </td>
-                                        <td>
-                                            <h6>(11)98476-3941</h6>
-                                        </td>
-                                        <td>
-                                            <h6>Administrador</h6>
-                                        </td>
-                                        <td>
-                                            <button class="btn-editar-senha-admin">
-                                                <i class="fa-solid fa-key"></i>
-                                            </button>
-                                            <button class="btn-editar-admin">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </button>
-                                            <button class="btn-deletar-admin">
-                                                <i class="fa-regular fa-trash-can"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h6>Admin P.</h6>
-                                        </td>
-                                        <td>
-                                            <h6>AdminFurafila@gmail.com</h6>
-                                        </td>
-                                        <td>
-                                            <h6>(11)98476-3941</h6>
-                                        </td>
-                                        <td>
-                                            <h6>Administrador</h6>
-                                        </td>
-                                        <td>
-                                            <button class="btn-editar-senha-admin">
-                                                <i class="fa-solid fa-key"></i>
-                                            </button>
-                                            <button class="btn-editar-admin">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </button>
-                                            <button class="btn-deletar-admin">
-                                                <i class="fa-regular fa-trash-can"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h6>Admin P.</h6>
-                                        </td>
-                                        <td>
-                                            <h6>AdminFurafila@gmail.com</h6>
-                                        </td>
-                                        <td>
-                                            <h6>(11)98476-3941</h6>
-                                        </td>
-                                        <td>
-                                            <h6>Administrador</h6>
-                                        </td>
-                                        <td>
-                                            <button class="btn-editar-senha-admin">
-                                                <i class="fa-solid fa-key"></i>
-                                            </button>
-                                            <button class="btn-editar-admin">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </button>
-                                            <button class="btn-deletar-admin">
-                                                <i class="fa-regular fa-trash-can"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                    <?php
+
+                                    $query = "SELECT * FROM cliente WHERE admin = 1";
+                                    $query_run = mysqli_query($con, $query);
+                                    if (mysqli_num_rows($query_run) > 0) {
+                                        foreach ($query_run as $usuario) {
+
+                                    ?>
+                                            <tr>
+                                                <td>
+                                                    <h6><?php echo $usuario['nome'] ?></h6>
+                                                </td>
+                                                <td>
+                                                    <h6><?php echo $usuario['email'] ?></h6>
+                                                </td>
+                                                <td>
+                                                    <h6><?php echo $usuario['cpf'] ?></h6>
+                                                </td>
+                                                <td>
+                                                    <h6><?php if ($usuario['adminplus'] == 1) {
+                                                            echo 'Administrador Principal';
+                                                        } else {
+                                                            echo 'Adminstrador';
+                                                        } ?></h6>
+                                                </td>
+                                                <td>
+                                                    <button class="btn-editar-senha-admin" data-id="<?= $usuario['cpf'] ?>">
+                                                        <i class="fa-solid fa-key"></i>
+                                                    </button>
+                                                    <button class="btn-editar-admin" data-id="<?= $usuario['cpf'] ?>">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                    <button class="btn-deletar-admin" data-id="<?= $usuario['cpf'] ?>">
+                                                        <i class="fa-regular fa-trash-can"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                    <?php
+                                        }
+                                    } ?>
+
                                 </tbody>
                             </table>
                         </div>
@@ -1295,83 +1241,98 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
             </div>
         </div>
-
-        <!--Modal editar info admin-->
         <div class="modal-overlay-editar-admin">
-            <div class="modal-editar-admin">
-                <button class="btn-close-modal-editar-admin">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <div class="form-editar-adm">
-                    <div class="form-editar-adm-title">
-                        <div class="form-editar-adm-title-text">
-                            <h1>
-                                Informações da Conta
-                            </h1>
-                            <p>
-                                Edite as informações da sua conta de administrador.
-                            </p>
+        <!--Modal editar info admin-->
+        <?php
+        $query = "SELECT * from cliente";
+        $query_run = mysqli_query($con, $query);
+
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $usuario) {
+        ?>
+                    <div class="modal-editar-admin" id="modaladm-<?= $usuario['cpf'] ?>">
+                        <button class="btn-close-modal-editar-admin">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <div class="form-editar-adm">
+                            <div class="form-editar-adm-title">
+                                <div class="form-editar-adm-title-text">
+                                    <h1>
+                                        Informações da Conta
+                                    </h1>
+                                    <p>
+                                        Edite as informações da sua conta de administrador.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-editar-adm-content">
+                                <form action="" class="form-editar-administrador">
+                                    <div class="form-adm-row">
+                                        <div class="form-adm-group">
+                                            <label for="nome">Nome:</label>
+                                            <input type="text" id="nome_admin" value="<?php $usuario['nome']?>" required> <!--TEXT NAME ADMIN CONTA PHP EM VALUE-->
+                                        </div>
+                                        <div class="form-adm-group">
+                                            <label for="CPF">CPF:</label>
+                                            <input type="CPF" id="CPF_admin" value="55132867832" disabled><i class="fa-solid fa-ban" style="color: #ff0000;"></i> <!--CPF text admin conta php em value-->
+                                        </div>
+                                    </div>
+                                    <div class="form-adm-row">
+                                        <div class="form-adm-group">
+                                            <label for="telefone">Telefone:</label>
+                                            <input type="text" id="telefone_admin" value="(11) 99999-9999" required> <!--TEXT telefone ADMIN CONTA PHP EM VALUE-->
+                                        </div>
+                                        <div class="form-adm-group">
+                                            <label for="Email">Email:</label>
+                                            <input type="Email" id="Email_admin" value="admin@gmail.com" required> <!--Email text admin conta php em value-->
+                                        </div>
+                                    </div>
+                                    <div class="form-adm-row">
+                                        <label for="funcao">Função</label>
+                                        <select id="funcao" name="funcao" required>
+                                            <option value="Administrador Principal" selected>Administrador Principal</option>
+                                            <option value="Administrador Secundário">Administrador Secundário</option>
+                                        </select><!--TEXT funcao ADMIN CONTA PHP EM VALUE-->
+                                    </div>
+                                    <div class="form-adm-row-btn">
+                                        <div>
+                                            <button class="form-editar-adm-btn-cancelar">
+                                                Cancelar
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <button type="submit" class="form-editar-adm-btn-mandar">
+                                                <i class="fa-solid fa-floppy-disk"></i> Salvar Alterações
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-editar-adm-content">
-                        <form action="" class="form-editar-administrador">
-                            <div class="form-adm-row">
-                                <div class="form-adm-group">
-                                    <label for="nome">Nome:</label>
-                                    <input type="text" id="nome_admin" value="Admin 0001" required> <!--TEXT NAME ADMIN CONTA PHP EM VALUE-->
-                                </div>
-                                <div class="form-adm-group">
-                                    <label for="CPF">CPF:</label>
-                                    <input type="CPF" id="CPF_admin" value="55132867832" disabled><i class="fa-solid fa-ban" style="color: #ff0000;"></i> <!--CPF text admin conta php em value-->
-                                </div>
-                            </div>
-                            <div class="form-adm-row">
-                                <div class="form-adm-group">
-                                    <label for="telefone">Telefone:</label>
-                                    <input type="text" id="telefone_admin" value="(11) 99999-9999" required> <!--TEXT telefone ADMIN CONTA PHP EM VALUE-->
-                                </div>
-                                <div class="form-adm-group">
-                                    <label for="Email">Email:</label>
-                                    <input type="Email" id="Email_admin" value="admin@gmail.com" required> <!--Email text admin conta php em value-->
-                                </div>
-                            </div>
-                            <div class="form-adm-row">
-                                <label for="funcao">Função</label>
-                                <select id="funcao" name="funcao" required>
-                                    <option value="Administrador Principal" selected>Administrador Principal</option>
-                                    <option value="Administrador Secundário">Administrador Secundário</option>
-                                </select><!--TEXT funcao ADMIN CONTA PHP EM VALUE-->
-                            </div>
-                            <div class="form-adm-row-btn">
-                                <div>
-                                    <button class="form-editar-adm-btn-cancelar">
-                                        Cancelar
-                                    </button>
-                                </div>
-                                <div>
-                                    <button type="submit" class="form-editar-adm-btn-mandar">
-                                        <i class="fa-solid fa-floppy-disk"></i> Salvar Alterações
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                 </div>
-            </div>
-        </div>
+        <?php
+            }
+        }
+        ?>
 
         <script>
-            //abrir modal editar 
-            const modalEditarAdmin = document.querySelector('.modal-editar-admin');
+            //abrir modal editar admin
+            document.addEventListener('DOMContentLoaded', () => {
+            
             const overlayEditarAdmin = document.querySelector('.modal-overlay-editar-admin');
             const btnEditarAdmin = document.querySelectorAll('.btn-editar-admin');
             const btnCloseEditarAdmin = document.querySelectorAll('.btn-close-modal-editar-admin');
             const btnCancelarEditarAdmin = document.querySelectorAll('.form-editar-adm-btn-cancelar');
 
-            btnEditarAdmin.forEach((btn5) => {
-                btn5.addEventListener('click', () => {
-                    modalEditarAdmin.classList.add('active');
+            document.querySelectorAll('.btn-editar-admin').forEach((button) => {
+                button.addEventListener('click', () => {
+                    const admId = button.getAttribute('data-id')
+                    const modal = document.getElementById(`modaladm-${admId}`);
+                    if(modal){
+                    modal.classList.add('active');
                     overlayEditarAdmin.classList.add('active');
+                    }
                 })
             });
 
@@ -1388,6 +1349,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     overlayEditarAdmin.classList.remove('active');
                 })
             });
+        });
         </script>
 
         <!-- Modal mudar senha admin -->
@@ -1444,7 +1406,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
             </div>
         </div>
+
         <script>
+            //Modal editar senha admin
             const modalSenhaAdmin = document.querySelector('.modal-senha-admin');
             const overlaySenhaAdmin = document.querySelector('.modal-overlay-senha-admin');
             const btnSenhaAdmin = document.querySelectorAll('.btn-editar-senha-admin');

@@ -143,7 +143,7 @@ if (isset($_SESSION['cpf'])) {
   </div>
 
 
-   <!--Popup carrinho-->
+  <!--Popup carrinho-->
   <div class="pop-up-cart" id="pop-up-cart">
     <div class="content-pp-cart">
       <!--Buttons top carrinho-->
@@ -159,9 +159,9 @@ if (isset($_SESSION['cpf'])) {
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-         <button id="btn-limpar-carrinho">
-             <i class="fa-solid fa-trash-can"></i> Esvaziar
-          </button>
+      <button id="btn-limpar-carrinho">
+        <i class="fa-solid fa-trash-can"></i> Esvaziar
+      </button>
 
       <div class="content-pp-cart-top">
         <div class="divisao-top">
@@ -586,7 +586,14 @@ if (isset($_SESSION['cpf'])) {
       // Atualiza o total:
       document.querySelector('.cart-total-price h6').textContent = `R$: ${total.toFixed(2)}`;
 
-      addCarrinhoListeners()
+      addCarrinhoListeners();
+      if (carrinho.length === 0) {
+        container.innerHTML = `<div class="swiper-slide p-3 border rounded">
+            <p>Carrinho vazio.</p>
+        </div>`;
+        totalEl.textContent = "R$: 00,00";
+        return;
+      }
     }
 
     /////////////////limpa carrinho
@@ -704,7 +711,6 @@ if (isset($_SESSION['cpf'])) {
     atualizarCarrinhoVisual();
 
     ////////////////////////////////////////
-
   </script>
 
 
