@@ -2204,7 +2204,11 @@ input:checked+.slider:before {
 }
 
 .table-admins table tbody tr td button i {
-    color: var(--cor-primaria);
+    color: black;
+}
+
+.btn-deletar-admin .fa-regular.fa-trash-can{
+    color: #e3261b !important;
 }
 
 /*content-mid*/
@@ -2495,38 +2499,36 @@ select:focus {
 
 .form-adm-row-btn {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5vh;
     align-items: center;
     justify-content: space-between;
+    gap: 0.5vh;
     height: 100%;
-    padding: 0.5rem;
+    width: 100%;
 }
 
-.form-adm-row-btn button {
+.form-editar-adm-btn-cancelar, .form-editar-adm-btn-mandar {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.2vh;
+    gap: 0.8vh;
     color: white;
     background-color: #e3251bef;
     font-family: var(--font-titulo);
     font-weight: 500;
-    height: 100%;
-    width: 17%;
     transition: 0.3s ease;
     border-radius: 0.4rem;
     border: 1px solid rgba(0, 0, 0, 0.164);
-    padding: 0.2rem;
+    padding: 0.8rem;
+    cursor: pointer;
 }
 
 
-.form-adm-row-btn button i {
+.form-editar-adm-btn-mandar i {
     font-size: 1.2rem;
-    padding-bottom: 0.1rem;
+    padding-bottom: 0.1vh;
 }
 
-.form-adm-row-btn button:hover {
+.form-editar-adm-btn-cancelar:hover, .form-editar-adm-btn-mandar:hover {
     background-color: #e3251bcb;
 }
 
@@ -2555,6 +2557,16 @@ select:focus {
     font-weight: 600;
 }
 
+#CPF_admin{
+    color: #0000005a !important;
+}
+
+.fa-solid.fa-ban{
+    position: absolute;
+    top: 32.7%;
+    right: 5%;
+}
+
 .form-adm-group input,
 .form-adm-row input,
 select {
@@ -2568,6 +2580,7 @@ select {
     background: #fafafa;
     transition: all 0.2s ease;
 }
+
 
 .form-adm-group input:focus,
 .form-adm-row input:focus,
@@ -2598,4 +2611,258 @@ select option:hover {
     .form-adm-row {
         flex-direction: column;
     }
+}
+
+/*form mudar senha adm*/
+
+.modal-overlay-senha-admin{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10000000000000000;
+}
+
+.modal-senha-admin{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    width: 65%;
+    max-width: 90%;
+    height: 55%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 10000000000000001;
+}
+
+.modal-senha-admin.active, .modal-overlay-senha-admin.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-senha-admin.active{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-close-modal-senha-admin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 5.5%;
+    width: 2.5%;
+    background-color: transparent;
+    right: 3%;
+    top: 7%;
+    transition: 0.3s ease;
+    border-radius: 0.2rem;
+}
+
+.btn-close-modal-senha-admin:hover, .btn-close-modal-senha-admin i:hover{
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.btn-close-modal-senha-admin i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-primaria);
+    font-size: 1.2rem;
+    height: 100%;
+    width: 100%;
+    transition: 0.3s ease;
+    border-radius: 0.2rem;
+}
+
+.form-senha-adm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.222);
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
+
+.form-senha-adm-title{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 20%;
+}
+
+.form-senha-adm-title-text h1 {
+    font-size: 2rem;
+    font-family: var(--font-titulo);
+    color: #000000;
+    font-weight: 500;
+}
+
+.form-senha-adm-title-text p {
+    font-size: 1.2rem;
+    font-family: var(--font-titulo);
+    color: #00000091;
+    font-weight: 400;
+}
+
+.form-senha-adm-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 100%;
+}
+
+.form-senha-administrador {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    width: 100%;
+}
+
+.form-senha-adm-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5vh;
+    align-items: center;
+    min-height: 23%;
+}
+
+.form-senha-adm-row-btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5vh;
+    height: 100%;
+    width: 100%;
+}
+
+.btn-cancelar-nova-senha-admin, .btn-mudar-senha-admin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8vh;
+    color: white;
+    background-color: #e3251bef;
+    font-family: var(--font-titulo);
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-radius: 0.4rem;
+    border: 1px solid rgba(0, 0, 0, 0.164);
+    padding: 0.8rem;
+    cursor: pointer;
+}
+
+.btn-mudar-senha-admin:hover {
+    background-color: #e3251bcb;
+}
+
+.btn-cancelar-nova-senha-admin {
+    color: #333333e9 !important;
+    background: #fafafa !important;
+}
+
+.btn-cancelar-nova-senha-admin:hover {
+    background: rgba(196, 196, 196, 0.444) !important;
+}
+
+.form-senha-adm-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1vw;
+    margin-top: 4vh;
+}
+
+.form-senha-adm-group-btn{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.form-senha-adm-group label,
+.form-senha-adm-row>label {
+    font-family: var(--font-titulo);
+    font-size: 1rem;
+    color: #000000c9;
+    font-weight: 600;
+}
+
+.orm-senha-adm-group input,
+.form-senha-adm-row input {
+    width: 100%;
+    padding: 16px 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: var(--font-titulo);
+    color: #333333e9;
+    background: #fafafa;
+    transition: all 0.2s ease;
+}
+
+
+.orm-senha-adm-group input:focus,
+.form-senha-adm-row input:focus{
+    outline: none;
+    border-color: #e3261b;
+    background: #fff;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .input-wrapper input {
+    width: 100%;
+    padding-right: 36px;
+  }
+
+  .toggle-senha {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #777;
+    transition: color 0.3s ease;
+  }
+
+  .toggle-senha:hover {
+    color: #e3261b;
+  }
+
+  .erro-senha {
+    top: 66.5%;
+    position: absolute;
+    color: #e3261b;
+    font-size: 0.9rem;
+    margin-top: 4px;
+    display: none;
+    font-family: var(--font-titulo);
+  }
+
+  .btn-mudar-senha-admin:disabled {
+    background-color: #999;
+    cursor: not-allowed;
 }
