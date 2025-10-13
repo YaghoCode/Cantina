@@ -1432,6 +1432,7 @@ a {
     width: 49%;
 }
 
+
 /*estilos dos elementos da left*/
 
 .modal-title {
@@ -1640,7 +1641,11 @@ a {
     background-color: #e60000cf;
 }
 
-/* Overlay */
+
+
+/*Modal editar produto estoque*/
+
+/* === OVERLAY === */
 .overlay-editar-produto {
     position: fixed;
     top: 0;
@@ -1659,7 +1664,7 @@ a {
     visibility: visible;
 }
 
-/* Modal principal */
+/* === MODAL PRINCIPAL === */
 .modal-editar-produto {
     position: fixed;
     top: 50%;
@@ -1668,23 +1673,49 @@ a {
     background: #fff;
     border-radius: 1rem;
     width: 50%;
-    max-height: 78vh;
-    overflow-y: auto;
+    max-width: 50%;
+    height: 70vh;
     padding: 2.5rem;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 1000000001;
+
+    display: flex;
+    flex-direction: column;
 }
 
+/* Ativo */
 .modal-editar-produto.active {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, -50%) scale(1);
 }
 
-/* Botão X */
+/* === SCROLLBAR === */
+.modal-editar-produto form {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  scrollbar-width: thin;
+}
+
+/* Scrollbar só dentro do form */
+.modal-editar-produto form::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-editar-produto form::-webkit-scrollbar-thumb {
+  background: #e3261b;
+  border-radius: 4px;
+}
+
+.modal-editar-produto form::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+/* === BOTÃO X === */
 .btn-fechar-editar {
     position: absolute;
     top: 3%;
@@ -1698,10 +1729,10 @@ a {
 }
 
 .btn-fechar-editar:hover {
-    color: var(--cor-primaria);
+    color: #e3261b;
 }
 
-/* Título */
+/* === TÍTULO === */
 .editar-produto-titulo {
     font-size: 1.4rem;
     font-weight: 500;
@@ -1710,7 +1741,7 @@ a {
     font-family: var(--font-titulo);
 }
 
-/* Imagem */
+/* === IMAGEM === */
 .editar-produto-imagem-box {
     display: flex;
     justify-content: center;
@@ -1719,12 +1750,11 @@ a {
 
 .editar-produto-imagem-box img {
     width: 25%;
-    height: 20%;
     border-radius: 0.5rem;
     object-fit: cover;
 }
 
-/* Trocar Imagem */
+/* === TROCAR IMAGEM === */
 .editar-produto-trocar-img {
     display: flex;
     justify-content: space-between;
@@ -1738,31 +1768,28 @@ a {
 
 .editar-produto-trocar-img h3 {
     font-family: var(--font-titulo);
-    font-size: 1.6rem;
+    font-size: 1.1rem;
     font-weight: 500;
 }
 
-.editar-produto-trocar-img p {
-    color: rgba(0, 0, 0, 0.665);
-}
-
-/* Upload */
+/* === UPLOAD (oculto até o toggle ser ativado) === */
 .editar-produto-upload {
     display: none;
     margin-bottom: 1rem;
-    margin-top: 1rem;
+    animation: fadeIn 0.3s ease;
 }
 
-.editar-produto-upload input {
-    width: 100%;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Oculta o input nativo */
-.editar-produto-upload input[type="file"] {
-    display: none;
-}
-
-/* Container lado a lado */
 .upload-container {
     display: flex;
     align-items: center;
@@ -1776,9 +1803,8 @@ a {
     box-sizing: border-box;
 }
 
-/* Botão estilizado */
 .upload-label {
-    background-color: var(--cor-primaria);
+    background-color: #e3261b;
     color: #fff;
     padding: 0.8rem 0.8rem;
     border-radius: 6px;
@@ -1790,15 +1816,10 @@ a {
     font-family: var(--font-titulo);
 }
 
-.upload-label i {
-    padding-right: 0.3rem;
-}
-
 .upload-label:hover {
-    background-color: #e3251bbc
+    background-color: #c81f16;
 }
 
-/* Texto do nome do arquivo */
 .upload-nome {
     font-size: 0.9rem;
     color: #333;
@@ -1810,9 +1831,10 @@ a {
     font-family: var(--font-titulo);
 }
 
-/* Inputs */
+/* === INPUTS === */
 .editar-produto-inputs-duplo {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 1rem;
 }
@@ -1823,34 +1845,6 @@ a {
     flex: 1;
 }
 
-.input-grupo select {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    background-color: #fff;
-    outline: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    appearance: none;
-    /* remove estilo nativo */
-    background-image: url("data:image/svg+xml;utf8,<svg fill='%23e3261b' height='80' viewBox='0 0 24 24' width='80' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-}
-
-/* Hover no campo */
-.input-grupo select:hover {
-    border-color: #e3261b;
-}
-
-/* Foco */
-.input-grupo select:focus {
-    border-color: #e3261b;
-}
-
 .input-grupo label {
     font-size: 1rem;
     font-family: var(--font-titulo);
@@ -1859,36 +1853,51 @@ a {
 }
 
 .input-grupo input,
-.input-grupo textarea {
+.input-grupo textarea,
+.input-grupo select {
     border: 1px solid #d9d9d9;
     border-radius: 0.3rem;
-    padding: 0.5rem;
+    padding: 0.6rem 0.8rem;
     font-size: 0.95rem;
     outline: none;
     transition: 0.2s;
-    font-family: var(--cor--botao-accept);
+    font-family: var(--font-titulo);
     color: #000000d7;
 }
 
+/* Foco */
 .input-grupo input:focus,
-.input-grupo textarea:focus {
-    border-color: var(--cor-primaria);
+.input-grupo textarea:focus,
+.input-grupo select:focus {
+    border-color: #e3261b;
 }
 
+/* SELECT */
+.input-grupo select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23e3261b' height='80' viewBox='0 0 24 24' width='80' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+.input-grupo select:hover {
+    border-color: #e3261b;
+}
+
+/* TEXTAREA */
 .input-grupo textarea {
     resize: none;
     height: 7rem;
 }
 
-.input-grupo.full {
-    margin-bottom: 1rem;
-}
-
-/* Botões */
+/* === BOTÕES === */
 .editar-produto-botoes {
     display: flex;
     justify-content: space-between;
     margin-top: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .btn-cancelar-editar,
@@ -1906,20 +1915,20 @@ a {
     background: #f3f3f3;
 }
 
-.btn-salvar-editar {
-    background-color: var(--cor-primaria);
-    color: white;
-}
-
 .btn-cancelar-editar:hover {
     background: #e0e0e0;
 }
 
-.btn-salvar-editar:hover {
-    background: #e3251be0
+.btn-salvar-editar {
+    background-color: #e3261b;
+    color: white;
 }
 
-/* Switch toggle */
+.btn-salvar-editar:hover {
+    background: #c81f16;
+}
+
+/* === SWITCH TOGGLE === */
 .switch {
     position: relative;
     display: inline-block;
@@ -1957,39 +1966,35 @@ a {
     border-radius: 50%;
 }
 
-input:checked+.slider {
-    background-color: var(--cor-primaria)
+.switch input:checked + .slider {
+    background-color: #e3261b;
 }
 
-input:checked+.slider:before {
+.switch input:checked + .slider:before {
     transform: translateX(22px);
 }
 
-/*scrollbar*/
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+    .modal-editar-produto {
+        width: 90%;
+        padding: 1.5rem;
+        max-height: 85vh;
+    }
 
-.modal-editar-produto::-webkit-scrollbar {
-    width: 0.7rem;
+    .editar-produto-imagem-box img {
+        width: 50%;
+    }
+
+    .editar-produto-inputs-duplo {
+        flex-direction: column;
+    }
+
+    .editar-produto-botoes {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 }
-
-.modal-editar-produto::-webkit-scrollbar-track {
-    background: #f0f0f0;
-    /* cor do fundo */
-    border-top-right-radius: 0.3rem;
-    border-bottom-right-radius: 0.3rem;
-}
-
-.modal-editar-produto::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    /* cor do “botão” */
-    border-top-right-radius: 0.3rem;
-    border-bottom-right-radius: 0.3rem;
-}
-
-.modal-editar-produto::-webkit-scrollbar-thumb:hover {
-    background: #a1a1a1;
-}
-
-
 
 /* config content*/
 .container-configuracoes {
