@@ -95,19 +95,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <div class="nav-links">
                 <div class="nav-logo">
                     <div class="aside-icon">
-                        <i class="fa-solid fa-outdent"></i>
+                        <i class="fa-solid fa-bars"></i>
                     </div>
                 </div>
                 <div class="nav-items">
                     <ul>
                         <li>
-                            <h1>
-                                <a href="#inicio" style="text-decoration: none; color: inherit;">Página de Gerenciamento do Admin</a>
-                            </h1>
                         </li>
                     </ul>
                 </div>
-                <div class="nav-buttons" style="gap:3vh;">
+                <div class="nav-buttons">
+                    <div class="btn-voltar-home">
+                        <button>
+                            <a href="/cantinarepositorio/main/index.php"><i class="fa-solid fa-caret-left"></i>Home</a>
+                        </button>
+                    </div>
                     <div class="btn-user" id="btn-user-nav">
                         <button>
                             <i class="fa-regular fa-user"></i> Perfil
@@ -118,60 +120,112 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </header>
 
     <!--POPUP DO USER-->
+    <div class="overlay-pop-up-user" id="overlay-pop-up-user">
 
-    <div class="pop-up-user" id="pop-up-user">
-        <div class="btn-pp-close" id="btn-close-user-nav">
-            <i class="fa-solid fa-xmark"></i>
-        </div>
-        <div class="content-pp-user">
-            <div class="content-pp-top">
-                <div class="top-circle-info-user">
-                    <div class="top-circle-info-img">
-                        <img src="" alt="">
-                    </div>
-                    <div class="top-circle-info-text">
-                        <h6>
-                            <?php echo $user_data['nome']; ?>
-                        </h6>
-                        <p>
-                            <?php echo $user_data['email']; ?>
-                        </p>
-                    </div>
-                </div>
-                <div class="top-info-user">
-                    <div class="top-info-user-text">
-                        <p>
-                            CPF: <?php echo $user_data['cpf']; ?>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="content-pp-bottom">
-                <a href="/cantinarepositorio/subpages/logout.php">Logout</a>
-            </div>
-        </div>
     </div>
-    </header>
-    <div class="aside-options">
-        <div class="aside-top">
-            <div class="btn-close-aside">
-                <i class="fa-solid fa-outdent"></i>
-            </div>
-            <div class="aside-top-logo">
-                <img src="/cantinarepositorio/main/assets/img/logo-footer.png" alt="">
+        <div class="pop-up-user" id="pop-up-user">
+            <button class="btn-fechar-pop-up-user" id="btn-close-user-nav">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="content-pop-user">
+                <div class="content-top-user">
+                    <div class="content-top-left-user">
+                        <div class="content-top-left-user-img">
+                            <img src="./assets/img/CocaCola.png" alt="">
+                        </div>
+                    </div>
+                    <div class="content-top-right-user">
+                        <div class="content-top-right-user-text">
+                            <div class="content-top-right-user-text-name">
+                                <h3>
+                                    <?php echo $user_data['nome'] ?>
+                                </h3>
+                            </div>
+                            <div class="content-top-right-user-text-email">
+                                <h6>
+                                    <?php echo $user_data['email'] ?>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-mid-user">
+                    <div class="content-mid-user-row">
+                        <div class="content-mid-user-row-left">
+                            <div class="content-mid-user-row-left-icon">
+                                <i class="fa-regular fa-credit-card"></i>
+                            </div>
+                        </div>
+                        <div class="content-mid-user-row-right">
+                            <div class="content-mid-user-row-right-text">
+                                <h1>
+                                    CPF:
+                                </h1>
+                                <h3>
+                                    <?php echo $user_data['cpf'] ?>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-mid-user-row">
+                        <div class="content-mid-user-row-left">
+                            <div class="content-mid-user-row-left-icon">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                        </div>
+                        <div class="content-mid-user-row-right">
+                            <div class="content-mid-user-row-right-text">
+                                <h1>
+                                    Tipo de conta:
+                                </h1>
+                                <h3>
+                                    Administrador Principal
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-bottom-user">
+                    <div class="content-bottom-user-row">
+                        <button class="btn-pop-up-editar-adm">
+                            <a href="#Editar-adm">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                                Editar
+                            </a>
+                        </button>
+                        <button class="btn-logout-pop-up">
+                            <a href="/cantinarepositorio/subpages/logout.php">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                Logout
+                            </a>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="aside-bottom">
-            <div class="aside-bottom-title">
-                <h6>Menu principal</h6>
+
+        <!--Aside-->
+        <div class="aside-options">
+            <div class="aside-top">
+                <div class="btn-close-aside">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class="aside-top-logo">
+                    <img src="/cantinarepositorio/main/assets/img/logo-footer.png" alt="">
+                </div>
             </div>
-            <div class="aside-lista">
-                <ul>
-                    <li id="btn-estoque"><i class="fa-solid fa-box-open"></i> Estoque</li>
-                    <li id="btn-clientes"><i class="fa-solid fa-users"></i> Clientes</li>
-                    <li id="btn-pedidos"><i class="fa-solid fa-clipboard-list"></i> Pedidos</li>
-                    <li id="btn-configuracoes"><i class="fa-solid fa-gear"></i> Configurações</li>
-                </ul>
+            <div class="aside-bottom">
+                <div class="aside-bottom-title">
+                    <h6>Menu principal</h6>
+                </div>
+                <div class="aside-lista">
+                    <ul>
+                        <li id="btn-estoque"><i class="fa-solid fa-box-open"></i> Estoque</li>
+                        <li id="btn-clientes"><i class="fa-solid fa-users"></i> Clientes</li>
+                        <li id="btn-pedidos"><i class="fa-solid fa-clipboard-list"></i> Pedidos</li>
+                        <li id="btn-configuracoes"><i class="fa-solid fa-gear"></i> Configurações</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -945,7 +999,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <!-- MODAL EDITAR ITEM -->
                 <div class="overlay-editar-produto" id="overlayEditar-<?= $item['id'] ?>">
                     <div class="modal-editar-produto" id="modalEditar-<?= $item['id'] ?>">
-                        <button type="button" class="btn-fechar-editar" data-id="<?= $item['id'] ?>" title="Fechar modal">&times;</button>
+                        <button type="button" class="btn-fechar-editar" data-id="<?= $item['id'] ?>" title="Fechar modal"><i class="fa-solid fa-xmark"></i></button>
                         <h2 class="editar-produto-titulo">Editar Produto:</h2>
                         <form id="formEditarProduto-<?= $item['id'] ?>" method="POST" action="atualizar_item.php" enctype="multipart/form-data">
                             <input type="hidden" name="id" value="<?= $item['id'] ?>" />

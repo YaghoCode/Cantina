@@ -117,7 +117,7 @@ else {
                 <div class="top-circle-info-img">
                   <img src="" alt="">
                 </div>
-                  <div class="top-circle-info-text">
+                  <div class="top-circle-info-text" >
                       <h6>
                         <?php echo $user_data['nome']; ?> 
                       </h6>
@@ -189,8 +189,8 @@ else {
 
       </div>
       <div class="cart-total-price">
-        <h5>Total</h5>
-        <h6>R$: 00,00 <!--Price calculado--></h6>
+        <h5>Total:</h5>
+        <h6>R$ 00,00 <!--Price calculado--></h6>
       </div>
       <div class="finalizar-pedido">
         <button id="btn-finalizar-pedidos">

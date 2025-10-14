@@ -120,6 +120,7 @@ a {
     width: 20%;
     height: 3vh;
     padding: 1rem;
+    gap: 2vh;
 }
 
 /* estilização dos botoes delogar e cadastrar*/
@@ -199,6 +200,41 @@ a {
     background-color: var(--cor-secundaria);
 }
 
+.btn-voltar-home button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4vh;
+    width: 6vw;
+    background-color: white;
+    border-radius: 0.4em;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.171);
+    transition: 0.5s ease;
+    color: rgba(0, 0, 0, 0.76);
+}
+
+.btn-voltar-home button a i {
+    font-size: 1.2rem;
+    color: inherit;
+    cursor: pointer;
+    padding-right: 0.4rem;
+}
+
+.btn-voltar-home button a {
+    text-decoration: none;
+    color: inherit;
+    font-family: var(--font-titulo);
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.btn-voltar-home button:hover {
+    color: white;
+    background-color: var(--cor-primaria);
+}
+
+
 .btn-cart {
     display: flex;
     align-items: center;
@@ -231,168 +267,304 @@ a {
 
 /*pop-up-user*/
 
-.pop-up-user {
+.overlay-pop-up-user{
     display: none;
     position: fixed;
-    height: 25%;
-    width: 20%;
-    background-color: white;
-    top: 8%;
-    right: 2%;
-    border-radius: 3%;
-    border: 1px solid rgba(0, 0, 0, 0.175);
-    z-index: 1000000;
-}
-
-.btn-pp-close {
-    position: absolute;
-    height: 11%;
-    width: 7%;
-    background-color: var(--cor--botao-reject);
-    border-radius: 100%;
-    cursor: pointer;
-    text-align: center;
-    right: 2%;
-    top: 2%;
-}
-
-.btn-pp-close i {
-    color: white;
-    padding-top: 0.4rem;
-}
-
-.content-pp-user {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
+    top: 0;
+    left: 0;
     width: 100%;
-    gap: 1vh;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1111111111111111111111111111111111;
+    transition: opacity 0.3s ease;
 }
 
-.content-pp-top {
-    display: flex;
-    align-items: center;
+.pop-up-user {
+    display: none;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    height: 70%;
-    width: 95%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #0000005d;
+    z-index: 111111111112;
+    height: 45%;
+    width: 25%;
+    border-radius: 15px;
+    gap: 0.3rem;
+    padding: 1rem;
 }
 
-
-.content-pp-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 15%;
-    width: 95%;
+.btn-fechar-pop-up-user {
+    position: absolute;
+    right: 4%;
+    top: 3%;
+    background-color: transparent;
+    height: 6%;
+    width: 6%;
+    border-radius: 0.3rem;
+    transition: 0.3s ease;
+    color: #666;
 }
 
-.content-pp-bottom a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 80%;
-    width: 30%;
-    border-radius: 0.4rem;
+.btn-fechar-pop-up-user:hover {
     color: white;
-    font-family: var(--font-titulo);
-    font-weight: 600;
     background-color: var(--cor-primaria);
 }
 
-
-.top-circle-info-user {
+.content-pop-user {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60%;
-    width: 85%;
-    background-color: #0000000e;
-    border-radius: 1rem;
-    gap: 0.3vh;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 0.5rem;
+    gap: 1vh;
 }
 
-.top-circle-info-img {
+.content-top-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30%;
+    width: 100%;
+    gap: 1vh;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+}
+
+.content-top-left-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 30%;
+}
+
+.content-top-left-user-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    width: 80%;
+    border: 1px solid rgba(0, 0, 0, 0.244);
+    border-radius: 100%;
+}
+
+.content-top-left-user-img img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+}
+
+.content-top-right-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 69%;
+}
+
+.content-top-right-user-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.content-top-right-user-text-name {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    height: 50%;
+    width: 95%;
+}
+
+.content-top-right-user-text-name h3{
+    font-size: 1.5rem;
+    font-family: var(--font-titulo);
+    font-weight: 500;
+    width: 95%;
+    white-space: nowrap;       /* impede quebrar linha */
+    overflow: hidden;          /* oculta o texto extra */
+    text-overflow: ellipsis;   /* adiciona os "..." */
+}
+
+.content-top-right-user-text-email{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 50%;
+    width: 95%;
+}
+
+.content-top-right-user-text-email h6{
+    font-size: 1rem;
+    font-family: var(--font-titulo);
+    color: #666;
+    font-weight: 300;
+    width: 95%;
+    white-space: nowrap;       /* impede quebrar linha */
+    overflow: hidden;          /* oculta o texto extra */
+    text-overflow: ellipsis;   /* adiciona os "..." */
+}
+
+.content-mid-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 30%;
+    width: 100%;
+    gap: 1vh;
+    padding: 0.3rem;
+}
+
+.content-mid-user-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 49%;
+    width: 100%;
+}
+
+.content-mid-user-row-left{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 30%;
-    height: 95%;
+    height: 100%;
 }
 
-.top-circle-info-img img {
-    height: 80%;
-    width: 70%;
-    background-color: #000000;
-    border-radius: 50%;
-}
-
-.top-circle-info-text {
+.content-mid-user-row-left-icon{
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    width: 40%;
+    border-radius: 100%;
+    background-color: #ff0d001b;
+    transform: translateX(-10%);
+}
+
+.content-mid-user-row-left-icon i{
+    font-size: 1.6rem;
+    color: rgb(245, 14, 14);
+    padding-top: 0.1rem;
+}
+
+.content-mid-user-row-right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 70%;
     height: 100%;
 }
 
-.top-circle-info-text h6 {
-    font-size: 1.2rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 95%;
-    font-family: var(--font-titulo);
-    font-weight: 400;
+.content-mid-user-row-right-text{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
 }
 
-.top-circle-info-text p {
-    font-size: 1rem;
-    max-width: 95%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+.content-mid-user-row-right-text h1{
+    font-size: 0.9rem;
     font-family: var(--font-titulo);
+    font-weight: 300;
+    color: #000000;
+    width: 95%;
+    white-space: nowrap;       /* impede quebrar linha */
+    overflow: hidden;          /* oculta o texto extra */
+    text-overflow: ellipsis;   /* adiciona os "..." */
 }
 
-.top-info-user {
+.content-mid-user-row-right-text h3{
+    font-size: 1.1rem;
+    font-family: var(--font-titulo);
+    font-weight: 500;
+    width: 95%;
+    white-space: nowrap;       /* impede quebrar linha */
+    overflow: hidden;          /* oculta o texto extra */
+    text-overflow: ellipsis;   /* adiciona os "..." */
+}
+
+.content-bottom-user {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50%;
-    width: 85%;
+    height: 30%;
+    width: 100%;
 }
 
-.top-info-user-text {
+.content-bottom-user-row{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 80%;
     width: 100%;
-    gap: 2vh;
+    height: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.246);
+    gap: 1vh;
 }
 
-.top-info-user-text h6 {
-    color: rgba(0, 0, 0, 0.878);
+.content-bottom-user-row button{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 35%;
+    width: 100%;
+    border-radius: 0.4rem;
+    padding-left: 1rem;
+}
+
+.content-bottom-user-row button a{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: inherit;
     font-family: var(--font-titulo);
-    font-size: 1.2rem;
-    font-weight: 300;
-    padding-top: 10%;
-    height: 10%;
+    font-size: 1.1rem;
+    font-weight: 500;
+    height: 100%;
+    width: 100%;
 }
 
-.top-info-user-text p {
-    font-family: var(--font-titulo);
-    font-size: 1.2rem;
-    font-weight: 300;
-    color: rgba(0, 0, 0, 0.878);
+.content-bottom-user-row button a i{
+    padding-right: 0.5rem;
+    padding-bottom: 0.2rem;
 }
 
+.btn-pop-up-editar-adm{
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.222);
+    transition: 0.3s ease;
+}
+
+.btn-pop-up-editar-adm:hover{
+    color: white;
+    background-color: var(--cor-primaria);
+}
+
+.btn-logout-pop-up{
+    background-color: var(--cor-primaria);
+    color: white;
+    transition: 0.3s ease;
+}
+
+.btn-logout-pop-up:hover{
+    background-color: #e3251bba;
+}
 
 /*Aside*/
 
@@ -1172,7 +1344,7 @@ a {
 
 .modal-estoque-btn-close button {
     background-color: transparent;
-    height: 80%;
+    height: 70%;
     width: 23%;
 }
 
@@ -1440,15 +1612,16 @@ a {
     width: 98%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
+    padding-left: 10%;
 }
 
 .modal-title h1 {
-    font-size: var(--font-titulo);
-    font-size: 2rem;
+    font-family: var(--font-titulo);
+    font-size: 1.6rem;
     color: #000000c2;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .modal-form-produto {
@@ -1474,7 +1647,7 @@ a {
 
 .form-group label {
     display: block;
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 0.4rem;
     color: #333;
 }
@@ -1552,13 +1725,23 @@ a {
 }
 
 .btn-close-modal button {
-    color: var(--cor-primaria);
-    font-size: 2rem;
+    position: absolute;
+    right: 5%;
+    top: 6%;
+    color: #666;
+    font-size: 1.3rem;
     border: none;
     background-color: transparent;
-    height: 100%;
-    width: 8%;
+    height: 5%;
+    width: 4%;
     cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 0.3rem;
+}
+
+.btn-close-modal button:hover {
+    background-color: var(--cor-primaria);
+    color: white;
 }
 
 .upload-imagem {
@@ -1695,41 +1878,45 @@ a {
 
 /* === SCROLLBAR === */
 .modal-editar-produto form {
-  flex: 1;
-  overflow-y: auto;
-  padding-right: 10px;
-  scrollbar-width: thin;
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    scrollbar-width: thin;
 }
 
 /* Scrollbar só dentro do form */
 .modal-editar-produto form::-webkit-scrollbar {
-  width: 6px;
+    width: 6px;
 }
 
 .modal-editar-produto form::-webkit-scrollbar-thumb {
-  background: #e3261b;
-  border-radius: 4px;
+    background: #e3261b;
+    border-radius: 4px;
 }
 
 .modal-editar-produto form::-webkit-scrollbar-track {
-  background: #f0f0f0;
+    background: #f0f0f0;
 }
 
 /* === BOTÃO X === */
 .btn-fechar-editar {
     position: absolute;
-    top: 0%;
-    right: 4%;
-    font-size: 2rem;
+    top: 6%;
+    right: 3.5%;
+    font-size: 1.3rem;
     background-color: transparent;
     border: none;
     cursor: pointer;
     color: #666;
     transition: 0.3s ease;
+    height: 4.5%;
+    width: 3%;
+    border-radius: 0.3rem;
 }
 
 .btn-fechar-editar:hover {
-    color: #e3261b;
+    background-color: var(--cor-primaria);
+    color: white;
 }
 
 /* === TÍTULO === */
@@ -1772,7 +1959,7 @@ a {
     font-weight: 500;
 }
 
-.editar-produto-trocar-img p{
+.editar-produto-trocar-img p {
     font-family: var(--font-titulo);
     font-size: 0.9rem;
     color: #000000af;
@@ -1787,26 +1974,26 @@ a {
 
 /* Esconde o botão padrão do input file */
 input[type="file"] {
-  display: none;
+    display: none;
 }
 
 /* Estilo do botão personalizado */
 .custom-file-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background-color: #e3261b;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #e3261b;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s;
 }
 
 .custom-file-label:hover {
-  background-color: #c81c13;
+    background-color: #c81c13;
 }
 
 @keyframes fadeIn {
@@ -1814,6 +2001,7 @@ input[type="file"] {
         opacity: 0;
         transform: translateY(-5px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1895,7 +2083,7 @@ input[type="file"] {
     color: #000000d7;
 }
 
-.input-grupo textarea{
+.input-grupo textarea {
     margin-bottom: 2vh;
 }
 
@@ -1959,7 +2147,7 @@ input[type="file"] {
     color: white;
 }
 
-.btn-salvar-editar i{
+.btn-salvar-editar i {
     padding-right: 0.2rem;
 }
 
@@ -2005,11 +2193,11 @@ input[type="file"] {
     border-radius: 50%;
 }
 
-.switch input:checked + .slider {
+.switch input:checked+.slider {
     background-color: #e3261b;
 }
 
-.switch input:checked + .slider:before {
+.switch input:checked+.slider:before {
     transform: translateX(22px);
 }
 
@@ -2252,7 +2440,7 @@ input[type="file"] {
     color: black;
 }
 
-.btn-deletar-admin .fa-regular.fa-trash-can{
+.btn-deletar-admin .fa-regular.fa-trash-can {
     color: #e3261b !important;
 }
 
@@ -2262,7 +2450,7 @@ input[type="file"] {
     justify-content: center !important;
 }
 
-.form-criar-adm{
+.form-criar-adm {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2274,7 +2462,7 @@ input[type="file"] {
     padding: 2.5rem;
 }
 
-.form-criar-adm-title{
+.form-criar-adm-title {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -2297,7 +2485,7 @@ input[type="file"] {
     font-weight: 600;
 }
 
-.form-criar-adm-title-text p{
+.form-criar-adm-title-text p {
     font-size: 1.2rem;
     font-family: var(--font-titulo);
     color: #00000091;
@@ -2335,7 +2523,7 @@ input[type="file"] {
     min-height: 23%;
 }
 
-.form-criar-adm-group-btn{
+.form-criar-adm-group-btn {
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -2370,7 +2558,8 @@ input[type="file"] {
     background-color: #e3251bcb;
 }
 
-.form-criar-adm-group, .form-criar-adm-group-btn {
+.form-criar-adm-group,
+.form-criar-adm-group-btn {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -2427,12 +2616,12 @@ select:focus {
 
 .modal-editar-admin.active,
 .modal-overlay-editar-admin.active {
-  opacity: 1;
-  visibility: visible;
+    opacity: 1;
+    visibility: visible;
 }
 
 .modal-editar-admin.active {
-  transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .modal-editar-admin {
@@ -2453,7 +2642,7 @@ select:focus {
     z-index: 10000000000000001;
 }
 
-.btn-close-modal-editar-admin{
+.btn-close-modal-editar-admin {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2467,12 +2656,13 @@ select:focus {
     border-radius: 0.2rem;
 }
 
-.btn-close-modal-editar-admin:hover, .btn-close-modal-editar-admin i:hover{
+.btn-close-modal-editar-admin:hover,
+.btn-close-modal-editar-admin i:hover {
     background-color: var(--cor-primaria);
     color: white;
 }
 
-.btn-close-modal-editar-admin i{
+.btn-close-modal-editar-admin i {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2551,7 +2741,8 @@ select:focus {
     width: 100%;
 }
 
-.form-editar-adm-btn-cancelar, .form-editar-adm-btn-mandar {
+.form-editar-adm-btn-cancelar,
+.form-editar-adm-btn-mandar {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2573,7 +2764,8 @@ select:focus {
     padding-bottom: 0.1vh;
 }
 
-.form-editar-adm-btn-cancelar:hover, .form-editar-adm-btn-mandar:hover {
+.form-editar-adm-btn-cancelar:hover,
+.form-editar-adm-btn-mandar:hover {
     background-color: #e3251bcb;
 }
 
@@ -2602,11 +2794,11 @@ select:focus {
     font-weight: 600;
 }
 
-#CPF_admin{
+#CPF_admin {
     color: #0000005a !important;
 }
 
-.fa-solid.fa-ban{
+.fa-solid.fa-ban {
     position: absolute;
     top: 32.7%;
     right: 5%;
@@ -2660,7 +2852,7 @@ select option:hover {
 
 /*form mudar senha adm*/
 
-.modal-overlay-senha-admin{
+.modal-overlay-senha-admin {
     position: fixed;
     top: 0;
     left: 0;
@@ -2673,7 +2865,7 @@ select option:hover {
     z-index: 10000000000000000;
 }
 
-.modal-senha-admin{
+.modal-senha-admin {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -2691,16 +2883,17 @@ select option:hover {
     z-index: 10000000000000001;
 }
 
-.modal-senha-admin.active, .modal-overlay-senha-admin.active{
+.modal-senha-admin.active,
+.modal-overlay-senha-admin.active {
     opacity: 1;
     visibility: visible;
 }
 
-.modal-senha-admin.active{
+.modal-senha-admin.active {
     transform: translate(-50%, -50%) scale(1);
 }
 
-.btn-close-modal-senha-admin{
+.btn-close-modal-senha-admin {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2714,12 +2907,13 @@ select option:hover {
     border-radius: 0.2rem;
 }
 
-.btn-close-modal-senha-admin:hover, .btn-close-modal-senha-admin i:hover{
+.btn-close-modal-senha-admin:hover,
+.btn-close-modal-senha-admin i:hover {
     background-color: var(--cor-primaria);
     color: white;
 }
 
-.btn-close-modal-senha-admin i{
+.btn-close-modal-senha-admin i {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2731,7 +2925,7 @@ select option:hover {
     border-radius: 0.2rem;
 }
 
-.form-senha-adm{
+.form-senha-adm {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2743,7 +2937,7 @@ select option:hover {
     padding: 2rem;
 }
 
-.form-senha-adm-title{
+.form-senha-adm-title {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -2781,7 +2975,7 @@ select option:hover {
     width: 100%;
 }
 
-.form-senha-adm-row{
+.form-senha-adm-row {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5vh;
@@ -2789,7 +2983,7 @@ select option:hover {
     min-height: 23%;
 }
 
-.form-senha-adm-row-btn{
+.form-senha-adm-row-btn {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -2798,7 +2992,8 @@ select option:hover {
     width: 100%;
 }
 
-.btn-cancelar-nova-senha-admin, .btn-mudar-senha-admin {
+.btn-cancelar-nova-senha-admin,
+.btn-mudar-senha-admin {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2835,7 +3030,7 @@ select option:hover {
     margin-top: 4vh;
 }
 
-.form-senha-adm-group-btn{
+.form-senha-adm-group-btn {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -2866,7 +3061,7 @@ select option:hover {
 
 
 .orm-senha-adm-group input:focus,
-.form-senha-adm-row input:focus{
+.form-senha-adm-row input:focus {
     outline: none;
     border-color: #e3261b;
     background: #fff;
@@ -2875,14 +3070,14 @@ select option:hover {
 .input-wrapper {
     position: relative;
     width: 100%;
-  }
+}
 
-  .input-wrapper input {
+.input-wrapper input {
     width: 100%;
     padding-right: 36px;
-  }
+}
 
-  .toggle-senha {
+.toggle-senha {
     position: absolute;
     right: 10px;
     top: 50%;
@@ -2891,13 +3086,13 @@ select option:hover {
     font-size: 1.2rem;
     color: #777;
     transition: color 0.3s ease;
-  }
+}
 
-  .toggle-senha:hover {
+.toggle-senha:hover {
     color: #e3261b;
-  }
+}
 
-  .erro-senha {
+.erro-senha {
     top: 66.5%;
     position: absolute;
     color: #e3261b;
@@ -2905,9 +3100,9 @@ select option:hover {
     margin-top: 4px;
     display: none;
     font-family: var(--font-titulo);
-  }
+}
 
-  .btn-mudar-senha-admin:disabled {
+.btn-mudar-senha-admin:disabled {
     background-color: #999;
     cursor: not-allowed;
 }

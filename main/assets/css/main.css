@@ -467,7 +467,7 @@ a{
     gap: 2vh;
     position: absolute;
     border: 1px solid rgba(0, 0, 0, 0.205);
-    right: 2%;
+    left: 5%;
     top: 12%;
     height: 4.3%;
     width: 35%;
@@ -476,6 +476,7 @@ a{
     font-size: 1.2rem;
     border-radius: 0.5rem;
     transition: 0.3s ease;
+    z-index: 1000000000;
 }
 
 #btn-limpar-carrinho i{
@@ -514,9 +515,8 @@ a{
 }
 
 .barra-divisao {
-    height: 0.3%;
+    border-top: 1px solid rgba(0, 0, 0, 0.624);
     width: 80%;
-    background-color: #00000079;
 }
 
 .cart-title h6 {

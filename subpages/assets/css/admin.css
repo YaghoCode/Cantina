@@ -22,25 +22,41 @@ body {
     font-family: var(--font-titulo);
 }
 
-.btn-voltar-main{
+.btn-voltar-home{
     position: absolute;
-    background-color: transparent;
-    border: none;
-    font-size: 1.2rem;
-    padding: 0.5rem;
-    color: var(--cor-primaria);
-    font-family: var(--font-titulo);
-    top: 1.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4vh;
+    width: 6vw;
+    background-color: white;
+    border-radius: 0.4em;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.171);
+    transition: 0.5s ease;
+    color: rgba(0, 0, 0, 0.76);
+    top: 2%;
     left: 2%;
 }
 
-.btn-voltar-main a{
-    text-decoration: none;
+.btn-voltar-home a i {
     font-size: 1.2rem;
-    color: var(--cor-primaria);
+    color: inherit;
+    cursor: pointer;
+    padding-right: 0.4rem;
+}
+
+.btn-voltar-home a {
+    text-decoration: none;
+    color: inherit;
     font-family: var(--font-titulo);
-    font-size: 1.8rem;
     font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.btn-voltar-home:hover {
+    color: white;
+    background-color: var(--cor-primaria);
 }
 
 .main-container{

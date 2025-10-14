@@ -45,10 +45,10 @@ function atualizarCarrinhoVisual() {
 
     
     if (carrinho.length === 0) {
-        container.innerHTML = `<div class="swiper-slide p-3 border rounded">
-            <p>Carrinho vazio.</p>
-        </div>`;
-        totalEl.textContent = "R$: 00,00";
+        container.innerHTML = `<div class="swiper-slide p-3 border rounded ">
+                                
+                              </div>`;
+        totalEl.textContent = "R$ 00,00";
         return;
     }
 }
