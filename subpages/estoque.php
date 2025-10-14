@@ -1005,11 +1005,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <div class="editar-produto-inputs-duplo">
                                 <div class="input-grupo">
                                     <label>Estoque *</label>
-                                    <input type="number" name="quantidade" value="<?= $item['Quantidade'] ?>" required />
+                                    <input type="number" name="quantidade" min="0" value="<?= $item['Quantidade'] ?>" required />
                                 </div>
                                 <div class="input-grupo">
                                     <label>Preço *</label>
-                                    <input type="number" step="0.01" name="preco" value="<?= $item['preco'] ?>" required />
+                                    <input type="number" step="0.01" name="preco" min="0.1" value="<?= $item['preco'] ?>" required />
                                 </div>
                             </div>
                             <div class="input-grupo-btn">
@@ -1144,107 +1144,46 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <td>Ações</td>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <h6>Admin P.</h6>
-                                        </td>
-                                        <td>
-                                            <h6>AdminFurafila@gmail.com</h6>
-                                        </td>
-                                        <td>
-                                            <h6>(11)98476-3941</h6>
-                                        </td>
-                                        <td>
-                                            <h6>Administrador</h6>
-                                        </td>
-                                        <td>
-                                            <button class="btn-editar-senha-admin">
-                                                <i class="fa-solid fa-key"></i>
-                                            </button>
-                                            <button class="btn-editar-admin">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </button>
-                                            <button class="btn-deletar-admin">
-                                                <i class="fa-regular fa-trash-can"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h6>Admin P.</h6>
-                                        </td>
-                                        <td>
-                                            <h6>AdminFurafila@gmail.com</h6>
-                                        </td>
-                                        <td>
-                                            <h6>(11)98476-3941</h6>
-                                        </td>
-                                        <td>
-                                            <h6>Administrador</h6>
-                                        </td>
-                                        <td>
-                                            <button class="btn-editar-senha-admin">
-                                                <i class="fa-solid fa-key"></i>
-                                            </button>
-                                            <button class="btn-editar-admin">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </button>
-                                            <button class="btn-deletar-admin">
-                                                <i class="fa-regular fa-trash-can"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h6>Admin P.</h6>
-                                        </td>
-                                        <td>
-                                            <h6>AdminFurafila@gmail.com</h6>
-                                        </td>
-                                        <td>
-                                            <h6>(11)98476-3941</h6>
-                                        </td>
-                                        <td>
-                                            <h6>Administrador</h6>
-                                        </td>
-                                        <td>
-                                            <button class="btn-editar-senha-admin">
-                                                <i class="fa-solid fa-key"></i>
-                                            </button>
-                                            <button class="btn-editar-admin">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </button>
-                                            <button class="btn-deletar-admin">
-                                                <i class="fa-regular fa-trash-can"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h6>Admin P.</h6>
-                                        </td>
-                                        <td>
-                                            <h6>AdminFurafila@gmail.com</h6>
-                                        </td>
-                                        <td>
-                                            <h6>(11)98476-3941</h6>
-                                        </td>
-                                        <td>
-                                            <h6>Administrador</h6>
-                                        </td>
-                                        <td>
-                                            <button class="btn-editar-senha-admin">
-                                                <i class="fa-solid fa-key"></i>
-                                            </button>
-                                            <button class="btn-editar-admin">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </button>
-                                            <button class="btn-deletar-admin">
-                                                <i class="fa-regular fa-trash-can"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                <?php
+
+                                $query = "SELECT * FROM cliente WHERE admin = 1";
+                                $query_run = mysqli_query($con, $query);
+                                if (mysqli_num_rows($query_run) > 0) {
+                                    foreach ($query_run as $usuario) {
+
+                                ?>
+                                        <tr>
+                                            <td>
+                                                <h6><?php echo $usuario['nome'] ?></h6>
+                                            </td>
+                                            <td>
+                                                <h6><?php echo $usuario['email'] ?></h6>
+                                            </td>
+                                            <td>
+                                                <h6><?php echo $usuario['cpf'] ?></h6>
+                                            </td>
+                                            <td>
+                                                <h6><?php if ($usuario['adminplus'] == 1) {
+                                                        echo 'Administrador Principal';
+                                                    } else {
+                                                        echo 'Adminstrador';
+                                                    } ?></h6>
+                                            </td>
+                                            <td>
+                                                <button class="btn-editar-senha-admin" data-id="<?= $usuario['cpf'] ?>">
+                                                    <i class="fa-solid fa-key"></i>
+                                                </button>
+                                                <button class="btn-editar-admin" data-id="<?= $usuario['cpf'] ?>">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                <button class="btn-deletar-admin" data-id="<?= $usuario['cpf'] ?>">
+                                                    <i class="fa-regular fa-trash-can"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                <?php
+                                    }
+                                } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -1295,231 +1234,249 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
         </div>
 
-        <!--Modal editar info admin-->
         <div class="modal-overlay-editar-admin">
-            <div class="modal-editar-admin">
-                <button class="btn-close-modal-editar-admin">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <div class="form-editar-adm">
-                    <div class="form-editar-adm-title">
-                        <div class="form-editar-adm-title-text">
-                            <h1>
-                                Informações da Conta
-                            </h1>
-                            <p>
-                                Edite as informações da sua conta de administrador.
-                            </p>
+            <!--Modal editar info admin-->
+            <?php
+            $query = "SELECT * from cliente";
+            $query_run = mysqli_query($con, $query);
+
+            if (mysqli_num_rows($query_run) > 0) {
+                foreach ($query_run as $usuario) {
+            ?>
+                    <div class="modal-editar-admin" id="modaladm-<?= $usuario['cpf'] ?>">
+                        <button class="btn-close-modal-editar-admin">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <div class="form-editar-adm">
+                            <div class="form-editar-adm-title">
+                                <div class="form-editar-adm-title-text">
+                                    <h1>
+                                        Informações da Conta
+                                    </h1>
+                                    <p>
+                                        Edite as informações da sua conta de administrador.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-editar-adm-content">
+                                <form action="" class="form-editar-administrador">
+                                    <div class="form-adm-row">
+                                        <div class="form-adm-group">
+                                            <label for="nome">Nome:</label>
+                                            <input type="text" id="nome_admin" value="<?php $usuario['nome'] ?>" required> <!--TEXT NAME ADMIN CONTA PHP EM VALUE-->
+                                        </div>
+                                        <div class="form-adm-group">
+                                            <label for="CPF">CPF:</label>
+                                            <input type="CPF" id="CPF_admin" value="55132867832" disabled><i class="fa-solid fa-ban" style="color: #ff0000;"></i> <!--CPF text admin conta php em value-->
+                                        </div>
+                                    </div>
+                                    <div class="form-adm-row">
+                                        <div class="form-adm-group">
+                                            <label for="telefone">Telefone:</label>
+                                            <input type="text" id="telefone_admin" value="(11) 99999-9999" required> <!--TEXT telefone ADMIN CONTA PHP EM VALUE-->
+                                        </div>
+                                        <div class="form-adm-group">
+                                            <label for="Email">Email:</label>
+                                            <input type="Email" id="Email_admin" value="admin@gmail.com" required> <!--Email text admin conta php em value-->
+                                        </div>
+                                    </div>
+                                    <div class="form-adm-row">
+                                        <label for="funcao">Função</label>
+                                        <select id="funcao" name="funcao" required>
+                                            <option value="Administrador Principal" selected>Administrador Principal</option>
+                                            <option value="Administrador Secundário">Administrador Secundário</option>
+                                        </select><!--TEXT funcao ADMIN CONTA PHP EM VALUE-->
+                                    </div>
+                                    <div class="form-adm-row-btn">
+                                        <div>
+                                            <button class="form-editar-adm-btn-cancelar">
+                                                Cancelar
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <button type="submit" class="form-editar-adm-btn-mandar">
+                                                <i class="fa-solid fa-floppy-disk"></i> Salvar Alterações
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-editar-adm-content">
-                        <form action="" class="form-editar-administrador">
-                            <div class="form-adm-row">
-                                <div class="form-adm-group">
-                                    <label for="nome">Nome:</label>
-                                    <input type="text" id="nome_admin" value="Admin 0001" required> <!--TEXT NAME ADMIN CONTA PHP EM VALUE-->
-                                </div>
-                                <div class="form-adm-group">
-                                    <label for="CPF">CPF:</label>
-                                    <input type="CPF" id="CPF_admin" value="55132867832" disabled><i class="fa-solid fa-ban" style="color: #ff0000;"></i> <!--CPF text admin conta php em value-->
-                                </div>
-                            </div>
-                            <div class="form-adm-row">
-                                <div class="form-adm-group">
-                                    <label for="telefone">Telefone:</label>
-                                    <input type="text" id="telefone_admin" value="(11) 99999-9999" required> <!--TEXT telefone ADMIN CONTA PHP EM VALUE-->
-                                </div>
-                                <div class="form-adm-group">
-                                    <label for="Email">Email:</label>
-                                    <input type="Email" id="Email_admin" value="admin@gmail.com" required> <!--Email text admin conta php em value-->
-                                </div>
-                            </div>
-                            <div class="form-adm-row">
-                                <label for="funcao">Função</label>
-                                <select id="funcao" name="funcao" required>
-                                    <option value="Administrador Principal" selected>Administrador Principal</option>
-                                    <option value="Administrador Secundário">Administrador Secundário</option>
-                                </select><!--TEXT funcao ADMIN CONTA PHP EM VALUE-->
-                            </div>
-                            <div class="form-adm-row-btn">
-                                <div>
-                                    <button class="form-editar-adm-btn-cancelar">
-                                        Cancelar
-                                    </button>
-                                </div>
-                                <div>
-                                    <button type="submit" class="form-editar-adm-btn-mandar">
-                                        <i class="fa-solid fa-floppy-disk"></i> Salvar Alterações
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
+<?php
+                }
+            }
+?>
 
-        <script>
-            //abrir modal editar 
-            const modalEditarAdmin = document.querySelector('.modal-editar-admin');
-            const overlayEditarAdmin = document.querySelector('.modal-overlay-editar-admin');
-            const btnEditarAdmin = document.querySelectorAll('.btn-editar-admin');
-            const btnCloseEditarAdmin = document.querySelectorAll('.btn-close-modal-editar-admin');
-            const btnCancelarEditarAdmin = document.querySelectorAll('.form-editar-adm-btn-cancelar');
+<script>
+    //abrir modal editar admin
+    document.addEventListener('DOMContentLoaded', () => {
 
-            btnEditarAdmin.forEach((btn5) => {
-                btn5.addEventListener('click', () => {
-                    modalEditarAdmin.classList.add('active');
+        const overlayEditarAdmin = document.querySelector('.modal-overlay-editar-admin');
+        const btnEditarAdmin = document.querySelectorAll('.btn-editar-admin');
+        const btnCloseEditarAdmin = document.querySelectorAll('.btn-close-modal-editar-admin');
+        const btnCancelarEditarAdmin = document.querySelectorAll('.form-editar-adm-btn-cancelar');
+
+        document.querySelectorAll('.btn-editar-admin').forEach((button) => {
+            button.addEventListener('click', () => {
+                const admId = button.getAttribute('data-id')
+                const modal = document.getElementById(`modaladm-${admId}`);
+                if (modal) {
+                    modal.classList.add('active');
                     overlayEditarAdmin.classList.add('active');
-                })
-            });
+                    console.log(modal, admId);
+                }
+            })
+        });
 
-            btnCloseEditarAdmin.forEach((btn6) => {
-                btn6.addEventListener('click', () => {
-                    modalEditarAdmin.classList.remove('active');
-                    overlayEditarAdmin.classList.remove('active');
-                })
-            });
+        btnCloseEditarAdmin.forEach((btn6) => {
+            btn6.addEventListener('click', () => {
+                modalEditarAdmin.classList.remove('active');
+                overlayEditarAdmin.classList.remove('active');
+            })
+        });
 
-            btnCancelarEditarAdmin.forEach((btn7) => {
-                btn7.addEventListener('click', () => {
-                    modalEditarAdmin.classList.remove('active');
-                    overlayEditarAdmin.classList.remove('active');
-                })
-            });
-        </script>
+        btnCancelarEditarAdmin.forEach((btn7) => {
+            btn7.addEventListener('click', () => {
+                modalEditarAdmin.classList.remove('active');
+                overlayEditarAdmin.classList.remove('active');
+            })
+        });
+    });
+</script>
 
-        <!-- Modal mudar senha admin -->
-        <div class="modal-overlay-senha-admin">
-            <div class="modal-senha-admin">
-                <button class="btn-close-modal-senha-admin">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <div class="form-senha-adm">
-                    <div class="form-senha-adm-title">
-                        <div class="form-senha-adm-title-text">
-                            <h1>Alterar Senha - Administrador</h1>
-                            <p>Atualize a senha do administrador selecionado.</p>
-                        </div>
-                    </div>
-                    <div class="form-senha-adm-content">
-                        <form action="" class="form-senha-administrador" id="formAlterarSenhaAdmin">
-                            <div class="form-senha-adm-row">
-                                <div class="form-senha-adm-group">
-                                    <label for="senha_admin">Senha Atual:</label>
-                                    <div class="input-wrapper">
-                                        <input type="password" id="senha_admin" required>
-                                        <span class="toggle-senha" data-target="senha_admin"><i class="fa-regular fa-eye-slash"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-senha-adm-row">
-                                <div class="form-senha-adm-group">
-                                    <label for="senha_admin_nova">Nova senha:</label>
-                                    <div class="input-wrapper">
-                                        <input type="password" id="senha_admin_nova" required minlength="6">
-                                        <span class="toggle-senha" data-target="senha_admin_nova"><i class="fa-regular fa-eye-slash"></i></span>
-                                    </div>
-                                </div>
-                                <div class="form-senha-adm-group">
-                                    <label for="senha_admin_nova_confirmacao">Confirmar Nova Senha:</label>
-                                    <div class="input-wrapper">
-                                        <input type="password" id="senha_admin_nova_confirmacao" required>
-                                        <span class="toggle-senha" data-target="senha_admin_nova_confirmacao"><i class="fa-regular fa-eye-slash"></i></span>
-                                    </div>
-                                    <div class="erro-senha" id="erroSenhaAdmin">As senhas não coincidem.</div>
-                                </div>
-                            </div>
-
-                            <div class="form-senha-adm-row-btn">
-                                <div class="form-senha-adm-group-btn">
-                                    <button class="btn-cancelar-nova-senha-admin">Cancelar</button>
-                                    <button type="submit" class="btn-mudar-senha-admin" disabled>Alterar Senha</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+<!-- Modal mudar senha admin -->
+<div class="modal-overlay-senha-admin">
+    <div class="modal-senha-admin">
+        <button class="btn-close-modal-senha-admin">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="form-senha-adm">
+            <div class="form-senha-adm-title">
+                <div class="form-senha-adm-title-text">
+                    <h1>Alterar Senha - Administrador</h1>
+                    <p>Atualize a senha do administrador selecionado.</p>
                 </div>
             </div>
+            <div class="form-senha-adm-content">
+                <form action="" class="form-senha-administrador" id="formAlterarSenhaAdmin">
+                    <div class="form-senha-adm-row">
+                        <div class="form-senha-adm-group">
+                            <label for="senha_admin">Senha Atual:</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="senha_admin" required>
+                                <span class="toggle-senha" data-target="senha_admin"><i class="fa-regular fa-eye-slash"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-senha-adm-row">
+                        <div class="form-senha-adm-group">
+                            <label for="senha_admin_nova">Nova senha:</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="senha_admin_nova" required minlength="6">
+                                <span class="toggle-senha" data-target="senha_admin_nova"><i class="fa-regular fa-eye-slash"></i></span>
+                            </div>
+                        </div>
+                        <div class="form-senha-adm-group">
+                            <label for="senha_admin_nova_confirmacao">Confirmar Nova Senha:</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="senha_admin_nova_confirmacao" required>
+                                <span class="toggle-senha" data-target="senha_admin_nova_confirmacao"><i class="fa-regular fa-eye-slash"></i></span>
+                            </div>
+                            <div class="erro-senha" id="erroSenhaAdmin">As senhas não coincidem.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-senha-adm-row-btn">
+                        <div class="form-senha-adm-group-btn">
+                            <button class="btn-cancelar-nova-senha-admin">Cancelar</button>
+                            <button type="submit" class="btn-mudar-senha-admin" disabled>Alterar Senha</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-        <script>
-            const modalSenhaAdmin = document.querySelector('.modal-senha-admin');
-            const overlaySenhaAdmin = document.querySelector('.modal-overlay-senha-admin');
-            const btnSenhaAdmin = document.querySelectorAll('.btn-editar-senha-admin');
-            const btnCloseSenhaAdmin = document.querySelectorAll('.btn-close-modal-senha-admin');
-            const btnCancelarSenhaAdmin = document.querySelectorAll('.btn-cancelar-nova-senha-admin');
+    </div>
+</div>
+<script>
+    const modalSenhaAdmin = document.querySelector('.modal-senha-admin');
+    const overlaySenhaAdmin = document.querySelector('.modal-overlay-senha-admin');
+    const btnSenhaAdmin = document.querySelectorAll('.btn-editar-senha-admin');
+    const btnCloseSenhaAdmin = document.querySelectorAll('.btn-close-modal-senha-admin');
+    const btnCancelarSenhaAdmin = document.querySelectorAll('.btn-cancelar-nova-senha-admin');
 
-            btnSenhaAdmin.forEach((btn8) => {
-                btn8.addEventListener('click', () => {
-                    modalSenhaAdmin.classList.add('active');
-                    overlaySenhaAdmin.classList.add('active');
-                });
-            });
+    btnSenhaAdmin.forEach((btn8) => {
+        btn8.addEventListener('click', () => {
+            modalSenhaAdmin.classList.add('active');
+            overlaySenhaAdmin.classList.add('active');
+        });
+    });
 
-            [...btnCloseSenhaAdmin, ...btnCancelarSenhaAdmin].forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Fecha o modal
-                    modalSenhaAdmin.classList.remove('active');
-                    overlaySenhaAdmin.classList.remove('active');
+    [...btnCloseSenhaAdmin, ...btnCancelarSenhaAdmin].forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Fecha o modal
+            modalSenhaAdmin.classList.remove('active');
+            overlaySenhaAdmin.classList.remove('active');
 
-                    // Se for o botão "Cancelar", recarrega a página
-                    if (btn.classList.contains('btn-cancelar-nova-senha-admin')) {
-                        window.location.reload(); // 🔄 Recarrega a página
-                    }
-                });
-            });
+            // Se for o botão "Cancelar", recarrega a página
+            if (btn.classList.contains('btn-cancelar-nova-senha-admin')) {
+                window.location.reload(); // 🔄 Recarrega a página
+            }
+        });
+    });
 
-            const form = document.getElementById('formAlterarSenhaAdmin');
-            const senhaAtual = document.getElementById('senha_admin');
-            const novaSenha = document.getElementById('senha_admin_nova');
-            const confirmarSenha = document.getElementById('senha_admin_nova_confirmacao');
-            const erroSenha = document.getElementById('erroSenhaAdmin');
-            const btnAlterar = document.querySelector('.btn-mudar-senha-admin');
-            const campos = [senhaAtual, novaSenha, confirmarSenha];
+    const form = document.getElementById('formAlterarSenhaAdmin');
+    const senhaAtual = document.getElementById('senha_admin');
+    const novaSenha = document.getElementById('senha_admin_nova');
+    const confirmarSenha = document.getElementById('senha_admin_nova_confirmacao');
+    const erroSenha = document.getElementById('erroSenhaAdmin');
+    const btnAlterar = document.querySelector('.btn-mudar-senha-admin');
+    const campos = [senhaAtual, novaSenha, confirmarSenha];
 
-            document.querySelectorAll('.toggle-senha').forEach(span => {
-                const inp = document.getElementById(span.dataset.target);
+    document.querySelectorAll('.toggle-senha').forEach(span => {
+        const inp = document.getElementById(span.dataset.target);
 
-                // Função que mantém o ícone sincronizado com o estado do input
-                const atualizarIcone = () => {
-                    if (inp.type === 'password') {
-                        span.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
-                    } else {
-                        span.innerHTML = '<i class="fa-regular fa-eye"></i>';
-                    }
-                };
+        // Função que mantém o ícone sincronizado com o estado do input
+        const atualizarIcone = () => {
+            if (inp.type === 'password') {
+                span.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+            } else {
+                span.innerHTML = '<i class="fa-regular fa-eye"></i>';
+            }
+        };
 
-                // Inicializa o ícone corretamente
-                atualizarIcone();
+        // Inicializa o ícone corretamente
+        atualizarIcone();
 
-                // Clique no ícone alterna o tipo e atualiza
-                span.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const currentSpan = e.currentTarget;
-                    const targetInput = document.getElementById(currentSpan.dataset.target);
+        // Clique no ícone alterna o tipo e atualiza
+        span.addEventListener('click', (e) => {
+            e.preventDefault();
+            const currentSpan = e.currentTarget;
+            const targetInput = document.getElementById(currentSpan.dataset.target);
 
-                    // Alterna tipo
-                    targetInput.type = (targetInput.type === 'password') ? 'text' : 'password';
-                    atualizarIcone();
-                });
-            });
+            // Alterna tipo
+            targetInput.type = (targetInput.type === 'password') ? 'text' : 'password';
+            atualizarIcone();
+        });
+    });
 
-            campos.forEach(campo => {
-                campo.addEventListener('input', () => {
-                    const todasPreenchidas = campos.every(c => c.value.trim() !== '');
-                    const senhasIguais = novaSenha.value === confirmarSenha.value;
+    campos.forEach(campo => {
+        campo.addEventListener('input', () => {
+            const todasPreenchidas = campos.every(c => c.value.trim() !== '');
+            const senhasIguais = novaSenha.value === confirmarSenha.value;
 
-                    if (!senhasIguais && confirmarSenha.value.length > 0) {
-                        erroSenha.style.display = 'block';
-                    } else {
-                        erroSenha.style.display = 'none';
-                    }
+            if (!senhasIguais && confirmarSenha.value.length > 0) {
+                erroSenha.style.display = 'block';
+            } else {
+                erroSenha.style.display = 'none';
+            }
 
-                    btnAlterar.disabled = !(todasPreenchidas && senhasIguais);
-                });
-            });
-        </script>
+            btnAlterar.disabled = !(todasPreenchidas && senhasIguais);
+        });
+    });
+</script>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
