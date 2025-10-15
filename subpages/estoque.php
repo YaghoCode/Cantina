@@ -230,7 +230,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <li id="btn-estoque"><i class="fa-solid fa-box-open"></i> Estoque</li>
                     <li id="btn-clientes"><i class="fa-solid fa-users"></i> Clientes</li>
                     <li id="btn-pedidos"><i class="fa-solid fa-clipboard-list"></i> Pedidos</li>
-                    <li id="btn-configuracoes" <?php if ($user_data['adm'] != 1) { echo 'style="display:none;"'; } ?>;"><i class="fa-solid fa-gear"></i> Configurações</li>
+                    <li id="btn-configuracoes" <?php if ($user_data['adm'] != 1) {
+                        echo 'style="display:none;"';
+                    } ?>;">
+                        <i class="fa-solid fa-gear"></i> Configurações
+                    </li>
 
                 </ul>
             </div>
@@ -1329,15 +1333,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
         </div>
 
-        <div class="modal-overlay-editar-admin">
-            <!--Modal editar info admin-->
-            <?php
-            $query = "SELECT * from administradores";
-            $query_run = mysqli_query($con, $query);
 
-            if (mysqli_num_rows($query_run) > 0) {
-                foreach ($query_run as $usuario) {
-                    ?>
+        <!--Modal editar info admin-->
+        <?php
+        $query = "SELECT * from administradores";
+        $query_run = mysqli_query($con, $query);
+
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $usuario) {
+                ?>
+                <div class="modal-overlay-editar-admin" id="overlayEditarAdmin-<?= $usuario['cpf'] ?>">
                     <div class="modal-editar-admin" id="modaladm-<?= $usuario['cpf'] ?>">
                         <button class="btn-close-modal-editar-admin">
                             <i class="fa-solid fa-xmark"></i>
@@ -1358,25 +1363,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     <div class="form-adm-row">
                                         <div class="form-adm-group">
                                             <label for="nome">Nome:</label>
-                                            <input type="text" id="nome_admin" value="<?php $usuario['nome'] ?>" required>
+                                            <input type="text" id="nome_admin_<?= $usuario['cpf'] ?>"
+                                                value="<?= htmlspecialchars($usuario['nome']) ?>" required>
                                             <!--TEXT NAME ADMIN CONTA PHP EM VALUE-->
                                         </div>
                                         <div class="form-adm-group">
                                             <label for="CPF">CPF:</label>
-                                            <input type="CPF" id="CPF_admin" value="55132867832" disabled><i
-                                                class="fa-solid fa-ban" style="color: #ff0000;"></i>
+                                            <input type="text" id="CPF_admin_<?= $usuario['cpf'] ?>"
+                                                value="<?= htmlspecialchars($usuario['cpf']) ?>" disabled>
+                                            <i class="fa-solid fa-ban" style="color: #ff0000;"></i>
                                             <!--CPF text admin conta php em value-->
                                         </div>
                                     </div>
                                     <div class="form-adm-row">
                                         <div class="form-adm-group">
                                             <label for="telefone">Telefone:</label>
-                                            <input type="text" id="telefone_admin" value="(11) 99999-9999" required>
+                                            <input type="text" id="telefone_admin_<?= $usuario['cpf'] ?>"
+                                                value="<?= htmlspecialchars($usuario['telefone']) ?>" disabled>
                                             <!--TEXT telefone ADMIN CONTA PHP EM VALUE-->
                                         </div>
                                         <div class="form-adm-group">
                                             <label for="Email">Email:</label>
-                                            <input type="Email" id="Email_admin" value="admin@gmail.com" required>
+                                            <input type="email" id="Email_admin_<?= $usuario['cpf'] ?>"
+                                                value="<?= htmlspecialchars($usuario['email']) ?>" required>
                                             <!--Email text admin conta php em value-->
                                         </div>
                                     </div>
@@ -1405,45 +1414,49 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
                 <?php
-                }
             }
-            ?>
+        }
+        ?>
 
         <script>
             //abrir modal editar admin
-            document.addEventListener('DOMContentLoaded', () => {
-
-                const overlayEditarAdmin = document.querySelector('.modal-overlay-editar-admin');
-                const btnEditarAdmin = document.querySelectorAll('.btn-editar-admin');
-                const btnCloseEditarAdmin = document.querySelectorAll('.btn-close-modal-editar-admin');
-                const btnCancelarEditarAdmin = document.querySelectorAll('.form-editar-adm-btn-cancelar');
-
-                document.querySelectorAll('.btn-editar-admin').forEach((button) => {
-                    button.addEventListener('click', () => {
-                        const admId = button.getAttribute('data-id')
-                        const modal = document.getElementById(`modaladm-${admId}`);
-                        if (modal) {
-                            modal.classList.add('active');
-                            overlayEditarAdmin.classList.add('active');
-                            console.log(modal, admId);
-                        }
-                    })
-                });
-
-                btnCloseEditarAdmin.forEach((btn6) => {
-                    btn6.addEventListener('click', () => {
-                        modalEditarAdmin.classList.remove('active');
-                        overlayEditarAdmin.classList.remove('active');
-                    })
-                });
-
-                btnCancelarEditarAdmin.forEach((btn7) => {
-                    btn7.addEventListener('click', () => {
-                        modalEditarAdmin.classList.remove('active');
-                        overlayEditarAdmin.classList.remove('active');
-                    })
+            document.querySelectorAll('.btn-editar-admin').forEach((button) => {
+                button.addEventListener('click', () => {
+                    const admId = button.getAttribute('data-id');
+                    const overlay = document.getElementById(`overlayEditarAdmin-${admId}`);
+                    const modal = document.getElementById(`modaladm-${admId}`);
+                    if (overlay && modal) {
+                        overlay.classList.add('active');
+                        modal.classList.add('active');
+                    }
                 });
             });
+
+            document.querySelectorAll('.btn-close-modal-editar-admin, .form-editar-adm-btn-cancelar').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const modal = btn.closest('.modal-editar-admin');
+                    if (modal) {
+                        modal.classList.remove('active');
+                        const admId = modal.id.replace('modaladm-', '');
+                        const overlay = document.getElementById(`overlayEditarAdmin-${admId}`);
+                        if (overlay) overlay.classList.remove('active');
+                    }
+                });
+            });
+
+            //Fechra modal de editar admin
+            function fecharModalAdmin(btn) {
+                // Encontra o modal pai
+                const modal = btn.closest('.modal-editar-admin');
+                if (modal) {
+                    modal.classList.remove('active');
+                    // Extrai o id único (cpf)
+                    const admId = modal.id.replace('modaladm-', '');
+                    // Encontra o overlay correspondente
+                    const overlay = document.getElementById(`overlayEditarAdmin-${admId}`);
+                    if (overlay) overlay.classList.remove('active');
+                }
+            }
         </script>
 
         <!-- Modal mudar senha admin -->
