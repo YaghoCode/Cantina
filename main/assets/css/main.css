@@ -54,6 +54,7 @@ a{
     justify-content: center;
     align-items: center;
     width: 98%;
+    height: 100%;
 }
 
 .nav-logo {
@@ -87,9 +88,10 @@ a{
 
 .nav-items {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 60%;
+    height: 100%;
 }
 
 .nav-items ul {
@@ -211,6 +213,69 @@ a{
     color: white;
     cursor: pointer;
 }
+
+.btn-meus-pedidos button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5vh;
+    font-size: 1.2rem;
+    height: 4vh;
+    width: 10vw;
+    font-family: var(--font-titulo);
+    font-weight: 500;
+    background-color: white;
+    color: black;
+    border-radius: 0.4em;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.171);
+    transition: 0.5s ease;
+}
+
+.btn-meus-pedidos button i {
+    font-size: 1.2rem;
+    color: inherit;
+    cursor: pointer;
+    padding-right: 0.5rem;
+}
+
+.btn-meus-pedidos button:hover{
+    background-color: var(--cor--botao-accept);
+    color: white;
+}
+
+/*btn admin*/
+
+.btn-admin button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2vh;
+    font-size: 1.2rem;
+    height: 4vh;
+    width: 8vw;
+    font-family: var(--font-titulo);
+    font-weight: 500;
+    background-color: white;
+    color: black;
+    border-radius: 0.4em;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.171);
+    transition: 0.5s ease;
+    transform: translateX(5%);
+}
+
+.btn-admin button i {
+    font-size: 1.2rem;
+    color: inherit;
+    cursor: pointer;
+}
+
+.btn-admin button:hover{
+    background-color: var(--cor-primaria);
+    color: white !important;
+}
+
 
 /*pop-up-user*/
 
@@ -507,6 +572,7 @@ a{
     background-color: var(--cor-primaria);
     color: white;
     transition: 0.3s ease;
+    border: none;
 }
 
 .btn-logout-pop-up:hover{
@@ -1973,6 +2039,7 @@ input[type="number"] {
     justify-content: center;
     height: 65vh;
     width: 100%;
+    margin-bottom: 10vh;
 }
 
 .content-avaliacoes {

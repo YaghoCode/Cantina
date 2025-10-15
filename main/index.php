@@ -5,11 +5,6 @@ header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Pragma: no-cache");
 header("Expires: 0");
 
-if (!isset($_SESSION['cpf'])) {
-  header("Location: /cantinarepositorio/subpages/login.php");
-  exit;
-}
-
 $user_data = null;
 $is_admin = false;
 
@@ -86,8 +81,24 @@ if (isset($_SESSION['cpf'])) {
 
         <!--PHP VERIFICAÇÂO LOGIN-->
         <?php
+         if ($is_admin) {
+            echo '<div class="btn-admin">
+                    <button>
+                      <a href="/cantinarepositorio/subpages/admin.php">
+                         Acesso Admin
+                      </a>
+                    </button>
+                  </div>';
+          }
         if ($user_data) {
           echo '<div class="nav-buttons" style="gap:3vh;">
+                  <div class="btn-meus-pedidos">
+                    <button>
+                      <a href="/cantinarepositorio/subpages/pedidos.php">
+                        <i class="fa-solid fa-receipt"></i> Meus Pedidos
+                      </a>
+                    </button>
+                  </div>
                   <div class="btn-user" id="btn-user-nav" >
                     <button>
                       <i class="fa-regular fa-user"></i> Perfil
@@ -96,11 +107,6 @@ if (isset($_SESSION['cpf'])) {
                   <div class="btn-cart" id="btn-cart-nav">
                     <button><i class="fa-solid fa-cart-shopping"></i>Carrinho</button>
                   </div>';
-          if ($is_admin) {
-            echo '<h1>
-                <a href="/cantinarepositorio/subpages/admin.php" style="text-decoration: none; color: inherit;">Admin</a>
-              </h1>';
-          }
           echo '</div>';
         } else {
           echo '  <div class="nav-buttons">
