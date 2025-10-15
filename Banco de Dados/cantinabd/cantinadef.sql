@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27/09/2025 às 00:33
+-- Tempo de geração: 15/10/2025 às 21:33
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `cantinadef`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `administradores`
+--
+
+CREATE TABLE `administradores` (
+  `nome` varchar(255) NOT NULL,
+  `cpf` char(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `telefone` int(20) NOT NULL,
+  `senha` varchar(200) NOT NULL,
+  `adm` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `administradores`
+--
+
+INSERT INTO `administradores` (`nome`, `cpf`, `email`, `telefone`, `senha`, `adm`) VALUES
+('admin bosta', '77777777777', 'caiopica@gmail.com', 11, '$2y$10$f.SpVyR30gawIMTwS/Cm3.ZWnn5JlglAvJ82dvtBi5Qsi9TyuZlIK', 0),
+('Admin', '99999999999', 'yaghochinaglia@gmail.com', 11, '$2y$10$f.SpVyR30gawIMTwS/Cm3.ZWnn5JlglAvJ82dvtBi5Qsi9TyuZlIK', 1);
 
 -- --------------------------------------------------------
 
@@ -47,8 +70,7 @@ INSERT INTO `cliente` (`nome`, `cpf`, `email`, `turma`, `senha`, `admin`) VALUES
 ('111111', '44444444454', 'yaghochinaglia@gmail.com', '1DS', '$2y$10$LvYim08e/zSZAICmNunLieaC.96eozyusaKSiA1D8Clv1g1fA4JXi', 0),
 ('111111', '44445555555', 'yaghochinaglia@gmail.com', '2DS', '$2y$10$mXmF6kywScxam1vL75Bm..HCZFnZC2ejGpj2B9ymyUxSolIVhgupu', 0),
 ('111111', '44445555556', 'yaghochinaglia@gmail.com', '', '$2y$10$0din5MuSkPw8g8UjC9hQQuvDSjEfcA7LRB3BlxvAONKe63iLDNrlu', 0),
-('yagho', '66666666666', 'yaghochinaglia@gmail.com', '1DS', '$2y$10$fxUyt46KKPA1KJ/u.ODQh.bemr9BKkasMiKZxRxILQlDbu3sSQBF.', 0),
-('Admin', '99999999999', 'yaghochinaglia@gmail.com', '1DS', '$2y$10$ZnDmjiKMW5eeWhiQ3v.7N.qOjuF4N19vCQqeeU6CPYG/lSB5mOVAy', 1);
+('yagho', '66666666666', 'yaghochinaglia@gmail.com', '1DS', '$2y$10$fxUyt46KKPA1KJ/u.ODQh.bemr9BKkasMiKZxRxILQlDbu3sSQBF.', 0);
 
 -- --------------------------------------------------------
 
@@ -79,7 +101,7 @@ INSERT INTO `estoque` (`Nome`, `Descricao`, `preco`, `Quantidade`, `Categoria`, 
 ('Croissant de frango', 'Massa folhada leve e dourada, recheada com frango desfiado temperado e queijo cremoso.', 7.00, 12, 'Salgados', 59, 'croissant-frango.png', 0, 0),
 ('Cup Noodles de carne', 'Macarrão instantâneo em caldo sabor carne, com tempero especial e pedaços de vegetais desidratados.', 5.00, 25, 'Salgados', 60, 'cup1.png', 0, 0),
 ('Coxinha de frango', 'Massa macia e dourada, recheada com frango desfiado temperado e cremosa por dentro.', 7.00, 15, 'Salgados', 63, 'coxinha.png', 0, 0),
-('Kibe', 'Massa de trigo e carne temperada com especiarias, moldada e assada até ficar dourada e saborosa.', 7.00, 12, 'Salgados', 64, 'quibeassadound.png', 0, 0),
+('Kibe', 'Massa de trigo e carne temperada com especiarias, moldada e assada até ficar dourada e saborosa.', 7.00, 0, 'Salgados', 64, 'quibeassadound.png', 0, 0),
 ('Pão de batata', 'Massa macia e levemente adocicada, feita com batata, assada até ficar dourada e saborosa.', 6.50, 22, 'Salgados', 65, 'paodebatata.png', 0, 0),
 ('Folhado quatro queijos', 'Massa folhada crocante, recheada com uma mistura cremosa de quatro queijos, assada até dourar.', 7.00, 20, 'Folhados', 68, 'folhado4queijos.png', 1, 0),
 ('Folhado Palmito', 'Massa folhada crocante, recheada com palmito temperado e um toque de ervas, assada até dourar.', 7.00, 20, 'Folhados', 69, 'FolhadoPalmito.png', 1, 0),
@@ -124,6 +146,12 @@ CREATE TABLE `pedidos` (
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices de tabela `administradores`
+--
+ALTER TABLE `administradores`
+  ADD PRIMARY KEY (`cpf`);
 
 --
 -- Índices de tabela `cliente`

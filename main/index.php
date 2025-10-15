@@ -1,13 +1,35 @@
 <?php
 include('./database.php');
 session_start();
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+if (!isset($_SESSION['cpf'])) {
+  header("Location: /cantinarepositorio/subpages/login.php");
+  exit;
+}
+
+$user_data = null;
+$is_admin = false;
+
 if (isset($_SESSION['cpf'])) {
   $cpf = $_SESSION['cpf'];
-  $query = "SELECT nome, cpf, admin, turma, email FROM cliente WHERE cpf = '$cpf'";
+
+  // Tenta buscar como cliente
+  $query = "SELECT nome, cpf, turma, email FROM cliente WHERE cpf = '$cpf'";
   $result = mysqli_query($con, $query);
-  $user_data = mysqli_fetch_assoc($result);
-} else {
-  $user_data = null;
+  if ($result && mysqli_num_rows($result) > 0) {
+    $user_data = mysqli_fetch_assoc($result);
+  } else {
+    // Tenta buscar como administrador
+    $query = "SELECT nome, cpf, email FROM administradores WHERE cpf = '$cpf'";
+    $result = mysqli_query($con, $query);
+    if ($result && mysqli_num_rows($result) > 0) {
+      $user_data = mysqli_fetch_assoc($result);
+      $is_admin = true;
+    }
+  }
 }
 ?>
 
@@ -45,7 +67,8 @@ if (isset($_SESSION['cpf'])) {
             </li>
             <li>
               <h1>
-                <a href="/cantinarepositorio/subpages/cardapio.php" style="text-decoration: none; color: inherit;">Cardápio</a>
+                <a href="/cantinarepositorio/subpages/cardapio.php"
+                  style="text-decoration: none; color: inherit;">Cardápio</a>
               </h1>
             </li>
             <li>
@@ -58,28 +81,13 @@ if (isset($_SESSION['cpf'])) {
                 <a href="#Avaliacoes" style="text-decoration: none; color: inherit;">Avaliações</a>
               </h1>
             </li>
-            <?php
-            if (isset($_SESSION['cpf']) && $user_data['admin'] == 1) { ?>
-              <li>
-                <h1>
-                  <a href="/cantinarepositorio/subpages/admin.php" style="text-decoration: none; color: inherit;">Admin</a>
-                </h1>
-              </li>
-            <?php } ?>
           </ul>
         </div>
 
         <!--PHP VERIFICAÇÂO LOGIN-->
         <?php
-        if (isset($_SESSION['cpf'])) {
-          $cpf = $_SESSION['cpf'];
-          $query = "SELECT nome, cpf, turma, email FROM cliente WHERE cpf = '$cpf'";
-          $result = mysqli_query($con, $query);
-          $user_data = mysqli_fetch_assoc($result);
-
-          if ($result && mysqli_num_rows($result) > 0) {
-
-            echo '<div class="nav-buttons" style="gap:3vh;">
+        if ($user_data) {
+          echo '<div class="nav-buttons" style="gap:3vh;">
                   <div class="btn-user" id="btn-user-nav" >
                     <button>
                       <i class="fa-regular fa-user"></i> Perfil
@@ -87,9 +95,13 @@ if (isset($_SESSION['cpf'])) {
                   </div>
                   <div class="btn-cart" id="btn-cart-nav">
                     <button><i class="fa-solid fa-cart-shopping"></i>Carrinho</button>
-                  </div>
-              </div>';
+                  </div>';
+          if ($is_admin) {
+            echo '<h1>
+                <a href="/cantinarepositorio/subpages/admin.php" style="text-decoration: none; color: inherit;">Admin</a>
+              </h1>';
           }
+          echo '</div>';
         } else {
           echo '  <div class="nav-buttons">
                 <div class="btn-cadastrar-se">
@@ -104,11 +116,8 @@ if (isset($_SESSION['cpf'])) {
     </nav>
   </header>
 
-  
-   <!--POPUP DO USER-->
-  <div class="overlay-pop-up-user" id="overlay-pop-up-user">
-
-  </div>
+  <!--POPUP DO USER-->
+  <div class="overlay-pop-up-user" id="overlay-pop-up-user"></div>
   <div class="pop-up-user" id="pop-up-user">
     <button class="btn-fechar-pop-up-user" id="btn-close-user-nav">
       <i class="fa-solid fa-xmark"></i>
@@ -124,35 +133,56 @@ if (isset($_SESSION['cpf'])) {
           <div class="content-top-right-user-text">
             <div class="content-top-right-user-text-name">
               <h3>
-                <?php echo $user_data['nome'] ?>
+                <?php echo $user_data ? $user_data['nome'] : ''; ?>
               </h3>
             </div>
             <div class="content-top-right-user-text-email">
               <h6>
-                <?php echo $user_data['email'] ?>
+                <?php echo $user_data ? $user_data['email'] : ''; ?>
               </h6>
             </div>
           </div>
         </div>
       </div>
       <div class="content-mid-user">
-        <div class="content-mid-user-row">
-          <div class="content-mid-user-row-left">
-            <div class="content-mid-user-row-left-icon">
-              <i class="fa-solid fa-graduation-cap"></i>
+        <?php if (!$is_admin): ?>
+          <div class="content-mid-user-row">
+            <div class="content-mid-user-row-left">
+              <div class="content-mid-user-row-left-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+            </div>
+            <div class="content-mid-user-row-right">
+              <div class="content-mid-user-row-right-text">
+                <h1>
+                  Turma
+                </h1>
+                <h3>
+                  <?php echo $user_data ? $user_data['turma'] : ''; ?>
+                </h3>
+              </div>
             </div>
           </div>
-          <div class="content-mid-user-row-right">
-            <div class="content-mid-user-row-right-text">
-              <h1>
-                Turma
-              </h1>
-              <h3>
-                <?php echo $user_data['turma'] ?>
-              </h3>
+        <?php endif; ?>
+        <?php if ($is_admin): ?>
+          <div class="content-mid-user-row">
+            <div class="content-mid-user-row-left">
+              <div class="content-mid-user-row-left-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+            </div>
+            <div class="content-mid-user-row-right">
+              <div class="content-mid-user-row-right-text">
+                <h1>
+                  Tipo de conta:
+                </h1>
+                <h3>
+                  Administrador Principal
+                </h3>
+              </div>
             </div>
           </div>
-        </div>
+        <?php endif; ?>
         <div class="content-mid-user-row">
           <div class="content-mid-user-row-left">
             <div class="content-mid-user-row-left-icon">
@@ -165,7 +195,7 @@ if (isset($_SESSION['cpf'])) {
                 CPF:
               </h1>
               <h3>
-                <?php echo $user_data['cpf'] ?>
+                <?php echo $user_data ? $user_data['cpf'] : ''; ?>
               </h3>
             </div>
           </div>
@@ -173,12 +203,14 @@ if (isset($_SESSION['cpf'])) {
       </div>
       <div class="content-bottom-user">
         <div class="content-bottom-user-row">
-          <button class="btn-pop-up-editar-adm">
-            <a href="#Editar-adm">
-              <i class="fa-regular fa-pen-to-square"></i>
-              Editar
-            </a>
-          </button>
+          <?php if (!$is_admin): ?>
+            <button class="btn-pop-up-editar-adm">
+              <a href="#Editar-perfil">
+                <i class="fa-regular fa-pen-to-square"></i>
+                Editar
+              </a>
+            </button>
+          <?php endif; ?>
           <button class="btn-logout-pop-up">
             <a href="/cantinarepositorio/subpages/logout.php">
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -196,9 +228,12 @@ if (isset($_SESSION['cpf'])) {
       <!--Buttons top carrinho-->
 
       <button id="btn-bag-carrinho">
-        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0" />
-          <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-bag-check"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0" />
+          <path
+            d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
         </svg> Carrinho
       </button>
 
@@ -270,7 +305,8 @@ if (isset($_SESSION['cpf'])) {
       </div>
 
       <div class="btn-modal-alert">
-        <a class="a-link-btn-continuar" href="/cantinarepositorio/subpages/login.php" style="color: white; text-decoration: none;">Continuar</a>
+        <a class="a-link-btn-continuar" href="/cantinarepositorio/subpages/login.php"
+          style="color: white; text-decoration: none;">Continuar</a>
       </div>
     </div>
   </div>
@@ -287,9 +323,12 @@ if (isset($_SESSION['cpf'])) {
     <div class="container-carousel">
       <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-indicators custom-indicators">
-          <button id="a" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button id="a" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button id="a" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button id="a" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button id="a" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button id="a" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -300,7 +339,8 @@ if (isset($_SESSION['cpf'])) {
                 <h5>Feitas com amor e igredientes frescos.</h5>
               </div>
               <div class="description-carousel">
-                <p>Manter uma alimentação equilibrada é essencial para potencializar a concentração, a memória e o rendimento durante os estudos.</p>
+                <p>Manter uma alimentação equilibrada é essencial para potencializar a concentração, a memória e o
+                  rendimento durante os estudos.</p>
               </div>
               <div class="btn-carousel">
                 <button class="btn-1-carousel">
@@ -317,7 +357,8 @@ if (isset($_SESSION['cpf'])) {
                 <h5>Criando memórias através da comida.</h5>
               </div>
               <div class="description-carousel-2">
-                <p>Um espaço onde estudantes se reúnem para compartilhar bons momentos, trocar ideias, fortalecer amizades e criar memórias inesquecíveis.</p>
+                <p>Um espaço onde estudantes se reúnem para compartilhar bons momentos, trocar ideias, fortalecer
+                  amizades e criar memórias inesquecíveis.</p>
               </div>
               <div class="btn-carousel">
                 <button class="btn-2-carousel">
@@ -334,7 +375,8 @@ if (isset($_SESSION['cpf'])) {
                 <h5>Mais que uma cantina — um espaço de sabores, sorrisos e convivência.</h5>
               </div>
               <div class="description-carousel">
-                <p>Aqui, cada refeição é preparada com carinho e ingredientes selecionados para garantir saúde, energia e bem-estar aos nossos estudantes.</p>
+                <p>Aqui, cada refeição é preparada com carinho e ingredientes selecionados para garantir saúde, energia
+                  e bem-estar aos nossos estudantes.</p>
               </div>
               <div class="btn-carousel">
                 <button class="btn-3-carousel">
@@ -345,11 +387,13 @@ if (isset($_SESSION['cpf'])) {
           </div>
         </div>
         <div class="carousel-controls-bottom">
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Anterior</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Próximo</span>
           </button>
@@ -374,7 +418,8 @@ if (isset($_SESSION['cpf'])) {
             </h1>
           </div>
           <div class="description-cards-info">
-            <p>Utilizamos apenas ingredientes frescos e de qualidade, selecionados diariamente para garantir o melhor sabor e nutrição.</p>
+            <p>Utilizamos apenas ingredientes frescos e de qualidade, selecionados diariamente para garantir o melhor
+              sabor e nutrição.</p>
           </div>
         </div>
         <div class="cards-info">
@@ -387,7 +432,8 @@ if (isset($_SESSION['cpf'])) {
             </h1>
           </div>
           <div class="description-cards-info">
-            <p>Cada refeição é preparada com dedicação pela nossa equipe, pensando na saúde e bem-estar dos nossos estudantes.</p>
+            <p>Cada refeição é preparada com dedicação pela nossa equipe, pensando na saúde e bem-estar dos nossos
+              estudantes.</p>
           </div>
         </div>
         <div class="cards-info">
@@ -400,7 +446,8 @@ if (isset($_SESSION['cpf'])) {
             </h1>
           </div>
           <div class="description-cards-info">
-            <p>Seguimos rigorosos padrões de higiene e qualidade, garantindo refeições seguras e nutritivas todos os dias.</p>
+            <p>Seguimos rigorosos padrões de higiene e qualidade, garantindo refeições seguras e nutritivas todos os
+              dias.</p>
           </div>
         </div>
       </div>
@@ -416,8 +463,7 @@ if (isset($_SESSION['cpf'])) {
       <div class="content-mais-pedidos">
         <button class="botao-left-mp">
           <h1>
-            <
-              </h1>
+            < </h1>
         </button>
         <div class="carrosel-mais-pedidos">
           <div class="carrousel-track-mais-pedidos">
@@ -442,7 +488,8 @@ if (isset($_SESSION['cpf'])) {
       <div class="title-cardapio">
         <h1>Conheça nosso cardápio</h1>
         <p>
-          Experimente nossa variedade de pratos deliciosos e saudáveis, feitos com ingredientes frescos e selecionados para você.
+          Experimente nossa variedade de pratos deliciosos e saudáveis, feitos com ingredientes frescos e selecionados
+          para você.
         </p>
       </div>
 
@@ -464,7 +511,7 @@ if (isset($_SESSION['cpf'])) {
           $result = mysqli_query($con, $query);
           if ($result && mysqli_num_rows($result) > 0) {
             foreach ($result as $row) {
-          ?>
+              ?>
               <div class="cards-salgados">
                 <div class="cards-img">
                   <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
@@ -477,7 +524,7 @@ if (isset($_SESSION['cpf'])) {
                   <button><i class="fa-solid fa-plus"></i></button>
                 </div>
               </div>
-          <?php
+              <?php
             }
           }
           ?><!--
@@ -514,7 +561,7 @@ if (isset($_SESSION['cpf'])) {
           $result = mysqli_query($con, $query);
           if ($result && mysqli_num_rows($result) > 0) {
             foreach ($result as $row) {
-          ?>
+              ?>
               <div class="cards-salgados">
                 <div class="cards-img">
                   <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
@@ -527,7 +574,7 @@ if (isset($_SESSION['cpf'])) {
                   <button><i class="fa-solid fa-plus"></i></button>
                 </div>
               </div>
-          <?php
+              <?php
             }
           }
           ?>
@@ -539,7 +586,7 @@ if (isset($_SESSION['cpf'])) {
           $result = mysqli_query($con, $query);
           if ($result && mysqli_num_rows($result) > 0) {
             foreach ($result as $row) {
-          ?>
+              ?>
               <div class="cards-salgados">
                 <div class="cards-img">
                   <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
@@ -552,7 +599,7 @@ if (isset($_SESSION['cpf'])) {
                   <button><i class="fa-solid fa-plus"></i></button>
                 </div>
               </div>
-          <?php
+              <?php
             }
           }
           ?>
@@ -564,7 +611,7 @@ if (isset($_SESSION['cpf'])) {
           $result = mysqli_query($con, $query);
           if ($result && mysqli_num_rows($result) > 0) {
             foreach ($result as $row) {
-          ?>
+              ?>
               <div class="cards-salgados">
                 <div class="cards-img">
                   <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
@@ -577,7 +624,7 @@ if (isset($_SESSION['cpf'])) {
                   <button><i class="fa-solid fa-plus"></i></button>
                 </div>
               </div>
-          <?php
+              <?php
             }
           }
           ?>
@@ -659,7 +706,8 @@ if (isset($_SESSION['cpf'])) {
           </div>
           <div class="content-left-btn">
             <button>
-              <a href="/cantinarepositorio/subpages/termos.php" style="color: inherit; text-decoration: none;">Saiba Mais</a>
+              <a href="/cantinarepositorio/subpages/termos.php" style="color: inherit; text-decoration: none;">Saiba
+                Mais</a>
             </button>
           </div>
         </div>
@@ -667,7 +715,11 @@ if (isset($_SESSION['cpf'])) {
         <div class="content-right">
           <div class="movie" id="video-container">
             <div class="ratio ratio-16x9">
-              <iframe style="border-radius: 2vh;" width="560" height="315" src="https://www.youtube.com/embed/O1iBfvighSo?si=v8wQ_udFzU5NITMl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe style="border-radius: 2vh;" width="560" height="315"
+                src="https://www.youtube.com/embed/O1iBfvighSo?si=v8wQ_udFzU5NITMl" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>
         </div>
@@ -683,7 +735,8 @@ if (isset($_SESSION['cpf'])) {
       <h1>
         Nossas Avaliações
       </h1>
-      <p>A opinião da nossa comunidade escolar é o que mais importa para nós. Veja o que estudantes, professores e funcionários têm a dizer.</p>
+      <p>A opinião da nossa comunidade escolar é o que mais importa para nós. Veja o que estudantes, professores e
+        funcionários têm a dizer.</p>
     </div>
     <div class="container-avaliacoes">
       <div class="content-avaliacoes">
@@ -751,7 +804,8 @@ if (isset($_SESSION['cpf'])) {
               <div class="cards-avaliacao-bottom">
                 <div class="description-avaliacao">
                   <p>
-                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A equipe é super simpática e o atendimento é rápido."
+                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A
+                    equipe é super simpática e o atendimento é rápido."
                   </p>
                 </div>
               </div>
@@ -785,7 +839,8 @@ if (isset($_SESSION['cpf'])) {
               <div class="cards-avaliacao-bottom">
                 <div class="description-avaliacao">
                   <p>
-                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A equipe é super simpática e o atendimento é rápido."
+                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A
+                    equipe é super simpática e o atendimento é rápido."
                   </p>
                 </div>
               </div>
@@ -819,7 +874,8 @@ if (isset($_SESSION['cpf'])) {
               <div class="cards-avaliacao-bottom">
                 <div class="description-avaliacao">
                   <p>
-                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A equipe é super simpática e o atendimento é rápido."
+                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A
+                    equipe é super simpática e o atendimento é rápido."
                   </p>
                 </div>
               </div>
@@ -855,7 +911,8 @@ if (isset($_SESSION['cpf'])) {
               <div class="cards-avaliacao-bottom">
                 <div class="description-avaliacao">
                   <p>
-                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A equipe é super simpática e o atendimento é rápido."
+                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A
+                    equipe é super simpática e o atendimento é rápido."
                   </p>
                 </div>
               </div>
@@ -889,7 +946,8 @@ if (isset($_SESSION['cpf'])) {
               <div class="cards-avaliacao-bottom">
                 <div class="description-avaliacao">
                   <p>
-                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A equipe é super simpática e o atendimento é rápido."
+                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A
+                    equipe é super simpática e o atendimento é rápido."
                   </p>
                 </div>
               </div>
@@ -923,7 +981,8 @@ if (isset($_SESSION['cpf'])) {
               <div class="cards-avaliacao-bottom">
                 <div class="description-avaliacao">
                   <p>
-                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A equipe é super simpática e o atendimento é rápido."
+                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A
+                    equipe é super simpática e o atendimento é rápido."
                   </p>
                 </div>
               </div>
@@ -951,7 +1010,8 @@ if (isset($_SESSION['cpf'])) {
               <img src="./assets/img/logo-footer.png" alt="">
             </div>
             <div class="info-cantina-description">
-              <p>Alimentando conhecimento e criando memórias através de sabores únicos há mais de 10 anos na nossa comunidade escolar.</p>
+              <p>Alimentando conhecimento e criando memórias através de sabores únicos há mais de 10 anos na nossa
+                comunidade escolar.</p>
             </div>
             <div class="info-icon">
               <i class="fa-brands fa-whatsapp"></i>
@@ -977,7 +1037,7 @@ if (isset($_SESSION['cpf'])) {
                 </li>
                 <li>
                   <h6>
-                    <a href="#Sobre-Nos">Sobre Nós</a>
+                    <a href="#Sobre_Nos">Sobre Nós</a>
                   </h6>
                 </li>
                 <li>
@@ -996,7 +1056,8 @@ if (isset($_SESSION['cpf'])) {
               <ul>
                 <li>
                   <h6>
-                    <a href="https://www.bing.com/search?q=maps%20Av%20Cruzeiro%20Do%20Sul%2C%202630%20-%20Carandiru&qs=n&form=QBRE&sp=-1&lq=0&pq=maps%20av%20cruzeiro%20do%20sul%2C%202630%20-%20carandiru&sc=0-41&sk=&cvid=08A936946DAF43F9B1FC74F782A823B6">
+                    <a
+                      href="https://www.bing.com/search?q=maps%20Av%20Cruzeiro%20Do%20Sul%2C%202630%20-%20Carandiru&qs=n&form=QBRE&sp=-1&lq=0&pq=maps%20av%20cruzeiro%20do%20sul%2C%202630%20-%20carandiru&sc=0-41&sk=&cvid=08A936946DAF43F9B1FC74F782A823B6">
                       <i class="fa-solid fa-location-dot"></i>
                       Av Cruzeiro Do Sul, 2630 - Carandiru.
                     </a>
@@ -1023,13 +1084,16 @@ if (isset($_SESSION['cpf'])) {
             <div class="footer-links">
               <ul>
                 <li>
-                  <h6 style="width: 230%; display:flex; gap: 1vh;"><i class="fa-solid fa-clock"></i> Manha: 10:00 - 10:20.</h6>
+                  <h6 style="width: 230%; display:flex; gap: 1vh;"><i class="fa-solid fa-clock"></i> Manha: 10:00 -
+                    10:20.</h6>
                 </li>
                 <li>
-                  <h6 style="width: 230%; display:flex; gap: 1vh;"><i class="fa-solid fa-clock"></i> Tarde: 16:00 - 16:20.</h6>
+                  <h6 style="width: 230%; display:flex; gap: 1vh;"><i class="fa-solid fa-clock"></i> Tarde: 16:00 -
+                    16:20.</h6>
                 </li>
                 <li>
-                  <h6 style="width: 235%; display:flex; gap: 1vh; padding-bottom:2vh;"><i class="fa-solid fa-clock"></i> Noite: 20:00 - 20:20.</h6>
+                  <h6 style="width: 235%; display:flex; gap: 1vh; padding-bottom:2vh;"><i class="fa-solid fa-clock"></i>
+                    Noite: 20:00 - 20:20.</h6>
                 </li>
               </ul>
             </div>

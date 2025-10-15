@@ -5,11 +5,10 @@ session_start();
 
 
 
-try{
   if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
       if(isset($_POST['action'])){
         if($_POST['action'] === 'cadastrar'){
-          // código de login
+          // código de cadastro
           $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
           $cpf = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_NUMBER_INT);
           $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
@@ -18,43 +17,53 @@ try{
 
           $hash = password_hash($senha, PASSWORD_DEFAULT);
 
-             $sql = "INSERT INTO cliente(nome, cpf, email, turma, senha) VALUES ('$nome', '$cpf', '$email', '$turma', '$hash')";
-            mysqli_query($con, $sql);
+          $sql = "INSERT INTO cliente(nome, cpf, email, turma, senha) VALUES ('$nome', '$cpf', '$email', '$turma', '$hash')";
+          if (!mysqli_query($con, $sql)) {
+            echo "<script> alert('Erro em inserir seus dados! CPF já cadastrado.')</script>";
+          } else {
             echo "<script> alert('Seus dados foram inseridos com sucesso!')</script>";
-        }
+          }
       
+          }
           elseif($_POST["action"] === "entrar"){
-           // código de cadastro
+           // código de login
           $cpf = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_NUMBER_INT);
           $senha = $_POST['senha'];
 
-            $query = "SELECT * FROM cliente WHERE cpf = '$cpf'";
-            $result = mysqli_query($con, $query);
-    
-            if(mysqli_num_rows($result) > 0){
-              $user_data = mysqli_fetch_assoc($result);
-        
-              if(password_verify($senha, $user_data['senha'])) {
+            // Tenta login como cliente
+            $query_cliente = "SELECT * FROM cliente WHERE cpf = '$cpf'";
+            $result_cliente = mysqli_query($con, $query_cliente);
+
+          if (mysqli_num_rows($result_cliente) > 0) {
+            $user_data = mysqli_fetch_assoc($result_cliente);
+            if (password_verify($senha, $user_data['senha'])) {
             $_SESSION['cpf'] = $user_data['cpf'];
             header("Location: /cantinarepositorio/main/index.php");
-            exit;
-        }
-        else {
-            echo "<script> alert('CPF ou Senha invalidos!')</script>";
-        }
-        
+             exit;
     }
-    else {
-      echo "<script> alert('CPF ou Senha invalidos!')</script>";
-    }
-      }
-    }
-}   
-}catch(mysqli_sql_exception){
-    echo "<script> alert('Erro em inserir seus dados! CPF já cadastrado.')</script>";
-
 }
 
+// Tenta login como administrador
+$query_admin = "SELECT * FROM administradores WHERE cpf = '$cpf'";
+$result_admin = mysqli_query($con, $query_admin);
+
+if (mysqli_num_rows($result_admin) > 0) {
+    $user_data = mysqli_fetch_assoc($result_admin);
+    if (password_verify($senha, $user_data['senha'])) {
+      
+        $_SESSION['cpf'] = $user_data['cpf'];
+        $_SESSION['admin'] = true;
+        header("Location: /cantinarepositorio/main/index.php");
+        exit;
+    }
+}
+
+// Se chegou aqui, login falhou
+echo "<script> alert('CPF ou Senha inválidos!')</script>";
+        }
+    }
+   
+}
 
 
 if(isset($_SESSION['cpf'])){
@@ -63,6 +72,12 @@ if(isset($_SESSION['cpf'])){
   $result = mysqli_query($con, $query);
 
   if($result && mysqli_num_rows($result) > 0){
+    header("Location: /cantinarepositorio/main/index.php");
+    exit;
+  }
+  $query_admin = "SELECT nome, cpf FROM administradores WHERE cpf = '$cpf'";
+  $result_admin = mysqli_query($con, $query_admin);
+  if($result_admin && mysqli_num_rows($result_admin) > 0){
     header("Location: /cantinarepositorio/main/index.php");
     exit;
   }

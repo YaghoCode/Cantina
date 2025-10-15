@@ -5,21 +5,25 @@ session_start();
 
 if (isset($_SESSION['cpf'])) {
     $cpf = $_SESSION['cpf'];
-    $query = "SELECT nome, admin, cpf, turma, email FROM cliente WHERE cpf = '$cpf'";
-    $result = mysqli_query($con, $query);
-    $user_data = mysqli_fetch_assoc($result);
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        if ($user_data['admin'] != 1) {
-            header("Location: ./cardapio.php");
-            exit;
-        }
+    // Tenta buscar como administrador
+    $query_admin = "SELECT nome, cpf, email, adm FROM administradores WHERE cpf = '$cpf'";
+    $result_admin = mysqli_query($con, $query_admin);
+
+    if ($result_admin && mysqli_num_rows($result_admin) > 0) {
+        $user_data = mysqli_fetch_assoc($result_admin);
+        // Permite acesso
     } else {
-        header("Location: ./login.php");
+        // Não é admin, redireciona
+        header("Location: ./cardapio.php");
         exit;
     }
+} else {
+    header("Location: ./login.php");
+    exit;
 }
 
+// Estatísticas do estoque
 
 $query = "SELECT * from estoque";
 $query_run = mysqli_query($con, $query);
@@ -123,105 +127,115 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="overlay-pop-up-user" id="overlay-pop-up-user">
 
     </div>
-        <div class="pop-up-user" id="pop-up-user">
-            <button class="btn-fechar-pop-up-user" id="btn-close-user-nav">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="content-pop-user">
-                <div class="content-top-user">
-                    <div class="content-top-left-user">
-                        <div class="content-top-left-user-img">
-                            <img src="./assets/img/CocaCola.png" alt="">
-                        </div>
-                    </div>
-                    <div class="content-top-right-user">
-                        <div class="content-top-right-user-text">
-                            <div class="content-top-right-user-text-name">
-                                <h3>
-                                    <?php echo $user_data['nome'] ?>
-                                </h3>
-                            </div>
-                            <div class="content-top-right-user-text-email">
-                                <h6>
-                                    <?php echo $user_data['email'] ?>
-                                </h6>
-                            </div>
-                        </div>
+    <div class="pop-up-user" id="pop-up-user">
+        <button class="btn-fechar-pop-up-user" id="btn-close-user-nav">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="content-pop-user">
+            <div class="content-top-user">
+                <div class="content-top-left-user">
+                    <div class="content-top-left-user-img">
+                        <img src="./assets/img/CocaCola.png" alt="">
                     </div>
                 </div>
-                <div class="content-mid-user">
-                    <div class="content-mid-user-row">
-                        <div class="content-mid-user-row-left">
-                            <div class="content-mid-user-row-left-icon">
-                                <i class="fa-regular fa-credit-card"></i>
-                            </div>
+                <div class="content-top-right-user">
+                    <div class="content-top-right-user-text">
+                        <div class="content-top-right-user-text-name">
+                            <h3>
+                                <?php echo $user_data['nome'] ?>
+                            </h3>
                         </div>
-                        <div class="content-mid-user-row-right">
-                            <div class="content-mid-user-row-right-text">
-                                <h1>
-                                    CPF:
-                                </h1>
-                                <h3>
-                                    <?php echo $user_data['cpf'] ?>
-                                </h3>
-                            </div>
+                        <div class="content-top-right-user-text-email">
+                            <h6>
+                                <?php
+                                echo $user_data['email'] ?>
+                            </h6>
                         </div>
-                    </div>
-                    <div class="content-mid-user-row">
-                        <div class="content-mid-user-row-left">
-                            <div class="content-mid-user-row-left-icon">
-                                <i class="fa-solid fa-shield-halved"></i>
-                            </div>
-                        </div>
-                        <div class="content-mid-user-row-right">
-                            <div class="content-mid-user-row-right-text">
-                                <h1>
-                                    Tipo de conta:
-                                </h1>
-                                <h3>
-                                    Administrador Principal
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="content-bottom-user">
-                    <div class="content-bottom-user-row">
-                        <button class="btn-logout-pop-up">
-                            <a href="/cantinarepositorio/subpages/logout.php">
-                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                                Logout
-                            </a>
-                        </button>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="content-mid-user">
+                <div class="content-mid-user-row">
+                    <div class="content-mid-user-row-left">
+                        <div class="content-mid-user-row-left-icon">
+                            <i class="fa-regular fa-credit-card"></i>
+                        </div>
+                    </div>
+                    <div class="content-mid-user-row-right">
+                        <div class="content-mid-user-row-right-text">
+                            <h1>
+                                CPF:
+                            </h1>
+                            <h3>
+                                <?php
 
-        <!--Aside-->
-        <div class="aside-options">
-            <div class="aside-top">
-                <div class="btn-close-aside">
-                    <i class="fa-solid fa-bars"></i>
+                                echo $user_data['cpf']; ?>
+
+                            </h3>
+                        </div>
+                    </div>
                 </div>
-                <div class="aside-top-logo">
-                    <img src="/cantinarepositorio/main/assets/img/logo-footer.png" alt="">
+                <div class="content-mid-user-row">
+                    <div class="content-mid-user-row-left">
+                        <div class="content-mid-user-row-left-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                    </div>
+                    <div class="content-mid-user-row-right">
+                        <div class="content-mid-user-row-right-text">
+                            <h1>
+                                Tipo de conta:
+                            </h1>
+                            <h3>
+                                <?php
+                                if ($user_data['adm'] == '1') {
+                                    echo 'Administrador Principal';
+                                } else {
+                                    echo 'Funcionario ';
+                                } ?>
+                            </h3>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="aside-bottom">
-                <div class="aside-bottom-title">
-                    <h6>Menu principal</h6>
-                </div>
-                <div class="aside-lista">
-                    <ul>
-                        <li id="btn-estoque"><i class="fa-solid fa-box-open"></i> Estoque</li>
-                        <li id="btn-clientes"><i class="fa-solid fa-users"></i> Clientes</li>
-                        <li id="btn-pedidos"><i class="fa-solid fa-clipboard-list"></i> Pedidos</li>
-                        <li id="btn-configuracoes"><i class="fa-solid fa-gear"></i> Configurações</li>
-                    </ul>
+            <div class="content-bottom-user">
+                <div class="content-bottom-user-row">
+                    <button class="btn-logout-pop-up">
+                        <a href="/cantinarepositorio/subpages/logout.php">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            Logout
+                        </a>
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!--Aside-->
+    <div class="aside-options">
+        <div class="aside-top">
+            <div class="btn-close-aside">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="aside-top-logo">
+                <img src="/cantinarepositorio/main/assets/img/logo-footer.png" alt="">
+            </div>
+        </div>
+        <div class="aside-bottom">
+            <div class="aside-bottom-title">
+                <h6>Menu principal</h6>
+            </div>
+            <div class="aside-lista">
+                <ul>
+                    <li id="btn-estoque"><i class="fa-solid fa-box-open"></i> Estoque</li>
+                    <li id="btn-clientes"><i class="fa-solid fa-users"></i> Clientes</li>
+                    <li id="btn-pedidos"><i class="fa-solid fa-clipboard-list"></i> Pedidos</li>
+                    <li id="btn-configuracoes" <?php if ($user_data['adm'] != 1) { echo 'style="display:none;"'; } ?>;"><i class="fa-solid fa-gear"></i> Configurações</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
     </div>
 
     <main>
@@ -238,25 +252,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                     <!--Form de cadastrar produto-->
                     <div class="modal-form-produto">
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-novo-produto" enctype="multipart/form-data">
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"
+                            class="form-novo-produto" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="titulo">Título do Produto:</label>
-                                <input type="text" id="titulo" name="nome-produto" class="form-control" placeholder="Digite o título do produto" required>
+                                <input type="text" id="titulo" name="nome-produto" class="form-control"
+                                    placeholder="Digite o título do produto" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="descricao">Descrição do Produto:</label>
-                                <input type="text" id="descricao" name="descricao-produto" class="form-control" placeholder="Digite a descrição do produto" required>
+                                <input type="text" id="descricao" name="descricao-produto" class="form-control"
+                                    placeholder="Digite a descrição do produto" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="preco">Preço:</label>
-                                <input type="number" id="preco" name="preco-produto" class="form-control" placeholder="Digite o preço do produto" step="0.01" min="0" required>
+                                <input type="number" id="preco" name="preco-produto" class="form-control"
+                                    placeholder="Digite o preço do produto" step="0.01" min="0" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="quantidade">Quantidade:</label>
-                                <input type="number" id="quantidade" name="quantidade-produto" class="form-control" placeholder="Digite a quantidade disponível" min="0" required>
+                                <input type="number" id="quantidade" name="quantidade-produto" class="form-control"
+                                    placeholder="Digite a quantidade disponível" min="0" required>
                             </div>
 
                             <div class="form-group">
@@ -271,7 +290,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" name="cadastrar-produto" class="btn btn-primary">Criar Produto</button>
+                                <button type="submit" name="cadastrar-produto" class="btn btn-primary">Criar
+                                    Produto</button>
                             </div>
                     </div>
                 </div>
@@ -286,8 +306,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <input type="file" id="imagem-produto" name="imagem-produto" accept="image/*"
                             style="display: none;">
                         <div class="preview-imagem">
-                            <button id="btn-remove-preview" class="btn-remove-preview"
-                                style="display: none;">
+                            <button id="btn-remove-preview" class="btn-remove-preview" style="display: none;">
                                 <h1>&times;</h1>
                             </button>
                             <img id="preview" src="#" alt="Pré-visualização da imagem" style="display: none;">
@@ -357,19 +376,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
                 <div class="content-estoque-bottom">
                     <div class="estoque-options">
-                        <button id="dropdownButton" class="btn btn-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button id="dropdownButton" class="btn btn-secondary dropdown-toggle d-flex align-items-center"
+                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-filter me-2" aria-hidden="true"></i>
                             <span id="dropdownLabel">Todos os Produtos</span>
                         </button>
 
                         <ul class="dropdown-menu" id="dropdownMenu">
-                            <li><a class="dropdown-item active" id="btn-all-produtos" href="#" data-value="all">Todos os Produtos</a></li>
-                            <li><a class="dropdown-item" id="btn-low-produtos" href="#" data-value="low">Estoque Baixo</a></li>
-                            <li><a class="dropdown-item" id="btn-salgados-produtos" href="#" data-value="snacks">Salgados</a></li>
-                            <li><a class="dropdown-item" id="btn-folhados-produtos" href="#" data-value="snacks2">Folhados</a></li>
-                            <li><a class="dropdown-item" id="btn-doces-produtos" href="#" data-value="sweets">Doces</a></li>
-                            <li><a class="dropdown-item" id="btn-bebidas-produtos" href="#" data-value="drinks">Bebidas</a></li>
-                            <li><a class="dropdown-item" id="btn-outros-produtos" href="#" data-value="others">Outros</a></li>
+                            <li><a class="dropdown-item active" id="btn-all-produtos" href="#" data-value="all">Todos os
+                                    Produtos</a></li>
+                            <li><a class="dropdown-item" id="btn-low-produtos" href="#" data-value="low">Estoque
+                                    Baixo</a></li>
+                            <li><a class="dropdown-item" id="btn-salgados-produtos" href="#"
+                                    data-value="snacks">Salgados</a></li>
+                            <li><a class="dropdown-item" id="btn-folhados-produtos" href="#"
+                                    data-value="snacks2">Folhados</a></li>
+                            <li><a class="dropdown-item" id="btn-doces-produtos" href="#" data-value="sweets">Doces</a>
+                            </li>
+                            <li><a class="dropdown-item" id="btn-bebidas-produtos" href="#"
+                                    data-value="drinks">Bebidas</a></li>
+                            <li><a class="dropdown-item" id="btn-outros-produtos" href="#"
+                                    data-value="others">Outros</a></li>
                         </ul>
                     </div>
                     <div class="table-estoque-all" id="table-all">
@@ -393,7 +420,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -406,7 +433,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <h6><?php echo $item['Quantidade']; ?></h6>
                                             </td> <!--Quantidade no Estoque-->
                                             <td>
-                                                <h6>R$: <?php echo $item['preco']; ?></h6>
+                                                <h6>R$ <?php echo $item['preco']; ?></h6>
                                             </td> <!--Preço Item-->
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
@@ -424,7 +451,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -449,7 +476,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -462,7 +489,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <h6><?php echo $item['Quantidade']; ?></h6>
                                             </td> <!--Quantidade no Estoque-->
                                             <td>
-                                                <h6>R$: <?php echo $item['preco']; ?></h6>
+                                                <h6>R$ <?php echo $item['preco']; ?></h6>
                                             </td> <!--Preço Item-->
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
@@ -480,7 +507,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -505,7 +532,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -518,7 +545,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <h6><?php echo $item['Quantidade']; ?></h6>
                                             </td> <!--Quantidade no Estoque-->
                                             <td>
-                                                <h6>R$: <?php echo $item['preco']; ?></h6>
+                                                <h6>R$ <?php echo $item['preco']; ?></h6>
                                             </td> <!--Preço Item-->
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
@@ -536,7 +563,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -562,7 +589,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -575,7 +602,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <h6><?php echo $item['Quantidade']; ?></h6>
                                             </td> <!--Quantidade no Estoque-->
                                             <td>
-                                                <h6>R$: <?php echo $item['preco']; ?></h6>
+                                                <h6>R$ <?php echo $item['preco']; ?></h6>
                                             </td> <!--Preço Item-->
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
@@ -593,7 +620,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -619,7 +646,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -632,7 +659,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <h6><?php echo $item['Quantidade']; ?></h6>
                                             </td> <!--Quantidade no Estoque-->
                                             <td>
-                                                <h6>R$: <?php echo $item['preco']; ?></h6>
+                                                <h6>R$ <?php echo $item['preco']; ?></h6>
                                             </td> <!--Preço Item-->
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
@@ -650,7 +677,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -675,7 +702,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -688,7 +715,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <h6><?php echo $item['Quantidade']; ?></h6>
                                             </td> <!--Quantidade no Estoque-->
                                             <td>
-                                                <h6>R$: <?php echo $item['preco']; ?></h6>
+                                                <h6>R$ <?php echo $item['preco']; ?></h6>
                                             </td> <!--Preço Item-->
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
@@ -706,7 +733,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -732,7 +759,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -745,7 +772,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <h6><?php echo $item['Quantidade']; ?></h6>
                                             </td> <!--Quantidade no Estoque-->
                                             <td>
-                                                <h6>R$: <?php echo $item['preco']; ?></h6>
+                                                <h6>R$ <?php echo $item['preco']; ?></h6>
                                             </td> <!--Preço Item-->
                                             <td>
                                                 <h6><?php echo $item['valor_total']; ?></h6>
@@ -763,7 +790,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                                 </tr>
                             </tbody>
@@ -785,7 +812,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             foreach ($query_run as $item) {
                 $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
                 $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-        ?>
+                ?>
                 <div class="modal-overlay-estoque" id="modal-<?= $item['id'] ?>">
                     <div class="modal-estoque-visualizar-item" id="modal-visualizar-item">
                         <div class="modal-estoque-top">
@@ -793,7 +820,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 <h1>Detalhes do Produto:</h1>
                             </div>
                             <div class="modal-estoque-btn-close">
-                                <button class="btn-close-modal-estoque" id="btn-close-modal-estoque"><i class="fa-solid fa-xmark"></i></button>
+                                <button class="btn-close-modal-estoque" id="btn-close-modal-estoque"><i
+                                        class="fa-solid fa-xmark"></i></button>
                             </div>
                         </div>
                         <div class="modal-estoque-mid">
@@ -856,7 +884,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
 
-        <?php }
+            <?php }
         } ?>
 
         <script>
@@ -901,12 +929,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $query_run = mysqli_query($con, $query);
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $item) {
-        ?>
+                ?>
 
                 <div class="modal-estoque-deletar-item" id="modal-deletar-item-<?= $item['id'] ?>" data-id="<?= $item['id'] ?>">
                     <div class="modal-deletar-content-top">
                         <h1>Tem certeza?</h1>
-                        <p>Esta ação não pode ser desfeita. O produto "<?php echo $item['Nome'] ?>" será permanentemente removido do estoque.</p>
+                        <p>Esta ação não pode ser desfeita. O produto "<?php echo $item['Nome'] ?>" será permanentemente
+                            removido do estoque.</p>
                     </div>
                     <div class="modal-deletar-content-bottom">
                         <button class="activeButtonCancelar" id="btn-cancelar-deletar-item">
@@ -918,7 +947,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
 
-        <?php }
+            <?php }
         } ?>
 
         <script>
@@ -959,12 +988,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     const produtoId = button.getAttribute('data-id');
                     console.log('ID enviado:', produtoId);
                     fetch('/cantinarepositorio/subpages/delete_item.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            body: 'id=' + encodeURIComponent(produtoId)
-                        })
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'id=' + encodeURIComponent(produtoId)
+                    })
                         .then(response => response.json())
                         .then(data => {
                             if (data.success) {
@@ -989,13 +1018,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             foreach ($query_run as $item) {
                 $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
                 $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-        ?>
+                ?>
                 <!-- MODAL EDITAR ITEM -->
                 <div class="overlay-editar-produto" id="overlayEditar-<?= $item['id'] ?>">
                     <div class="modal-editar-produto" id="modalEditar-<?= $item['id'] ?>">
-                        <button type="button" class="btn-fechar-editar" data-id="<?= $item['id'] ?>" title="Fechar modal"><i class="fa-solid fa-xmark"></i></button>
+                        <button type="button" class="btn-fechar-editar" data-id="<?= $item['id'] ?>" title="Fechar modal"><i
+                                class="fa-solid fa-xmark"></i></button>
                         <h2 class="editar-produto-titulo">Editar Produto:</h2>
-                        <form id="formEditarProduto-<?= $item['id'] ?>" method="POST" action="atualizar_item.php" enctype="multipart/form-data">
+                        <form id="formEditarProduto-<?= $item['id'] ?>" method="POST" action="atualizar_item.php"
+                            enctype="multipart/form-data">
                             <input type="hidden" name="id" value="<?= $item['id'] ?>" />
 
                             <div class="editar-produto-imagem-box">
@@ -1014,17 +1045,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </div>
 
                             <!-- Espaço do upload (controlado pelo JS, inicia oculto) -->
-                            <div class="editar-produto-upload" id="editarProdutoUpload-<?= $item['id'] ?>" style="display: none;">
+                            <div class="editar-produto-upload" id="editarProdutoUpload-<?= $item['id'] ?>"
+                                style="display: none;">
                                 <div class="upload-container">
                                     <label for="inputNovaImagem-<?= $item['id'] ?>" class="upload-label">
                                         <i class="fa-solid fa-upload"></i> Escolher Imagem
                                     </label>
-                                    <span class="upload-nome" id="uploadNome-<?= $item['id'] ?>">Nenhum arquivo selecionado</span>
-                                    <input type="file" id="inputNovaImagem-<?= $item['id'] ?>" name="nova_imagem" accept="image/*">
+                                    <span class="upload-nome" id="uploadNome-<?= $item['id'] ?>">Nenhum arquivo
+                                        selecionado</span>
+                                    <input type="file" id="inputNovaImagem-<?= $item['id'] ?>" name="nova_imagem"
+                                        accept="image/*">
                                 </div>
 
-                                <div class="" id="previewContainer-<?= $item['id'] ?>" style="margin-top:10px; display:none;justify-content:center;align-items:center;">
-                                    <img id="editarProdutoPreviewImg-<?= $item['id'] ?>" src="" alt="Prévia da nova imagem" style="width:25%; border-radius:8px; object-fit:cover;margin-top:1vh;">
+                                <div class="" id="previewContainer-<?= $item['id'] ?>"
+                                    style="margin-top:10px; display:none;justify-content:center;align-items:center;">
+                                    <img id="editarProdutoPreviewImg-<?= $item['id'] ?>" src="" alt="Prévia da nova imagem"
+                                        style="width:25%; border-radius:8px; object-fit:cover;margin-top:1vh;">
                                 </div>
                             </div>
 
@@ -1036,11 +1072,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 <div class="input-grupo">
                                     <label>Categoria *</label>
                                     <select name="categoria" required>
-                                        <option value="Salgados" <?= $item['Categoria'] == "Salgados" ? 'selected' : '' ?>>Salgados</option>
-                                        <option value="Folhados" <?= $item['Categoria'] == "Folhados" ? 'selected' : '' ?>>Folhados</option>
+                                        <option value="Salgados" <?= $item['Categoria'] == "Salgados" ? 'selected' : '' ?>>Salgados
+                                        </option>
+                                        <option value="Folhados" <?= $item['Categoria'] == "Folhados" ? 'selected' : '' ?>>Folhados
+                                        </option>
                                         <option value="Doces" <?= $item['Categoria'] == "Doces" ? 'selected' : '' ?>>Doces</option>
-                                        <option value="Bebidas" <?= $item['Categoria'] == "Bebidas" ? 'selected' : '' ?>>Bebidas</option>
-                                        <option value="Outros" <?= $item['Categoria'] == "Outros" ? 'selected' : '' ?>>Outros</option>
+                                        <option value="Bebidas" <?= $item['Categoria'] == "Bebidas" ? 'selected' : '' ?>>Bebidas
+                                        </option>
+                                        <option value="Outros" <?= $item['Categoria'] == "Outros" ? 'selected' : '' ?>>Outros
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -1053,21 +1093,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <div class="editar-produto-inputs-duplo">
                                 <div class="input-grupo">
                                     <label>Estoque *</label>
-                                    <input type="number" name="quantidade" min="0" value="<?= $item['Quantidade'] ?>" required />
+                                    <input type="number" name="quantidade" min="0" value="<?= $item['Quantidade'] ?>"
+                                        required />
                                 </div>
                                 <div class="input-grupo">
                                     <label>Preço *</label>
-                                    <input type="number" step="0.01" name="preco" min="0.1" value="<?= $item['preco'] ?>" required />
+                                    <input type="number" step="0.01" name="preco" min="0.1" value="<?= $item['preco'] ?>"
+                                        required />
                                 </div>
                             </div>
                             <div class="input-grupo-btn">
                                 <button type="button" class="btn-cancelar-editar" data-id="<?= $item['id'] ?>">Cancelar</button>
-                                <button type="submit" class="btn-salvar-editar"><i class="fa-solid fa-floppy-disk"></i> Salvar Alterações</button>
+                                <button type="submit" class="btn-salvar-editar"><i class="fa-solid fa-floppy-disk"></i> Salvar
+                                    Alterações</button>
                             </div>
                         </form>
                     </div>
                 </div>
-        <?php
+                <?php
             }
         }
         ?>
@@ -1194,12 +1237,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 </thead>
                                 <?php
 
-                                $query = "SELECT * FROM cliente WHERE admin = 1";
+                                $query = "SELECT * FROM administradores";
                                 $query_run = mysqli_query($con, $query);
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $usuario) {
 
-                                ?>
+                                        ?>
                                         <tr>
                                             <td>
                                                 <h6><?php echo $usuario['nome'] ?></h6>
@@ -1211,11 +1254,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <h6><?php echo $usuario['cpf'] ?></h6>
                                             </td>
                                             <td>
-                                                <h6><?php if ($usuario['adminplus'] == 1) {
-                                                        echo 'Administrador Principal';
-                                                    } else {
-                                                        echo 'Adminstrador';
-                                                    } ?></h6>
+                                                <h6><?php if ($usuario['adm'] == 1) {
+                                                    echo 'Administrador Principal';
+                                                } else {
+                                                    echo 'Adminstrador';
+                                                } ?></h6>
                                             </td>
                                             <td>
                                                 <button class="btn-editar-senha-admin" data-id="<?= $usuario['cpf'] ?>">
@@ -1229,7 +1272,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 </button>
                                             </td>
                                         </tr>
-                                <?php
+                                        <?php
                                     }
                                 } ?>
                                 </tbody>
@@ -1250,21 +1293,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 <div class="form-criar-adm-row">
                                     <div class="form-criar-adm-group">
                                         <label for="nome">Nome:</label>
-                                        <input type="text" id="nome_criar_admin" placeholder="Nome do administrador" required>
+                                        <input type="text" id="nome_criar_admin" placeholder="Nome do administrador"
+                                            required>
                                     </div>
                                     <div class="form-criar-adm-group">
                                         <label for="cpf">CPF:</label>
-                                        <input type="text" id="cpf_criar_admin" placeholder="CPF do administrador" required>
+                                        <input type="text" id="cpf_criar_admin" placeholder="CPF do administrador"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="form-criar-adm-row">
                                     <div class="form-criar-adm-group">
                                         <label for="password">CPF:</label>
-                                        <input type="password" id="senha_criar_admin" placeholder="Senha do administrador" required>
+                                        <input type="password" id="senha_criar_admin"
+                                            placeholder="Senha do administrador" required>
                                     </div>
                                     <div class="form-criar-adm-group">
                                         <label for="email">Email:</label>
-                                        <input type="text" id="email_criar_admin" placeholder="Email do administrador" required>
+                                        <input type="text" id="email_criar_admin" placeholder="Email do administrador"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="form-criar-adm-row-btn">
@@ -1290,7 +1337,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             if (mysqli_num_rows($query_run) > 0) {
                 foreach ($query_run as $usuario) {
-            ?>
+                    ?>
                     <div class="modal-editar-admin" id="modaladm-<?= $usuario['cpf'] ?>">
                         <button class="btn-close-modal-editar-admin">
                             <i class="fa-solid fa-xmark"></i>
@@ -1311,21 +1358,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     <div class="form-adm-row">
                                         <div class="form-adm-group">
                                             <label for="nome">Nome:</label>
-                                            <input type="text" id="nome_admin" value="<?php $usuario['nome'] ?>" required> <!--TEXT NAME ADMIN CONTA PHP EM VALUE-->
+                                            <input type="text" id="nome_admin" value="<?php $usuario['nome'] ?>" required>
+                                            <!--TEXT NAME ADMIN CONTA PHP EM VALUE-->
                                         </div>
                                         <div class="form-adm-group">
                                             <label for="CPF">CPF:</label>
-                                            <input type="CPF" id="CPF_admin" value="55132867832" disabled><i class="fa-solid fa-ban" style="color: #ff0000;"></i> <!--CPF text admin conta php em value-->
+                                            <input type="CPF" id="CPF_admin" value="55132867832" disabled><i
+                                                class="fa-solid fa-ban" style="color: #ff0000;"></i>
+                                            <!--CPF text admin conta php em value-->
                                         </div>
                                     </div>
                                     <div class="form-adm-row">
                                         <div class="form-adm-group">
                                             <label for="telefone">Telefone:</label>
-                                            <input type="text" id="telefone_admin" value="(11) 99999-9999" required> <!--TEXT telefone ADMIN CONTA PHP EM VALUE-->
+                                            <input type="text" id="telefone_admin" value="(11) 99999-9999" required>
+                                            <!--TEXT telefone ADMIN CONTA PHP EM VALUE-->
                                         </div>
                                         <div class="form-adm-group">
                                             <label for="Email">Email:</label>
-                                            <input type="Email" id="Email_admin" value="admin@gmail.com" required> <!--Email text admin conta php em value-->
+                                            <input type="Email" id="Email_admin" value="admin@gmail.com" required>
+                                            <!--Email text admin conta php em value-->
                                         </div>
                                     </div>
                                     <div class="form-adm-row">
@@ -1351,180 +1403,183 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </div>
                         </div>
                     </div>
-        </div>
-<?php
+                </div>
+                <?php
                 }
             }
-?>
+            ?>
 
-<script>
-    //abrir modal editar admin
-    document.addEventListener('DOMContentLoaded', () => {
+        <script>
+            //abrir modal editar admin
+            document.addEventListener('DOMContentLoaded', () => {
 
-        const overlayEditarAdmin = document.querySelector('.modal-overlay-editar-admin');
-        const btnEditarAdmin = document.querySelectorAll('.btn-editar-admin');
-        const btnCloseEditarAdmin = document.querySelectorAll('.btn-close-modal-editar-admin');
-        const btnCancelarEditarAdmin = document.querySelectorAll('.form-editar-adm-btn-cancelar');
+                const overlayEditarAdmin = document.querySelector('.modal-overlay-editar-admin');
+                const btnEditarAdmin = document.querySelectorAll('.btn-editar-admin');
+                const btnCloseEditarAdmin = document.querySelectorAll('.btn-close-modal-editar-admin');
+                const btnCancelarEditarAdmin = document.querySelectorAll('.form-editar-adm-btn-cancelar');
 
-        document.querySelectorAll('.btn-editar-admin').forEach((button) => {
-            button.addEventListener('click', () => {
-                const admId = button.getAttribute('data-id')
-                const modal = document.getElementById(`modaladm-${admId}`);
-                if (modal) {
-                    modal.classList.add('active');
-                    overlayEditarAdmin.classList.add('active');
-                    console.log(modal, admId);
-                }
-            })
-        });
+                document.querySelectorAll('.btn-editar-admin').forEach((button) => {
+                    button.addEventListener('click', () => {
+                        const admId = button.getAttribute('data-id')
+                        const modal = document.getElementById(`modaladm-${admId}`);
+                        if (modal) {
+                            modal.classList.add('active');
+                            overlayEditarAdmin.classList.add('active');
+                            console.log(modal, admId);
+                        }
+                    })
+                });
 
-        btnCloseEditarAdmin.forEach((btn6) => {
-            btn6.addEventListener('click', () => {
-                modalEditarAdmin.classList.remove('active');
-                overlayEditarAdmin.classList.remove('active');
-            })
-        });
+                btnCloseEditarAdmin.forEach((btn6) => {
+                    btn6.addEventListener('click', () => {
+                        modalEditarAdmin.classList.remove('active');
+                        overlayEditarAdmin.classList.remove('active');
+                    })
+                });
 
-        btnCancelarEditarAdmin.forEach((btn7) => {
-            btn7.addEventListener('click', () => {
-                modalEditarAdmin.classList.remove('active');
-                overlayEditarAdmin.classList.remove('active');
-            })
-        });
-    });
-</script>
+                btnCancelarEditarAdmin.forEach((btn7) => {
+                    btn7.addEventListener('click', () => {
+                        modalEditarAdmin.classList.remove('active');
+                        overlayEditarAdmin.classList.remove('active');
+                    })
+                });
+            });
+        </script>
 
-<!-- Modal mudar senha admin -->
-<div class="modal-overlay-senha-admin">
-    <div class="modal-senha-admin">
-        <button class="btn-close-modal-senha-admin">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="form-senha-adm">
-            <div class="form-senha-adm-title">
-                <div class="form-senha-adm-title-text">
-                    <h1>Alterar Senha - Administrador</h1>
-                    <p>Atualize a senha do administrador selecionado.</p>
+        <!-- Modal mudar senha admin -->
+        <div class="modal-overlay-senha-admin">
+            <div class="modal-senha-admin">
+                <button class="btn-close-modal-senha-admin">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="form-senha-adm">
+                    <div class="form-senha-adm-title">
+                        <div class="form-senha-adm-title-text">
+                            <h1>Alterar Senha - Administrador</h1>
+                            <p>Atualize a senha do administrador selecionado.</p>
+                        </div>
+                    </div>
+                    <div class="form-senha-adm-content">
+                        <form action="" class="form-senha-administrador" id="formAlterarSenhaAdmin">
+                            <div class="form-senha-adm-row">
+                                <div class="form-senha-adm-group">
+                                    <label for="senha_admin">Senha Atual:</label>
+                                    <div class="input-wrapper">
+                                        <input type="password" id="senha_admin" required>
+                                        <span class="toggle-senha" data-target="senha_admin"><i
+                                                class="fa-regular fa-eye-slash"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-senha-adm-row">
+                                <div class="form-senha-adm-group">
+                                    <label for="senha_admin_nova">Nova senha:</label>
+                                    <div class="input-wrapper">
+                                        <input type="password" id="senha_admin_nova" required minlength="6">
+                                        <span class="toggle-senha" data-target="senha_admin_nova"><i
+                                                class="fa-regular fa-eye-slash"></i></span>
+                                    </div>
+                                </div>
+                                <div class="form-senha-adm-group">
+                                    <label for="senha_admin_nova_confirmacao">Confirmar Nova Senha:</label>
+                                    <div class="input-wrapper">
+                                        <input type="password" id="senha_admin_nova_confirmacao" required>
+                                        <span class="toggle-senha" data-target="senha_admin_nova_confirmacao"><i
+                                                class="fa-regular fa-eye-slash"></i></span>
+                                    </div>
+                                    <div class="erro-senha" id="erroSenhaAdmin">As senhas não coincidem.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-senha-adm-row-btn">
+                                <div class="form-senha-adm-group-btn">
+                                    <button class="btn-cancelar-nova-senha-admin">Cancelar</button>
+                                    <button type="submit" class="btn-mudar-senha-admin" disabled>Alterar Senha</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="form-senha-adm-content">
-                <form action="" class="form-senha-administrador" id="formAlterarSenhaAdmin">
-                    <div class="form-senha-adm-row">
-                        <div class="form-senha-adm-group">
-                            <label for="senha_admin">Senha Atual:</label>
-                            <div class="input-wrapper">
-                                <input type="password" id="senha_admin" required>
-                                <span class="toggle-senha" data-target="senha_admin"><i class="fa-regular fa-eye-slash"></i></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-senha-adm-row">
-                        <div class="form-senha-adm-group">
-                            <label for="senha_admin_nova">Nova senha:</label>
-                            <div class="input-wrapper">
-                                <input type="password" id="senha_admin_nova" required minlength="6">
-                                <span class="toggle-senha" data-target="senha_admin_nova"><i class="fa-regular fa-eye-slash"></i></span>
-                            </div>
-                        </div>
-                        <div class="form-senha-adm-group">
-                            <label for="senha_admin_nova_confirmacao">Confirmar Nova Senha:</label>
-                            <div class="input-wrapper">
-                                <input type="password" id="senha_admin_nova_confirmacao" required>
-                                <span class="toggle-senha" data-target="senha_admin_nova_confirmacao"><i class="fa-regular fa-eye-slash"></i></span>
-                            </div>
-                            <div class="erro-senha" id="erroSenhaAdmin">As senhas não coincidem.</div>
-                        </div>
-                    </div>
-
-                    <div class="form-senha-adm-row-btn">
-                        <div class="form-senha-adm-group-btn">
-                            <button class="btn-cancelar-nova-senha-admin">Cancelar</button>
-                            <button type="submit" class="btn-mudar-senha-admin" disabled>Alterar Senha</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
         </div>
-    </div>
-</div>
-<script>
-    const modalSenhaAdmin = document.querySelector('.modal-senha-admin');
-    const overlaySenhaAdmin = document.querySelector('.modal-overlay-senha-admin');
-    const btnSenhaAdmin = document.querySelectorAll('.btn-editar-senha-admin');
-    const btnCloseSenhaAdmin = document.querySelectorAll('.btn-close-modal-senha-admin');
-    const btnCancelarSenhaAdmin = document.querySelectorAll('.btn-cancelar-nova-senha-admin');
+        <script>
+            const modalSenhaAdmin = document.querySelector('.modal-senha-admin');
+            const overlaySenhaAdmin = document.querySelector('.modal-overlay-senha-admin');
+            const btnSenhaAdmin = document.querySelectorAll('.btn-editar-senha-admin');
+            const btnCloseSenhaAdmin = document.querySelectorAll('.btn-close-modal-senha-admin');
+            const btnCancelarSenhaAdmin = document.querySelectorAll('.btn-cancelar-nova-senha-admin');
 
-    btnSenhaAdmin.forEach((btn8) => {
-        btn8.addEventListener('click', () => {
-            modalSenhaAdmin.classList.add('active');
-            overlaySenhaAdmin.classList.add('active');
-        });
-    });
+            btnSenhaAdmin.forEach((btn8) => {
+                btn8.addEventListener('click', () => {
+                    modalSenhaAdmin.classList.add('active');
+                    overlaySenhaAdmin.classList.add('active');
+                });
+            });
 
-    [...btnCloseSenhaAdmin, ...btnCancelarSenhaAdmin].forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Fecha o modal
-            modalSenhaAdmin.classList.remove('active');
-            overlaySenhaAdmin.classList.remove('active');
+            [...btnCloseSenhaAdmin, ...btnCancelarSenhaAdmin].forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Fecha o modal
+                    modalSenhaAdmin.classList.remove('active');
+                    overlaySenhaAdmin.classList.remove('active');
 
-            // Se for o botão "Cancelar", recarrega a página
-            if (btn.classList.contains('btn-cancelar-nova-senha-admin')) {
-                window.location.reload(); // 🔄 Recarrega a página
-            }
-        });
-    });
+                    // Se for o botão "Cancelar", recarrega a página
+                    if (btn.classList.contains('btn-cancelar-nova-senha-admin')) {
+                        window.location.reload(); // 🔄 Recarrega a página
+                    }
+                });
+            });
 
-    const form = document.getElementById('formAlterarSenhaAdmin');
-    const senhaAtual = document.getElementById('senha_admin');
-    const novaSenha = document.getElementById('senha_admin_nova');
-    const confirmarSenha = document.getElementById('senha_admin_nova_confirmacao');
-    const erroSenha = document.getElementById('erroSenhaAdmin');
-    const btnAlterar = document.querySelector('.btn-mudar-senha-admin');
-    const campos = [senhaAtual, novaSenha, confirmarSenha];
+            const form = document.getElementById('formAlterarSenhaAdmin');
+            const senhaAtual = document.getElementById('senha_admin');
+            const novaSenha = document.getElementById('senha_admin_nova');
+            const confirmarSenha = document.getElementById('senha_admin_nova_confirmacao');
+            const erroSenha = document.getElementById('erroSenhaAdmin');
+            const btnAlterar = document.querySelector('.btn-mudar-senha-admin');
+            const campos = [senhaAtual, novaSenha, confirmarSenha];
 
-    document.querySelectorAll('.toggle-senha').forEach(span => {
-        const inp = document.getElementById(span.dataset.target);
+            document.querySelectorAll('.toggle-senha').forEach(span => {
+                const inp = document.getElementById(span.dataset.target);
 
-        // Função que mantém o ícone sincronizado com o estado do input
-        const atualizarIcone = () => {
-            if (inp.type === 'password') {
-                span.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
-            } else {
-                span.innerHTML = '<i class="fa-regular fa-eye"></i>';
-            }
-        };
+                // Função que mantém o ícone sincronizado com o estado do input
+                const atualizarIcone = () => {
+                    if (inp.type === 'password') {
+                        span.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+                    } else {
+                        span.innerHTML = '<i class="fa-regular fa-eye"></i>';
+                    }
+                };
 
-        // Inicializa o ícone corretamente
-        atualizarIcone();
+                // Inicializa o ícone corretamente
+                atualizarIcone();
 
-        // Clique no ícone alterna o tipo e atualiza
-        span.addEventListener('click', (e) => {
-            e.preventDefault();
-            const currentSpan = e.currentTarget;
-            const targetInput = document.getElementById(currentSpan.dataset.target);
+                // Clique no ícone alterna o tipo e atualiza
+                span.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const currentSpan = e.currentTarget;
+                    const targetInput = document.getElementById(currentSpan.dataset.target);
 
-            // Alterna tipo
-            targetInput.type = (targetInput.type === 'password') ? 'text' : 'password';
-            atualizarIcone();
-        });
-    });
+                    // Alterna tipo
+                    targetInput.type = (targetInput.type === 'password') ? 'text' : 'password';
+                    atualizarIcone();
+                });
+            });
 
-    campos.forEach(campo => {
-        campo.addEventListener('input', () => {
-            const todasPreenchidas = campos.every(c => c.value.trim() !== '');
-            const senhasIguais = novaSenha.value === confirmarSenha.value;
+            campos.forEach(campo => {
+                campo.addEventListener('input', () => {
+                    const todasPreenchidas = campos.every(c => c.value.trim() !== '');
+                    const senhasIguais = novaSenha.value === confirmarSenha.value;
 
-            if (!senhasIguais && confirmarSenha.value.length > 0) {
-                erroSenha.style.display = 'block';
-            } else {
-                erroSenha.style.display = 'none';
-            }
+                    if (!senhasIguais && confirmarSenha.value.length > 0) {
+                        erroSenha.style.display = 'block';
+                    } else {
+                        erroSenha.style.display = 'none';
+                    }
 
-            btnAlterar.disabled = !(todasPreenchidas && senhasIguais);
-        });
-    });
-</script>
+                    btnAlterar.disabled = !(todasPreenchidas && senhasIguais);
+                });
+            });
+        </script>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

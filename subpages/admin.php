@@ -4,19 +4,22 @@ session_start();
 
 if (isset($_SESSION['cpf'])) {
     $cpf = $_SESSION['cpf'];
-    $query = "SELECT nome, admin FROM cliente WHERE cpf = '$cpf'";
-    $result = mysqli_query($con, $query);
-    $user_data = mysqli_fetch_assoc($result);
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        if ($user_data['admin'] != 1) {
-            header("Location: ./cardapio.php");
-            exit;
-        }
+    // Tenta buscar como administrador
+    $query_admin = "SELECT nome FROM administradores WHERE cpf = '$cpf'";
+    $result_admin = mysqli_query($con, $query_admin);
+
+    if ($result_admin && mysqli_num_rows($result_admin) > 0) {
+        $user_data = mysqli_fetch_assoc($result_admin);
+        // Permite acesso
     } else {
-        header("Location: ./login.php");
+        // Não é admin, redireciona
+        header("Location: ./cardapio.php");
         exit;
     }
+} else {
+    header("Location: ./login.php");
+    exit;
 }
 
 ?>
