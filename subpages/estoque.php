@@ -1332,7 +1332,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="modal-overlay-editar-admin">
             <!--Modal editar info admin-->
             <?php
-            $query = "SELECT * from cliente";
+            $query = "SELECT * from administradores";
             $query_run = mysqli_query($con, $query);
 
             if (mysqli_num_rows($query_run) > 0) {

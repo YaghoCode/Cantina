@@ -665,45 +665,49 @@ if (!isset($_SESSION['cpf'])) {
     ////////////// funcao modal + carrinho (manda o item do modal para o carrinho)
 
     document.querySelectorAll('.btn-mandar').forEach(btn => {
-      btn.addEventListener('click', function() {
-        // Encontra o item correspondente
-        const itemDiv = this.closest('.content-modal-cardapio');
-        const id = itemDiv.dataset.id;
-        const nome = itemDiv.dataset.nome;
-        const descricao = itemDiv.dataset.descricao;
-        const preco = parseFloat(itemDiv.dataset.preco);
+  btn.addEventListener('click', function() {
+    const itemDiv = this.closest('.content-modal-cardapio');
+    const id = itemDiv.dataset.id;
+    const nome = itemDiv.dataset.nome;
+    const descricao = itemDiv.dataset.descricao;
+    const preco = parseFloat(itemDiv.dataset.preco);
 
-        const item = {
-          id: id,
-          nome: nome,
-          descricao: descricao,
-          preco: preco,
-          quantidade: 1,
-          img: itemDiv.dataset.img
-        };
+    // Pegue o valor do input de quantidade do modal
+    const quantidadeInput = itemDiv.querySelector('.input-modal-quantidade');
+    let quantidade = 1;
+    if (quantidadeInput) {
+      quantidade = parseInt(quantidadeInput.value) || 1;
+    }
 
-        // 🧠 Salvar no localStorage (adicionando ao carrinho local)
-        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const item = {
+      id: id,
+      nome: nome,
+      descricao: descricao,
+      preco: preco,
+      quantidade: quantidade, // <-- Agora pega o valor do input!
+      img: itemDiv.dataset.img
+    };
 
-        const existente = carrinho.find(i => i.id === id);
-        if (existente) {
-          existente.quantidade++;
-        } else {
-          carrinho.push(item);
-        }
+    // 🧠 Salvar no localStorage (adicionando ao carrinho local)
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
-        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    const existente = carrinho.find(i => i.id === id);
+    if (existente) {
+      existente.quantidade += quantidade; // Soma a quantidade escolhida
+    } else {
+      carrinho.push(item);
+    }
 
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
 
-        document.querySelectorAll('.container-modal-cardapio').forEach(modal => {
-          modal.classList.remove('active');
-        });
-        overlayModalCardapio.classList.remove('active');
-        // 🖼️ Atualizar a interface local
-        atualizarCarrinhoVisual();
-        abrirCarrinhoModal();
-      });
+    document.querySelectorAll('.container-modal-cardapio').forEach(modal => {
+      modal.classList.remove('active');
     });
+    overlayModalCardapio.classList.remove('active');
+    atualizarCarrinhoVisual();
+    abrirCarrinhoModal();
+  });
+});
 
     /////input butao quantidade carrinho items
 
