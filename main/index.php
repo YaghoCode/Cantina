@@ -81,33 +81,36 @@ if (isset($_SESSION['cpf'])) {
 
         <!--PHP VERIFICAÇÂO LOGIN-->
         <?php
-         if ($is_admin) {
-            echo '<div class="btn-admin">
+        if ($is_admin) {
+          echo '<div class="btn-admin">
                     <button>
                       <a href="/cantinarepositorio/subpages/admin.php">
                          Acesso Admin
                       </a>
                     </button>
                   </div>';
-          }
+        }
+
         if ($user_data) {
-          echo '<div class="nav-buttons" style="gap:3vh;">
-                  <div class="btn-meus-pedidos">
+          echo '<div class="nav-buttons" style="gap:3vh;">';
+          if (!$is_admin) {
+            echo '<div class="btn-meus-pedidos">
                     <button>
                       <a href="/cantinarepositorio/subpages/pedidos.php">
                         <i class="fa-solid fa-receipt"></i> Meus Pedidos
                       </a>
                     </button>
-                  </div>
-                  <div class="btn-user" id="btn-user-nav" >
+                  </div>';
+          }
+          echo '<div class="btn-user" id="btn-user-nav" >
                     <button>
                       <i class="fa-regular fa-user"></i> Perfil
                     </button>
                   </div>
                   <div class="btn-cart" id="btn-cart-nav">
                     <button><i class="fa-solid fa-cart-shopping"></i>Carrinho</button>
-                  </div>';
-          echo '</div>';
+                  </div>
+                </div>';
         } else {
           echo '  <div class="nav-buttons">
                 <div class="btn-cadastrar-se">
