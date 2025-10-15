@@ -1,21 +1,25 @@
 //popup users navbar
 
-const containerPopUpUser = document.getElementById('pop-up-user');
+const containerPopUp = document.getElementById('pop-up-user');
 const btnUserNav = document.getElementById('btn-user-nav');
-const btnCloseUserNav = document.getElementById('btn-close-user-nav');
+const btnCloseUsernav = document.getElementById('btn-close-user-nav');
+const overlayPopUpUser = document.getElementById('overlay-pop-up-user');
 
 
 btnUserNav.addEventListener('click', () => {
-  if (containerPopUpUser.style.display !== 'block') {
-    containerPopUpUser.style.display = 'block';
+  if (containerPopUp.style.display !== 'block') {
+    containerPopUp.style.display = 'block';
+    overlayPopUpUser.style.display = 'block';
   }else{
-    containerPopUpUser.style.display = 'none';
+    containerPopUp.style.display = 'none';
+    overlayPopUpUser.style.display = 'none';
   }
 });
 
 
-btnCloseUserNav.addEventListener('click', () => {
-  containerPopUpUser.style.display = 'none';
+btnCloseUsernav.addEventListener('click', () => {
+    containerPopUp.style.display = 'none';
+  overlayPopUpUser.style.display = 'none';
 });
 
 //pop-up cart carrinho navbar

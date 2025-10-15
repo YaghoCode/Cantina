@@ -45,9 +45,22 @@ function atualizarCarrinhoVisual() {
 
     
     if (carrinho.length === 0) {
-        container.innerHTML = `<div class="swiper-slide p-3 border rounded ">
-                                
-                              </div>`;
+        container.innerHTML = `<div class="carrinho-vazio">
+                                    <div class="carrinho-vazio-content">
+                                        <div class="carrinho-vazio-content-top">
+                                            <div class="carrinho-vazio-content-top-icon">
+                                                    <i class="fa-solid fa-basket-shopping"></i>
+                                            </div>
+                                        </div>
+                                            <div class="carrinho-vazio-content-bottom">
+                                                <div class="carrinho-vazio-content-bottom-text">
+                                                    <h1>Seu carrinho está vazio</h1>
+                                                    <p>Adicione produtos de nosso cardápio para concluir sua compra.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>`;
         totalEl.textContent = "R$ 00,00";
         return;
     }

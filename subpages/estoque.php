@@ -187,12 +187,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
                 <div class="content-bottom-user">
                     <div class="content-bottom-user-row">
-                        <button class="btn-pop-up-editar-adm">
-                            <a href="#Editar-adm">
-                                <i class="fa-regular fa-pen-to-square"></i>
-                                Editar
-                            </a>
-                        </button>
                         <button class="btn-logout-pop-up">
                             <a href="/cantinarepositorio/subpages/logout.php">
                                 <i class="fa-solid fa-arrow-right-from-bracket"></i>

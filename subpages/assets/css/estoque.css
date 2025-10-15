@@ -421,7 +421,7 @@ a {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 30%;
+    height: 45%;
     width: 100%;
     gap: 1vh;
     padding: 0.3rem;
@@ -447,7 +447,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 90%;
+    height: 70%;
     width: 40%;
     border-radius: 100%;
     background-color: #ff0d001b;
@@ -502,7 +502,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 30%;
+    height: 15%;
     width: 100%;
 }
 
@@ -521,10 +521,11 @@ a {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 35%;
+    height: 70%;
     width: 100%;
     border-radius: 0.4rem;
     padding-left: 1rem;
+    margin-top: 2%;
 }
 
 .content-bottom-user-row button a{

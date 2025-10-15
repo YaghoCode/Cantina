@@ -2,12 +2,11 @@
 include('./database.php');
 session_start();
 if (isset($_SESSION['cpf'])) {
-          $cpf = $_SESSION['cpf'];
-          $query = "SELECT nome, cpf, admin, turma, email FROM cliente WHERE cpf = '$cpf'";
-          $result = mysqli_query($con, $query);
-          $user_data = mysqli_fetch_assoc($result);
-}
-else {
+  $cpf = $_SESSION['cpf'];
+  $query = "SELECT nome, cpf, admin, turma, email FROM cliente WHERE cpf = '$cpf'";
+  $result = mysqli_query($con, $query);
+  $user_data = mysqli_fetch_assoc($result);
+} else {
   $user_data = null;
 }
 ?>
@@ -61,12 +60,12 @@ else {
             </li>
             <?php
             if (isset($_SESSION['cpf']) && $user_data['admin'] == 1) { ?>
-            <li>
-              <h1>
-                <a href="/cantinarepositorio/subpages/admin.php" style="text-decoration: none; color: inherit;">Admin</a>
-              </h1>
-            </li>
-            <?php }?>
+              <li>
+                <h1>
+                  <a href="/cantinarepositorio/subpages/admin.php" style="text-decoration: none; color: inherit;">Admin</a>
+                </h1>
+              </li>
+            <?php } ?>
           </ul>
         </div>
 
@@ -105,44 +104,92 @@ else {
     </nav>
   </header>
 
-  <!--POPUP DO USER-->
+  
+   <!--POPUP DO USER-->
+  <div class="overlay-pop-up-user" id="overlay-pop-up-user">
 
+  </div>
   <div class="pop-up-user" id="pop-up-user">
-    <div class="btn-pp-close" id="btn-close-user-nav">
-        <i class="fa-solid fa-xmark"></i>
-    </div>
-    <div class="content-pp-user">
-        <div class="content-pp-top">
-            <div class="top-circle-info-user">
-                <div class="top-circle-info-img">
-                  <img src="" alt="">
-                </div>
-                  <div class="top-circle-info-text" >
-                      <h6>
-                        <?php echo $user_data['nome']; ?> 
-                      </h6>
-                        <p>
-                        <?php echo $user_data['email']; ?> 
-                      </p>
-                  </div>
-            </div>
-              <div class="top-info-user">
-                   <div class="top-info-user-text">
-                      <h6>
-                        Turma: <?php echo $user_data['turma']; ?> 
-                      </h6>
-                        <p>
-                        CPF:  <?php echo $user_data['cpf']; ?> 
-                      </p>
-                   </div>
-              </div>
-        </div>
-          <div class="content-pp-bottom">
-              <a href="/cantinarepositorio/subpages/logout.php">Logout</a>
+    <button class="btn-fechar-pop-up-user" id="btn-close-user-nav">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="content-pop-user">
+      <div class="content-top-user">
+        <div class="content-top-left-user">
+          <div class="content-top-left-user-img">
+            <img src="./assets/img/CocaCola.png" alt="">
           </div>
+        </div>
+        <div class="content-top-right-user">
+          <div class="content-top-right-user-text">
+            <div class="content-top-right-user-text-name">
+              <h3>
+                <?php echo $user_data['nome'] ?>
+              </h3>
+            </div>
+            <div class="content-top-right-user-text-email">
+              <h6>
+                <?php echo $user_data['email'] ?>
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-mid-user">
+        <div class="content-mid-user-row">
+          <div class="content-mid-user-row-left">
+            <div class="content-mid-user-row-left-icon">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+          </div>
+          <div class="content-mid-user-row-right">
+            <div class="content-mid-user-row-right-text">
+              <h1>
+                Turma
+              </h1>
+              <h3>
+                <?php echo $user_data['turma'] ?>
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div class="content-mid-user-row">
+          <div class="content-mid-user-row-left">
+            <div class="content-mid-user-row-left-icon">
+              <i class="fa-regular fa-credit-card"></i>
+            </div>
+          </div>
+          <div class="content-mid-user-row-right">
+            <div class="content-mid-user-row-right-text">
+              <h1>
+                CPF:
+              </h1>
+              <h3>
+                <?php echo $user_data['cpf'] ?>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-bottom-user">
+        <div class="content-bottom-user-row">
+          <button class="btn-pop-up-editar-adm">
+            <a href="#Editar-adm">
+              <i class="fa-regular fa-pen-to-square"></i>
+              Editar
+            </a>
+          </button>
+          <button class="btn-logout-pop-up">
+            <a href="/cantinarepositorio/subpages/logout.php">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              Logout
+            </a>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
- 
+
   <!--Popup carrinho-->
   <div class="pop-up-cart" id="pop-up-cart">
     <div class="content-pp-cart">
@@ -159,9 +206,9 @@ else {
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-         <button id="btn-limpar-carrinho">
-             <i class="fa-solid fa-trash-can"></i> Esvaziar
-          </button>
+      <button id="btn-limpar-carrinho">
+        <i class="fa-solid fa-trash-can"></i> Esvaziar
+      </button>
 
       <div class="content-pp-cart-top">
         <div class="divisao-top">
@@ -369,8 +416,8 @@ else {
       <div class="content-mais-pedidos">
         <button class="botao-left-mp">
           <h1>
-            < 
-          </h1>
+            <
+              </h1>
         </button>
         <div class="carrosel-mais-pedidos">
           <div class="carrousel-track-mais-pedidos">
@@ -416,22 +463,23 @@ else {
           $query = "SELECT * FROM estoque WHERE categoria = 'Salgados' AND in_main = 1 LIMIT 3";
           $result = mysqli_query($con, $query);
           if ($result && mysqli_num_rows($result) > 0) {
-          foreach ($result as $row) {
+            foreach ($result as $row) {
           ?>
-          <div class="cards-salgados">
-            <div class="cards-img">
-              <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
-            </div>
-            <div class="cards-title">
-              <h3><?php echo $row['Nome']; ?></h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4><?php echo $row['preco']; ?></h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
+              <div class="cards-salgados">
+                <div class="cards-img">
+                  <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
+                </div>
+                <div class="cards-title">
+                  <h3><?php echo $row['Nome']; ?></h3>
+                </div>
+                <div class="cards-priceEbtn">
+                  <h4><?php echo $row['preco']; ?></h4>
+                  <button><i class="fa-solid fa-plus"></i></button>
+                </div>
+              </div>
           <?php
-          }}
+            }
+          }
           ?><!--
           <div class="cards-salgados">
             <div class="cards-img">
@@ -465,22 +513,23 @@ else {
           $query = "SELECT * FROM estoque WHERE categoria = 'Folhados' AND in_main = 1 LIMIT 3";
           $result = mysqli_query($con, $query);
           if ($result && mysqli_num_rows($result) > 0) {
-          foreach ($result as $row) {
+            foreach ($result as $row) {
           ?>
-          <div class="cards-salgados">
-            <div class="cards-img">
-              <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
-            </div>
-            <div class="cards-title">
-              <h3><?php echo $row['Nome']; ?></h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4><?php echo $row['preco']; ?></h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
+              <div class="cards-salgados">
+                <div class="cards-img">
+                  <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
+                </div>
+                <div class="cards-title">
+                  <h3><?php echo $row['Nome']; ?></h3>
+                </div>
+                <div class="cards-priceEbtn">
+                  <h4><?php echo $row['preco']; ?></h4>
+                  <button><i class="fa-solid fa-plus"></i></button>
+                </div>
+              </div>
           <?php
-          }}
+            }
+          }
           ?>
         </div>
         <div class="content-cardapio-options">
@@ -489,22 +538,23 @@ else {
           $query = "SELECT * FROM estoque WHERE categoria = 'Doces' AND in_main = 1 LIMIT 3";
           $result = mysqli_query($con, $query);
           if ($result && mysqli_num_rows($result) > 0) {
-          foreach ($result as $row) {
+            foreach ($result as $row) {
           ?>
-          <div class="cards-salgados">
-            <div class="cards-img">
-              <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
-            </div>
-            <div class="cards-title">
-              <h3><?php echo $row['Nome']; ?></h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4><?php echo $row['preco']; ?></h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
+              <div class="cards-salgados">
+                <div class="cards-img">
+                  <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
+                </div>
+                <div class="cards-title">
+                  <h3><?php echo $row['Nome']; ?></h3>
+                </div>
+                <div class="cards-priceEbtn">
+                  <h4><?php echo $row['preco']; ?></h4>
+                  <button><i class="fa-solid fa-plus"></i></button>
+                </div>
+              </div>
           <?php
-          }}
+            }
+          }
           ?>
         </div>
         <div class="content-cardapio-options">
@@ -513,22 +563,23 @@ else {
           $query = "SELECT * FROM estoque WHERE categoria = 'Bebidas' AND in_main = 1 LIMIT 3";
           $result = mysqli_query($con, $query);
           if ($result && mysqli_num_rows($result) > 0) {
-          foreach ($result as $row) {
+            foreach ($result as $row) {
           ?>
-          <div class="cards-salgados">
-            <div class="cards-img">
-              <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
-            </div>
-            <div class="cards-title">
-              <h3><?php echo $row['Nome']; ?></h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4><?php echo $row['preco']; ?></h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
+              <div class="cards-salgados">
+                <div class="cards-img">
+                  <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
+                </div>
+                <div class="cards-title">
+                  <h3><?php echo $row['Nome']; ?></h3>
+                </div>
+                <div class="cards-priceEbtn">
+                  <h4><?php echo $row['preco']; ?></h4>
+                  <button><i class="fa-solid fa-plus"></i></button>
+                </div>
+              </div>
           <?php
-          }}
+            }
+          }
           ?>
         </div>
         <div class="content-cardapio-options">
@@ -706,7 +757,7 @@ else {
               </div>
             </div>
             <div class="cards-avaliacao">
-            <div class="cards-avaliacao-top">
+              <div class="cards-avaliacao-top">
                 <div class="icon-user-avaliacao">
                   <i class="fa-solid fa-graduation-cap"></i>
                 </div>
@@ -740,7 +791,7 @@ else {
               </div>
             </div>
             <div class="cards-avaliacao">
-            <div class="cards-avaliacao-top">
+              <div class="cards-avaliacao-top">
                 <div class="icon-user-avaliacao">
                   <i class="fa-solid fa-graduation-cap"></i>
                 </div>
@@ -776,7 +827,7 @@ else {
           </div>
           <div class="row-cards-avaliacao">
             <div class="cards-avaliacao">
-            <div class="cards-avaliacao-top">
+              <div class="cards-avaliacao-top">
                 <div class="icon-user-avaliacao">
                   <i class="fa-solid fa-graduation-cap"></i>
                 </div>
@@ -810,7 +861,7 @@ else {
               </div>
             </div>
             <div class="cards-avaliacao">
-            <div class="cards-avaliacao-top">
+              <div class="cards-avaliacao-top">
                 <div class="icon-user-avaliacao">
                   <i class="fa-solid fa-graduation-cap"></i>
                 </div>
@@ -844,7 +895,7 @@ else {
               </div>
             </div>
             <div class="cards-avaliacao">
-            <div class="cards-avaliacao-top">
+              <div class="cards-avaliacao-top">
                 <div class="icon-user-avaliacao">
                   <i class="fa-solid fa-graduation-cap"></i>
                 </div>
@@ -1017,6 +1068,7 @@ else {
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/navbar.js"></script>
   <script src="./assets/js/carrouselMP.js"></script>
+  <script src="./assets/js/.js"></script>
   <script src="./assets/js/carrinhoMain.js"></script>
 
   <!--LOGIN PHP VERIFICACAO-->
