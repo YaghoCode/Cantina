@@ -491,6 +491,7 @@ body {
     background-color: var(--cor-primaria);
     color: white;
     transition: 0.3s ease;
+    border: none;
 }
 
 .btn-logout-pop-up:hover{
