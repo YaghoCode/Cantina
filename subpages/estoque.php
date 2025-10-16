@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="nav-buttons">
                     <div class="btn-voltar-home">
                         <button>
-                            <a href="/cantinarepositorio/main/index.php"><i class="fa-solid fa-caret-left"></i>Home</a>
+                            <a href="/cantinarepositorio/main/index.php"><i class="fa-solid fa-house"></i>Home</a>
                         </button>
                     </div>
                     <div class="btn-user" id="btn-user-nav">
