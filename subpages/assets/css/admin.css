@@ -44,6 +44,7 @@ body {
     color: inherit;
     cursor: pointer;
     padding-right: 0.4rem;
+    transform: translateY(-5%);
 }
 
 .btn-voltar-home a {

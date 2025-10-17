@@ -214,7 +214,7 @@ if (isset($_SESSION['cpf'])) {
         <div class="content-bottom-user-row">
           <?php if (!$is_admin): ?>
             <button class="btn-pop-up-editar-adm">
-              <a href="#Editar-perfil">
+              <a href="/cantinarepositorio/subpages/editar_cliente_page.php">
                 <i class="fa-regular fa-pen-to-square"></i>
                 Editar
               </a>

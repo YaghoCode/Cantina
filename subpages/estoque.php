@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="nav-buttons">
                     <div class="btn-voltar-home">
                         <button>
-                            <a href="/cantinarepositorio/main/index.php"><i class="fa-solid fa-caret-left"></i>Home</a>
+                            <a href="/cantinarepositorio/main/index.php"><i class="fa-solid fa-house"></i>Home</a>
                         </button>
                     </div>
                     <div class="btn-user" id="btn-user-nav">
@@ -231,8 +231,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <li id="btn-clientes"><i class="fa-solid fa-users"></i> Clientes</li>
                     <li id="btn-pedidos"><i class="fa-solid fa-clipboard-list"></i> Pedidos</li>
                     <li id="btn-configuracoes" <?php if ($user_data['adm'] != 1) {
-                                                    echo 'style="display:none;"';
-                                                } ?>;">
+                        echo 'style="display:none;"';
+                    } ?>;">
                         <i class="fa-solid fa-gear"></i> Configurações
                     </li>
 
@@ -424,7 +424,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -455,7 +455,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -480,7 +480,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -511,7 +511,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -536,7 +536,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -567,7 +567,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -593,7 +593,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -624,7 +624,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -650,7 +650,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -681,7 +681,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -706,7 +706,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -737,7 +737,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -763,7 +763,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -794,7 +794,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                                 </tr>
                             </tbody>
@@ -816,7 +816,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             foreach ($query_run as $item) {
                 $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
                 $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-        ?>
+                ?>
                 <div class="modal-overlay-estoque" id="modal-<?= $item['id'] ?>">
                     <div class="modal-estoque-visualizar-item" id="modal-visualizar-item">
                         <div class="modal-estoque-top">
@@ -888,7 +888,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
 
-        <?php }
+            <?php }
         } ?>
 
         <script>
@@ -933,7 +933,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $query_run = mysqli_query($con, $query);
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $item) {
-        ?>
+                ?>
 
                 <div class="modal-estoque-deletar-item" id="modal-deletar-item-<?= $item['id'] ?>" data-id="<?= $item['id'] ?>">
                     <div class="modal-deletar-content-top">
@@ -951,7 +951,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
 
-        <?php }
+            <?php }
         } ?>
 
         <script>
@@ -992,12 +992,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     const produtoId = button.getAttribute('data-id');
                     console.log('ID enviado:', produtoId);
                     fetch('/cantinarepositorio/subpages/delete_item.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            body: 'id=' + encodeURIComponent(produtoId)
-                        })
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'id=' + encodeURIComponent(produtoId)
+                    })
                         .then(response => response.json())
                         .then(data => {
                             if (data.success) {
@@ -1022,7 +1022,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             foreach ($query_run as $item) {
                 $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
                 $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-        ?>
+                ?>
                 <!-- MODAL EDITAR ITEM -->
                 <div class="overlay-editar-produto" id="overlayEditar-<?= $item['id'] ?>">
                     <div class="modal-editar-produto" id="modalEditar-<?= $item['id'] ?>">
@@ -1114,7 +1114,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </form>
                     </div>
                 </div>
-        <?php
+                <?php
             }
         }
         ?>
@@ -1246,7 +1246,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $usuario) {
 
-                                ?>
+                                        ?>
                                         <tr>
                                             <td>
                                                 <h6><?php echo $usuario['nome'] ?></h6>
@@ -1259,10 +1259,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
                                             <td>
                                                 <h6><?php if ($usuario['adm'] == 1) {
-                                                        echo 'Administrador Principal';
-                                                    } else {
-                                                        echo 'Funcionário';
-                                                    } ?></h6>
+                                                    echo 'Administrador Principal';
+                                                } else {
+                                                    echo 'Funcionário';
+                                                } ?></h6>
                                             </td>
                                             <td>
                                                 <button class="btn-editar-senha-admin" data-id="<?= $usuario['cpf'] ?>">
@@ -1276,7 +1276,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 </button>
                                             </td>
                                         </tr>
-                                <?php
+                                        <?php
                                     }
                                 } ?>
                                 </tbody>
@@ -1284,6 +1284,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                 </div>
+                            <!--Form criar novo admin-->
                 <div class="content-mid-config">
                     <div class="form-criar-adm">
                         <div class="form-criar-adm-title">
@@ -1293,34 +1294,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </div>
                         </div>
                         <div class="form-criar-adm-content">
-                            <form action="" class="form-criar-adiminstrador">
+                            <form method="POST" action="./criar_admin.php" class="form-criar-adiminstrador">
                                 <div class="form-criar-adm-row">
                                     <div class="form-criar-adm-group">
                                         <label for="nome">Nome:</label>
-                                        <input type="text" id="nome_criar_admin" placeholder="Nome do administrador"
+                                        <input type="text" name="nome_criar_admin" id="nome_criar_admin" placeholder="Nome do administrador"
                                             required>
                                     </div>
                                     <div class="form-criar-adm-group">
                                         <label for="cpf">CPF:</label>
-                                        <input type="text" id="cpf_criar_admin" placeholder="CPF do administrador"
-                                            required>
+                                       <input type="text" name="cpf" id="cpf_criar_admin" placeholder="CPF do administrador" required maxlength="11" pattern="\d{11}">
                                     </div>
                                 </div>
                                 <div class="form-criar-adm-row">
                                     <div class="form-criar-adm-group">
                                         <label for="password">Senha:</label>
-                                        <input type="password" id="senha_criar_admin"
+                                        <input type="password" name="senha_criar_admin" id="senha_criar_admin"
                                             placeholder="Senha do administrador" required>
                                     </div>
                                     <div class="form-criar-adm-group">
                                         <label for="email">Email:</label>
-                                        <input type="text" id="email_criar_admin" placeholder="Email do administrador"
+                                        <input type="text" name="email_criar_admin" id="email_criar_admin" placeholder="Email do administrador"
                                             required>
                                     </div>
                                 </div>
                                 <div class="form-criar-adm-row-btn">
                                     <div class="form-criar-adm-group-btn">
-                                        <button>
+                                        <button type="submit" class="form-criar-adm-btn-mandar">
                                             <i class="fa-solid fa-user-plus"></i>
                                             Criar Administrador
                                         </button>
@@ -1341,7 +1341,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $usuario) {
-        ?>
+                ?>
                 <div class="modal-overlay-editar-admin" id="overlayEditarAdmin-<?= $usuario['cpf'] ?>">
                     <div class="modal-editar-admin" id="modaladm-<?= $usuario['cpf'] ?>">
                         <button class="btn-close-modal-editar-admin">
@@ -1359,7 +1359,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 </div>
                             </div>
                             <div class="form-editar-adm-content">
-                                <form action="/cantinarepositorio/subpages/atualizar_admin.php" method="post" class="form-editar-administrador">
+                                <form action="/cantinarepositorio/subpages/atualizar_admin.php" method="post"
+                                    class="form-editar-administrador">
                                     <div class="form-adm-row">
                                         <div class="form-adm-group">
                                             <input type="hidden" name="cpfid" value="<?= $usuario['cpf'] ?>" />
@@ -1408,7 +1409,69 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                 </div>
-        <?php
+
+                <!-- Modal mudar senha admin -->
+                <div class="modal-overlay-senha-admin" id="overlaySenhaAdmin-<?= $usuario['cpf'] ?>">
+                    <div class="modal-senha-admin" id="modalSenhaAdmin-<?= $usuario['cpf'] ?>">
+                        <button class="btn-close-modal-senha-admin">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <div class="form-senha-adm">
+                            <div class="form-senha-adm-title">
+                                <div class="form-senha-adm-title-text">
+                                    <h1>Alterar Senha - Administrador</h1>
+                                    <p>Atualize a senha do administrador selecionado.</p>
+                                </div>
+                            </div>
+                            <div class="form-senha-adm-content">
+                                <form action="./alterar_senha_admin.php" method="POST" class="form-senha-administrador" id="formAlterarSenhaAdmin">
+                                    <input type="hidden" name="cpf" value="<?= $usuario['cpf'] ?>" />
+                                    <div class="form-senha-adm-row">
+                                        <div class="form-senha-adm-group">
+                                            <label for="senha_admin">Senha Atual:</label>
+                                            <div class="input-wrapper">
+                                                <input type="password" name="senha_atual" id="senha_admin_<?= $usuario['cpf'] ?>" required
+                                                    inputmode="none">
+                                                <span class="toggle-senha" data-target="senha_admin"><i
+                                                        class="fa-regular fa-eye-slash"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-senha-adm-row">
+                                        <div class="form-senha-adm-group">
+                                            <label for="senha_admin_nova">Nova senha:</label>
+                                            <div class="input-wrapper">
+                                                <input type="password" name="nova_senha" id="senha_admin_nova_<?= $usuario['cpf'] ?>" required
+                                                    minlength="6" inputmode="none">
+                                                <span class="toggle-senha" data-target="senha_admin_nova"><i
+                                                        class="fa-regular fa-eye-slash"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-senha-adm-group">
+                                            <label for="senha_admin_nova_confirmacao">Confirmar Nova Senha:</label>
+                                            <div class="input-wrapper">
+                                                <input type="password" name="confirmar_senha" id="senha_admin_nova_confirmacao_<?= $usuario['cpf'] ?>"
+                                                    required inputmode="none">
+                                                <span class="toggle-senha" data-target="senha_admin_nova_confirmacao"><i
+                                                        class="fa-regular fa-eye-slash"></i></span>
+                                            </div>
+                                            <div class="erro-senha" id="erroSenhaAdmin">As senhas não coincidem.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-senha-adm-row-btn">
+                                        <div class="form-senha-adm-group-btn">
+                                            <button class="btn-cancelar-nova-senha-admin">Cancelar</button>
+                                            <button type="submit" class="btn-mudar-senha-admin" disabled>Alterar Senha</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php
             }
         }
         ?>
@@ -1439,155 +1502,77 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 });
             });
 
-            //Fechra modal de editar admin
-            function fecharModalAdmin(btn) {
-                // Encontra o modal pai
-                const modal = btn.closest('.modal-editar-admin');
-                if (modal) {
-                    modal.classList.remove('active');
-                    // Extrai o id único (cpf)
-                    const admId = modal.id.replace('modaladm-', '');
-                    // Encontra o overlay correspondente
-                    const overlay = document.getElementById(`overlayEditarAdmin-${admId}`);
-                    if (overlay) overlay.classList.remove('active');
+            // Fechar modal de senha do admin (botão X e Cancelar)
+            document.querySelectorAll('.btn-close-modal-senha-admin, .btn-cancelar-nova-senha-admin').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const modal = btn.closest('.modal-senha-admin');
+                    if (modal) {
+                        modal.classList.remove('active');
+                        const admId = modal.id.replace('modalSenhaAdmin-', '');
+                        const overlay = document.getElementById(`overlaySenhaAdmin-${admId}`);
+                        if (overlay) overlay.classList.remove('active');
+                    }
+                });
+            });
+            //Senha do admin
+
+            //Atualizar Icone olhinho
+            function atualizarIcone(inp, span) {
+                if (inp.type === 'password') {
+                    span.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+                } else {
+                    span.innerHTML = '<i class="fa-regular fa-eye"></i>';
                 }
             }
-        </script>
 
-        <!-- Modal mudar senha admin -->
-        <div class="modal-overlay-senha-admin">
-            <div class="modal-senha-admin">
-                <button class="btn-close-modal-senha-admin">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <div class="form-senha-adm">
-                    <div class="form-senha-adm-title">
-                        <div class="form-senha-adm-title-text">
-                            <h1>Alterar Senha - Administrador</h1>
-                            <p>Atualize a senha do administrador selecionado.</p>
-                        </div>
-                    </div>
-                    <div class="form-senha-adm-content">
-                        <form action="" class="form-senha-administrador" id="formAlterarSenhaAdmin">
-                            <div class="form-senha-adm-row">
-                                <div class="form-senha-adm-group">
-                                    <label for="senha_admin">Senha Atual:</label>
-                                    <div class="input-wrapper">
-                                        <input type="password" id="senha_admin" required  inputmode="none">
-                                        <span class="toggle-senha" data-target="senha_admin"><i
-                                                class="fa-regular fa-eye-slash"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-senha-adm-row">
-                                <div class="form-senha-adm-group">
-                                    <label for="senha_admin_nova">Nova senha:</label>
-                                    <div class="input-wrapper">
-                                        <input type="password" id="senha_admin_nova" required minlength="6"  inputmode="none">
-                                        <span class="toggle-senha" data-target="senha_admin_nova"><i
-                                                class="fa-regular fa-eye-slash"></i></span>
-                                    </div>
-                                </div>
-                                <div class="form-senha-adm-group">
-                                    <label for="senha_admin_nova_confirmacao">Confirmar Nova Senha:</label>
-                                    <div class="input-wrapper">
-                                        <input type="password" id="senha_admin_nova_confirmacao" required   inputmode="none">
-                                        <span class="toggle-senha" data-target="senha_admin_nova_confirmacao"><i
-                                                class="fa-regular fa-eye-slash"></i></span>
-                                    </div>
-                                    <div class="erro-senha" id="erroSenhaAdmin">As senhas não coincidem.</div>
-                                </div>
-                            </div>
-
-                            <div class="form-senha-adm-row-btn">
-                                <div class="form-senha-adm-group-btn">
-                                    <button class="btn-cancelar-nova-senha-admin">Cancelar</button>
-                                    <button type="submit" class="btn-mudar-senha-admin" disabled>Alterar Senha</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script>
-            const modalSenhaAdmin = document.querySelector('.modal-senha-admin');
-            const overlaySenhaAdmin = document.querySelector('.modal-overlay-senha-admin');
-            const btnSenhaAdmin = document.querySelectorAll('.btn-editar-senha-admin');
-            const btnCloseSenhaAdmin = document.querySelectorAll('.btn-close-modal-senha-admin');
-            const btnCancelarSenhaAdmin = document.querySelectorAll('.btn-cancelar-nova-senha-admin');
-
-            btnSenhaAdmin.forEach((btn8) => {
-                btn8.addEventListener('click', () => {
-                    modalSenhaAdmin.classList.add('active');
-                    overlaySenhaAdmin.classList.add('active');
-                });
-            });
-
-            [...btnCloseSenhaAdmin, ...btnCancelarSenhaAdmin].forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Fecha o modal
-                    modalSenhaAdmin.classList.remove('active');
-                    overlaySenhaAdmin.classList.remove('active');
-
-                    // Se for o botão "Cancelar", recarrega a página
-                    if (btn.classList.contains('btn-cancelar-nova-senha-admin')) {
-                        window.location.reload(); // 🔄 Recarrega a página
-                    }
-                });
-            });
-
-            const form = document.getElementById('formAlterarSenhaAdmin');
-            const senhaAtual = document.getElementById('senha_admin');
-            const novaSenha = document.getElementById('senha_admin_nova');
-            const confirmarSenha = document.getElementById('senha_admin_nova_confirmacao');
-            const erroSenha = document.getElementById('erroSenhaAdmin');
-            const btnAlterar = document.querySelector('.btn-mudar-senha-admin');
-            const campos = [senhaAtual, novaSenha, confirmarSenha];
-
-            document.querySelectorAll('.toggle-senha').forEach(span => {
-                const inp = document.getElementById(span.dataset.target);
-
-                // Função que mantém o ícone sincronizado com o estado do input
-                const atualizarIcone = () => {
-                    if (inp.type === 'password') {
-                        span.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
-                    } else {
-                        span.innerHTML = '<i class="fa-regular fa-eye"></i>';
-                    }
-                };
-
-                // Inicializa o ícone corretamente
-                atualizarIcone();
-
-                // Clique no ícone alterna o tipo e atualiza
-                span.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const currentSpan = e.currentTarget;
-                    const targetInput = document.getElementById(currentSpan.dataset.target);
-
-                    // Alterna tipo
-                    targetInput.type = (targetInput.type === 'password') ? 'text' : 'password';
-                    atualizarIcone();
-                });
-            });
-
-            campos.forEach(campo => {
-                campo.addEventListener('input', () => {
-                    const todasPreenchidas = campos.every(c => c.value.trim() !== '');
-                    const senhasIguais = novaSenha.value === confirmarSenha.value;
-
-                    if (!senhasIguais && confirmarSenha.value.length > 0) {
-                        erroSenha.style.display = 'block';
-                    } else {
-                        erroSenha.style.display = 'none';
+            // Abrir modal de senha do admin
+            document.querySelectorAll('.btn-editar-senha-admin').forEach(button => {
+                button.addEventListener('click', () => {
+                    const admId = button.getAttribute('data-id');
+                    const overlay = document.getElementById(`overlaySenhaAdmin-${admId}`);
+                    const modal = document.getElementById(`modalSenhaAdmin-${admId}`);
+                    if (overlay && modal) {
+                        overlay.classList.add('active');
+                        modal.classList.add('active');
                     }
 
-                    btnAlterar.disabled = !(todasPreenchidas && senhasIguais);
+                    // Seleciona os inputs do modal correspondente
+                    const form = modal.querySelector('.form-senha-administrador');
+                    const senhaAtual = modal.querySelector(`#senha_admin_${admId}`);
+                    const novaSenha = modal.querySelector(`#senha_admin_nova_${admId}`);
+                    const confirmarSenha = modal.querySelector(`#senha_admin_nova_confirmacao_${admId}`);
+                    const erroSenha = modal.querySelector('#erroSenhaAdmin');
+                    const btnAlterar = modal.querySelector('.btn-mudar-senha-admin');
+                    const campos = [senhaAtual, novaSenha, confirmarSenha];
+
+                    // Toggle de senha (olhinho)
+                    modal.querySelectorAll('.toggle-senha').forEach(span => {
+                        const inp = modal.querySelector(`#${span.dataset.target}_${admId}`);
+                        atualizarIcone(inp, span);
+                        span.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            inp.type = (inp.type === 'password') ? 'text' : 'password';
+                            atualizarIcone(inp, span);
+                        });
+                    });
+
+                    // Validação de senha
+                    campos.forEach(campo => {
+                        campo.addEventListener('input', () => {
+                            const todasPreenchidas = campos.every(c => c.value.trim() !== '');
+                            const senhasIguais = novaSenha.value === confirmarSenha.value;
+                            if (!senhasIguais && confirmarSenha.value.length > 0) {
+                                erroSenha.style.display = 'block';
+                            } else {
+                                erroSenha.style.display = 'none';
+                            }
+                            btnAlterar.disabled = !(todasPreenchidas && senhasIguais);
+                        });
+                    });
                 });
             });
         </script>
+
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

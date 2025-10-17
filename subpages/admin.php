@@ -43,7 +43,7 @@ if (isset($_SESSION['cpf'])) {
 
 <body>
         <button class="btn-voltar-home">
-        <a href="/cantinarepositorio/main/index.php" style="color: inherit; text-decoration:none;"> <i class="fa-solid fa-caret-left"></i> Home</a>
+        <a href="/cantinarepositorio/main/index.php" style="color: inherit; text-decoration:none;"> <i class="fa-solid fa-house"></i> Home</a>
         </button>
     <div class="main-container">
         <div class="title-main">
