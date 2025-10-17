@@ -32,7 +32,7 @@ if (!isset($_SESSION['cpf'])) {
 
 <body class="body">
     <header>
-        <div class="navbar">
+        <div class="navbar" id="meuspedidos">
             <div class="nav-links">
                 <div class="nav-logo">
                     <img src="/cantinarepositorio/main/assets/img/logo3.png" alt="">
@@ -232,6 +232,9 @@ if (!isset($_SESSION['cpf'])) {
                             <div class="card-bottom-buttons">
                                 <button class="cancelar-pedido">
                                     Cancelar Pedido
+                                </button>
+                                <button class="visualizar-pedido">
+                                    Visualizar Pedido
                                 </button>
                             </div>
                                 <div class="card-bottom-preco-total">
@@ -438,6 +441,9 @@ if (!isset($_SESSION['cpf'])) {
                                 <button class="cancelar-pedido" style="display: none;">
                                     Cancelar Pedido
                                 </button>
+                                <button class="visualizar-pedido">
+                                    Visualizar Pedido
+                                </button>
                             </div>
                                 <div class="card-bottom-preco-total">
                                     <p>R$ 23,00</p> <!--preco total pedido php-->
@@ -511,6 +517,119 @@ if (!isset($_SESSION['cpf'])) {
         <div class="modal-overlay-cancelar-pedido">
 
         </div>
+
+    <!--footer-->
+
+    <footer>
+    <div class="container-footer">
+      <div class="content-footer">
+        <div class="content-top-footer">
+          <div class="item-footer">
+            <div class="info-cantina-img">
+              <img src="/cantinarepositorio/main/assets/img/logo-footer.png" alt="">
+            </div>
+            <div class="info-cantina-description">
+              <p>Alimentando conhecimento e criando memórias através de sabores únicos há mais de 10 anos na nossa
+                comunidade escolar.</p>
+            </div>
+            <div class="info-icon">
+              <i class="fa-brands fa-whatsapp"></i>
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-x-twitter"></i>
+            </div>
+          </div>
+          <div class="item-footer">
+            <div class="title-footer-links">
+              <h1>Links Rápidos</h1>
+            </div>
+            <div class="footer-links">
+              <ul>
+                <li>
+                  <h6>
+                    <a href="/cantinarepositorio/main/index.php">Home</a>
+                  </h6>
+                </li>
+                <li>
+                  <h6>
+                    <a href="#meuspedidos">Pedidos</a>
+                  </h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="item-footer">
+            <div class="title-footer-links">
+              <h1>Contato</h1>
+            </div>
+            <div class="footer-links-local">
+              <ul>
+                <li>
+                  <h6>
+                    <a
+                      href="https://www.bing.com/search?q=maps%20Av%20Cruzeiro%20Do%20Sul%2C%202630%20-%20Carandiru&qs=n&form=QBRE&sp=-1&lq=0&pq=maps%20av%20cruzeiro%20do%20sul%2C%202630%20-%20carandiru&sc=0-41&sk=&cvid=08A936946DAF43F9B1FC74F782A823B6">
+                      <i class="fa-solid fa-location-dot"></i>
+                      Av Cruzeiro Do Sul, 2630 - Carandiru.
+                    </a>
+                  </h6>
+                </li>
+                <li>
+                  <h6>
+                    <a href="https://vestibulinho.etec.sp.gov.br/fale-conosco">
+                      <i class="fa-solid fa-location-dot"></i>
+                      (11) 3471-4071.
+                    </a>
+                  </h6>
+                </li>
+                <li>
+                  <h6><i class="fa-solid fa-envelope"></i> Furafila@gmail.com</h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="item-footer">
+            <div class="title-footer-links">
+              <h1>Horários de Funcionamento</h1>
+            </div>
+            <div class="footer-links">
+              <ul>
+                <li>
+                  <h6 style="width: 230%; display:flex; gap: 1vh;"><i class="fa-solid fa-clock"></i> Manha: 10:00 -
+                    10:20.</h6>
+                </li>
+                <li>
+                  <h6 style="width: 230%; display:flex; gap: 1vh;"><i class="fa-solid fa-clock"></i> Tarde: 16:00 -
+                    16:20.</h6>
+                </li>
+                <li>
+                  <h6 style="width: 235%; display:flex; gap: 1vh; padding-bottom:2vh;"><i class="fa-solid fa-clock"></i>
+                    Noite: 20:00 - 20:20.</h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="content-bottom-footer">
+          <div class="title-footer-bottom">
+            <h1>
+              © 2025 FURA-FILA. Todos os direitos reservados.
+            </h1>
+          </div>
+          <div class="title-footer-bottom-2">
+            <h1>
+              <a href="/cantinarepositorio/subpages/termos.php">
+                Política e Privacidade
+              </a>
+            </h1>
+            <h1>
+              <a href="/cantinarepositorio/subpages/termos.php">
+                Termos de uso
+              </a>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 
     <script src="./assets/js/pedidos.js"></script>

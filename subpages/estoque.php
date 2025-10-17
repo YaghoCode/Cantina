@@ -231,8 +231,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <li id="btn-clientes"><i class="fa-solid fa-users"></i> Clientes</li>
                     <li id="btn-pedidos"><i class="fa-solid fa-clipboard-list"></i> Pedidos</li>
                     <li id="btn-configuracoes" <?php if ($user_data['adm'] != 1) {
-                        echo 'style="display:none;"';
-                    } ?>;">
+                                                    echo 'style="display:none;"';
+                                                } ?>;">
                         <i class="fa-solid fa-gear"></i> Configurações
                     </li>
 
@@ -424,7 +424,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                        ?>
+                                ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -455,7 +455,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                    <?php }
+                                <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -480,7 +480,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                        ?>
+                                ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -511,7 +511,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                    <?php }
+                                <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -536,7 +536,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                        ?>
+                                ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -567,7 +567,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                    <?php }
+                                <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -593,7 +593,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                        ?>
+                                ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -624,7 +624,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                    <?php }
+                                <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -650,7 +650,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                        ?>
+                                ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -681,7 +681,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                    <?php }
+                                <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -706,7 +706,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                        ?>
+                                ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -737,7 +737,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                    <?php }
+                                <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -763,7 +763,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                        ?>
+                                ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -794,7 +794,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                    <?php }
+                                <?php }
                                 } ?>
                                 </tr>
                             </tbody>
@@ -816,7 +816,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             foreach ($query_run as $item) {
                 $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
                 $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                ?>
+        ?>
                 <div class="modal-overlay-estoque" id="modal-<?= $item['id'] ?>">
                     <div class="modal-estoque-visualizar-item" id="modal-visualizar-item">
                         <div class="modal-estoque-top">
@@ -888,7 +888,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
 
-            <?php }
+        <?php }
         } ?>
 
         <script>
@@ -933,7 +933,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $query_run = mysqli_query($con, $query);
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $item) {
-                ?>
+        ?>
 
                 <div class="modal-estoque-deletar-item" id="modal-deletar-item-<?= $item['id'] ?>" data-id="<?= $item['id'] ?>">
                     <div class="modal-deletar-content-top">
@@ -951,7 +951,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
 
-            <?php }
+        <?php }
         } ?>
 
         <script>
@@ -965,11 +965,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 btn.addEventListener('click', () => {
                     const produtoId = btn.getAttribute('data-id');
                     const modalDeletar = document.getElementById('modal-deletar-item-' + produtoId);
-                    const modalOverlayGeral = document.querySelector('.modal-overlay-geral');
 
                     if (modalDeletar) {
                         modalDeletar.style.display = 'flex';
-                        modalOverlayGeral.classList.add('active');
                     }
                 });
             });
@@ -992,12 +990,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     const produtoId = button.getAttribute('data-id');
                     console.log('ID enviado:', produtoId);
                     fetch('/cantinarepositorio/subpages/delete_item.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        },
-                        body: 'id=' + encodeURIComponent(produtoId)
-                    })
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: 'id=' + encodeURIComponent(produtoId)
+                        })
                         .then(response => response.json())
                         .then(data => {
                             if (data.success) {
@@ -1022,7 +1020,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             foreach ($query_run as $item) {
                 $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
                 $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                ?>
+        ?>
                 <!-- MODAL EDITAR ITEM -->
                 <div class="overlay-editar-produto" id="overlayEditar-<?= $item['id'] ?>">
                     <div class="modal-editar-produto" id="modalEditar-<?= $item['id'] ?>">
@@ -1114,7 +1112,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </form>
                     </div>
                 </div>
-                <?php
+        <?php
             }
         }
         ?>
@@ -1246,7 +1244,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $usuario) {
 
-                                        ?>
+                                ?>
                                         <tr>
                                             <td>
                                                 <h6><?php echo $usuario['nome'] ?></h6>
@@ -1259,10 +1257,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
                                             <td>
                                                 <h6><?php if ($usuario['adm'] == 1) {
-                                                    echo 'Administrador Principal';
-                                                } else {
-                                                    echo 'Funcionário';
-                                                } ?></h6>
+                                                        echo 'Administrador Principal';
+                                                    } else {
+                                                        echo 'Funcionário';
+                                                    } ?></h6>
                                             </td>
                                             <td>
                                                 <button class="btn-editar-senha-admin" data-id="<?= $usuario['cpf'] ?>">
@@ -1276,7 +1274,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 </button>
                                             </td>
                                         </tr>
-                                        <?php
+                                <?php
                                     }
                                 } ?>
                                 </tbody>
@@ -1284,7 +1282,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                 </div>
-                            <!--Form criar novo admin-->
+                <!--Form criar novo admin-->
                 <div class="content-mid-config">
                     <div class="form-criar-adm">
                         <div class="form-criar-adm-title">
@@ -1298,26 +1296,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 <div class="form-criar-adm-row">
                                     <div class="form-criar-adm-group">
                                         <label for="nome">Nome:</label>
-                                        <input type="text" name="nome_criar_admin" id="nome_criar_admin" placeholder="Nome do administrador"
-                                            required>
+                                        <input type="text" name="nome_criar_admin" id="nome_criar_admin" placeholder="Nome do administrador" required minlength="4">
                                     </div>
                                     <div class="form-criar-adm-group">
                                         <label for="cpf">CPF:</label>
-                                       <input type="text" name="cpf" id="cpf_criar_admin" placeholder="CPF do administrador" required maxlength="11" pattern="\d{11}">
+                                        <input type="text" name="cpf" id="cpf_criar_admin" placeholder="CPF do administrador" required maxlength="11" pattern="\d{11}">
                                     </div>
                                 </div>
+
                                 <div class="form-criar-adm-row">
                                     <div class="form-criar-adm-group">
                                         <label for="password">Senha:</label>
-                                        <input type="password" name="senha_criar_admin" id="senha_criar_admin"
-                                            placeholder="Senha do administrador" required>
+                                        <div class="input-wrapper">
+                                            <input type="password" name="senha_criar_admin" id="senha_criar_admin" placeholder="Senha do administrador" minlength="6" required>
+                                            <span class="toggle-senha" data-target="senha_criar_admin"><i class="fa-regular fa-eye-slash"></i></span>
+                                        </div>
                                     </div>
                                     <div class="form-criar-adm-group">
                                         <label for="email">Email:</label>
-                                        <input type="text" name="email_criar_admin" id="email_criar_admin" placeholder="Email do administrador"
-                                            required>
+                                        <input type="email" name="email_criar_admin" id="email_criar_admin" placeholder="Email do administrador" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
                                     </div>
                                 </div>
+
                                 <div class="form-criar-adm-row-btn">
                                     <div class="form-criar-adm-group-btn">
                                         <button type="submit" class="form-criar-adm-btn-mandar">
@@ -1330,6 +1330,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                 </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        // Mostrar / ocultar senha
+                        document.querySelectorAll('.toggle-senha').forEach(toggle => {
+                            toggle.addEventListener('click', () => {
+                                const targetId = toggle.getAttribute('data-target');
+                                const input = document.getElementById(targetId);
+                                if (input.type === 'password') {
+                                    input.type = 'text';
+                                    toggle.innerHTML = '<i class="fa-regular fa-eye"></i>';
+                                } else {
+                                    input.type = 'password';
+                                    toggle.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+                                }
+                            });
+                        });
+                    });
+                </script>
+
             </div>
         </div>
 
@@ -1341,7 +1361,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $usuario) {
-                ?>
+        ?>
                 <div class="modal-overlay-editar-admin" id="overlayEditarAdmin-<?= $usuario['cpf'] ?>">
                     <div class="modal-editar-admin" id="modaladm-<?= $usuario['cpf'] ?>">
                         <button class="btn-close-modal-editar-admin">
@@ -1471,7 +1491,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                 </div>
-                <?php
+        <?php
             }
         }
         ?>
@@ -1573,6 +1593,60 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             });
         </script>
 
+
+        <!-- Modal deletar admin -->
+        <div class="modal-overlay-deletar-admin">
+            <div class="modal-deletar-admin">
+                <div class="modal-deletar-admin-top">
+                    <h1>Tem certeza?</h1>
+                    <p>
+                        Esta ação não pode ser desfeita. A conta Administrador "<!--PHP NOME CONTA-->", de CPF "<!--CPF DA CONTA-->" será deletada para sempre.
+                    </p>
+                </div>
+                <div class="modal-deletar-admin-bottom">
+                    <button class="btn-cancelar-deletar-admin">Cancelar</button>
+                    <button class="btn-confirmar-deletar-admin">Excluir</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const modalOverlay = document.querySelector('.modal-overlay-deletar-admin');
+                const modal = document.querySelector('.modal-deletar-admin');
+                const btnAbrirModal = document.querySelectorAll('.btn-deletar-admin'); // botões que abrem o modal
+                const btnCancelar = document.querySelector('.btn-cancelar-deletar-admin');
+                const btnConfirmar = document.querySelector('.btn-confirmar-deletar-admin');
+
+                // Abrir modal
+                btnAbrirModal.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        modalOverlay.classList.add('active');
+                        modal.classList.add('active');
+                    });
+                });
+
+                // Fechar modal ao clicar em "Cancelar" ou fora do modal
+                btnCancelar.addEventListener('click', () => {
+                    modal.classList.remove('active');
+                    modalOverlay.classList.remove('active');
+                });
+
+                modalOverlay.addEventListener('click', (e) => {
+                    if (e.target === modalOverlay) {
+                        modal.classList.remove('active');
+                        modalOverlay.classList.remove('active');
+                    }
+                });
+
+                // (Opcional) Confirmar exclusão
+                btnConfirmar.addEventListener('click', () => {
+                    alert('Administrador deletado com sucesso!'); // Aqui entraria o PHP real
+                    modal.classList.remove('active');
+                    modalOverlay.classList.remove('active');
+                });
+            });
+        </script>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -145,7 +145,7 @@ mysqli_close($con);
                 
                 <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
                 
-                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" minlength="6" required>
                 
                 <button name="action" value="cadastrar" type="submit">Entrar</button>
             </form>

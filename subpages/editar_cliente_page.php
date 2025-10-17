@@ -32,7 +32,7 @@ if (!isset($_SESSION['cpf'])) {
 
 <body class="body">
     <header>
-        <div class="navbar">
+        <div class="navbar" id="editar">
             <div class="nav-links">
                 <div class="nav-logo">
                     <img src="/cantinarepositorio/main/assets/img/logo3.png" alt="">
@@ -115,6 +115,7 @@ if (!isset($_SESSION['cpf'])) {
                                     </div>
                                     <div class="form-group-editar-clientes-btn">
                                         <button class="btn-enviar-editar-clientes" type="submit">
+                                            <i class="fa-solid fa-floppy-disk" style="padding-right: 0.6rem;"></i>
                                             Salvar Alterações
                                         </button>
                                     </div>
@@ -128,7 +129,7 @@ if (!isset($_SESSION['cpf'])) {
                         <div class="form-editar-senha-cliente-title">
                             <div class="form-editar-senha-cliente-title-text">
                                 <h1>Alterar Senha - Cliente</h1>
-                                <p>Atualize a senha do cliente selecionado.</p>
+                                <p>Atualize a senha de sua conta.</p>
                             </div>
                         </div>
                         <div class="form-editar-senha-cliente-content">
@@ -154,7 +155,7 @@ if (!isset($_SESSION['cpf'])) {
                                     <div class="form-group-editar-senha-cliente">
                                         <label for="senha_cliente_nova_confirmacao">Confirmar Nova Senha:</label>
                                         <div class="input-wrapper">
-                                            <input type="password" id="senha_cliente_nova_confirmacao" required inputmode="none">
+                                            <input type="password" id="senha_cliente_nova_confirmacao" required inputmode="none" minlength="6">
                                             <span class="toggle-senha" data-target="senha_cliente_nova_confirmacao"><i class="fa-regular fa-eye-slash"></i></span>
                                         </div>
                                         <div class="erro-senha" id="erroSenhaCliente">As senhas não coincidem.</div>
@@ -176,40 +177,178 @@ if (!isset($_SESSION['cpf'])) {
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const senhaAtual = document.getElementById('senha_cliente_atual');
-            const novaSenha = document.getElementById('senha_cliente_nova');
-            const confirmarSenha = document.getElementById('senha_cliente_nova_confirmacao');
-            const erroSenha = document.getElementById('erroSenhaCliente');
-            const btnAlterarSenha = document.querySelector('.btn-mudar-senha-cliente');
+    document.addEventListener('DOMContentLoaded', () => {
+        const senhaAtual = document.getElementById('senha_cliente_atual');
+        const novaSenha = document.getElementById('senha_cliente_nova');
+        const confirmarSenha = document.getElementById('senha_cliente_nova_confirmacao');
+        const erroSenha = document.getElementById('erroSenhaCliente');
+        const btnAlterarSenha = document.querySelector('.btn-mudar-senha-cliente');
+        const btnCancelar = document.querySelector('.btn-cancelar-nova-senha-cliente');
 
-            // Mostrar ou ocultar senha
-            document.querySelectorAll('.toggle-senha').forEach(toggle => {
-                toggle.addEventListener('click', () => {
-                    const targetId = toggle.getAttribute('data-target');
-                    const input = document.getElementById(targetId);
-                    if (input.type === 'password') {
-                        input.type = 'text';
-                        toggle.innerHTML = '<i class="fa-regular fa-eye"></i>';
-                    } else {
-                        input.type = 'password';
-                        toggle.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
-                    }
-                });
-            });
-
-            // Validar senhas
-            confirmarSenha.addEventListener('input', () => {
-                if (novaSenha.value !== confirmarSenha.value) {
-                    erroSenha.style.display = 'block';
-                    btnAlterarSenha.disabled = true;
+        // Mostrar ou ocultar senha
+        document.querySelectorAll('.toggle-senha').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const targetId = toggle.getAttribute('data-target');
+                const input = document.getElementById(targetId);
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    toggle.innerHTML = '<i class="fa-regular fa-eye"></i>';
                 } else {
-                    erroSenha.style.display = 'none';
-                    btnAlterarSenha.disabled = false;
+                    input.type = 'password';
+                    toggle.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
                 }
             });
         });
-    </script>
+
+        // Função para validar senhas e habilitar botão
+        function validarSenhas() {
+            const senhaAtualPreenchida = senhaAtual.value.trim() !== '';
+            const novaSenhaPreenchida = novaSenha.value.trim() !== '';
+            const confirmarSenhaPreenchida = confirmarSenha.value.trim() !== '';
+
+            const senhasIguais = novaSenha.value === confirmarSenha.value;
+
+            if (senhaAtualPreenchida && novaSenhaPreenchida && confirmarSenhaPreenchida && senhasIguais) {
+                erroSenha.style.display = 'none';
+                btnAlterarSenha.disabled = false;
+            } else {
+                // Mostra o erro apenas se os campos estiverem preenchidos
+                if (novaSenhaPreenchida && confirmarSenhaPreenchida && !senhasIguais) {
+                    erroSenha.style.display = 'block';
+                } else {
+                    erroSenha.style.display = 'none';
+                }
+                btnAlterarSenha.disabled = true;
+            }
+        }
+
+        // Eventos de input
+        [senhaAtual, novaSenha, confirmarSenha].forEach(input => {
+            input.addEventListener('input', validarSenhas);
+        });
+
+        // Botão cancelar → recarrega a página
+        btnCancelar.addEventListener('click', (e) => {
+            e.preventDefault();
+            location.reload();
+        });
+    });
+</script>
+
+
+
+    <!--footer-->
+
+    <footer>
+        <div class="container-footer">
+            <div class="content-footer">
+                <div class="content-top-footer">
+                    <div class="item-footer">
+                        <div class="info-cantina-img">
+                            <img src="/cantinarepositorio/main/assets/img/logo-footer.png" alt="">
+                        </div>
+                        <div class="info-cantina-description">
+                            <p>Alimentando conhecimento e criando memórias através de sabores únicos há mais de 10 anos na nossa
+                                comunidade escolar.</p>
+                        </div>
+                        <div class="info-icon">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </div>
+                    </div>
+                    <div class="item-footer">
+                        <div class="title-footer-links">
+                            <h1>Links Rápidos</h1>
+                        </div>
+                        <div class="footer-links">
+                            <ul>
+                                <li>
+                                    <h6>
+                                        <a href="/cantinarepositorio/main/index.php">Home</a>
+                                    </h6>
+                                </li>
+                                <li>
+                                    <h6>
+                                        <a href="#editar">Cliente</a>
+                                    </h6>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item-footer">
+                        <div class="title-footer-links">
+                            <h1>Contato</h1>
+                        </div>
+                        <div class="footer-links-local">
+                            <ul>
+                                <li>
+                                    <h6>
+                                        <a
+                                            href="https://www.bing.com/search?q=maps%20Av%20Cruzeiro%20Do%20Sul%2C%202630%20-%20Carandiru&qs=n&form=QBRE&sp=-1&lq=0&pq=maps%20av%20cruzeiro%20do%20sul%2C%202630%20-%20carandiru&sc=0-41&sk=&cvid=08A936946DAF43F9B1FC74F782A823B6">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            Av Cruzeiro Do Sul, 2630 - Carandiru.
+                                        </a>
+                                    </h6>
+                                </li>
+                                <li>
+                                    <h6>
+                                        <a href="https://vestibulinho.etec.sp.gov.br/fale-conosco">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            (11) 3471-4071.
+                                        </a>
+                                    </h6>
+                                </li>
+                                <li>
+                                    <h6><i class="fa-solid fa-envelope"></i> Furafila@gmail.com</h6>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item-footer">
+                        <div class="title-footer-links">
+                            <h1>Horários de Funcionamento</h1>
+                        </div>
+                        <div class="footer-links">
+                            <ul>
+                                <li>
+                                    <h6 style="width: 230%; display:flex; gap: 1vh;"><i class="fa-solid fa-clock"></i> Manha: 10:00 -
+                                        10:20.</h6>
+                                </li>
+                                <li>
+                                    <h6 style="width: 230%; display:flex; gap: 1vh;"><i class="fa-solid fa-clock"></i> Tarde: 16:00 -
+                                        16:20.</h6>
+                                </li>
+                                <li>
+                                    <h6 style="width: 235%; display:flex; gap: 1vh; padding-bottom:2vh;"><i class="fa-solid fa-clock"></i>
+                                        Noite: 20:00 - 20:20.</h6>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-bottom-footer">
+                    <div class="title-footer-bottom">
+                        <h1>
+                            © 2025 FURA-FILA. Todos os direitos reservados.
+                        </h1>
+                    </div>
+                    <div class="title-footer-bottom-2">
+                        <h1>
+                            <a href="/cantinarepositorio/subpages/termos.php">
+                                Política e Privacidade
+                            </a>
+                        </h1>
+                        <h1>
+                            <a href="/cantinarepositorio/subpages/termos.php">
+                                Termos de uso
+                            </a>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
     <script src="./assets/js/editar_cliente_page.js"></script>

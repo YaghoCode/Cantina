@@ -22,6 +22,11 @@ body {
     font-family: var(--font-titulo);
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 /*navbar*/
 
 .navbar {
@@ -381,16 +386,6 @@ body {
     background-color: #bbb;
 }
 
-.content-bottom-editar-cliente{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 48%;
-    width: 100%;
-    border: 1px solid;
-}
-
 #cpf_editar_cliente:disabled {
     background-color: #9999997f;
     cursor: not-allowed;
@@ -398,3 +393,424 @@ body {
 
 /*editar senha cliente*/
 
+.content-bottom-editar-cliente{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 48%;
+    width: 100%;
+}
+
+.form-editar-senha-cliente{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.222);
+    border-radius: 0.5rem;
+    padding: 4rem 2rem;
+}
+
+.form-editar-senha-cliente-title{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 20%;
+}
+
+.form-editar-senha-cliente-title-text h1{
+    font-size: 2rem;
+    font-family: var(--font-titulo);
+    color: #000000;
+    font-weight: 500;
+}
+
+.form-editar-senha-cliente-title-text p{
+    font-size: 1.2rem;
+    font-family: var(--font-titulo);
+    color: #00000091;
+    font-weight: 400;
+}
+
+.form-editar-senha-cliente-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 100%;
+}
+
+.form-editar-senha-cliente{
+    display: flex;
+    flex-direction: column;
+    gap: 6vh;
+    height: 100%;
+    width: 100%;
+}
+
+.form-editar-senha-cliente-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5vh;
+    align-items: center;
+    min-height: 23%;
+    width: 100%;
+}
+
+.form-editar-senha-cliente-row-btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5vh;
+    height: 100%;
+    width: 100%;
+    margin-top: 2vh;
+}
+
+.form-group-editar-senha-cliente{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1vw;
+    margin-top: 0vh;
+}
+
+.form-group-editar-senha-cliente-btn {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.btn-cancelar-nova-senha-cliente,
+.btn-mudar-senha-cliente {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8vh;
+    color: white;
+    background-color: #e3251bef;
+    font-family: var(--font-titulo);
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-radius: 0.4rem;
+    border: 1px solid rgba(0, 0, 0, 0.164);
+    padding: 0.8rem;
+    cursor: pointer;
+}
+
+.btn-cancelar-nova-senha-cliente:hover {
+    background-color: #e3251bcb;
+}
+
+.btn-mudar-senha-cliente {
+    color: #333333e9 !important;
+    background: #fafafa !important;
+}
+
+.btn-mudar-senha-cliente:hover {
+    background: rgba(196, 196, 196, 0.444) !important;
+}
+
+.form-group-editar-senha-cliente label,
+.form-editar-senha-cliente-row>label {
+    font-family: var(--font-titulo);
+    font-size: 1rem;
+    color: #000000c9;
+    font-weight: 600;
+}
+
+.form-group-editar-senha-cliente input,
+.form-editar-senha-cliente-row input {
+    width: 100%;
+    padding: 16px 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: var(--font-titulo);
+    color: #333333e9;
+    background: #fafafa;
+    transition: all 0.2s ease;
+}
+
+
+.form-group-editar-senha-cliente input:focus,
+.form-editar-senha-cliente-row input:focus {
+    outline: none;
+    border-color: #e3261b;
+    background: #fff;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding-right: 36px;
+}
+
+.toggle-senha {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #777;
+    transition: color 0.3s ease;
+}
+
+.toggle-senha:hover {
+    color: #e3261b;
+}
+
+.erro-senha {
+    top: 128%;
+    position: absolute;
+    color: #e3261b;
+    font-size: 0.9rem;
+    margin-top: 4px;
+    display: none;
+    font-family: var(--font-titulo);
+}
+
+.btn-mudar-senha-cliente:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+
+/*Footer*/
+
+.container-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45vh;
+    width: 100%;
+    margin-top: 5vh;
+    border-top: 1px solid rgba(0, 0, 0, 0.151);
+}
+
+.content-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    height: 95%;
+}
+
+.content-top-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75%;
+    width: 95%;
+}
+
+.content-bottom-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25%;
+    width: 100%;
+    margin-top: 2vh;
+    border-top: 1px solid #00000042;
+}
+
+.item-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 25%;
+    height: 100%;
+}
+
+.info-cantina-img{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 40%;
+    width: 100%;
+}
+
+.info-cantina-img img{
+    transform: translateX(-5%);
+    object-fit: cover;
+    height: 200%;
+}
+
+.info-cantina-description{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 40%;
+    width: 100%;
+}
+
+.info-cantina-description p{
+    font-size: 1.1rem;
+    font-family: var(--font-titulo);
+    font-weight: 400;
+    color:  #00000098;
+}
+
+.info-icon{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 30%;
+    width: 100%;
+    gap: 2vh;
+    text-align: center;
+}
+
+
+.info-icon i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem;
+    color: white;
+    border-radius: 50%;
+    height: 60%;
+    width: 11%;
+    background-color: var(--cor-primaria);
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.info-icon i:hover{
+    background-color: #e3251bca;
+}
+
+.title-footer-links{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 40%;
+    width: 100%;
+    padding-left: 15vh;
+}
+
+.title-footer-links h1{
+    font-size: 1.6rem;
+    font-family: var(--font-titulo);
+    color: #000000c7;
+}
+
+.footer-links{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 60%;
+    width: 30%;
+}
+
+.footer-links ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    list-style: none;
+    padding: 1rem;
+}
+
+.footer-links ul li h6{
+    width: 100%;
+    font-size: 1.2rem;
+    font-family: var(--font-titulo);
+    color:  #00000098;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.footer-links ul li h6 a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-links ul li h6:hover{
+    transform: scale(1.05);
+    color: var(--cor-primaria);
+}
+
+.footer-links-local{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 60%;
+    width: 100%;
+}
+
+.footer-links-local ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    list-style: none;
+    padding: 1rem;
+}
+
+.footer-links-local ul li h6{
+    display: flex;
+    padding-left: 14vh;
+    gap: 1vh;
+    width: 100%;
+    font-size: 1.1rem;
+    font-family: var(--font-titulo);
+    color:  #00000098;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.footer-links-local ul li h6:hover{
+    transform: scale(1.05);
+    color: var(--cor-primaria);
+}
+
+.title-footer-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 30%;
+    height: 100%;
+}
+
+.title-footer-bottom-2{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 70%;
+    height: 100%;
+    gap: 4vh;
+}
+
+.title-footer-bottom h1{
+    font-size: 1.2rem;
+    color:  #00000098;
+    text-decoration: none;
+    font-family: var(--font-titulo);
+}
+
+.title-footer-bottom a, .title-footer-bottom-2 h1, .title-footer-bottom-2 a{
+    font-size: 1.2rem;
+    color:  #00000098;
+    text-decoration: none;
+    font-family: var(--font-titulo);
+    cursor: pointer;
+}
+
+.title-footer-bottom a:hover,
+ .title-footer-bottom-2 h1:hover,
+ .title-footer-bottom-2 a:hover{
+    color: var(--cor-primaria);
+ }
