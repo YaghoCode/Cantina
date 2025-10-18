@@ -105,7 +105,7 @@ if (!isset($_SESSION['cpf'])) {
     </nav>
   </header>
 
-      
+
   <!--POPUP DO USER-->
   <div class="overlay-pop-up-user" id="overlay-pop-up-user">
 
@@ -544,6 +544,130 @@ if (!isset($_SESSION['cpf'])) {
   ?>
 
 
+  <!--footer-->
+
+  <footer>
+    <div class="container-footer">
+      <div class="content-footer">
+        <div class="content-top-footer">
+          <div class="item-footer">
+            <div class="info-cantina-img">
+              <img src="/cantinarepositorio/main/assets/img/logo-footer.png" alt="">
+            </div>
+            <div class="info-cantina-description">
+              <p>Alimentando conhecimento e criando memórias através de sabores únicos há mais de 10 anos na nossa
+                comunidade escolar.</p>
+            </div>
+            <div class="info-icon">
+              <i class="fa-brands fa-whatsapp"></i>
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-x-twitter"></i>
+            </div>
+          </div>
+          <div class="item-footer">
+            <div class="title-footer-links">
+              <h1>Links Rápidos</h1>
+            </div>
+            <div class="footer-links">
+              <ul class="footer-links-page">
+                <li>
+                  <h6>
+                    <a href="/cantinarepositorio/main/index.php">Home</a>
+                  </h6>
+                </li>
+                <li>
+                  <h6>
+                    <a href="#salgados">Salgados</a>
+                  </h6>
+                </li>
+                <li>
+                  <h6>
+                    <a href="#outros">Outros</a>
+                  </h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="item-footer">
+            <div class="title-footer-links">
+              <h1>Contato</h1>
+            </div>
+            <div class="footer-links-local">
+              <ul>
+                <li>
+                  <h6>
+                    <a
+                      href="https://www.bing.com/search?q=maps%20Av%20Cruzeiro%20Do%20Sul%2C%202630%20-%20Carandiru&qs=n&form=QBRE&sp=-1&lq=0&pq=maps%20av%20cruzeiro%20do%20sul%2C%202630%20-%20carandiru&sc=0-41&sk=&cvid=08A936946DAF43F9B1FC74F782A823B6"  style="text-decoration: none; color:inherit;">
+                      <i class="fa-solid fa-location-dot"></i>
+                      Av Cruzeiro Do Sul, 2630 - Carandiru.
+                    </a>
+                  </h6>
+                </li>
+                <li>
+                  <h6>
+                    <a href="https://vestibulinho.etec.sp.gov.br/fale-conosco" style="text-decoration: none; color:inherit;">
+                      <i class="fa-solid fa-location-dot"></i>
+                      (11) 3471-4071.
+                    </a>
+                  </h6>
+                </li>
+                <li>
+                  <h6><i class="fa-solid fa-envelope"></i> Furafila@gmail.com</h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="item-footer">
+            <div class="title-footer-links">
+              <h1>Horários de Funcionamento</h1>
+            </div>
+            <div class="footer-links">
+              <ul>
+                <li>
+                  <h6 style="width: 230%; display:flex; gap: 1vh;"><i class="fa-solid fa-clock"></i> Manha: 10:00 -
+                    10:20.</h6>
+                </li>
+                <li>
+                  <h6 style="width: 230%; display:flex; gap: 1vh;"><i class="fa-solid fa-clock"></i> Tarde: 16:00 -
+                    16:20.</h6>
+                </li>
+                <li>
+                  <h6 style="width: 235%; display:flex; gap: 1vh; padding-bottom:2vh;"><i class="fa-solid fa-clock"></i>
+                    Noite: 20:00 - 20:20.</h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="content-bottom-footer">
+          <div class="title-footer-bottom">
+            <h1>
+              © 2025 FURA-FILA. Todos os direitos reservados.
+            </h1>
+          </div>
+          <div class="title-footer-bottom-2">
+            <h1>
+              <a href="/cantinarepositorio/subpages/termos.php">
+                Política e Privacidade
+              </a>
+            </h1>
+            <h1>
+              <a href="/cantinarepositorio/subpages/termos.php">
+                Termos de uso
+              </a>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+
   <div class="modal-overlay-cardapio" id="modal-overlay-cardapio"></div>
 
 
@@ -665,49 +789,49 @@ if (!isset($_SESSION['cpf'])) {
     ////////////// funcao modal + carrinho (manda o item do modal para o carrinho)
 
     document.querySelectorAll('.btn-mandar').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const itemDiv = this.closest('.content-modal-cardapio');
-    const id = itemDiv.dataset.id;
-    const nome = itemDiv.dataset.nome;
-    const descricao = itemDiv.dataset.descricao;
-    const preco = parseFloat(itemDiv.dataset.preco);
+      btn.addEventListener('click', function() {
+        const itemDiv = this.closest('.content-modal-cardapio');
+        const id = itemDiv.dataset.id;
+        const nome = itemDiv.dataset.nome;
+        const descricao = itemDiv.dataset.descricao;
+        const preco = parseFloat(itemDiv.dataset.preco);
 
-    // Pegue o valor do input de quantidade do modal
-    const quantidadeInput = itemDiv.querySelector('.input-modal-quantidade');
-    let quantidade = 1;
-    if (quantidadeInput) {
-      quantidade = parseInt(quantidadeInput.value) || 1;
-    }
+        // Pegue o valor do input de quantidade do modal
+        const quantidadeInput = itemDiv.querySelector('.input-modal-quantidade');
+        let quantidade = 1;
+        if (quantidadeInput) {
+          quantidade = parseInt(quantidadeInput.value) || 1;
+        }
 
-    const item = {
-      id: id,
-      nome: nome,
-      descricao: descricao,
-      preco: preco,
-      quantidade: quantidade, // <-- Agora pega o valor do input!
-      img: itemDiv.dataset.img
-    };
+        const item = {
+          id: id,
+          nome: nome,
+          descricao: descricao,
+          preco: preco,
+          quantidade: quantidade, // <-- Agora pega o valor do input!
+          img: itemDiv.dataset.img
+        };
 
-    // 🧠 Salvar no localStorage (adicionando ao carrinho local)
-    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        // 🧠 Salvar no localStorage (adicionando ao carrinho local)
+        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
-    const existente = carrinho.find(i => i.id === id);
-    if (existente) {
-      existente.quantidade += quantidade; // Soma a quantidade escolhida
-    } else {
-      carrinho.push(item);
-    }
+        const existente = carrinho.find(i => i.id === id);
+        if (existente) {
+          existente.quantidade += quantidade; // Soma a quantidade escolhida
+        } else {
+          carrinho.push(item);
+        }
 
-    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
 
-    document.querySelectorAll('.container-modal-cardapio').forEach(modal => {
-      modal.classList.remove('active');
+        document.querySelectorAll('.container-modal-cardapio').forEach(modal => {
+          modal.classList.remove('active');
+        });
+        overlayModalCardapio.classList.remove('active');
+        atualizarCarrinhoVisual();
+        abrirCarrinhoModal();
+      });
     });
-    overlayModalCardapio.classList.remove('active');
-    atualizarCarrinhoVisual();
-    abrirCarrinhoModal();
-  });
-});
 
     /////input butao quantidade carrinho items
 
