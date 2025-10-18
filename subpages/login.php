@@ -99,7 +99,7 @@ mysqli_close($con);
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <!-- Seu CSS -->
-  <link rel="stylesheet" href="./assets/css/login.css" />
+  <link rel="stylesheet" href="./assets/css/pagesCliente/login.css" />
 </head>
 
 <body class="body">
@@ -178,7 +178,7 @@ mysqli_close($con);
         </div>
     </div>
 
-    <script src="./assets/js/login.js"></script>
+    <script src="./assets/js/pageCliente/login.js"></script>
 </body>
 </html>
 

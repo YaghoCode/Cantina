@@ -1138,11 +1138,10 @@ if (isset($_SESSION['cpf'])) {
 
 
   <!--LINKS DO JS-->
-  <script src="./assets/js/script.js"></script>
-  <script src="./assets/js/navbar.js"></script>
-  <script src="./assets/js/carrouselMP.js"></script>
-  <script src="./assets/js/.js"></script>
-  <script src="./assets/js/carrinhoMain.js"></script>
+  <script src="./assets/js/pages/script.js"></script>
+  <script src="./assets/js/functions/navbar.js"></script>
+  <script src="./assets/js/functions/carrouselMP.js"></script>
+  <script src="./assets/js/functions/carrinhoMain.js"></script>
 
   <!--LOGIN PHP VERIFICACAO-->
   <?php
@@ -1153,11 +1152,11 @@ if (isset($_SESSION['cpf'])) {
     $user_data = mysqli_fetch_assoc($result);
 
     if ($result && mysqli_num_rows($result) > 0) {
-      echo '<script src="./assets/js/modalalert.js"></script> ';
+      echo '<script src="./assets/js/functions/modalalert.js"></script> ';
     }
   } else {
 
-    echo '<script src="./assets/js/direcionamentocardapio.js"></script>';
+    echo '<script src="./assets/js/pages/direcionamentocardapio.js"></script>';
   }
   ?>
 </body>
