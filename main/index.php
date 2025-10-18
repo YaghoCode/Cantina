@@ -83,7 +83,7 @@ if (isset($_SESSION['cpf'])) {
         <?php
         if ($is_admin) {
           echo '<div class="btn-admin">
-                    <button>
+                    <button type="button">
                       <a href="/cantinarepositorio/subpages/admin.php">
                          Acesso Admin
                       </a>
@@ -95,7 +95,7 @@ if (isset($_SESSION['cpf'])) {
           echo '<div class="nav-buttons" style="gap:3vh;">';
           if (!$is_admin) {
             echo '<div class="btn-meus-pedidos">
-                    <button>
+                    <button type="button">
                       <a href="/cantinarepositorio/subpages/pedidos.php">
                         <i class="fa-solid fa-receipt"></i> Meus Pedidos
                       </a>
@@ -114,7 +114,7 @@ if (isset($_SESSION['cpf'])) {
         } else {
           echo '  <div class="nav-buttons">
                 <div class="btn-cadastrar-se">
-                                <button>
+                                <button type="button">
                                   <a href="/cantinarepositorio/subpages/login.php" style=" color:inherit; text-decoration:none;"><i class="fa-regular fa-user"></i> Entrar</a>
                                 </button>
                             </div>
@@ -220,7 +220,7 @@ if (isset($_SESSION['cpf'])) {
               </a>
             </button>
           <?php endif; ?>
-          <button class="btn-logout-pop-up">
+          <button type="button" class="btn-logout-pop-up">
             <a href="/cantinarepositorio/subpages/logout.php">
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
               Logout
@@ -1130,6 +1130,28 @@ if (isset($_SESSION['cpf'])) {
       </div>
     </div>
   </footer>
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Torna o botão inteiro clicável quando há um <a> dentro dele
+      document.querySelectorAll('button').forEach(btn => {
+        const a = btn.querySelector('a[href]');
+        if (!a) return;
+        // evita comportamento padrão do <a> quando clicado apenas no texto
+        a.style.pointerEvents = 'none';
+        // adiciona redirecionamento ao botão inteiro
+        btn.addEventListener('click', (e) => {
+          // permite que botões tipo "submit" continuem funcionando em formulários
+          if (btn.type && btn.type.toLowerCase() === 'submit') return;
+          const href = a.getAttribute('href');
+          if (!href) return;
+          window.location.href = href;
+        });
+      });
+    });
+
+  </script>
 
   <!-- Bootstrap 5 JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
