@@ -352,7 +352,7 @@ if (isset($_SESSION['cpf'])) {
                   rendimento durante os estudos.</p>
               </div>
               <div class="btn-carousel">
-                <button class="btn-1-carousel">
+                <button type="button" class="btn-1-carousel">
                   <a href="#cardapio">Ver Cardápio</a>
                 </button>
               </div>
@@ -370,7 +370,7 @@ if (isset($_SESSION['cpf'])) {
                   amizades e criar memórias inesquecíveis.</p>
               </div>
               <div class="btn-carousel">
-                <button class="btn-2-carousel">
+                <button type="button" class="btn-2-carousel">
                   <a href="#cardapio">Ver Cardápio</a>
                 </button>
               </div>
@@ -388,7 +388,7 @@ if (isset($_SESSION['cpf'])) {
                   e bem-estar aos nossos estudantes.</p>
               </div>
               <div class="btn-carousel">
-                <button class="btn-3-carousel">
+                <button type="button" class="btn-3-carousel">
                   <a href="#cardapio">Ver Cardápio</a>
                 </button>
               </div>

@@ -528,8 +528,176 @@ if (!isset($_SESSION['cpf'])) {
     <!--Modal cancelar pedido-->
 
     <div class="modal-overlay-cancelar-pedido">
-
+        <div class="modal-cancelar-pedido">
+            <div class="modal-cancelar-pedido-top">
+                <h1>Tem certeza?</h1>
+                <p>
+                    Esta ação não pode ser desfeita. O pedido de número:
+                    "<span class="cancelar-pedido-numero"></span>",
+                    do usuario: "<span class="cancelar-pedido-nome-cliente"></span>" será cancelado.
+                </p>
+            </div>
+            <div class="modal-cancelar-pedido-bottom">
+                <button type="button" class="btn-cancelar-cancelar-pedido">Desfazer</button>
+                <button type="button" class="btn-confirmar-cancelar-pedido">Cancelar Pedido</button>
+            </div>
+        </div>
     </div>
+
+    <script>
+        const modalCancelarPedido = document.querySelector('.modal-cancelar-pedido');
+        const modalOverlayCancelarPedido = document.querySelector('.modal-overlay-cancelar-pedido');
+        const btnCancelarCancelamentoPedido = document.querySelector('.btn-cancelar-cancelar-pedido');
+        const btnConfirmarCancelamentoPedido = document.querySelector('.btn-confirmar-cancelar-pedido');
+        const btnCancelarPedido = document.querySelectorAll('.cancelar-pedido');
+
+        btnCancelarPedido.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                modalCancelarPedido.classList.add('active');
+                modalOverlayCancelarPedido.classList.add('active');
+            })
+        });
+
+        btnCancelarCancelamentoPedido.addEventListener('click', () => {
+            modalCancelarPedido.classList.remove('active');
+            modalOverlayCancelarPedido.classList.remove('active');
+        });
+    </script>
+
+    <!--modal visualizar pedido-->
+
+    <div class="modal-overlay-visualizar-pedido">
+        <div class="modal-visualizar-pedido">
+            <button class="btn-fechar-modal-visualizar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="content-modal-visualizar-pedido">
+                <div class="content-modal-visualizar-top">
+                    <div class="content-modal-visualizar-top-title">
+                        <h1>Detalhes do Pedido:</h1>
+                    </div>
+                    <div class="content-modal-visualizar-top-tagFiltro">
+                        <h6>Sendo Preparado</h6> <!--php tag do pedido MUDA A COR DESGRAÇA-->
+                    </div>
+                </div>
+                <div class="content-modal-visualizar-mid">
+                    <div class="content-modal-visualizar-mid-row">
+                        <div class="content-modal-visualizar-mid-group">
+                            <div class="mid-group-numero-pedido">
+                                <h1>Número do pedido:</h1>
+                                <span>#1234</span><!--php number pedido-->
+                            </div>
+                            <div class="mid-group-data-pedido">
+                                <h1>Data:</h1>
+                                <span>17/02/2008</span><!--php data pedido-->
+                            </div>
+                        </div>
+                        <div class="content-modal-visualizar-mid-group">
+                            <div class="mid-group-turno-pedido">
+                                <h1>Turno:</h1>
+                                <span>Manhã</span><!--php turno pedido-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-modal-visualizar-mid-row">
+                        <div class="content-modal-visualizar-mid-group-user">
+                            <div class="mid-group-info-user">
+                                <h1>Informações do Cliente:</h1>
+                            </div>
+                        </div>
+                        <div class="content-modal-visualizar-mid-group-user">
+                            <div class="mid-group-info">
+                                <h1>Nome:</h1>
+                                <span>Caio Silva</span>
+                            </div>
+                            <div class="mid-group-info">
+                                <h1>Turma: </h1>
+                                <span>2 DS</span>
+                            </div>
+                            <div class="mid-group-info">
+                                <h1>CPF: </h1>
+                                <span>55132867854</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-modal-visualizar-mid-row" style="border: none;">
+                        <div class="content-modal-visualizar-mid-group-pedido" style="margin-bottom: 4vh;">
+                            <div class="mid-group-info-pedido">
+                                <h1>Resumo do pedido:</h1>
+                            </div>
+                        </div>
+                        <div class="content-modal-visualizar-mid-group-pedido">
+                            <div class="mid-group-info-table-pedido">
+                                <div class="tabela-scroll">
+                                    <div class="tabela-items-pedido">
+                                        <div class="tabela-items-pedido-produto">
+                                            <h3>2x</h3><!--quantidade produto-->
+                                            <h4>Esfiha de Carne</h4><!--nome do produto-->
+                                        </div>
+                                        <div class="tabela-items-pedido-preco">
+                                            <h5>R$ 6,00</h5><!--Preço produto-->
+                                        </div>
+                                    </div>
+                                    <div class="tabela-items-pedido">
+                                        <div class="tabela-items-pedido-produto">
+                                            <h3>2x</h3><!--quantidade produto-->
+                                            <h4>Esfiha de Carne</h4><!--nome do produto-->
+                                        </div>
+                                        <div class="tabela-items-pedido-preco">
+                                            <h5>R$ 6,00</h5><!--Preço produto-->
+                                        </div>
+                                    </div>
+                                    <div class="tabela-items-pedido">
+                                        <div class="tabela-items-pedido-produto">
+                                            <h3>2x</h3><!--quantidade produto-->
+                                            <h4>Esfiha de Carne</h4><!--nome do produto-->
+                                        </div>
+                                        <div class="tabela-items-pedido-preco">
+                                            <h5>R$ 6,00</h5><!--Preço produto-->
+                                        </div>
+                                    </div>
+                                    <div class="tabela-items-pedido">
+                                        <div class="tabela-items-pedido-produto">
+                                            <h3>2x</h3><!--quantidade produto-->
+                                            <h4>Esfiha de Carne</h4><!--nome do produto-->
+                                        </div>
+                                        <div class="tabela-items-pedido-preco">
+                                            <h5>R$ 6,00</h5><!--Preço produto-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-modal-visualizar-bottom">
+                    <div class="visualizar-bottom-preco">
+                        <h1>Total:</h1>
+                        <span>R$ 14,00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modalVisualizarPedido = document.querySelector('.modal-visualizar-pedido');
+        const modalOverlayVisualizarPedido = document.querySelector('.modal-overlay-visualizar-pedido');
+        const btnFecharModalPedido = document.querySelector('.btn-fechar-modal-visualizar');
+        const btnVisualizarPedido = document.querySelectorAll('.visualizar-pedido');
+
+        btnVisualizarPedido.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                modalVisualizarPedido.classList.add('active');
+                modalOverlayVisualizarPedido.classList.add('active');
+            })
+        });
+
+        btnFecharModalPedido.addEventListener('click', () => {
+            modalVisualizarPedido.classList.remove('active');
+            modalOverlayVisualizarPedido.classList.remove('active');
+        });
+    </script>
 
     <!--footer-->
 
@@ -649,7 +817,6 @@ if (!isset($_SESSION['cpf'])) {
     </footer>
 
     <script>
-
         document.addEventListener('DOMContentLoaded', () => {
             // Torna o botão inteiro clicável quando há um <a> dentro dele
             document.querySelectorAll('button').forEach(btn => {
@@ -667,7 +834,6 @@ if (!isset($_SESSION['cpf'])) {
                 });
             });
         });
-
     </script>
 
     <script src="./assets/js/pageCliente/pedidos.js"></script>
