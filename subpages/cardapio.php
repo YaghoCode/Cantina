@@ -216,7 +216,7 @@ if (!isset($_SESSION['cpf'])) {
 
         </div>
         <div class="cart-title">
-          <h6>
+          <h6 class="cart-title-h6">
             Itens Adicionados:
           </h6>
         </div>
@@ -237,8 +237,8 @@ if (!isset($_SESSION['cpf'])) {
 
       </div>
       <div class="cart-total-price">
-        <h5>Total:</h5>
-        <h6>R$ 00,00 <!--Price calculado--></h6>
+        <h5 class="cart-total-h5">Total:</h5>
+        <h6 class="cart-total-h6">R$ 00,00 <!--Price calculado--></h6>
       </div>
       <div class="finalizar-pedido">
         <button id="btn-finalizar-pedidos">

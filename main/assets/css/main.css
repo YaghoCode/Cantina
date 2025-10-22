@@ -684,7 +684,7 @@ a{
 }
 
 #btn-limpar-carrinho.active{
-    display: flex;
+    display: none;
 }
 
 #btn-limpar-carrinho i{
@@ -728,7 +728,7 @@ a{
 }
 
 .barra-divisao.active{
-    display: flex;
+    display: none;
 }
 
 
@@ -739,7 +739,7 @@ a{
 }
 
 .cart-title h6.active {
-    display: flex;
+    display: none;
 }
 
 /*Estrutura swiper*/
@@ -944,7 +944,7 @@ input[type="number"] {
 
 .cart-total-price h5.active,
 .cart-total-price h6.active{
-    display: flex;
+    display: none;
 }
 
 .cart-total-price h6 {
@@ -976,7 +976,7 @@ input[type="number"] {
 }
 
 .finalizar-pedido button.active{
-    display: flex;
+    display: none;
 }
 
 
