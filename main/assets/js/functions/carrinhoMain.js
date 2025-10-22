@@ -3,6 +3,7 @@ function atualizarCarrinhoVisual() {
     const container = document.getElementById("carrinho-itens-wrapper");
     const totalEl = document.querySelector(".cart-total-price h6");
 
+
     container.innerHTML = ""; // Limpa itens antigos
     let total = 0;
 

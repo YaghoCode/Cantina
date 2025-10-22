@@ -250,7 +250,7 @@ if (isset($_SESSION['cpf'])) {
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-      <button id="btn-limpar-carrinho">
+      <button id="btn-limpar-carrinho" style=" display: none;">
         <i class="fa-solid fa-trash-can"></i> Esvaziar
       </button>
 
@@ -259,11 +259,11 @@ if (isset($_SESSION['cpf'])) {
 
         </div>
         <div class="cart-title">
-          <h6>
+          <h6 class="cart-title-h6" style=" display: none;">
             Itens Adicionados:
           </h6>
         </div>
-        <div class="barra-divisao">
+        <div class="barra-divisao" style=" display: none;">
 
         </div>
       </div>
@@ -280,11 +280,11 @@ if (isset($_SESSION['cpf'])) {
 
       </div>
       <div class="cart-total-price">
-        <h5>Total:</h5>
-        <h6>R$ 00,00 <!--Price calculado--></h6>
+        <h5 class="cart-total-h5" style=" display: none;">Total:</h5 >
+        <h6 class="cart-total-h6" style=" display: none;">R$ 00,00 <!--Price calculado--></h6>
       </div>
       <div class="finalizar-pedido">
-        <button id="btn-finalizar-pedidos">
+        <button id="btn-finalizar-pedidos" style=" display: none;">
           Finalizar Pedido
         </button>
       </div>

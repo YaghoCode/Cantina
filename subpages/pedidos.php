@@ -5,8 +5,25 @@ header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Pragma: no-cache");
 header("Expires: 0");
 
-if (!isset($_SESSION['cpf'])) {
-    header("Location: /cantinarepositorio/subpages/login.php");
+
+if (isset($_SESSION['cpf'])) {
+    $cpf = $_SESSION['cpf'];
+
+    // Tenta buscar como administrador
+    $query_user = "SELECT nome, cpf, email, turma FROM cliente WHERE cpf = '$cpf'";
+    $result_user = mysqli_query($con, $query_user);
+
+    if ($result_user && mysqli_num_rows($result_user) > 0) {
+        $user_data = mysqli_fetch_assoc($result_user);
+        // Permite acesso
+    }
+    else {
+        header("Location: ./login.php");
+    exit;
+    }
+}
+else{
+    header("Location: ./login.php");
     exit;
 }
 ?>
@@ -77,7 +94,6 @@ if (!isset($_SESSION['cpf'])) {
         </div>
     </header>
 
-    <!--pop-up-user-->
     <!--POPUP DO USER-->
     <div class="overlay-pop-up-user" id="overlay-pop-up-user">
 

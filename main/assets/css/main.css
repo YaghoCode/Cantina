@@ -683,6 +683,10 @@ a{
     z-index: 1000000000;
 }
 
+#btn-limpar-carrinho.active{
+    display: flex;
+}
+
 #btn-limpar-carrinho i{
     color: var(--cor-primaria);
 }
@@ -723,10 +727,19 @@ a{
     width: 80%;
 }
 
+.barra-divisao.active{
+    display: flex;
+}
+
+
 .cart-title h6 {
     font-size: 1.4rem;
     font-family: var(--font-titulo);
     font-weight: 600;
+}
+
+.cart-title h6.active {
+    display: flex;
 }
 
 /*Estrutura swiper*/
@@ -926,6 +939,12 @@ input[type="number"] {
     font-size: 1.4rem;
     font-family: var(--font-titulo);
     color: #000000d1;
+
+}
+
+.cart-total-price h5.active,
+.cart-total-price h6.active{
+    display: flex;
 }
 
 .cart-total-price h6 {
@@ -955,6 +974,11 @@ input[type="number"] {
     border-radius: 0.8rem;
     transition: 0.3s ease;
 }
+
+.finalizar-pedido button.active{
+    display: flex;
+}
+
 
 .finalizar-pedido button:hover{
     background-color: #e3251be2;

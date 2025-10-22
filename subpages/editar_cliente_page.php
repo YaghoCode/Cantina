@@ -5,8 +5,24 @@ header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Pragma: no-cache");
 header("Expires: 0");
 
-if (!isset($_SESSION['cpf'])) {
-    header("Location: /cantinarepositorio/subpages/login.php");
+
+
+if (isset($_SESSION['cpf'])) {
+    $cpf = $_SESSION['cpf'];
+
+    // Tenta buscar como administrador
+    $query_user = "SELECT nome, cpf, email, turma FROM cliente WHERE cpf = '$cpf'";
+    $result_user = mysqli_query($con, $query_user);
+
+    if ($result_user && mysqli_num_rows($result_user) > 0) {
+        $user_data = mysqli_fetch_assoc($result_user);
+        // Permite acesso
+    } else {
+        header("Location: ./login.php");
+        exit;
+    }
+} else {
+    header("Location: ./login.php");
     exit;
 }
 ?>
@@ -63,6 +79,117 @@ if (!isset($_SESSION['cpf'])) {
         </div>
     </header>
 
+    <!--POPUP DO USER-->
+    <div class="overlay-pop-up-user" id="overlay-pop-up-user">
+
+    </div>
+    <div class="pop-up-user" id="pop-up-user">
+        <button class="btn-fechar-pop-up-user" id="btn-close-user-nav">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="content-pop-user">
+            <div class="content-top-user">
+                <div class="content-top-left-user">
+                    <div class="content-top-left-user-img">
+                        <img src="./assets/img/CocaCola.png" alt="">
+                    </div>
+                </div>
+                <div class="content-top-right-user">
+                    <div class="content-top-right-user-text">
+                        <div class="content-top-right-user-text-name">
+                            <h3>
+                                <?php echo $user_data['nome'] ?>
+                            </h3>
+                        </div>
+                        <div class="content-top-right-user-text-email">
+                            <h6>
+                                <?php echo $user_data['email'] ?>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-mid-user">
+                <div class="content-mid-user-row">
+                    <div class="content-mid-user-row-left">
+                        <div class="content-mid-user-row-left-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <div class="content-mid-user-row-right">
+                        <div class="content-mid-user-row-right-text">
+                            <h1>
+                                Turma
+                            </h1>
+                            <h3>
+                                <?php echo $user_data['turma'] ?>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-mid-user-row">
+                    <div class="content-mid-user-row-left">
+                        <div class="content-mid-user-row-left-icon">
+                            <i class="fa-regular fa-credit-card"></i>
+                        </div>
+                    </div>
+                    <div class="content-mid-user-row-right">
+                        <div class="content-mid-user-row-right-text">
+                            <h1>
+                                CPF:
+                            </h1>
+                            <h3>
+                                <?php echo $user_data['cpf'] ?>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-bottom-user">
+                <div class="content-bottom-user-row">
+                    <button class="btn-pop-up-editar-adm">
+                        <a href="#Editar-adm">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                            Editar
+                        </a>
+                    </button>
+                    <button class="btn-logout-pop-up">
+                        <a href="/cantinarepositorio/subpages/logout.php">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            Logout
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //popup users navbar
+
+        const containerPopUp = document.getElementById('pop-up-user');
+        const btnUserNav = document.getElementById('btn-user-nav');
+        const btnCloseUsernav = document.getElementById('btn-close-user-nav');
+        const overlayPopUpUser = document.getElementById('overlay-pop-up-user');
+
+
+        btnUserNav.addEventListener('click', () => {
+            if (containerPopUp.style.display !== 'block') {
+                containerPopUp.style.display = 'block';
+                overlayPopUpUser.style.display = 'block';
+            } else {
+                containerPopUp.style.display = 'none';
+                overlayPopUpUser.style.display = 'none';
+            }
+        });
+
+
+        btnCloseUsernav.addEventListener('click', () => {
+            containerPopUp.style.display = 'none';
+            overlayPopUpUser.style.display = 'none';
+        });
+    </script>
+
     <main>
         <div class="container-editar-cliente">
             <div class="title-editar-cliente">
@@ -83,27 +210,30 @@ if (!isset($_SESSION['cpf'])) {
                                 <div class="form-editar-clientes-row">
                                     <div class="form-group-editar-clientes">
                                         <label for="nome">Nome:</label>
-                                        <input name="nome" type="text" id="nome_editar_cliente" value="Maria da Silva"
+                                        <input name="nome" type="text" id="nome_editar_cliente" value="<?php echo $user_data['nome'] ?>"
                                             required> <!--DENTRO DO VALUE, NOME DO CLIENTE--->
                                     </div>
                                     <div class="form-group-editar-clientes">
                                         <label for="cpf">CPF:</label>
-                                        <input name="cpf" type="text" id="cpf_editar_cliente" value="55132867823"
+                                        <input name="cpf" type="text" id="cpf_editar_cliente" value="<?php echo $user_data['cpf'] ?>"
                                             disabled> <!--DENTRO DO VALUE, CPF DO CLIENTE--->
                                     </div>
                                 </div>
                                 <div class="form-editar-clientes-row">
                                     <div class="form-group-editar-clientes">
                                         <label for="email">Email:</label>
-                                        <input name="email" type="text" id="email_editar_cliente" value="maria@gmail.com"
+                                        <input name="email" type="text" id="email_editar_cliente" value="<?php echo $user_data['email'] ?>"
                                             required> <!--DENTRO DO VALUE, email DO CLIENTE--->
                                     </div>
                                     <div class="form-group-editar-clientes">
                                         <label for="turma">Turma:</label>
                                         <select name="turma" id="turma_editar_cliente" class="form-control" required>
-                                            <option value="A">1 DS - Manhã</option>
-                                            <option value="B">2 DS - Manhã</option>
-                                            <option value="C">3 DS - Manhã</option>
+                                            <option value="1DS" <?= $user_data['turma'] == "1DS" ? 'selected' : '' ?>>1DS
+                                            </option>
+                                            <option value="2DS" <?= $user_data['turma'] == "2DS" ? 'selected' : '' ?>>2DS
+                                            </option>
+                                            <option value="3DS" <?= $user_data['turma'] == "3DS" ? 'selected' : '' ?>>3DS</option>
+                                            
                                         </select>
                                     </div>
                                 </div>
@@ -177,63 +307,63 @@ if (!isset($_SESSION['cpf'])) {
     </main>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const senhaAtual = document.getElementById('senha_cliente_atual');
-        const novaSenha = document.getElementById('senha_cliente_nova');
-        const confirmarSenha = document.getElementById('senha_cliente_nova_confirmacao');
-        const erroSenha = document.getElementById('erroSenhaCliente');
-        const btnAlterarSenha = document.querySelector('.btn-mudar-senha-cliente');
-        const btnCancelar = document.querySelector('.btn-cancelar-nova-senha-cliente');
+        document.addEventListener('DOMContentLoaded', () => {
+            const senhaAtual = document.getElementById('senha_cliente_atual');
+            const novaSenha = document.getElementById('senha_cliente_nova');
+            const confirmarSenha = document.getElementById('senha_cliente_nova_confirmacao');
+            const erroSenha = document.getElementById('erroSenhaCliente');
+            const btnAlterarSenha = document.querySelector('.btn-mudar-senha-cliente');
+            const btnCancelar = document.querySelector('.btn-cancelar-nova-senha-cliente');
 
-        // Mostrar ou ocultar senha
-        document.querySelectorAll('.toggle-senha').forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                const targetId = toggle.getAttribute('data-target');
-                const input = document.getElementById(targetId);
-                if (input.type === 'password') {
-                    input.type = 'text';
-                    toggle.innerHTML = '<i class="fa-regular fa-eye"></i>';
+            // Mostrar ou ocultar senha
+            document.querySelectorAll('.toggle-senha').forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const targetId = toggle.getAttribute('data-target');
+                    const input = document.getElementById(targetId);
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        toggle.innerHTML = '<i class="fa-regular fa-eye"></i>';
+                    } else {
+                        input.type = 'password';
+                        toggle.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+                    }
+                });
+            });
+
+            // Função para validar senhas e habilitar botão
+            function validarSenhas() {
+                const senhaAtualPreenchida = senhaAtual.value.trim() !== '';
+                const novaSenhaPreenchida = novaSenha.value.trim() !== '';
+                const confirmarSenhaPreenchida = confirmarSenha.value.trim() !== '';
+
+                const senhasIguais = novaSenha.value === confirmarSenha.value;
+
+                if (senhaAtualPreenchida && novaSenhaPreenchida && confirmarSenhaPreenchida && senhasIguais) {
+                    erroSenha.style.display = 'none';
+                    btnAlterarSenha.disabled = false;
                 } else {
-                    input.type = 'password';
-                    toggle.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+                    // Mostra o erro apenas se os campos estiverem preenchidos
+                    if (novaSenhaPreenchida && confirmarSenhaPreenchida && !senhasIguais) {
+                        erroSenha.style.display = 'block';
+                    } else {
+                        erroSenha.style.display = 'none';
+                    }
+                    btnAlterarSenha.disabled = true;
                 }
+            }
+
+            // Eventos de input
+            [senhaAtual, novaSenha, confirmarSenha].forEach(input => {
+                input.addEventListener('input', validarSenhas);
+            });
+
+            // Botão cancelar → recarrega a página
+            btnCancelar.addEventListener('click', (e) => {
+                e.preventDefault();
+                location.reload();
             });
         });
-
-        // Função para validar senhas e habilitar botão
-        function validarSenhas() {
-            const senhaAtualPreenchida = senhaAtual.value.trim() !== '';
-            const novaSenhaPreenchida = novaSenha.value.trim() !== '';
-            const confirmarSenhaPreenchida = confirmarSenha.value.trim() !== '';
-
-            const senhasIguais = novaSenha.value === confirmarSenha.value;
-
-            if (senhaAtualPreenchida && novaSenhaPreenchida && confirmarSenhaPreenchida && senhasIguais) {
-                erroSenha.style.display = 'none';
-                btnAlterarSenha.disabled = false;
-            } else {
-                // Mostra o erro apenas se os campos estiverem preenchidos
-                if (novaSenhaPreenchida && confirmarSenhaPreenchida && !senhasIguais) {
-                    erroSenha.style.display = 'block';
-                } else {
-                    erroSenha.style.display = 'none';
-                }
-                btnAlterarSenha.disabled = true;
-            }
-        }
-
-        // Eventos de input
-        [senhaAtual, novaSenha, confirmarSenha].forEach(input => {
-            input.addEventListener('input', validarSenhas);
-        });
-
-        // Botão cancelar → recarrega a página
-        btnCancelar.addEventListener('click', (e) => {
-            e.preventDefault();
-            location.reload();
-        });
-    });
-</script>
+    </script>
 
 
 
