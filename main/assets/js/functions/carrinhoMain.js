@@ -70,6 +70,7 @@ function atualizarCarrinhoVisual() {
         const carttotalh6Active = document.querySelector('.cart-total-h6');
         const carttotalh5Active = document.querySelector('.cart-total-h5');
         const btnFinalizarActive = document.getElementById('btn-finalizar-pedidos');
+        const ScrollbarActive = document.querySelector('.swiper-scrollbar');
 
         btnLimparActive.classList.add('active');
         barraDivisaoActive.classList.add('active');
@@ -77,6 +78,7 @@ function atualizarCarrinhoVisual() {
         carttotalh6Active.classList.add('active');
         carttotalh5Active.classList.add('active');
         btnFinalizarActive.classList.add('active');
+        ScrollbarActive.classList.add('active');
         return;
     }
 }

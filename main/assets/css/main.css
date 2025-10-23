@@ -792,6 +792,10 @@ a{
     transform: translateY(71.5%);
 }
 
+.swiper-scrollbar.active{
+    display: none;
+}
+
 
 /*carrinho item*/
 
