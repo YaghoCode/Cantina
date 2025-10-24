@@ -2821,20 +2821,21 @@ input:checked + .slider:before {
     font-weight: 400;
 }
 
-.table-clientes-all table tbody tr td h6 span{
+.table-clientes-all table tbody tr td span{
     padding: 0 0.4rem;
     border-radius: 0.5rem;
     background-color:  #d3d1d1;
     font-size: 0.95rem;
 }
 
-.table-clientes-all table tbody tr td h6 strong{
+.table-clientes-all table tbody tr td strong{
     padding: 0 0.4rem;
     border-radius: 0.5rem;
     background-color:  var(--cor-secundaria);
     color: white;
     font-weight: 500;
     font-size: 0.95rem;
+    overflow: none !important;
 }
 
 .table-clientes-all table tbody tr td button{
@@ -3338,7 +3339,7 @@ input:checked + .slider:before {
     font-size: 0.95rem;
 }
 
-.table-pedidos-todos table tbody tr td h6 strong{
+.table-pedidos-todos table tbody tr td strong{
     padding: 0 0.4rem;
     border-radius: 0.5rem;
     background-color:  var(--cor-secundaria);

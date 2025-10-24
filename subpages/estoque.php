@@ -1376,10 +1376,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <h6>1 DS Manhã</h6> <!--turma -->
                                     </td>
                                     <td>
-                                        <h6><span>15</span></h6>
+                                        <span>15</span>
                                     </td> <!--numero de pedidos feito do cliente-->
                                     <td>
-                                        <h6><strong>preparando</strong></h6>
+                                        <strong>Ativo</strong>
                                     </td>
                                     <td style="display: flex;gap:1vh;">
                                         <button class="visualizar-cliente-adm">
@@ -1407,10 +1407,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <h6>1 DS Manhã</h6> <!--turma -->
                                     </td>
                                     <td>
-                                        <h6><span>15</span></h6>
+                                        <span>15</span>
                                     </td> <!--numero de pedidos feito do cliente-->
                                     <td>
-                                        <h6><strong>preparando</strong></h6>
+                                        <strong>Ativo</strong>
                                     </td>
                                     <td style="display: flex;gap:1vh;">
                                         <button class="visualizar-cliente-adm">
@@ -1438,10 +1438,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <h6>1 DS Manhã</h6> <!--turma -->
                                     </td>
                                     <td>
-                                        <h6><span>15</span></h6>
+                                        <span>15</span>
                                     </td> <!--numero de pedidos feito do cliente-->
                                     <td>
-                                        <h6><strong>preparando</strong></h6>
+                                        <strong>Ativo</strong>
                                     </td>
                                     <td style="display: flex;gap:1vh;">
                                         <button class="visualizar-cliente-adm">
@@ -1469,10 +1469,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <h6>1 DS Manhã</h6> <!--turma -->
                                     </td>
                                     <td>
-                                        <h6><span>4</span></h6>
+                                        <span>4</span>
                                     </td> <!--numero de pedidos feito do cliente-->
                                     <td>
-                                        <h6><strong>preparando</strong></h6>
+                                        <strong>Ativo</strong>
                                     </td>
                                     <td style="display: flex;gap:1vh;">
                                         <button class="visualizar-cliente-adm">
@@ -1500,10 +1500,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <h6>1 DS Manhã</h6> <!--turma -->
                                     </td>
                                     <td>
-                                        <h6><span>15</span></h6>
+                                        <span>14</span>
                                     </td> <!--numero de pedidos feito do cliente-->
                                     <td>
-                                        <h6><strong>preparando</strong></h6>
+                                       <strong>Ativo</strong>
                                     </td>
                                     <td style="display: flex;gap:1vh;">
                                         <button class="visualizar-cliente-adm">
@@ -1531,10 +1531,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <h6>1 DS Manhã</h6> <!--turma -->
                                     </td>
                                     <td>
-                                        <h6><span>5</span></h6>
+                                        <span>6</span>
                                     </td> <!--numero de pedidos feito do cliente-->
                                     <td>
-                                        <h6><strong>preparando</strong></h6>
+                                        <strong>Ativo</strong>
                                     </td>
                                     <td style="display: flex;gap:1vh;">
                                         <button class="visualizar-cliente-adm">
@@ -1562,10 +1562,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <h6>1 DS Manhã</h6> <!--turma -->
                                     </td>
                                     <td>
-                                        <h6><span>4</span></h6>
+                                        <span>4</span>
                                     </td> <!--numero de pedidos feito do cliente-->
                                     <td>
-                                        <h6><strong>preparando</strong></h6>
+                                        <strong>Ativo</strong>
                                     </td>
                                     <td style="display: flex;gap:1vh;">
                                         <button class="visualizar-cliente-adm">
@@ -1841,7 +1841,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <h6>Maria Eduardassaaaaaaaaaa</h6>
                                     </td> <!--cliente pedido-->
                                     <td>
-                                        <h6><span>7</span></h6>
+                                        <span>7</span>
                                     </td> <!--numero de itens do pedido-->
                                     <td>
                                         <h6>R$ 45,00</h6>
@@ -1850,7 +1850,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <h6>R$ 45,00</h6>
                                     </td> <!--Data do pedido-->
                                     <td>
-                                        <h6><strong> Preparando</strong></h6>
+                                        <strong> Preparando</strong>
                                     </td> <!--Status e fase do pedido--> <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
                                     <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
                                         <button class="btn-pedido-concluido-adm">
@@ -1872,7 +1872,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <h6>Maria Eduardassaaaaaaaaaa</h6>
                                     </td> <!--cliente pedido-->
                                     <td>
-                                        <h6><span>7</span></h6>
+                                        <span>7</span>
                                     </td> <!--numero de itens do pedido-->
                                     <td>
                                         <h6>R$ 45,00</h6>
@@ -1881,7 +1881,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <h6>R$ 45,00</h6>
                                     </td> <!--Data do pedido-->
                                     <td>
-                                        <h6><strong> Preparando</strong></h6>
+                                        <strong> Preparando</strong>
                                     </td> <!--Status e fase do pedido--> <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
                                     <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
                                         <button class="btn-pedido-concluido-adm">
@@ -1903,7 +1903,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <h6>Maria Eduardassaaaaaaaaaa</h6>
                                     </td> <!--cliente pedido-->
                                     <td>
-                                        <h6><span>7</span></h6>
+                                        <span>7</span>
                                     </td> <!--numero de itens do pedido-->
                                     <td>
                                         <h6>R$ 45,00</h6>
@@ -1912,7 +1912,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <h6>R$ 45,00</h6>
                                     </td> <!--Data do pedido-->
                                     <td>
-                                        <h6><strong> Preparando</strong></h6>
+                                        <strong> Preparando</strong>
                                     </td> <!--Status e fase do pedido--> <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
                                     <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
                                         <button class="btn-pedido-concluido-adm">
@@ -1943,7 +1943,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <h6>R$ 45,00</h6>
                                     </td> <!--Data do pedido-->
                                     <td>
-                                        <h6><strong> Preparando</strong></h6>
+                                        <strong> Preparando</strong>
                                     </td> <!--Status e fase do pedido--> <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
                                     <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
                                         <button class="btn-pedido-concluido-adm">
