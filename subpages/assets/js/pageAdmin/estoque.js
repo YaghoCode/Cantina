@@ -210,8 +210,53 @@ btnOutrosFiltro.addEventListener("click", () => {
     mostrarConteudoTableEstoque(tableOutrosEstoque);
 });
 
+/// filtro pedidos
 
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".pedidos-options-days button");
+    const tables = document.querySelectorAll("[class^='table-pedidos-']");
 
+    // função para mostrar apenas a tabela selecionada
+    function showTable(className) {
+        tables.forEach(table => {
+            table.style.display = "none";
+            table.style.opacity = "0";
+            table.style.transition = "opacity 0.3s ease";
+        });
+
+        const selectedTable = document.querySelector(`.${className}`);
+        if (selectedTable) {
+            selectedTable.style.display = "flex";
+            // pequeno timeout para transição suave
+            setTimeout(() => selectedTable.style.opacity = "1", 10);
+        }
+    }
+
+    // evento dos botões
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            // remove active de todos os botões
+            buttons.forEach(btn => btn.classList.remove("active"));
+
+            // adiciona active ao botão clicado
+            button.classList.add("active");
+
+            // identifica qual tabela mostrar
+            if (button.classList.contains("btn-pedidos-todos")) {
+                showTable("table-pedidos-todos");
+            } else if (button.classList.contains("btn-pedidos-hoje")) {
+                showTable("table-pedidos-hoje");
+            } else if (button.classList.contains("btn-pedidos-passados")) {
+                showTable("table-pedidos-passados");
+            } else if (button.classList.contains("btn-pedidos-futuros")) {
+                showTable("table-pedidos-futuros");
+            }
+        });
+    });
+
+    // exibe a tabela "Todos" ao iniciar
+    showTable("table-pedidos-todos");
+});
 
 
 // function abrir e fechar modal editar item

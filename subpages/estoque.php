@@ -200,7 +200,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
             <div class="content-bottom-user">
                 <div class="content-bottom-user-row">
-                    <button type="button  " class="btn-logout-pop-up">
+                    <button type="button" class="btn-logout-pop-up">
                         <a href="/cantinarepositorio/subpages/logout.php">
                             <i class="fa-solid fa-arrow-right-from-bracket"></i>
                             Logout
@@ -351,7 +351,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <h1><?php echo $total_products; ?></h1> <!--PHP-->
                         </div>
                     </div>
-                    <div class="cards-estoque-stats">
+                    <div class="cards-estoque-stats" id="cards-estoque-low">
                         <div class="title-cards-stats">
                             <div class="title-cards-stats-text">
                                 <h1>Produtos com estoque baixo: </h1>
@@ -364,7 +364,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <h1><?php echo $low_products_count; ?></h1> <!--PHP-->
                         </div>
                     </div>
-                    <div class="cards-estoque-stats">
+                    <div class="cards-estoque-stats" id="cards-estoque-total">
                         <div class="title-cards-stats">
                             <div class="title-cards-stats-text">
                                 <h1>Valor total em estoque:</h1>
@@ -949,7 +949,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $item) {
         ?>
+                <div class="overlay-modal-estoque-deletar-item">
 
+                </div>
                 <div class="modal-estoque-deletar-item" id="modal-deletar-item-<?= $item['id'] ?>" data-id="<?= $item['id'] ?>">
                     <div class="modal-deletar-content-top">
                         <h1>Tem certeza?</h1>
@@ -980,9 +982,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 btn.addEventListener('click', () => {
                     const produtoId = btn.getAttribute('data-id');
                     const modalDeletar = document.getElementById('modal-deletar-item-' + produtoId);
-
+                    const overlayModaldeletaritem = document.querySelector('.overlay-modal-estoque-deletar-item')
                     if (modalDeletar) {
                         modalDeletar.style.display = 'flex';
+                        overlayModaldeletaritem.style.display = 'flex';
                     }
                 });
             });
@@ -991,10 +994,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             btnCancelarExcluir.forEach((btn) => {
                 btn.addEventListener('click', () => {
                     const modal = btn.closest('.modal-estoque-deletar-item');
-                    const modalOverlayGeral = document.querySelector('.modal-overlay-geral');
+                    const overlayModaldeletaritem = document.querySelector('.overlay-modal-estoque-deletar-item')
                     if (modal) {
                         modal.style.display = 'none';
-                        modalOverlayGeral.classList.remove('active');
+                        overlayModaldeletaritem.style.display = 'none';
                     }
                 });
             });
@@ -1228,7 +1231,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     Nome produto: <span>Esfiha de Carne</span>
                                 </h1>
                                 <h1>
-                                    Tipo: <span>Salgados</span> 
+                                    Tipo: <span>Salgados</span>
                                 </h1>
                             </div>
                         </div>
@@ -1278,21 +1281,1037 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <!--Paginas com display none-->
         <div class="container-clientes" id="conteudo-clientes">
             <div class="title-clientes">
-                <h1>Gerenciar Clientes</h1>
+                <div class="title-clientes-text">
+                    <h1>Gerenciar Clientes</h1>
+                    <p>Gerencie e controle seus clientes e cadastros.</p>
+                </div>
             </div>
             <div class="content-clientes">
+                <div class="content-clientes-top">
+                    <div class="cards-clientes-stats">
+                        <div class="title-clientes-cards-stats">
+                            <div class="title-clientes-cards-stats-text">
+                                <h1>Total de clientes:</h1>
+                            </div>
+                            <div class="cards-clientes-stats-icon">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="cards-clientes-number-stats">
+                            <h1>31</h1>
+                        </div>
+                    </div>
+                    <div class="cards-clientes-stats" id="cards-clientes-ativos">
+                        <div class="title-clientes-cards-stats">
+                            <div class="title-clientes-cards-stats-text">
+                                <h1>Clientes Ativos:</h1>
+                            </div>
+                            <div class="cards-clientes-stats-icon">
+                                <i class="fa-solid fa-user-check"></i>
+                            </div>
+                        </div>
+                        <div class="cards-clientes-number-stats">
+                            <h1>5</h1>
+                        </div>
+                    </div>
+                    <div class="cards-clientes-stats" id="cards-clientes-total-p">
+                        <div class="title-clientes-cards-stats">
+                            <div class="title-clientes-cards-stats-text">
+                                <h1>Total de pedidos:</h1>
+                            </div>
+                            <div class="cards-clientes-stats-icon">
+                                <i class="fa-solid fa-list-check"></i>
+                            </div>
+                        </div>
+                        <div class="cards-clientes-number-stats">
+                            <h1>109</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-clientes-bottom">
+                    <div class="clientes-filtro">
+                        <div class="clientes-filtro-options">
+                            <button class="btn-filtro-clientes-all active">
+                                Todos
+                            </button>
+                            <button class="btn-filtro-clientes-a">
+                                A
+                            </button>
+                            <button class="btn-filtro-clientes-z">
+                                Z
+                            </button>
+                            <button class="btn-filtro-clientes-1-pedido">
+                                Ativo
+                            </button>
+                            <button class="btn-filtro-clientes-0-pedido">
+                                Inativo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-clientes-all">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Nome:</td>
+                                    <td>Email:</td>
+                                    <td>CPF:</td>
+                                    <td>Sala</td>
+                                    <td>Pedidos:</td>
+                                    <td>Status:</td>
+                                    <td>Ações:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h6>Caio Picciarelli</h6>
+                                    </td> <!--nome cliente-->
+                                    <td>
+                                        <h6>caiopicc@gmail.com</h6>
+                                    </td> <!--email cliente-->
+                                    <td>
+                                        <h6>551.328.678.22</h6>
+                                    </td> <!--cpf cliente-->
+                                    <td>
+                                        <h6>1 DS Manhã</h6> <!--turma -->
+                                    </td>
+                                    <td>
+                                        <h6><span>15</span></h6>
+                                    </td> <!--numero de pedidos feito do cliente-->
+                                    <td>
+                                        <h6><strong>preparando</strong></h6>
+                                    </td>
+                                    <td style="display: flex;gap:1vh;">
+                                        <button class="visualizar-cliente-adm">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </button>
+                                        <button class="editar-cliente-adm">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                        <button class="deletar-cliente-adm">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h6>Caio Picciarelli</h6>
+                                    </td> <!--nome cliente-->
+                                    <td>
+                                        <h6>caiopicc@gmail.com</h6>
+                                    </td> <!--email cliente-->
+                                    <td>
+                                        <h6>551.328.678.22</h6>
+                                    </td> <!--cpf cliente-->
+                                    <td>
+                                        <h6>1 DS Manhã</h6> <!--turma -->
+                                    </td>
+                                    <td>
+                                        <h6><span>15</span></h6>
+                                    </td> <!--numero de pedidos feito do cliente-->
+                                    <td>
+                                        <h6><strong>preparando</strong></h6>
+                                    </td>
+                                    <td style="display: flex;gap:1vh;">
+                                        <button class="visualizar-cliente-adm">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </button>
+                                        <button class="editar-cliente-adm">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                        <button class="deletar-cliente-adm">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h6>Caio Picciarelli</h6>
+                                    </td> <!--nome cliente-->
+                                    <td>
+                                        <h6>caiopicc@gmail.com</h6>
+                                    </td> <!--email cliente-->
+                                    <td>
+                                        <h6>551.328.678.22</h6>
+                                    </td> <!--cpf cliente-->
+                                    <td>
+                                        <h6>1 DS Manhã</h6> <!--turma -->
+                                    </td>
+                                    <td>
+                                        <h6><span>15</span></h6>
+                                    </td> <!--numero de pedidos feito do cliente-->
+                                    <td>
+                                        <h6><strong>preparando</strong></h6>
+                                    </td>
+                                    <td style="display: flex;gap:1vh;">
+                                        <button class="visualizar-cliente-adm">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </button>
+                                        <button class="editar-cliente-adm">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                        <button class="deletar-cliente-adm">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h6>ACaio Picciarelli</h6>
+                                    </td> <!--nome cliente-->
+                                    <td>
+                                        <h6>caiopicc@gmail.com</h6>
+                                    </td> <!--email cliente-->
+                                    <td>
+                                        <h6>551.328.678.22</h6>
+                                    </td> <!--cpf cliente-->
+                                    <td>
+                                        <h6>1 DS Manhã</h6> <!--turma -->
+                                    </td>
+                                    <td>
+                                        <h6><span>4</span></h6>
+                                    </td> <!--numero de pedidos feito do cliente-->
+                                    <td>
+                                        <h6><strong>preparando</strong></h6>
+                                    </td>
+                                    <td style="display: flex;gap:1vh;">
+                                        <button class="visualizar-cliente-adm">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </button>
+                                        <button class="editar-cliente-adm">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                        <button class="deletar-cliente-adm">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h6>ACaio Picciarelli</h6>
+                                    </td> <!--nome cliente-->
+                                    <td>
+                                        <h6>caiopicc@gmail.com</h6>
+                                    </td> <!--email cliente-->
+                                    <td>
+                                        <h6>551.328.678.22</h6>
+                                    </td> <!--cpf cliente-->
+                                    <td>
+                                        <h6>1 DS Manhã</h6> <!--turma -->
+                                    </td>
+                                    <td>
+                                        <h6><span>15</span></h6>
+                                    </td> <!--numero de pedidos feito do cliente-->
+                                    <td>
+                                        <h6><strong>preparando</strong></h6>
+                                    </td>
+                                    <td style="display: flex;gap:1vh;">
+                                        <button class="visualizar-cliente-adm">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </button>
+                                        <button class="editar-cliente-adm">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                        <button class="deletar-cliente-adm">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h6>BCaio Picciarelli</h6>
+                                    </td> <!--nome cliente-->
+                                    <td>
+                                        <h6>caiopicc@gmail.com</h6>
+                                    </td> <!--email cliente-->
+                                    <td>
+                                        <h6>551.328.678.22</h6>
+                                    </td> <!--cpf cliente-->
+                                    <td>
+                                        <h6>1 DS Manhã</h6> <!--turma -->
+                                    </td>
+                                    <td>
+                                        <h6><span>5</span></h6>
+                                    </td> <!--numero de pedidos feito do cliente-->
+                                    <td>
+                                        <h6><strong>preparando</strong></h6>
+                                    </td>
+                                    <td style="display: flex;gap:1vh;">
+                                        <button class="visualizar-cliente-adm">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </button>
+                                        <button class="editar-cliente-adm">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                        <button class="deletar-cliente-adm">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h6>ZCaio Picciarelli</h6>
+                                    </td> <!--nome cliente-->
+                                    <td>
+                                        <h6>caiopicc@gmail.com</h6>
+                                    </td> <!--email cliente-->
+                                    <td>
+                                        <h6>551.328.678.22</h6>
+                                    </td> <!--cpf cliente-->
+                                    <td>
+                                        <h6>1 DS Manhã</h6> <!--turma -->
+                                    </td>
+                                    <td>
+                                        <h6><span>4</span></h6>
+                                    </td> <!--numero de pedidos feito do cliente-->
+                                    <td>
+                                        <h6><strong>preparando</strong></h6>
+                                    </td>
+                                    <td style="display: flex;gap:1vh;">
+                                        <button class="visualizar-cliente-adm">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </button>
+                                        <button class="editar-cliente-adm">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                        <button class="deletar-cliente-adm">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-clientes-filtro-a">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Nome:</td>
+                                    <td>Email:</td>
+                                    <td>CPF:</td>
+                                    <td>Sala</td>
+                                    <td>Pedidos:</td>
+                                    <td>Status:</td>
+                                    <td>Ações:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
 
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-clientes-filtro-z">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Nome:</td>
+                                    <td>Email:</td>
+                                    <td>CPF:</td>
+                                    <td>Sala</td>
+                                    <td>Pedidos:</td>
+                                    <td>Status:</td>
+                                    <td>Ações:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-clientes-filtro-ativo">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Nome:</td>
+                                    <td>Email:</td>
+                                    <td>CPF:</td>
+                                    <td>Sala</td>
+                                    <td>Pedidos:</td>
+                                    <td>Status:</td>
+                                    <td>Ações:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                        
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-clientes-filtro-inativo">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Nome:</td>
+                                    <td>Email:</td>
+                                    <td>CPF:</td>
+                                    <td>Sala</td>
+                                    <td>Pedidos:</td>
+                                    <td>Status:</td>
+                                    <td>Ações:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const botoesFiltro = document.querySelectorAll(".clientes-filtro-options button");
+                const contentClientes = document.querySelector(".content-clientes-bottom");
+                if (!contentClientes) return;
+
+                // Seleciona todas as tabelas dentro de content-clientes-bottom
+                const tabelas = Array.from(contentClientes.querySelectorAll("table"));
+
+                // 🔹 Função de animação (fade)
+                function fadeOut(el) {
+                    el.style.transition = "opacity 0.3s ease";
+                    el.style.opacity = "0";
+                    setTimeout(() => {
+                        el.style.display = "none";
+                    }, 300);
+                }
+
+                function fadeIn(el) {
+                    el.style.display = "";
+                    el.style.opacity = "0";
+                    el.style.transition = "opacity 0.3s ease";
+                    setTimeout(() => {
+                        el.style.opacity = "1";
+                    }, 10);
+                }
+
+                // 🔹 Ordenar por nome
+                function ordenarPorNome(tbody, ordem = "asc") {
+                    const linhas = Array.from(tbody.querySelectorAll("tr"));
+                    linhas.sort((a, b) => {
+                        const nomeA = a.querySelector("td:nth-child(1) h6")?.textContent.trim().toLowerCase() || "";
+                        const nomeB = b.querySelector("td:nth-child(1) h6")?.textContent.trim().toLowerCase() || "";
+                        return ordem === "asc" ? nomeA.localeCompare(nomeB) : nomeB.localeCompare(nomeA);
+                    });
+                    linhas.forEach(linha => tbody.appendChild(linha));
+                }
+
+                // 🔹 Filtrar clientes por número de pedidos
+                function filtrarPorPedidos(tbody, tipo = "todos") {
+                    const linhas = Array.from(tbody.querySelectorAll("tr"));
+                    linhas.forEach(linha => {
+                        const qtd = parseInt(linha.querySelector("td:nth-child(5) span")?.textContent || "0");
+                        const deveMostrar =
+                            tipo === "ativo" ? qtd >= 5 :
+                            tipo === "inativo" ? qtd < 5 :
+                            true;
+
+                        if (deveMostrar) fadeIn(linha);
+                        else fadeOut(linha);
+                    });
+                }
+
+                // 🔹 Mostrar todos
+                function mostrarTodos(tbody) {
+                    const linhas = tbody.querySelectorAll("tr");
+                    linhas.forEach(linha => fadeIn(linha));
+                }
+
+                // 🔹 Controle dos botões
+                botoesFiltro.forEach(botao => {
+                    botao.addEventListener("click", () => {
+                        botoesFiltro.forEach(b => b.classList.remove("active"));
+                        botao.classList.add("active");
+
+                        tabelas.forEach(tabela => {
+                            const tbody = tabela.querySelector("tbody");
+                            if (!tbody) return;
+
+                            if (botao.classList.contains("btn-filtro-clientes-all")) {
+                                mostrarTodos(tbody);
+                            } else if (botao.classList.contains("btn-filtro-clientes-a")) {
+                                mostrarTodos(tbody);
+                                ordenarPorNome(tbody, "asc");
+                            } else if (botao.classList.contains("btn-filtro-clientes-z")) {
+                                mostrarTodos(tbody);
+                                ordenarPorNome(tbody, "desc");
+                            } else if (botao.classList.contains("btn-filtro-clientes-1-pedido")) {
+                                filtrarPorPedidos(tbody, "ativo");
+                            } else if (botao.classList.contains("btn-filtro-clientes-0-pedido")) {
+                                filtrarPorPedidos(tbody, "inativo");
+                            }
+                        });
+                    });
+                });
+
+                // Exibir todos ao carregar
+                tabelas.forEach(tabela => {
+                    const tbody = tabela.querySelector("tbody");
+                    if (tbody) mostrarTodos(tbody);
+                });
+            });
+        </script>
 
         <div class="container-pedidos" id="conteudo-pedidos">
             <div class="title-pedidos">
-                <h1>Gerenciar pedidos</h1>
+                <div class="title-pedidos-text">
+                    <h1>Gerenciar Pedidos</h1>
+                    <p>Controle e organize os pedidos de seus clientes.</p>
+                </div>
             </div>
             <div class="content-pedidos">
+                <div class="content-pedidos-top">
+                    <div class="cards-pedidos-stats">
+                        <div class="title-pedidos-cards-stats">
+                            <div class="title-pedidos-cards-stats-text">
+                                <h1>Pedidos de hoje:</h1>
+                            </div>
+                            <div class="cards-pedidos-stats-icon">
+                                <i class="fa-solid fa-receipt"></i>
+                            </div>
+                        </div>
+                        <div class="cards-pedidos-number-stats">
+                            <h1>23</h1>
+                        </div>
+                    </div>
+                    <div class="cards-pedidos-stats" id="cards-pedidos-pendentes">
+                        <div class="title-pedidos-cards-stats">
+                            <div class="title-pedidos-cards-stats-text">
+                                <h1>Pedidos pendentes:</h1>
+                            </div>
+                            <div class="cards-pedidos-stats-icon">
+                                <i class="fa-regular fa-clock"></i>
+                            </div>
+                        </div>
+                        <div class="cards-pedidos-number-stats">
+                            <h1>23</h1>
+                        </div>
+                    </div>
+                    <div class="cards-pedidos-stats" id="cards-pedidos-faturamento">
+                        <div class="title-pedidos-cards-stats">
+                            <div class="title-pedidos-cards-stats-text">
+                                <h1>Faturamento hoje:</h1>
+                            </div>
+                            <div class="cards-pedidos-stats-icon">
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                            </div>
+                        </div>
+                        <div class="cards-pedidos-number-stats">
+                            <h1>R$ 1256,00</h1>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="content-pedidos-bottom">
+                    <div class="pedidos-options">
+                        <div class="pedidos-options-days">
+                            <button class="btn-pedidos-todos active">
+                                Todos
+                            </button>
+                            <button class="btn-pedidos-hoje">
+                                Hoje
+                            </button>
+                            <button class="btn-pedidos-passados">
+                                Passados
+                            </button>
+                            <button class="btn-pedidos-futuros">
+                                Futuros
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-pedidos-todos"> <!--display flex-->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Pedido:</td>
+                                    <td>Cliente:</td>
+                                    <td>Itens:</td>
+                                    <td>Total:</td>
+                                    <td>Data:</td>
+                                    <td>Status:</td>
+                                    <td>Ações:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h6>#12345</h6>
+                                    </td> <!--codigo pedido-->
+                                    <td>
+                                        <h6>Maria Eduardassaaaaaaaaaa</h6>
+                                    </td> <!--cliente pedido-->
+                                    <td>
+                                        <h6><span>7</span></h6>
+                                    </td> <!--numero de itens do pedido-->
+                                    <td>
+                                        <h6>R$ 45,00</h6>
+                                    </td> <!--Valor Pedido-->
+                                    <td>
+                                        <h6>R$ 45,00</h6>
+                                    </td> <!--Data do pedido-->
+                                    <td>
+                                        <h6><strong> Preparando</strong></h6>
+                                    </td> <!--Status e fase do pedido--> <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
+                                    <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
+                                        <button class="btn-pedido-concluido-adm">
+                                            <i class="fa-solid fa-clipboard-check"></i>
+                                        </button>
+                                        <button class="btn-visualizar-pedido-adm">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </button>
+                                        <button class="btn-cancelar-pedido-adm">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h6>#12346</h6>
+                                    </td> <!--codigo pedido-->
+                                    <td>
+                                        <h6>Maria Eduardassaaaaaaaaaa</h6>
+                                    </td> <!--cliente pedido-->
+                                    <td>
+                                        <h6><span>7</span></h6>
+                                    </td> <!--numero de itens do pedido-->
+                                    <td>
+                                        <h6>R$ 45,00</h6>
+                                    </td> <!--Valor Pedido-->
+                                    <td>
+                                        <h6>R$ 45,00</h6>
+                                    </td> <!--Data do pedido-->
+                                    <td>
+                                        <h6><strong> Preparando</strong></h6>
+                                    </td> <!--Status e fase do pedido--> <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
+                                    <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
+                                        <button class="btn-pedido-concluido-adm">
+                                            <i class="fa-solid fa-clipboard-check"></i>
+                                        </button>
+                                        <button class="btn-visualizar-pedido-adm">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </button>
+                                        <button class="btn-cancelar-pedido-adm">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h6>#12345</h6>
+                                    </td> <!--codigo pedido-->
+                                    <td>
+                                        <h6>Maria Eduardassaaaaaaaaaa</h6>
+                                    </td> <!--cliente pedido-->
+                                    <td>
+                                        <h6><span>7</span></h6>
+                                    </td> <!--numero de itens do pedido-->
+                                    <td>
+                                        <h6>R$ 45,00</h6>
+                                    </td> <!--Valor Pedido-->
+                                    <td>
+                                        <h6>R$ 45,00</h6>
+                                    </td> <!--Data do pedido-->
+                                    <td>
+                                        <h6><strong> Preparando</strong></h6>
+                                    </td> <!--Status e fase do pedido--> <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
+                                    <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
+                                        <button class="btn-pedido-concluido-adm">
+                                            <i class="fa-solid fa-clipboard-check"></i>
+                                        </button>
+                                        <button class="btn-visualizar-pedido-adm">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </button>
+                                        <button class="btn-cancelar-pedido-adm">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h6>#12344</h6>
+                                    </td> <!--codigo pedido-->
+                                    <td>
+                                        <h6>Maria Eduardassaaaaaaaaaa</h6>
+                                    </td> <!--cliente pedido-->
+                                    <td>
+                                        <h6><span>7</span></h6>
+                                    </td> <!--numero de itens do pedido-->
+                                    <td>
+                                        <h6>R$ 45,00</h6>
+                                    </td> <!--Valor Pedido-->
+                                    <td>
+                                        <h6>R$ 45,00</h6>
+                                    </td> <!--Data do pedido-->
+                                    <td>
+                                        <h6><strong> Preparando</strong></h6>
+                                    </td> <!--Status e fase do pedido--> <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
+                                    <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
+                                        <button class="btn-pedido-concluido-adm">
+                                            <i class="fa-solid fa-clipboard-check"></i>
+                                        </button>
+                                        <button class="btn-visualizar-pedido-adm">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </button>
+                                        <button class="btn-cancelar-pedido-adm">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-pedidos-hoje"> <!--display none-->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Pedido:</td>
+                                    <td>Cliente:</td>
+                                    <td>Itens:</td>
+                                    <td>Total:</td>
+                                    <td>Data:</td>
+                                    <td>Status:</td>
+                                    <td>Ações:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#12345</td> <!--codigo pedido-->
+                                    <td>Maria Eduarda</td> <!--cliente pedido-->
+                                    <td><span>7</span></td> <!--numero de itens do pedido-->
+                                    <td>R$ 45,00</td> <!--Valor Pedido-->
+                                    <td>17/10/25</td> <!--Data do pedido-->
+                                    <td><strong> Preparando</strong></td> <!--Status e fase do pedido-->
+                                    <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
+                                        <button class="btn-pedido-concluido-adm">
+                                            <i class="fa-solid fa-clipboard-check"></i>
+                                        </button>
+                                        <button class="btn-visualizar-pedido-adm">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </button>
+                                        <button class="btn-cancelar-pedido-adm">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-pedidos-passados"> <!--display none-->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Pedido:</td>
+                                    <td>Cliente:</td>
+                                    <td>Itens:</td>
+                                    <td>Total:</td>
+                                    <td>Data:</td>
+                                    <td>Status:</td>
+                                    <td>Ações:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#12345</td> <!--codigo pedido-->
+                                    <td>Maria Eduarda</td> <!--cliente pedido-->
+                                    <td><span>7</span></td> <!--numero de itens do pedido-->
+                                    <td>R$ 45,00</td> <!--Valor Pedido-->
+                                    <td>17/10/25</td> <!--Data do pedido-->
+                                    <td><strong> Preparando</strong></td> <!--Status e fase do pedido-->
+                                    <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
+                                        <button class="btn-pedido-concluido-adm">
+                                            <i class="fa-solid fa-clipboard-check"></i>
+                                        </button>
+                                        <button class="btn-visualizar-pedido-adm">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </button>
+                                        <button class="btn-cancelar-pedido-adm">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-pedidos-futuros"> <!--display none-->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Pedido:</td>
+                                    <td>Cliente:</td>
+                                    <td>Itens:</td>
+                                    <td>Total:</td>
+                                    <td>Data:</td>
+                                    <td>Status:</td>
+                                    <td>Ações:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#12345</td> <!--codigo pedido-->
+                                    <td>Maria Eduarda</td> <!--cliente pedido-->
+                                    <td><span>7</span></td> <!--numero de itens do pedido-->
+                                    <td>R$ 45,00</td> <!--Valor Pedido-->
+                                    <td>17/10/25</td> <!--Data do pedido-->
+                                    <td><strong> Preparando</strong></td> <!--Status e fase do pedido-->
+                                    <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
+                                        <button class="btn-pedido-concluido-adm">
+                                            <i class="fa-solid fa-clipboard-check"></i>
+                                        </button>
+                                        <button class="btn-visualizar-pedido-adm">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </button>
+                                        <button class="btn-cancelar-pedido-adm">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!--JS QUE ORGANIZA A TABELA-->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                function ordenarTabelaPedidos(tabelaSelector, ordem = "asc") {
+                    const tabela = document.querySelector(tabelaSelector);
+                    if (!tabela) return;
+
+                    const tbody = tabela.querySelector("tbody");
+                    const linhas = Array.from(tbody.querySelectorAll("tr"));
+
+                    linhas.sort((a, b) => {
+                        // Pega o número do pedido dentro do primeiro <td>
+                        const numA = parseInt(a.querySelector("td h6").textContent.replace("#", "").trim());
+                        const numB = parseInt(b.querySelector("td h6").textContent.replace("#", "").trim());
+
+                        if (ordem === "asc") {
+                            return numA - numB; // menor para maior
+                        } else {
+                            return numB - numA; // maior para menor
+                        }
+                    });
+
+                    // Reinsere as linhas já ordenadas
+                    linhas.forEach(linha => tbody.appendChild(linha));
+                }
+
+                // 🧩 Chama a função para a tabela principal (pode repetir para outras)
+                [".table-pedidos-todos table", ".table-pedidos-hoje table", ".table-pedidos-passados table", ".table-pedidos-futuros table"]
+                .forEach(selector => ordenarTabelaPedidos(selector, "desc"));
+            });
+        </script>
+
+        <!--modal-pedidos-pedido-pronto-->
+
+        <div class="modal-overlay-concluir-pedido-adm">
+            <div class="modal-concluir-pedido-adm">
+                <div class="modal-concluir-pedido-adm-top">
+                    <h1>Tem certeza?</h1>
+                    <p>Esta ação não pode ser desfeita. O Pedido:
+                        <span class="concluir-pedido-codigo">"#1234"</span>, do(a) cliente:
+                        <span class="concluir-pedido-cliente-nome">"Maria dos Santos"</span> será mudado para fase: "Concluído". E o cliente poderá retira-lo na cantina.
+                    </p>
+                </div>
+                <div class="modal-concluir-pedido-adm-bottom">
+                    <button type="button" class="btn-cancelar-concluir-pedido">Cancelar</button>
+                    <button type="button" class="btn-concluir-pedido">Concluir Pedido</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const btnConcluirPedidoAdm = document.querySelectorAll('.btn-pedido-concluido-adm');
+            const modalOverlayConcluirPedidoAdm = document.querySelector('.modal-overlay-concluir-pedido-adm');
+            const modalConcluirPedidoAdm = document.querySelector('.modal-concluir-pedido-adm');
+            const btnCancelarConcluirPedidoAdm = document.querySelector('.btn-cancelar-concluir-pedido');
+
+            btnConcluirPedidoAdm.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    modalOverlayConcluirPedidoAdm.classList.add('active');
+                    modalConcluirPedidoAdm.classList.add('active');
+                });
+            });
+
+            btnCancelarConcluirPedidoAdm.addEventListener('click', () => {
+                modalOverlayConcluirPedidoAdm.classList.remove('active');
+                modalConcluirPedidoAdm.classList.remove('active');
+            });
+        </script>
+
+        <!--Modal Cancelar pedido adm-->
+
+        <div class="modal-overlay-cancelar-pedido-adm">
+            <div class="modal-cancelar-pedido-adm">
+                <div class="modal-cancelar-pedido-adm-top">
+                    <h1>Tem certeza?</h1>
+                    <p>Esta ação não pode ser desfeita. O Pedido:
+                        <span class="cancelar-pedido-codigo">"#1234"</span>, do(a) cliente:
+                        <span class="cancelar-pedido-cliente-nome">"Maria dos Santos"</span> será cancelado.
+                    </p>
+                </div>
+                <div class="modal-cancelar-pedido-adm-bottom">
+                    <button type="button" class="btn-cancelar-cancelamento-pedido">Cancelar</button>
+                    <button type="button" class="btn-concluir-cancelamento-pedido">Cancelar Pedido</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const btnCancelarPedidoAdm = document.querySelectorAll('.btn-cancelar-pedido-adm');
+            const modalOverlayCancelarPedidoAdm = document.querySelector('.modal-overlay-cancelar-pedido-adm');
+            const modalCancelarPedidoAdm = document.querySelector('.modal-cancelar-pedido-adm');
+            const btnCancelarCancelamentoPedidoAdm = document.querySelector('.btn-cancelar-cancelamento-pedido');
+
+            btnCancelarPedidoAdm.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    modalOverlayCancelarPedidoAdm.classList.add('active');
+                    modalCancelarPedidoAdm.classList.add('active');
+                });
+            });
+
+            btnCancelarCancelamentoPedidoAdm.addEventListener('click', () => {
+                modalOverlayCancelarPedidoAdm.classList.remove('active');
+                modalCancelarPedidoAdm.classList.remove('active');
+            });
+        </script>
+
+        <!--modal visualizar pedido-->
+
+        <div class="modal-overlay-visualizar-pedido">
+            <div class="modal-visualizar-pedido">
+                <button class="btn-fechar-modal-visualizar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="content-modal-visualizar-pedido">
+                    <div class="content-modal-visualizar-top">
+                        <div class="content-modal-visualizar-top-title">
+                            <h1>Detalhes do Pedido:</h1>
+                        </div>
+                        <div class="content-modal-visualizar-top-tagFiltro">
+                            <h6>Sendo Preparado</h6> <!--php tag do pedido MUDA A COR DESGRAÇA-->
+                        </div>
+                    </div>
+                    <div class="content-modal-visualizar-mid">
+                        <div class="content-modal-visualizar-mid-row">
+                            <div class="content-modal-visualizar-mid-group">
+                                <div class="mid-group-numero-pedido">
+                                    <h1>Número do pedido:</h1>
+                                    <span>#1234</span><!--php number pedido-->
+                                </div>
+                                <div class="mid-group-data-pedido">
+                                    <h1>Data:</h1>
+                                    <span>17/02/2008</span><!--php data pedido-->
+                                </div>
+                            </div>
+                            <div class="content-modal-visualizar-mid-group">
+                                <div class="mid-group-turno-pedido">
+                                    <h1>Turno:</h1>
+                                    <span>Manhã</span><!--php turno pedido-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-modal-visualizar-mid-row">
+                            <div class="content-modal-visualizar-mid-group-user">
+                                <div class="mid-group-info-user">
+                                    <h1>Informações do Cliente:</h1>
+                                </div>
+                            </div>
+                            <div class="content-modal-visualizar-mid-group-user">
+                                <div class="mid-group-info">
+                                    <h1>Nome:</h1>
+                                    <span>Caio Silva</span>
+                                </div>
+                                <div class="mid-group-info">
+                                    <h1>Turma: </h1>
+                                    <span>2 DS</span>
+                                </div>
+                                <div class="mid-group-info">
+                                    <h1>CPF: </h1>
+                                    <span>55132867854</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-modal-visualizar-mid-row" style="border: none;">
+                            <div class="content-modal-visualizar-mid-group-pedido" style="margin-bottom: 4vh;">
+                                <div class="mid-group-info-pedido">
+                                    <h1>Resumo do pedido:</h1>
+                                </div>
+                            </div>
+                            <div class="content-modal-visualizar-mid-group-pedido">
+                                <div class="mid-group-info-table-pedido">
+                                    <div class="tabela-scroll">
+                                        <div class="tabela-items-pedido">
+                                            <div class="tabela-items-pedido-produto">
+                                                <h3>2x</h3><!--quantidade produto-->
+                                                <h4>Esfiha de Carne</h4><!--nome do produto-->
+                                            </div>
+                                            <div class="tabela-items-pedido-preco">
+                                                <h5>R$ 6,00</h5><!--Preço produto-->
+                                            </div>
+                                        </div>
+                                        <div class="tabela-items-pedido">
+                                            <div class="tabela-items-pedido-produto">
+                                                <h3>2x</h3><!--quantidade produto-->
+                                                <h4>Esfiha de Carne</h4><!--nome do produto-->
+                                            </div>
+                                            <div class="tabela-items-pedido-preco">
+                                                <h5>R$ 6,00</h5><!--Preço produto-->
+                                            </div>
+                                        </div>
+                                        <div class="tabela-items-pedido">
+                                            <div class="tabela-items-pedido-produto">
+                                                <h3>2x</h3><!--quantidade produto-->
+                                                <h4>Esfiha de Carne</h4><!--nome do produto-->
+                                            </div>
+                                            <div class="tabela-items-pedido-preco">
+                                                <h5>R$ 6,00</h5><!--Preço produto-->
+                                            </div>
+                                        </div>
+                                        <div class="tabela-items-pedido">
+                                            <div class="tabela-items-pedido-produto">
+                                                <h3>2x</h3><!--quantidade produto-->
+                                                <h4>Esfiha de Carne</h4><!--nome do produto-->
+                                            </div>
+                                            <div class="tabela-items-pedido-preco">
+                                                <h5>R$ 6,00</h5><!--Preço produto-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-modal-visualizar-bottom">
+                        <div class="visualizar-bottom-preco">
+                            <h1>Total:</h1>
+                            <span>R$ 14,00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const modalVisualizarPedido = document.querySelector('.modal-visualizar-pedido');
+            const modalOverlayVisualizarPedido = document.querySelector('.modal-overlay-visualizar-pedido');
+            const btnFecharModalPedido = document.querySelector('.btn-fechar-modal-visualizar');
+            const btnVisualizarPedido = document.querySelectorAll('.btn-visualizar-pedido-adm');
+
+            btnVisualizarPedido.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    modalVisualizarPedido.classList.add('active');
+                    modalOverlayVisualizarPedido.classList.add('active');
+                })
+            });
+
+            btnFecharModalPedido.addEventListener('click', () => {
+                modalVisualizarPedido.classList.remove('active');
+                modalOverlayVisualizarPedido.classList.remove('active');
+            });
+        </script>
 
         <div class="container-configuracoes" id="conteudo-configuracoes">
             <div class="title-configuracoes">

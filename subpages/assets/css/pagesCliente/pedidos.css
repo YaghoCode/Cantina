@@ -235,6 +235,7 @@ a{
     border-radius: 0.3rem;
     transition: 0.3s ease;
     color: #666;
+    border: none;
 }
 
 .btn-fechar-pop-up-user:hover {
@@ -354,7 +355,7 @@ a{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 45%;
+    height: 40%;
     width: 100%;
     gap: 1vh;
     padding: 0.3rem;
@@ -464,7 +465,8 @@ a{
     width: 100%;
     border-radius: 0.4rem;
     padding-left: 1rem;
-    margin-top: 2%;
+    border: none;
+    padding: 0.2rem 1rem;
 }
 
 .content-bottom-user-row button a {
@@ -489,6 +491,7 @@ a{
     background-color: transparent;
     border: 1px solid rgba(0, 0, 0, 0.222);
     transition: 0.3s ease;
+    margin-top: 3vh;
 }
 
 .btn-pop-up-editar-adm:hover {
