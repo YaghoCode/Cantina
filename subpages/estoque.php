@@ -1382,9 +1382,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <strong>Ativo</strong>
                                     </td>
                                     <td style="display: flex;gap:1vh;">
-                                        <button class="visualizar-cliente-adm">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </button>
                                         <button class="editar-cliente-adm">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </button>
@@ -1413,9 +1410,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <strong>Ativo</strong>
                                     </td>
                                     <td style="display: flex;gap:1vh;">
-                                        <button class="visualizar-cliente-adm">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </button>
                                         <button class="editar-cliente-adm">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </button>
@@ -1444,9 +1438,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <strong>Ativo</strong>
                                     </td>
                                     <td style="display: flex;gap:1vh;">
-                                        <button class="visualizar-cliente-adm">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </button>
                                         <button class="editar-cliente-adm">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </button>
@@ -1475,9 +1466,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <strong>Ativo</strong>
                                     </td>
                                     <td style="display: flex;gap:1vh;">
-                                        <button class="visualizar-cliente-adm">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </button>
                                         <button class="editar-cliente-adm">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </button>
@@ -1503,12 +1491,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <span>14</span>
                                     </td> <!--numero de pedidos feito do cliente-->
                                     <td>
-                                       <strong>Ativo</strong>
+                                        <strong>Ativo</strong>
                                     </td>
                                     <td style="display: flex;gap:1vh;">
-                                        <button class="visualizar-cliente-adm">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </button>
                                         <button class="editar-cliente-adm">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </button>
@@ -1537,9 +1522,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <strong>Ativo</strong>
                                     </td>
                                     <td style="display: flex;gap:1vh;">
-                                        <button class="visualizar-cliente-adm">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </button>
                                         <button class="editar-cliente-adm">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </button>
@@ -1568,9 +1550,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <strong>Ativo</strong>
                                     </td>
                                     <td style="display: flex;gap:1vh;">
-                                        <button class="visualizar-cliente-adm">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </button>
                                         <button class="editar-cliente-adm">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </button>
@@ -1632,7 +1611,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 </tr>
                             </thead>
                             <tbody>
-                        
+
                             </tbody>
                         </table>
                     </div>
@@ -1650,7 +1629,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 </tr>
                             </thead>
                             <tbody>
-                                
+
                             </tbody>
                         </table>
                     </div>
@@ -1749,6 +1728,99 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     const tbody = tabela.querySelector("tbody");
                     if (tbody) mostrarTodos(tbody);
                 });
+            });
+        </script>
+
+        <!--Modal editar clientes-->
+
+        <div class="modal-overlay-clientes-editar">
+            <div class="modal-clientes-editar">
+                <div class="modal-clientes-editar-content">
+                    <button class="btn-fechar-modal-editar-cliente">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div class="editar-content-top">
+                        <div class="editar-content-top-title">
+                            <div class="editar-content-top-title-text">
+                                <h1>Configurações da Conta</h1>
+                                <p>Gerencie as informações pessoais do seu cliente.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="editar-content-bottom">
+                        <div class="form-editar-clientes-adm">
+                            <form action="" id="form-editar-clientes-adm">
+                                <div class="form-editar-clientes-adm-row">
+                                    <div class="form-editar-clientes-adm-group">
+                                        <div class="form-editar-clientes-title">
+                                            <div class="form-editar-clientes-title-text">
+                                                <h1>Informações Pessoais:</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-editar-clientes-adm-row">
+                                    <div class="form-editar-clientes-adm-group">
+                                        <label for="nome">Nome:</label>
+                                        <input type="text" name="nome_editar_clientes_admin" id="nome_editar_clientes_admin" value="Maria dos Santos" required minlength="4"> <!--nome usuario no value-->
+                                    </div>
+                                    <div class="form-editar-clientes-adm-group">
+                                        <label for="cpf">CPF:</label>
+                                        <input type="text" name="cpf_editar_clientes_admin" id="cpf_editar_clientes_admin" value="551.234.323.44"
+                                        maxlength="11" pattern="\d{11}" required> <!--cpf usuario no value-->
+                                    </div>
+                                </div>
+                                <div class="form-editar-clientes-adm-row">
+                                    <div class="form-editar-clientes-adm-group">
+                                        <label for="nome">Email:</label>
+                                        <input type="text" name="email_editar_clientes_admin" id="email_editar_clientes_admin" value="Caio@gmail.com" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" minlength="5" required> <!--email usuario no value-->
+                                    </div>
+                                    <div class="form-editar-clientes-adm-group">
+                                        <label for="turma">Turma:</label>
+                                        <select name="turma" id="turma_editar_cliente" class="form-control" required>
+                                            <option> 1DS Manhã
+                                            </option>
+                                            <option> 2DS Manhã
+                                            </option>
+                                            <option> 3DS Manhã
+                                            </option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-editar-clientes-adm-row-btn">
+                                    <div class="form-editar-clientes-adm-group-btn">
+                                        <button class="btn-editar-clientes-adm-cancelar">
+                                            Cancelar
+                                        </button>
+                                        <button>
+                                            Salvar Alterações
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const modaleditarClienteAdm = document.querySelector('.modal-clientes-editar');
+            const modalOverlayeditarClienteAdm = document.querySelector('.modal-overlay-clientes-editar');
+            const btneditarClienteAdm = document.querySelectorAll('.editar-cliente-adm');
+            const btnFecharModaleditarClienteAdm = document.querySelector('.btn-fechar-modal-editar-cliente');
+
+            btneditarClienteAdm.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    modaleditarClienteAdm.classList.add('active');
+                    modalOverlayeditarClienteAdm.classList.add('active');
+                });
+            });
+
+            btnFecharModaleditarClienteAdm.addEventListener('click', () => {
+                modaleditarClienteAdm.classList.remove('active');
+                modalOverlayeditarClienteAdm.classList.remove('active');
             });
         </script>
 
