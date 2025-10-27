@@ -1824,6 +1824,45 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             });
         </script>
 
+
+        <!--Modal excluir cliente adm-->
+
+        <div class="modal-overlay-excluir-cliente-adm">
+            <div class="modal-excluir-cliente-adm">
+                 <div class="modal-excluir-cliente-adm-top">
+                    <h1>Tem certeza?</h1>
+                    <p>
+                        Esta ação não pode ser desfeita. A conta do cliente
+                        <span class="deletar-cliente-nome">""</span>,
+                        de CPF <span class="deletar-cliente-cpf">""</span> será deletada para sempre.
+                    </p>
+                </div>
+                <div class="modal-excluir-cliente-adm-bottom">
+                    <button type="button" class="btn-cancelar-deletar-cliente">Cancelar</button>
+                    <button type="button" class="btn-confirmar-deletar-cliente">Excluir</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const modalExcluirClienteAdm = document.querySelector('.modal-excluir-cliente-adm');
+            const modalOverlayExcluirClienteAdm = document.querySelector('.modal-overlay-excluir-cliente-adm');
+            const btnExcluirClienteAdm = document.querySelectorAll('.deletar-cliente-adm');
+            const btnFecharModalExcluirClienteAdm = document.querySelector('.btn-cancelar-deletar-cliente');
+
+            btnExcluirClienteAdm.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    modalExcluirClienteAdm.classList.add('active');
+                    modalOverlayExcluirClienteAdm.classList.add('active');
+                });
+            });
+
+            btnFecharModalExcluirClienteAdm.addEventListener('click', () => {
+                modalExcluirClienteAdm.classList.remove('active');
+                modalOverlayExcluirClienteAdm.classList.remove('active');
+            });
+        </script>
+
         <div class="container-pedidos" id="conteudo-pedidos">
             <div class="title-pedidos">
                 <div class="title-pedidos-text">

@@ -138,3 +138,407 @@ a{
     background-color: rgba(0, 0, 255, 0.205);
 }
 
+/*main*/
+
+.container-finalizar-pedido{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    width: 100%;
+}
+
+.content-finalizar-pedido{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 80%;
+    width: 95%;
+    gap: 3vw;
+}
+
+.content-finalizar-pedido-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 70%;
+    border: 1px solid rgba(0, 0, 0, 0.146);
+    border-radius: 1.4rem;
+    gap: 3vh;
+}
+
+.content-finalizar-pedido-left-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    width: 98%;
+}
+
+.finalizar-pedido-left-top-title{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 98%;
+}
+
+.finalizar-pedido-left-top-title h1{
+    font-size: 2.2rem;
+    color: rgba(0, 0, 0, 0.748);
+    font-family: var(--font-titulo);
+}
+
+.finalizar-pedido-left-top-title h1 span{
+    font-size: 1.5rem;
+    color: #666;
+}
+
+.content-finalizar-pedido-left-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75%;
+    width: 98%;
+}
+
+.tabela-pedidos-resumo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 55vh;
+    overflow-y: auto;
+    gap: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent pointer;
+}
+
+.tabela-pedidos-resumo::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tabela-pedidos-resumo::-webkit-scrollbar-track {
+    background: transparent; 
+    border-radius: 1px;
+}
+
+.tabela-pedidos-resumo::-webkit-scrollbar-thumb {
+    background-color: #666 !important;
+    color: #666;
+    border-radius: 10px;
+    border: 2px solid #f0f0f0;
+}
+
+.item-pedido-resumo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 17vh;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.179);
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+}
+
+.item-pedido-resumo-left{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45%;
+    height: 95%;
+    gap: 0.5vw;
+}
+
+.imagem-produto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 80%;
+}
+
+.imagem-produto img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 0.8rem;
+}
+
+.info-produto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 80%;
+    width: 70%;
+}
+
+.info-produto-nome{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 35%;
+    width: 100%;
+}
+
+.info-produto-nome h1{
+    font-size: 1.4rem;
+    padding: 0.5rem 0.5rem;
+    color: rgba(0, 0, 0, 0.831);
+}
+
+.info-produto-preco{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 30%;
+    width: 100%;
+}
+
+.info-produto-preco h5{
+    font-size: 1.3rem;
+    padding: 0 0.5rem;
+    color: #000000b8;
+    font-weight: 600;
+}
+
+.info-produto-quantidade{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 35%;
+    width: 97%;
+    gap: 0.4rem;
+}
+
+.btn-quantidade {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    font-weight: 400;
+    border: none;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.197);
+    color: #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.btn-quantidade:hover {
+    color: var(--cor-primaria);
+}
+
+.input-quantidade {
+    width: 50px;
+    height: 32px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 4px;
+    transition: 0.3s ease;
+}
+
+.input-quantidade:hover{
+    border-color: var(--cor-primaria);
+}
+
+.item-pedido-resumo-right{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 15%;
+    height: 100%;
+}
+
+.deletar-item{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 90%;
+    width: 100%;
+}
+
+.deletar-item button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    padding: 0.7rem;
+    border-radius: 0.3rem;
+    font-size: 1.3rem;
+    color: var(--cor-primaria);
+    transition: 0.3s ease;
+}
+
+.deletar-item button:hover{
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.content-finalizar-pedido-right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 70%;
+    width: 25%;
+    border: 1px solid rgba(0, 0, 0, 0.146);
+    border-radius: 1.4rem;
+    padding: 1.5rem;
+}
+
+.resumo-pedido{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 2.3vh;
+}
+
+.resumo-pedido-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 40%;
+    width: 100%;
+}
+
+.resumo-pedido-title{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.resumo-pedido-title h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.resumo-pedido-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 1rem;
+}
+
+.resumo-pedido-info-aluno{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40%;
+    width: 100%;
+}
+
+.resumo-pedido-info-aluno h2,
+.resumo-pedido-info-aluno h3{
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.resumo-pedido-info-itens{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40%;
+    width: 100%;
+}
+
+.resumo-pedido-info-itens h2,
+.resumo-pedido-info-itens h3{
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.resumo-pedido-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 55%;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.131);
+}
+
+.resumo-pedido-total{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40%;
+    width: 100%;
+}
+
+.resumo-pedido-total h2{
+    font-size: 1.5rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.resumo-pedido-total h3{
+    font-size: 1.5rem;
+    color: var(--cor-primaria);
+    font-weight: 600;
+}
+
+.resumo-pedido-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 55%;
+    width: 100%;
+    gap: 0.8rem;
+}
+
+.resumo-pedido-buttons button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40%;
+    border-radius: 0.8rem;
+    gap: 1rem;
+    font-size: 1rem;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.btn-ir-para-pagamento{
+    background-color: var(--cor--botao-accept);
+    color: white;
+}
+
+.btn-ir-para-pagamento:hover{
+    background-color: #276254e7;
+}
+
+.btn-cancelar-finalizacao-pedido:hover{
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.btn-cancelar-finalizacao-pedido a,
+.btn-ir-para-pagamento a{
+    text-decoration: none;
+    color: inherit;
+}
+
+

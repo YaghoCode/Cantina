@@ -67,6 +67,189 @@ if (!isset($_SESSION['cpf'])) {
             </div>
         </div>
     </header>
+    <main>
+        <div class="container-finalizar-pedido">
+            <div class="content-finalizar-pedido">
+                <div class="content-finalizar-pedido-left">
+                    <div class="content-finalizar-pedido-left-top">
+                        <div class="finalizar-pedido-left-top-title">
+                            <h1>
+                                Itens do Pedido <span>(3)</span> <!--numero de itens no pedido-->
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="content-finalizar-pedido-left-bottom">
+                        <div class="tabela-pedidos-resumo">
+                            <div class="item-pedido-resumo">
+                                <div class="item-pedido-resumo-left">
+                                    <div class="imagem-produto">
+                                        <img src="/cantinarepositorio/main/assets/img/carousel-img-2.png" alt="">
+                                    </div>
+                                    <div class="info-produto">
+                                        <div class="info-produto-nome">
+                                            <h1>Esfiha de Calabresa Aberta</h1>
+                                        </div>
+                                        <div class="info-produto-preco">
+                                            <h5>R$ 23,00</h5>
+                                        </div>
+                                        <div class="info-produto-quantidade">
+                                            <button class="btn-quantidade" onclick="diminuirQuantidade(this)"> −
+                                            </button>
+                                            <input type="number" class="input-quantidade" value="1" min="1">
+                                            <button class="btn-quantidade" onclick="aumentarQuantidade(this)">+
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item-pedido-resumo-right">
+                                    <div class="deletar-item">
+                                        <button class="btn-deletar-item">
+                                            <i class="fa-regular fa-trash-can"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-pedido-resumo">
+                                <div class="item-pedido-resumo-left">
+                                    <div class="imagem-produto">
+                                        <img src="/cantinarepositorio/main/assets/img/carousel-img-2.png" alt="">
+                                    </div>
+                                    <div class="info-produto">
+                                        <div class="info-produto-nome">
+                                            <h1>Esfiha de Calabresa Aberta</h1>
+                                        </div>
+                                        <div class="info-produto-preco">
+                                            <h5>R$ 23,00</h5>
+                                        </div>
+                                        <div class="info-produto-quantidade">
+                                            <button class="btn-quantidade" onclick="diminuirQuantidade(this)"> −
+                                            </button>
+                                            <input type="number" class="input-quantidade" value="1" min="1">
+                                            <button class="btn-quantidade" onclick="aumentarQuantidade(this)">+
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item-pedido-resumo-right">
+                                    <div class="deletar-item">
+                                        <button class="btn-deletar-item">
+                                            <i class="fa-regular fa-trash-can"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-pedido-resumo">
+                                <div class="item-pedido-resumo-left">
+                                    <div class="imagem-produto">
+                                        <img src="/cantinarepositorio/main/assets/img/carousel-img-2.png" alt="">
+                                    </div>
+                                    <div class="info-produto">
+                                        <div class="info-produto-nome">
+                                            <h1>Esfiha de Calabresa Aberta</h1>
+                                        </div>
+                                        <div class="info-produto-preco">
+                                            <h5>R$ 23,00</h5>
+                                        </div>
+                                        <div class="info-produto-quantidade">
+                                            <button class="btn-quantidade" onclick="diminuirQuantidade(this)"> −
+                                            </button>
+                                            <input type="number" class="input-quantidade" value="1" min="1">
+                                            <button class="btn-quantidade" onclick="aumentarQuantidade(this)">+
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item-pedido-resumo-right">
+                                    <div class="deletar-item">
+                                        <button class="btn-deletar-item">
+                                            <i class="fa-regular fa-trash-can"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-pedido-resumo">
+                                <div class="item-pedido-resumo-left">
+                                    <div class="imagem-produto">
+                                        <img src="/cantinarepositorio/main/assets/img/carousel-img-2.png" alt="">
+                                    </div>
+                                    <div class="info-produto">
+                                        <div class="info-produto-nome">
+                                            <h1>Esfiha de Calabresa Aberta</h1>
+                                        </div>
+                                        <div class="info-produto-preco">
+                                            <h5>R$ 23,00</h5>
+                                        </div>
+                                        <div class="info-produto-quantidade">
+                                            <button class="btn-quantidade" onclick="diminuirQuantidade(this)"> −
+                                            </button>
+                                            <input type="number" class="input-quantidade" value="1" min="1">
+                                            <button class="btn-quantidade" onclick="aumentarQuantidade(this)">+
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item-pedido-resumo-right">
+                                    <div class="deletar-item">
+                                        <button class="btn-deletar-item">
+                                            <i class="fa-regular fa-trash-can"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-finalizar-pedido-right">
+                    <div class="resumo-pedido">
+                        <div class="resumo-pedido-top">
+                            <div class="resumo-pedido-title">
+                                <h1>Resumo do Pedido</h1>
+                            </div>
+                            <div class="resumo-pedido-info">
+                                <div class="resumo-pedido-info-aluno">
+                                    <h2>Aluno:</h2> <h3>Caio Picciarelli</h3>
+                                </div>
+                                <div class="resumo-pedido-info-itens">
+                                    <h2>Total de Itens:</h2> <h3>3 Itens</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="resumo-pedido-bottom">
+                            <div class="resumo-pedido-total">
+                                <h2>Total:</h2> <h3>R$ 32,00</h3>
+                            </div>
+                            <div class="resumo-pedido-buttons">
+                                <button type="button" class="btn-ir-para-pagamento">
+                                    <a href="/cantinarepositorio/subpages/pagamento_cliente_page.php">
+                                        <i class="fa-regular fa-credit-card"></i> 
+                                        Ir para Pagamento
+                                    </a>
+                                </button>
+                                <button type="button" class="btn-cancelar-finalizacao-pedido">
+                                    <a href="/cantinarepositorio/main/index.php">Cancelar Pedido</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function aumentarQuantidade(btn) {
+            const input = btn.parentNode.querySelector('.input-quantidade');
+            input.value = parseInt(input.value) + 1;
+        }
+
+        function diminuirQuantidade(btn) {
+            const input = btn.parentNode.querySelector('.input-quantidade');
+            if (parseInt(input.value) > parseInt(input.min)) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+    </script>
 
 </body>
+
 </html>

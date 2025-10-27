@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --cor-primaria: #e3261b;
+    --cor-secundaria: #f0a956;
+    --cor-terciaria: #a1735e;
+    --cor-itemdesconto: #00bf63;
+    --cor-grey: #f4f4f4;
+    --cor-laranja: #d6390d;
+    --cor--botao-accept: #276254;
+    --cor--botao-reject: #e3261b;
+    --font-titulo: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-titulo);
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.container-pagamento-page{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1111111111111111111111111111111111;
+    transition: opacity 0.3s ease;
+}
+
+.content-pagamento-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #0000005d;
+    z-index: 111111111112;
+    height: 95%;
+    width: 40%;
+    border-radius: 15px;
+    gap: 0.3rem;
+    padding: 1rem;
+}
+
+.content-pagamento-page-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7%;
+    width: 100%;
+}
+
+.title-pagamento h1{
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.content-pagamento-page-mid{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 75%;
+    width: 100%;
+    gap: 3vh;
+}
+
+.qr-code-pagamento{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 55%;
+    width: 55%;
+    background-color: #66666621;
+    border-radius: 1rem;
+}
+
+.qr-code-pagamento img{
+    object-fit: cover;
+    height: 45%;
+    width: 45%;
+    border: 10px solid;
+}
+
+.qr-code-pagamento p{
+    color: #666;
+}
+
+.valor-total-pagamento{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 15%;
+    width: 90%;
+    background-color: #66666621;
+    border-radius: 0.8rem;
+    padding-top: 0.5rem;
+}
+
+.valor-total-pagamento h1{
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #666;
+    padding-left: 0.2rem;
+}
+
+.valor-total-pagamento h2{
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--cor-primaria);
+}
+
+.aviso-pagamento{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 12%;
+    width: 90%;
+    background-color: #e3251b13;
+    border-radius: 0.8rem;
+    padding: 1.2rem;
+    gap: 1vw;
+    border: 1px solid;
+    border-color: #e3251b80;
+}
+
+.aviso-pagamento-left{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.aviso-pagamento-left i{
+    position: absolute;
+    top: 74%;
+    left: 8%;
+    font-size: 1.5rem;
+    color: var(--cor-primaria);
+}
+
+.aviso-pagamento-right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.aviso-pagamento-right p{
+    padding-top: 0.9rem;
+}
+
+.content-pagamento-page-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 10%;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.content-pagamento-page-bottom button{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    height: 48%;
+    transform: translateY(20%);
+    padding: 1.6rem;
+    border-radius: 0.6rem;
+    border: none;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.content-pagamento-page-bottom button i{
+    padding-right: 0.5rem;
+}
+
+.content-pagamento-page-bottom button a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn-confirmar-pagamento{
+    background-color: #276254;
+    color: white;
+}
+
+.btn-confirmar-pagamento:hover{
+    background-color: #276254da;
+}
+
+.btn-cancelar-pagamento:hover{
+    background-color: var(--cor-primaria);
+    color: white;
+}
