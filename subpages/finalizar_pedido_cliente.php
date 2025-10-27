@@ -51,7 +51,8 @@ if (!isset($_SESSION['cpf'])) {
                     <ul>
                         <li class="btn-voltar-finalizar-pedido">
                             <button type="button">
-                                <a href="/cantinarepositorio/subpages/cardapio.php"><i class="fa-solid fa-arrow-left"></i></a>
+                                <a href="/cantinarepositorio/subpages/cardapio.php"><i
+                                        class="fa-solid fa-arrow-left"></i></a>
                             </button>
                         </li>
                         <li class="finalizar-pedido-li">
@@ -207,21 +208,24 @@ if (!isset($_SESSION['cpf'])) {
                             </div>
                             <div class="resumo-pedido-info">
                                 <div class="resumo-pedido-info-aluno">
-                                    <h2>Aluno:</h2> <h3>Caio Picciarelli</h3>
+                                    <h2>Aluno:</h2>
+                                    <h3>Caio Picciarelli</h3>
                                 </div>
                                 <div class="resumo-pedido-info-itens">
-                                    <h2>Total de Itens:</h2> <h3>3 Itens</h3>
+                                    <h2>Total de Itens:</h2>
+                                    <h3>3 Itens</h3>
                                 </div>
                             </div>
                         </div>
                         <div class="resumo-pedido-bottom">
                             <div class="resumo-pedido-total">
-                                <h2>Total:</h2> <h3>R$ 32,00</h3>
+                                <h2>Total:</h2>
+                                <h3>R$ 32,00</h3>
                             </div>
                             <div class="resumo-pedido-buttons">
                                 <button type="button" class="btn-ir-para-pagamento">
                                     <a href="/cantinarepositorio/subpages/pagamento_cliente_page.php">
-                                        <i class="fa-regular fa-credit-card"></i> 
+                                        <i class="fa-regular fa-credit-card"></i>
                                         Ir para Pagamento
                                     </a>
                                 </button>
@@ -235,6 +239,28 @@ if (!isset($_SESSION['cpf'])) {
             </div>
         </div>
     </main>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Torna o botão inteiro clicável quando há um <a> dentro dele
+            document.querySelectorAll('button').forEach(btn => {
+                const a = btn.querySelector('a[href]');
+                if (!a) return;
+                // evita comportamento padrão do <a> quando clicado apenas no texto
+                a.style.pointerEvents = 'none';
+                // adiciona redirecionamento ao botão inteiro
+                btn.addEventListener('click', (e) => {
+                    // permite que botões tipo "submit" continuem funcionando em formulários
+                    if (btn.type && btn.type.toLowerCase() === 'submit') return;
+                    const href = a.getAttribute('href');
+                    if (!href) return;
+                    window.location.href = href;
+                });
+            });
+        });
+
+    </script>
 
     <script>
         function aumentarQuantidade(btn) {

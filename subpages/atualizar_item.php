@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = intval($_POST['id']);
     $produto = mysqli_real_escape_string($con, $_POST['produto']);
     $categoria = mysqli_real_escape_string($con, $_POST['categoria']);
-    $descricao = mysqli_real_escape_string($con, $_POST['descricao']); // <-- Adicione esta linha
+    $descricao = mysqli_real_escape_string($con, $_POST['descricao']);
     $preco = mysqli_real_escape_string($con, $_POST['preco']);
     $quantidade = intval($_POST['quantidade']);
     $trocarImagem = isset($_POST['trocar_imagem']) ? true : false;

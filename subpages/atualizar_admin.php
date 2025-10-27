@@ -2,9 +2,7 @@
 include('/xampp/htdocs/cantinarepositorio/main/database.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Capture os dados enviados pelo formulário
     $cpf = intval($_POST['cpfid']);
-    // Certifique-se de que o CPF está sendo enviado
     $nome = mysqli_real_escape_string($con, $_POST['nome']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $adm = mysqli_real_escape_string($con, $_POST['funcao']); // 'funcao' deve ser enviado como 0 ou 1

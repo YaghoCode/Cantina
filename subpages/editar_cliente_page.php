@@ -10,7 +10,6 @@ header("Expires: 0");
 if (isset($_SESSION['cpf'])) {
     $cpf = $_SESSION['cpf'];
 
-    // Tenta buscar como administrador
     $query_user = "SELECT nome, cpf, email, turma FROM cliente WHERE cpf = '$cpf'";
     $result_user = mysqli_query($con, $query_user);
 
@@ -206,7 +205,8 @@ if (isset($_SESSION['cpf'])) {
                             </div>
                         </div>
                         <div class="form-editar-cliente-content">
-                            <form action="" class="editar-cliente">
+                            <form action="atualizar_cliente.php" method="POST" class="editar-cliente">
+                                <input type="hidden" name="cpfid" value="<?= $user_data['cpf'] ?>" />
                                 <div class="form-editar-clientes-row">
                                     <div class="form-group-editar-clientes">
                                         <label for="nome">Nome:</label>
@@ -263,12 +263,14 @@ if (isset($_SESSION['cpf'])) {
                             </div>
                         </div>
                         <div class="form-editar-senha-cliente-content">
-                            <form action="" class="form-editar-senha-cliente" id="form-editar-senha-cliente">
+                            <!--Form editar senha cliente-->
+                            <form action="alterar_senha_cliente.php" method="POST" class="form-editar-senha-cliente" id="form-editar-senha-cliente">
+                                <input type="hidden" name="cpfid" value="<?= $user_data['cpf'] ?>" />
                                 <div class="form-editar-senha-cliente-row">
                                     <div class="form-group-editar-senha-cliente">
                                         <label for="senha_cliente_atual">Senha Atual:</label>
                                         <div class="input-wrapper">
-                                            <input type="password" id="senha_cliente_atual" required inputmode="none">
+                                            <input name="senha_atual" type="password" id="senha_cliente_atual" required inputmode="none">
                                             <span class="toggle-senha" data-target="senha_cliente_atual"><i class="fa-regular fa-eye-slash"></i></span>
                                         </div>
                                     </div>
@@ -278,14 +280,14 @@ if (isset($_SESSION['cpf'])) {
                                     <div class="form-group-editar-senha-cliente">
                                         <label for="senha_cliente_nova">Nova senha:</label>
                                         <div class="input-wrapper">
-                                            <input type="password" id="senha_cliente_nova" required minlength="6" inputmode="none">
+                                            <input name="nova_senha" type="password" id="senha_cliente_nova" required minlength="6" inputmode="none">
                                             <span class="toggle-senha" data-target="senha_cliente_nova"><i class="fa-regular fa-eye-slash"></i></span>
                                         </div>
                                     </div>
                                     <div class="form-group-editar-senha-cliente">
                                         <label for="senha_cliente_nova_confirmacao">Confirmar Nova Senha:</label>
                                         <div class="input-wrapper">
-                                            <input type="password" id="senha_cliente_nova_confirmacao" required inputmode="none" minlength="6">
+                                            <input name="confirmar_senha" type="password" id="senha_cliente_nova_confirmacao" required inputmode="none" minlength="6">
                                             <span class="toggle-senha" data-target="senha_cliente_nova_confirmacao"><i class="fa-regular fa-eye-slash"></i></span>
                                         </div>
                                         <div class="erro-senha" id="erroSenhaCliente">As senhas não coincidem.</div>

@@ -3161,7 +3161,7 @@ input:checked + .slider:before {
     border: 1px solid rgba(0, 0, 0, 0.123);
 }
 
-#form-editar-clientes-adm{
+.form-editar-clientes-adm-inner{
     display: flex;
     align-items: center;
     justify-content: center;

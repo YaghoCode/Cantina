@@ -284,7 +284,8 @@ if (isset($_SESSION['cpf'])) {
         <h6 class="cart-total-h6">R$ 00,00 <!--Price calculado--></h6>
       </div>
       <div class="finalizar-pedido">
-        <button id="btn-finalizar-pedidos">
+        <button type="button" id="btn-finalizar-pedidos">
+           <a href="/cantinarepositorio/subpages/finalizar_pedido_cliente.php"></a>
           Finalizar Pedido
         </button>
       </div>

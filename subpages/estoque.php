@@ -231,8 +231,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <li id="btn-clientes"><i class="fa-solid fa-users"></i> Clientes</li>
                     <li id="btn-pedidos"><i class="fa-solid fa-clipboard-list"></i> Pedidos</li>
                     <li id="btn-configuracoes" <?php if ($user_data['adm'] != 1) {
-                                                    echo 'style="display:none;"';
-                                                } ?>;>
+                        echo 'style="display:none;"';
+                    } ?>;>
                         <i class="fa-solid fa-gear"></i> Configurações
                     </li>
 
@@ -424,7 +424,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -458,7 +458,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -483,7 +483,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -514,7 +514,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -539,7 +539,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -573,7 +573,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -599,7 +599,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -630,7 +630,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -656,7 +656,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -690,7 +690,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -715,7 +715,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -749,7 +749,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -775,7 +775,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -809,7 +809,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                                 </tr>
                             </tbody>
@@ -831,7 +831,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             foreach ($query_run as $item) {
                 $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
                 $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-        ?>
+                ?>
                 <div class="modal-overlay-estoque" id="modal-<?= $item['id'] ?>">
                     <div class="modal-estoque-visualizar-item" id="modal-visualizar-item">
                         <div class="modal-estoque-top">
@@ -903,7 +903,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
 
-        <?php }
+            <?php }
         } ?>
 
         <script>
@@ -948,7 +948,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $query_run = mysqli_query($con, $query);
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $item) {
-        ?>
+                ?>
                 <div class="overlay-modal-estoque-deletar-item">
 
                 </div>
@@ -968,7 +968,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
 
-        <?php }
+            <?php }
         } ?>
 
         <script>
@@ -1008,12 +1008,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     const produtoId = button.getAttribute('data-id');
                     console.log('ID enviado:', produtoId);
                     fetch('/cantinarepositorio/subpages/delete_item.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            body: 'id=' + encodeURIComponent(produtoId)
-                        })
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'id=' + encodeURIComponent(produtoId)
+                    })
                         .then(response => response.json())
                         .then(data => {
                             if (data.success) {
@@ -1029,7 +1029,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 
-
+        <!--Modal estoque editar item-->
         <?php
         $query = "SELECT * from estoque";
         $query_run = mysqli_query($con, $query);
@@ -1038,7 +1038,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             foreach ($query_run as $item) {
                 $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
                 $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-        ?>
+                ?>
                 <!-- MODAL EDITAR ITEM -->
                 <div class="overlay-editar-produto" id="overlayEditar-<?= $item['id'] ?>">
                     <div class="modal-editar-produto" id="modalEditar-<?= $item['id'] ?>">
@@ -1130,7 +1130,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </form>
                     </div>
                 </div>
-        <?php
+                <?php
             }
         }
         ?>
@@ -1251,7 +1251,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 </label>
                                 <span>Exibir no cardápio</span>
                             </div>
-                            <h2 class="obs-toggle-item"><span>Obs:</span> Na página principal o limite maximo de itens por seção é 3, ou seja, no maximo 3 itens na seção salgados, 3 itens na seção folhados e etc.</h2>
+                            <h2 class="obs-toggle-item"><span>Obs:</span> Na página principal o limite maximo de itens
+                                por seção é 3, ou seja, no maximo 3 itens na seção salgados, 3 itens na seção folhados e
+                                etc.</h2>
                         </div>
                     </div>
                 </div>
@@ -1362,202 +1364,42 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <h6>Caio Picciarelli</h6>
-                                    </td> <!--nome cliente-->
-                                    <td>
-                                        <h6>caiopicc@gmail.com</h6>
-                                    </td> <!--email cliente-->
-                                    <td>
-                                        <h6>551.328.678.22</h6>
-                                    </td> <!--cpf cliente-->
-                                    <td>
-                                        <h6>1 DS Manhã</h6> <!--turma -->
-                                    </td>
-                                    <td>
-                                        <span>15</span>
-                                    </td> <!--numero de pedidos feito do cliente-->
-                                    <td>
-                                        <strong>Ativo</strong>
-                                    </td>
-                                    <td style="display: flex;gap:1vh;">
-                                        <button class="editar-cliente-adm">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </button>
-                                        <button class="deletar-cliente-adm">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h6>Caio Picciarelli</h6>
-                                    </td> <!--nome cliente-->
-                                    <td>
-                                        <h6>caiopicc@gmail.com</h6>
-                                    </td> <!--email cliente-->
-                                    <td>
-                                        <h6>551.328.678.22</h6>
-                                    </td> <!--cpf cliente-->
-                                    <td>
-                                        <h6>1 DS Manhã</h6> <!--turma -->
-                                    </td>
-                                    <td>
-                                        <span>15</span>
-                                    </td> <!--numero de pedidos feito do cliente-->
-                                    <td>
-                                        <strong>Ativo</strong>
-                                    </td>
-                                    <td style="display: flex;gap:1vh;">
-                                        <button class="editar-cliente-adm">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </button>
-                                        <button class="deletar-cliente-adm">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h6>Caio Picciarelli</h6>
-                                    </td> <!--nome cliente-->
-                                    <td>
-                                        <h6>caiopicc@gmail.com</h6>
-                                    </td> <!--email cliente-->
-                                    <td>
-                                        <h6>551.328.678.22</h6>
-                                    </td> <!--cpf cliente-->
-                                    <td>
-                                        <h6>1 DS Manhã</h6> <!--turma -->
-                                    </td>
-                                    <td>
-                                        <span>15</span>
-                                    </td> <!--numero de pedidos feito do cliente-->
-                                    <td>
-                                        <strong>Ativo</strong>
-                                    </td>
-                                    <td style="display: flex;gap:1vh;">
-                                        <button class="editar-cliente-adm">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </button>
-                                        <button class="deletar-cliente-adm">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h6>ACaio Picciarelli</h6>
-                                    </td> <!--nome cliente-->
-                                    <td>
-                                        <h6>caiopicc@gmail.com</h6>
-                                    </td> <!--email cliente-->
-                                    <td>
-                                        <h6>551.328.678.22</h6>
-                                    </td> <!--cpf cliente-->
-                                    <td>
-                                        <h6>1 DS Manhã</h6> <!--turma -->
-                                    </td>
-                                    <td>
-                                        <span>4</span>
-                                    </td> <!--numero de pedidos feito do cliente-->
-                                    <td>
-                                        <strong>Ativo</strong>
-                                    </td>
-                                    <td style="display: flex;gap:1vh;">
-                                        <button class="editar-cliente-adm">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </button>
-                                        <button class="deletar-cliente-adm">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h6>ACaio Picciarelli</h6>
-                                    </td> <!--nome cliente-->
-                                    <td>
-                                        <h6>caiopicc@gmail.com</h6>
-                                    </td> <!--email cliente-->
-                                    <td>
-                                        <h6>551.328.678.22</h6>
-                                    </td> <!--cpf cliente-->
-                                    <td>
-                                        <h6>1 DS Manhã</h6> <!--turma -->
-                                    </td>
-                                    <td>
-                                        <span>14</span>
-                                    </td> <!--numero de pedidos feito do cliente-->
-                                    <td>
-                                        <strong>Ativo</strong>
-                                    </td>
-                                    <td style="display: flex;gap:1vh;">
-                                        <button class="editar-cliente-adm">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </button>
-                                        <button class="deletar-cliente-adm">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h6>BCaio Picciarelli</h6>
-                                    </td> <!--nome cliente-->
-                                    <td>
-                                        <h6>caiopicc@gmail.com</h6>
-                                    </td> <!--email cliente-->
-                                    <td>
-                                        <h6>551.328.678.22</h6>
-                                    </td> <!--cpf cliente-->
-                                    <td>
-                                        <h6>1 DS Manhã</h6> <!--turma -->
-                                    </td>
-                                    <td>
-                                        <span>6</span>
-                                    </td> <!--numero de pedidos feito do cliente-->
-                                    <td>
-                                        <strong>Ativo</strong>
-                                    </td>
-                                    <td style="display: flex;gap:1vh;">
-                                        <button class="editar-cliente-adm">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </button>
-                                        <button class="deletar-cliente-adm">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h6>ZCaio Picciarelli</h6>
-                                    </td> <!--nome cliente-->
-                                    <td>
-                                        <h6>caiopicc@gmail.com</h6>
-                                    </td> <!--email cliente-->
-                                    <td>
-                                        <h6>551.328.678.22</h6>
-                                    </td> <!--cpf cliente-->
-                                    <td>
-                                        <h6>1 DS Manhã</h6> <!--turma -->
-                                    </td>
-                                    <td>
-                                        <span>4</span>
-                                    </td> <!--numero de pedidos feito do cliente-->
-                                    <td>
-                                        <strong>Ativo</strong>
-                                    </td>
-                                    <td style="display: flex;gap:1vh;">
-                                        <button class="editar-cliente-adm">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </button>
-                                        <button class="deletar-cliente-adm">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                                <?php
+                                $query = "SELECT * from cliente";
+                                $query_run = mysqli_query($con, $query);
+                                if (mysqli_num_rows($query_run) > 0) {
+                                    foreach ($query_run as $cliente) {
+                                        ?>
+                                        <tr>
+                                            <td>
+                                                <h6><?php echo $cliente['nome']; ?></h6>
+                                            </td> <!--nome cliente-->
+                                            <td>
+                                                <h6><?php echo $cliente['email']; ?></h6>
+                                            </td> <!--email cliente-->
+                                            <td>
+                                                <h6><?php echo $cliente['cpf']; ?></h6>
+                                            </td> <!--cpf cliente-->
+                                            <td>
+                                                <h6><?php echo $cliente['turma']; ?></h6> <!--turma -->
+                                            </td>
+                                            <td>
+                                                <span>Ainda não fizemos</span>
+                                            </td> <!--numero de pedidos feito do cliente-->
+                                            <td>
+                                                <strong>Ativo</strong>
+                                            </td>
+                                            <td style="display: flex;gap:1vh;">
+                                                <button class="editar-cliente-adm" data-id="<?= $cliente['cpf'] ?>">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                <button class="deletar-cliente-adm" data-id="<?= $cliente['cpf'] ?>">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php }
+                                } ?>
                             </tbody>
                         </table>
                     </div>
@@ -1638,7 +1480,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
 
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("DOMContentLoaded", function () {
                 const botoesFiltro = document.querySelectorAll(".clientes-filtro-options button");
                 const contentClientes = document.querySelector(".content-clientes-bottom");
                 if (!contentClientes) return;
@@ -1682,8 +1524,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         const qtd = parseInt(linha.querySelector("td:nth-child(5) span")?.textContent || "0");
                         const deveMostrar =
                             tipo === "ativo" ? qtd >= 5 :
-                            tipo === "inativo" ? qtd < 5 :
-                            true;
+                                tipo === "inativo" ? qtd < 5 :
+                                    true;
 
                         if (deveMostrar) fadeIn(linha);
                         else fadeOut(linha);
@@ -1731,136 +1573,211 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             });
         </script>
 
-        <!--Modal editar clientes-->
+        <?php
+        $query = "SELECT * from cliente";
+        $query_run = mysqli_query($con, $query);
 
-        <div class="modal-overlay-clientes-editar">
-            <div class="modal-clientes-editar">
-                <div class="modal-clientes-editar-content">
-                    <button class="btn-fechar-modal-editar-cliente">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                    <div class="editar-content-top">
-                        <div class="editar-content-top-title">
-                            <div class="editar-content-top-title-text">
-                                <h1>Configurações da Conta</h1>
-                                <p>Gerencie as informações pessoais do seu cliente.</p>
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $cliente) {
+                ?>
+                <!--Modal editar clientes-->
+                <div class="modal-overlay-clientes-editar" id="overlayEditarCliente-<?= $cliente['cpf'] ?>">
+                    <div class="modal-clientes-editar" id="modalEditarCliente-<?= $cliente['cpf'] ?>">
+                        <div class="modal-clientes-editar-content">
+                            <button class="btn-fechar-modal-editar-cliente" data-id="<?= $cliente['cpf'] ?>">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                            <div class="editar-content-top">
+                                <div class="editar-content-top-title">
+                                    <div class="editar-content-top-title-text">
+                                        <h1>Configurações da Conta</h1>
+                                        <p>Gerencie as informações pessoais do seu cliente.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="editar-content-bottom">
+                                <div class="form-editar-clientes-adm">
+
+                                    <!--form editar cliente estoque-->
+                                    <form action="atualizar_cliente.php" method="POST" class="form-editar-clientes-adm-inner">
+                                        <input type="hidden" id="cpfid_editar_clientes_admin-<?= $cliente['cpf'] ?>"
+                                            name="cpfid" value="<?= $cliente['cpf'] ?>" />
+                                        <div class="form-editar-clientes-adm-row">
+                                            <div class="form-editar-clientes-adm-group">
+                                                <div class="form-editar-clientes-title">
+                                                    <div class="form-editar-clientes-title-text">
+                                                        <h1>Informações Pessoais:</h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-editar-clientes-adm-row">
+                                            <div class="form-editar-clientes-adm-group">
+                                                <label for="nome">Nome:</label>
+                                                <input type="text" id="nome_editar_clientes_admin-<?= $cliente['cpf'] ?>"
+                                                    name="nome" value="<?= htmlspecialchars($cliente['nome']) ?>" required
+                                                    minlength="4"> <!--nome usuario no value-->
+                                            </div>
+                                            <div class="form-editar-clientes-adm-group">
+                                                <label for="cpf">CPF:</label>
+                                                <input type="text" name="cpf"
+                                                    id="cpf_editar_clientes_admin-<?= $cliente['cpf'] ?>"
+                                                    value="<?= htmlspecialchars($cliente['cpf']) ?>" disabled>
+                                                <!--cpf usuario no value-->
+                                            </div>
+                                        </div>
+                                        <div class="form-editar-clientes-adm-row">
+                                            <div class="form-editar-clientes-adm-group">
+                                                <label for="nome">Email:</label>
+                                                <input type="text" name="email"
+                                                    id="email_editar_clientes_admin-<?= $cliente['email'] ?>"
+                                                    value="<?= htmlspecialchars($cliente['email']) ?>"
+                                                    pattern="[^@\s]+@[^@\s]+\.[^@\s]+" minlength="5" required>
+                                                <!--email usuario no value-->
+                                            </div>
+                                            <div class="form-editar-clientes-adm-group">
+                                                <label for="turma">Turma:</label>
+                                                <select id="turma_editar_clientes_admin-<?= $cliente['turma'] ?>" name="turma"
+                                                    class="form-control" required>
+                                                    <option value="1DS" <?= $cliente['turma'] == "1DS" ? 'selected' : '' ?>> 1DS
+                                                    </option>
+                                                    <option value="2DS" <?= $cliente['turma'] == "2DS" ? 'selected' : '' ?>> 2DS
+                                                    </option>
+                                                    <option value="3DS" <?= $cliente['turma'] == "3DS" ? 'selected' : '' ?>>3DS
+                                                    </option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-editar-clientes-adm-row-btn">
+                                            <div class="form-editar-clientes-adm-group-btn">
+                                                <button class="btn-editar-clientes-adm-cancelar">
+                                                    Cancelar
+                                                </button>
+                                                <button type="submit">
+                                                    Salvar Alterações
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="editar-content-bottom">
-                        <div class="form-editar-clientes-adm">
-                            <form action="" id="form-editar-clientes-adm">
-                                <div class="form-editar-clientes-adm-row">
-                                    <div class="form-editar-clientes-adm-group">
-                                        <div class="form-editar-clientes-title">
-                                            <div class="form-editar-clientes-title-text">
-                                                <h1>Informações Pessoais:</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-editar-clientes-adm-row">
-                                    <div class="form-editar-clientes-adm-group">
-                                        <label for="nome">Nome:</label>
-                                        <input type="text" name="nome_editar_clientes_admin" id="nome_editar_clientes_admin" value="Maria dos Santos" required minlength="4"> <!--nome usuario no value-->
-                                    </div>
-                                    <div class="form-editar-clientes-adm-group">
-                                        <label for="cpf">CPF:</label>
-                                        <input type="text" name="cpf_editar_clientes_admin" id="cpf_editar_clientes_admin" value="551.234.323.44"
-                                        maxlength="11" pattern="\d{11}" required> <!--cpf usuario no value-->
-                                    </div>
-                                </div>
-                                <div class="form-editar-clientes-adm-row">
-                                    <div class="form-editar-clientes-adm-group">
-                                        <label for="nome">Email:</label>
-                                        <input type="text" name="email_editar_clientes_admin" id="email_editar_clientes_admin" value="Caio@gmail.com" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" minlength="5" required> <!--email usuario no value-->
-                                    </div>
-                                    <div class="form-editar-clientes-adm-group">
-                                        <label for="turma">Turma:</label>
-                                        <select name="turma" id="turma_editar_cliente" class="form-control" required>
-                                            <option> 1DS Manhã
-                                            </option>
-                                            <option> 2DS Manhã
-                                            </option>
-                                            <option> 3DS Manhã
-                                            </option>
-                                            
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-editar-clientes-adm-row-btn">
-                                    <div class="form-editar-clientes-adm-group-btn">
-                                        <button class="btn-editar-clientes-adm-cancelar">
-                                            Cancelar
-                                        </button>
-                                        <button>
-                                            Salvar Alterações
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </div>
+
+
+                <?php
+            }
+        }
+        ?>
+
 
         <script>
-            const modaleditarClienteAdm = document.querySelector('.modal-clientes-editar');
-            const modalOverlayeditarClienteAdm = document.querySelector('.modal-overlay-clientes-editar');
-            const btneditarClienteAdm = document.querySelectorAll('.editar-cliente-adm');
-            const btnFecharModaleditarClienteAdm = document.querySelector('.btn-fechar-modal-editar-cliente');
+            //abrir modal editar cliente
+            document.addEventListener('DOMContentLoaded', () => {
 
-            btneditarClienteAdm.forEach((btn) => {
-                btn.addEventListener('click', () => {
-                    modaleditarClienteAdm.classList.add('active');
-                    modalOverlayeditarClienteAdm.classList.add('active');
+                document.querySelectorAll('.editar-cliente-adm').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const clienteId = button.getAttribute('data-id');
+                        const overlay = document.getElementById(`overlayEditarCliente-${clienteId}`);
+                        const modal = document.getElementById(`modalEditarCliente-${clienteId}`);
+                        if (overlay && modal) {
+                            overlay.classList.add('active');
+                            modal.classList.add('active');
+                        }
+                    });
                 });
             });
 
-            btnFecharModaleditarClienteAdm.addEventListener('click', () => {
-                modaleditarClienteAdm.classList.remove('active');
-                modalOverlayeditarClienteAdm.classList.remove('active');
+            //Fechar modal no X
+            document.querySelectorAll('.btn-fechar-modal-editar-cliente').forEach(button => {
+                button.addEventListener('click', () => {
+                    const clienteId = button.getAttribute('data-id');
+                    const overlay = document.getElementById(`overlayEditarCliente-${clienteId}`);
+                    const modal = document.getElementById(`modalEditarCliente-${clienteId}`);
+                    if (overlay && modal) {
+                        overlay.classList.remove('active');
+                        modal.classList.remove('active');
+                    }
+                });
+            });
+
+            document.querySelectorAll('.btn-close-modal-editar-admin, .form-editar-adm-btn-cancelar').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const modal = btn.closest('.modal-editar-admin');
+                    if (modal) {
+                        modal.classList.remove('active');
+                        const admId = modal.id.replace('modaladm-', '');
+                        const overlay = document.getElementById(`overlayEditarAdmin-${admId}`);
+                        if (overlay) overlay.classList.remove('active');
+                    }
+                });
             });
         </script>
 
 
         <!--Modal excluir cliente adm-->
-
-        <div class="modal-overlay-excluir-cliente-adm">
-            <div class="modal-excluir-cliente-adm">
-                 <div class="modal-excluir-cliente-adm-top">
-                    <h1>Tem certeza?</h1>
-                    <p>
-                        Esta ação não pode ser desfeita. A conta do cliente
-                        <span class="deletar-cliente-nome">""</span>,
-                        de CPF <span class="deletar-cliente-cpf">""</span> será deletada para sempre.
-                    </p>
+        <?php
+        $query = "SELECT * from cliente";
+        $query_run = mysqli_query($con, $query);
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $cliente) {
+                ?>
+                <div class="modal-overlay-excluir-cliente-adm" id="overlay-deletar-cliente-<?= $cliente['cpf'] ?>"
+                    data-id="<?= $cliente['cpf'] ?>">
+                    <div class="modal-excluir-cliente-adm" id="modal-deletar-cliente-<?= $cliente['cpf'] ?>"
+                        data-id="<?= $cliente['cpf'] ?>">
+                        <div class="modal-excluir-cliente-adm-top">
+                            <h1>Tem certeza?</h1>
+                            <p>
+                                Esta ação não pode ser desfeita. A conta do cliente"<?php echo $cliente['nome'] ?>"
+                                ,
+                                de CPF "<?php echo $cliente['cpf'] ?>" será deletada permanentemente.
+                            </p>
+                        </div>
+                        <div class="modal-excluir-cliente-adm-bottom">
+                            <button type="button" class="btn-cancelar-deletar-cliente" data-id="<?= $cliente['cpf'] ?>">Cancelar</button>
+                            <button type="button" class="btn-confirmar-deletar-cliente"
+                                data-id="<?= $cliente['cpf'] ?>">Excluir</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-excluir-cliente-adm-bottom">
-                    <button type="button" class="btn-cancelar-deletar-cliente">Cancelar</button>
-                    <button type="button" class="btn-confirmar-deletar-cliente">Excluir</button>
-                </div>
-            </div>
-        </div>
+            <?php }
+        } ?>
 
         <script>
-            const modalExcluirClienteAdm = document.querySelector('.modal-excluir-cliente-adm');
-            const modalOverlayExcluirClienteAdm = document.querySelector('.modal-overlay-excluir-cliente-adm');
-            const btnExcluirClienteAdm = document.querySelectorAll('.deletar-cliente-adm');
-            const btnFecharModalExcluirClienteAdm = document.querySelector('.btn-cancelar-deletar-cliente');
+            //Abrir modal excluir cliente
+            document.addEventListener('DOMContentLoaded', () => {
 
-            btnExcluirClienteAdm.forEach((btn) => {
-                btn.addEventListener('click', () => {
-                    modalExcluirClienteAdm.classList.add('active');
-                    modalOverlayExcluirClienteAdm.classList.add('active');
+                document.querySelectorAll('.deletar-cliente-adm').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const clienteId = button.getAttribute('data-id');
+                        const overlay = document.getElementById(`overlay-deletar-cliente-${clienteId}`);
+                        const modal = document.getElementById(`modal-deletar-cliente-${clienteId}`);
+                        if (overlay && modal) {
+                            overlay.classList.add('active');
+                            modal.classList.add('active');
+                        }
+                    });
+                });
+
+                document.querySelectorAll('.btn-cancelar-deletar-cliente').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const clienteId = button.getAttribute('data-id');
+                        const overlay = document.getElementById(`overlay-deletar-cliente-${clienteId}`);
+                        const modal = document.getElementById(`modal-deletar-cliente-${clienteId}`);
+                        if (overlay && modal) {
+                            overlay.classList.remove('active');
+                            modal.classList.remove('active');
+                        }
+                    });
                 });
             });
+        </script>
 
-            btnFecharModalExcluirClienteAdm.addEventListener('click', () => {
-                modalExcluirClienteAdm.classList.remove('active');
-                modalOverlayExcluirClienteAdm.classList.remove('active');
-            });
+        <script>
+           
         </script>
 
         <div class="container-pedidos" id="conteudo-pedidos">
@@ -1962,7 +1879,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     </td> <!--Data do pedido-->
                                     <td>
                                         <strong> Preparando</strong>
-                                    </td> <!--Status e fase do pedido--> <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
+                                    </td> <!--Status e fase do pedido-->
+                                    <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
                                     <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
                                         <button class="btn-pedido-concluido-adm">
                                             <i class="fa-solid fa-clipboard-check"></i>
@@ -1993,7 +1911,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     </td> <!--Data do pedido-->
                                     <td>
                                         <strong> Preparando</strong>
-                                    </td> <!--Status e fase do pedido--> <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
+                                    </td> <!--Status e fase do pedido-->
+                                    <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
                                     <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
                                         <button class="btn-pedido-concluido-adm">
                                             <i class="fa-solid fa-clipboard-check"></i>
@@ -2024,7 +1943,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     </td> <!--Data do pedido-->
                                     <td>
                                         <strong> Preparando</strong>
-                                    </td> <!--Status e fase do pedido--> <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
+                                    </td> <!--Status e fase do pedido-->
+                                    <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
                                     <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
                                         <button class="btn-pedido-concluido-adm">
                                             <i class="fa-solid fa-clipboard-check"></i>
@@ -2055,7 +1975,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     </td> <!--Data do pedido-->
                                     <td>
                                         <strong> Preparando</strong>
-                                    </td> <!--Status e fase do pedido--> <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
+                                    </td> <!--Status e fase do pedido-->
+                                    <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
                                     <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
                                         <button class="btn-pedido-concluido-adm">
                                             <i class="fa-solid fa-clipboard-check"></i>
@@ -2185,7 +2106,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <!--JS QUE ORGANIZA A TABELA-->
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("DOMContentLoaded", function () {
                 function ordenarTabelaPedidos(tabelaSelector, ordem = "asc") {
                     const tabela = document.querySelector(tabelaSelector);
                     if (!tabela) return;
@@ -2211,7 +2132,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 // 🧩 Chama a função para a tabela principal (pode repetir para outras)
                 [".table-pedidos-todos table", ".table-pedidos-hoje table", ".table-pedidos-passados table", ".table-pedidos-futuros table"]
-                .forEach(selector => ordenarTabelaPedidos(selector, "desc"));
+                    .forEach(selector => ordenarTabelaPedidos(selector, "desc"));
             });
         </script>
 
@@ -2223,7 +2144,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <h1>Tem certeza?</h1>
                     <p>Esta ação não pode ser desfeita. O Pedido:
                         <span class="concluir-pedido-codigo">"#1234"</span>, do(a) cliente:
-                        <span class="concluir-pedido-cliente-nome">"Maria dos Santos"</span> será mudado para fase: "Concluído". E o cliente poderá retira-lo na cantina.
+                        <span class="concluir-pedido-cliente-nome">"Maria dos Santos"</span> será mudado para fase:
+                        "Concluído". E o cliente poderá retira-lo na cantina.
                     </p>
                 </div>
                 <div class="modal-concluir-pedido-adm-bottom">
@@ -2458,7 +2380,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $usuario) {
 
-                                ?>
+                                        ?>
                                         <tr>
                                             <td>
                                                 <h6><?php echo $usuario['nome'] ?></h6>
@@ -2471,10 +2393,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
                                             <td>
                                                 <h6><?php if ($usuario['adm'] == 1) {
-                                                        echo 'Administrador Principal';
-                                                    } else {
-                                                        echo 'Funcionário';
-                                                    } ?></h6>
+                                                    echo 'Administrador Principal';
+                                                } else {
+                                                    echo 'Funcionário';
+                                                } ?></h6>
                                             </td>
                                             <td>
                                                 <button class="btn-editar-senha-admin" data-id="<?= $usuario['cpf'] ?>">
@@ -2488,7 +2410,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 </button>
                                             </td>
                                         </tr>
-                                <?php
+                                        <?php
                                     }
                                 } ?>
                                 </tbody>
@@ -2581,7 +2503,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $usuario) {
-        ?>
+                ?>
                 <div class="modal-overlay-editar-admin" id="overlayEditarAdmin-<?= $usuario['cpf'] ?>">
                     <div class="modal-editar-admin" id="modaladm-<?= $usuario['cpf'] ?>">
                         <button class="btn-close-modal-editar-admin">
@@ -2714,7 +2636,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                 </div>
-        <?php
+                <?php
             }
         }
         ?>
@@ -2744,6 +2666,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     }
                 });
             });
+
 
             // Fechar modal de senha do admin (botão X e Cancelar)
             document.querySelectorAll('.btn-close-modal-senha-admin, .btn-cancelar-nova-senha-admin').forEach(btn => {
@@ -2879,12 +2802,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     btnConfirmar.disabled = true;
                     fetch('/cantinarepositorio/subpages/deletar_admin.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            body: 'cpf=' + encodeURIComponent(cpf)
-                        })
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'cpf=' + encodeURIComponent(cpf)
+                    })
                         .then(r => r.json())
                         .then(res => {
                             btnConfirmar.disabled = false;

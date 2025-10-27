@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -26,6 +25,7 @@
     <title>FURA FILA - Pagamento</title>
 
 </head>
+
 <body>
 
     <div class="container-pagamento-page">
@@ -50,7 +50,8 @@
                     </div>
                     <div class="aviso-pagamento-right">
                         <p>
-                            <strong>Atenção:</strong> Se o pagamento não for confirmado nesta tela, o pedido será automaticamente cancelado.
+                            <strong>Atenção:</strong> Se o pagamento não for confirmado nesta tela, o pedido será
+                            automaticamente cancelado.
                         </p>
                     </div>
                 </div>
@@ -73,8 +74,29 @@
     </div>
 
 
+    <script>
 
+        document.addEventListener('DOMContentLoaded', () => {
+            // Torna o botão inteiro clicável quando há um <a> dentro dele
+            document.querySelectorAll('button').forEach(btn => {
+                const a = btn.querySelector('a[href]');
+                if (!a) return;
+                // evita comportamento padrão do <a> quando clicado apenas no texto
+                a.style.pointerEvents = 'none';
+                // adiciona redirecionamento ao botão inteiro
+                btn.addEventListener('click', (e) => {
+                    // permite que botões tipo "submit" continuem funcionando em formulários
+                    if (btn.type && btn.type.toLowerCase() === 'submit') return;
+                    const href = a.getAttribute('href');
+                    if (!href) return;
+                    window.location.href = href;
+                });
+            });
+        });
+
+    </script>
 
 
 </body>
+
 </html>
