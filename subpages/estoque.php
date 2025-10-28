@@ -231,8 +231,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <li id="btn-clientes"><i class="fa-solid fa-users"></i> Clientes</li>
                     <li id="btn-pedidos"><i class="fa-solid fa-clipboard-list"></i> Pedidos</li>
                     <li id="btn-configuracoes" <?php if ($user_data['adm'] != 1) {
-                        echo 'style="display:none;"';
-                    } ?>;>
+                                                    echo 'style="display:none;"';
+                                                } ?>;>
                         <i class="fa-solid fa-gear"></i> Configurações
                     </li>
 
@@ -424,7 +424,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                        ?>
+                                ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -458,7 +458,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                    <?php }
+                                <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -483,7 +483,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                        ?>
+                                ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -514,7 +514,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                    <?php }
+                                <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -539,7 +539,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                        ?>
+                                ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -573,7 +573,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                    <?php }
+                                <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -599,7 +599,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                        ?>
+                                ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -630,7 +630,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                    <?php }
+                                <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -656,7 +656,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                        ?>
+                                ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -690,7 +690,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                    <?php }
+                                <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -715,7 +715,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                        ?>
+                                ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -749,7 +749,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                    <?php }
+                                <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -775,7 +775,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                        ?>
+                                ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -809,7 +809,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                    <?php }
+                                <?php }
                                 } ?>
                                 </tr>
                             </tbody>
@@ -831,7 +831,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             foreach ($query_run as $item) {
                 $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
                 $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                ?>
+        ?>
                 <div class="modal-overlay-estoque" id="modal-<?= $item['id'] ?>">
                     <div class="modal-estoque-visualizar-item" id="modal-visualizar-item">
                         <div class="modal-estoque-top">
@@ -903,7 +903,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
 
-            <?php }
+        <?php }
         } ?>
 
         <script>
@@ -948,7 +948,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $query_run = mysqli_query($con, $query);
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $item) {
-                ?>
+        ?>
                 <div class="overlay-modal-estoque-deletar-item">
 
                 </div>
@@ -968,7 +968,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
 
-            <?php }
+        <?php }
         } ?>
 
         <script>
@@ -1008,12 +1008,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     const produtoId = button.getAttribute('data-id');
                     console.log('ID enviado:', produtoId);
                     fetch('/cantinarepositorio/subpages/delete_item.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        },
-                        body: 'id=' + encodeURIComponent(produtoId)
-                    })
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: 'id=' + encodeURIComponent(produtoId)
+                        })
                         .then(response => response.json())
                         .then(data => {
                             if (data.success) {
@@ -1038,7 +1038,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             foreach ($query_run as $item) {
                 $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
                 $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                ?>
+        ?>
                 <!-- MODAL EDITAR ITEM -->
                 <div class="overlay-editar-produto" id="overlayEditar-<?= $item['id'] ?>">
                     <div class="modal-editar-produto" id="modalEditar-<?= $item['id'] ?>">
@@ -1130,7 +1130,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </form>
                     </div>
                 </div>
-                <?php
+        <?php
             }
         }
         ?>
@@ -1369,7 +1369,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 $query_run = mysqli_query($con, $query);
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $cliente) {
-                                        ?>
+                                ?>
                                         <tr>
                                             <td>
                                                 <h6><?php echo $cliente['nome']; ?></h6>
@@ -1398,7 +1398,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 </button>
                                             </td>
                                         </tr>
-                                    <?php }
+                                <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -1480,7 +1480,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
 
         <script>
-            document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("DOMContentLoaded", function() {
                 const botoesFiltro = document.querySelectorAll(".clientes-filtro-options button");
                 const contentClientes = document.querySelector(".content-clientes-bottom");
                 if (!contentClientes) return;
@@ -1524,8 +1524,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         const qtd = parseInt(linha.querySelector("td:nth-child(5) span")?.textContent || "0");
                         const deveMostrar =
                             tipo === "ativo" ? qtd >= 5 :
-                                tipo === "inativo" ? qtd < 5 :
-                                    true;
+                            tipo === "inativo" ? qtd < 5 :
+                            true;
 
                         if (deveMostrar) fadeIn(linha);
                         else fadeOut(linha);
@@ -1579,7 +1579,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $cliente) {
-                ?>
+        ?>
                 <!--Modal editar clientes-->
                 <div class="modal-overlay-clientes-editar" id="overlayEditarCliente-<?= $cliente['cpf'] ?>">
                     <div class="modal-clientes-editar" id="modalEditarCliente-<?= $cliente['cpf'] ?>">
@@ -1667,7 +1667,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
 
 
-                <?php
+        <?php
             }
         }
         ?>
@@ -1723,7 +1723,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $query_run = mysqli_query($con, $query);
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $cliente) {
-                ?>
+        ?>
                 <div class="modal-overlay-excluir-cliente-adm" id="overlay-deletar-cliente-<?= $cliente['cpf'] ?>"
                     data-id="<?= $cliente['cpf'] ?>">
                     <div class="modal-excluir-cliente-adm" id="modal-deletar-cliente-<?= $cliente['cpf'] ?>"
@@ -1743,7 +1743,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                 </div>
-            <?php }
+        <?php }
         } ?>
 
         <script>
@@ -1774,10 +1774,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     });
                 });
             });
-        </script>
 
-        <script>
-           
+
+
         </script>
 
         <div class="container-pedidos" id="conteudo-pedidos">
@@ -2106,7 +2105,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <!--JS QUE ORGANIZA A TABELA-->
         <script>
-            document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("DOMContentLoaded", function() {
                 function ordenarTabelaPedidos(tabelaSelector, ordem = "asc") {
                     const tabela = document.querySelector(tabelaSelector);
                     if (!tabela) return;
@@ -2132,7 +2131,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 // 🧩 Chama a função para a tabela principal (pode repetir para outras)
                 [".table-pedidos-todos table", ".table-pedidos-hoje table", ".table-pedidos-passados table", ".table-pedidos-futuros table"]
-                    .forEach(selector => ordenarTabelaPedidos(selector, "desc"));
+                .forEach(selector => ordenarTabelaPedidos(selector, "desc"));
             });
         </script>
 
@@ -2380,7 +2379,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $usuario) {
 
-                                        ?>
+                                ?>
                                         <tr>
                                             <td>
                                                 <h6><?php echo $usuario['nome'] ?></h6>
@@ -2393,10 +2392,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
                                             <td>
                                                 <h6><?php if ($usuario['adm'] == 1) {
-                                                    echo 'Administrador Principal';
-                                                } else {
-                                                    echo 'Funcionário';
-                                                } ?></h6>
+                                                        echo 'Administrador Principal';
+                                                    } else {
+                                                        echo 'Funcionário';
+                                                    } ?></h6>
                                             </td>
                                             <td>
                                                 <button class="btn-editar-senha-admin" data-id="<?= $usuario['cpf'] ?>">
@@ -2410,7 +2409,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 </button>
                                             </td>
                                         </tr>
-                                        <?php
+                                <?php
                                     }
                                 } ?>
                                 </tbody>
@@ -2503,7 +2502,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $usuario) {
-                ?>
+        ?>
                 <div class="modal-overlay-editar-admin" id="overlayEditarAdmin-<?= $usuario['cpf'] ?>">
                     <div class="modal-editar-admin" id="modaladm-<?= $usuario['cpf'] ?>">
                         <button class="btn-close-modal-editar-admin">
@@ -2636,7 +2635,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                 </div>
-                <?php
+        <?php
             }
         }
         ?>
@@ -2802,12 +2801,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     btnConfirmar.disabled = true;
                     fetch('/cantinarepositorio/subpages/deletar_admin.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        },
-                        body: 'cpf=' + encodeURIComponent(cpf)
-                    })
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: 'cpf=' + encodeURIComponent(cpf)
+                        })
                         .then(r => r.json())
                         .then(res => {
                             btnConfirmar.disabled = false;
