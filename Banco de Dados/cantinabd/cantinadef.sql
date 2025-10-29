@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29/10/2025 às 21:51
+-- Tempo de geração: 29/10/2025 às 22:46
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -81,7 +81,7 @@ CREATE TABLE `estoque` (
   `preco` decimal(5,2) DEFAULT NULL,
   `Quantidade` int(11) NOT NULL,
   `Categoria` enum('Salgados','Doces','Folhados','Bebidas','Outros') NOT NULL,
-  `id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `img` varchar(255) NOT NULL,
   `in_main` tinyint(1) NOT NULL DEFAULT 0,
   `mais_pedido` tinyint(1) NOT NULL DEFAULT 0
@@ -124,32 +124,6 @@ INSERT INTO `estoque` (`Nome`, `Descricao`, `preco`, `Quantidade`, `Categoria`, 
 ('Itubaína 300ml', 'Refrigerante tradicional com sabor levemente adocicado e nostálgico.', 7.00, 20, 'Bebidas', 96, 'ItubainaOriginal.png', 0, 0),
 ('Sukita de Laranja', 'Clássico refrigerante de laranja, doce e muito refrescante.', 6.00, 20, 'Bebidas', 97, 'SukitaLaranja.png', 0, 0);
 
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `itens_pedido`
---
-
-CREATE TABLE `itens_pedido` (
-  `id` int(11) NOT NULL,
-  `pedido_id` int(11) NOT NULL,
-  `id_produto` int(11) NOT NULL,
-  `quantidade` int(11) NOT NULL,
-  `preco` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `pedidos`
---
-
-CREATE TABLE `pedidos` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `data_compra` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Índices para tabelas despejadas
 --
@@ -173,19 +147,6 @@ ALTER TABLE `estoque`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `itens_pedido`
---
-ALTER TABLE `itens_pedido`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `pedido_id` (`pedido_id`);
-
---
--- Índices de tabela `pedidos`
---
-ALTER TABLE `pedidos`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT para tabelas despejadas
 --
 
@@ -193,29 +154,7 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de tabela `estoque`
 --
 ALTER TABLE `estoque`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
-
---
--- AUTO_INCREMENT de tabela `itens_pedido`
---
-ALTER TABLE `itens_pedido`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `pedidos`
---
-ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Restrições para tabelas despejadas
---
-
---
--- Restrições para tabelas `itens_pedido`
---
-ALTER TABLE `itens_pedido`
-  ADD CONSTRAINT `itens_pedido_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`);
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
