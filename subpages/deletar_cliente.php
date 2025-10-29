@@ -1,31 +1,35 @@
 <?php
-header('Content-Type: application/json');
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-header('Content-Type: application/json');
-
 include('/xampp/htdocs/cantinarepositorio/main/database.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $data = json_decode(file_get_contents('php://input'), true);
-    $cpf = $data['cpf'] ?? null;
+    $cpf = $_POST['cpf'] ?? null;
 
     if (!empty($cpf)) {
         $query = "DELETE FROM cliente WHERE cpf = ?";
-        $stmt = $conn->prepare($query);
+        $stmt = $con->prepare($query);
         $stmt->bind_param('s', $cpf);
 
         if ($stmt->execute()) {
-            echo json_encode(['success' => true]);
+            // Redirecionar com mensagem de sucesso
+            header('Location: /cantinarepositorio/subpages/estoque.php?mensagem=Cliente excluído com sucesso');
+            exit;
         } else {
-            echo json_encode(['success' => false, 'error' => 'Erro ao excluir cliente.']);
+            // Redirecionar com mensagem de erro
+            header('Location: /cantinarepositorio/subpages/estoque.php?mensagem=Erro ao excluir cliente');
+            exit;
         }
     } else {
-        echo json_encode(['success' => false, 'error' => 'CPF inválido.']);
+        // Redirecionar com mensagem de erro
+        header('Location: /cantinarepositorio/subpages/estoque.php?mensagem=CPF inválido');
+        exit;
     }
 } else {
-    echo json_encode(['success' => false, 'error' => 'Método inválido.']);
+    // Redirecionar se o método não for POST
+    header('Location: /cantinarepositorio/subpages/estoque.php?mensagem=Método inválido');
+    exit;
 }
 ?>

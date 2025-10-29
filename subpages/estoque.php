@@ -1731,15 +1731,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <div class="modal-excluir-cliente-adm-top">
                             <h1>Tem certeza?</h1>
                             <p>
-                                Esta ação não pode ser desfeita. A conta do cliente"<?php echo $cliente['nome'] ?>"
-                                ,
+                                Esta ação não pode ser desfeita. A conta do cliente "<?php echo $cliente['nome'] ?>",
                                 de CPF "<?php echo $cliente['cpf'] ?>" será deletada permanentemente.
                             </p>
                         </div>
                         <div class="modal-excluir-cliente-adm-bottom">
-                            <button type="button" class="btn-cancelar-deletar-cliente" data-id="<?= $cliente['cpf'] ?>">Cancelar</button>
-                            <button type="button" class="btn-confirmar-deletar-cliente"
-                                data-id="<?= $cliente['cpf'] ?>">Excluir</button>
+                            <form action="/cantinarepositorio/subpages/deletar_cliente.php" method="POST">
+                                <input type="hidden" name="cpf" value="<?= $cliente['cpf'] ?>">
+                                <button type="submit" class="btn-confirmar-deletar-cliente">Excluir</button>
+                                <button type="button" class="btn-cancelar-deletar-cliente" data-id="<?= $cliente['cpf'] ?>">Cancelar</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -1774,9 +1775,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     });
                 });
             });
-
-
-
         </script>
 
         <div class="container-pedidos" id="conteudo-pedidos">
