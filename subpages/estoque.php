@@ -34,6 +34,10 @@ $query_total_value = "SELECT SUM(preco * quantidade) AS total_value FROM estoque
 $total_value_result = mysqli_query($con, $query_total_value);
 $total_value_row = mysqli_fetch_assoc($total_value_result);
 $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, ',', '.');
+$query_users = "SELECT * from cliente";
+$query_run_user = mysqli_query($con, $query_users);
+$total_clientes = mysqli_num_rows($query_run_user);
+
 ?>
 
 <?php
@@ -1300,7 +1304,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </div>
                         </div>
                         <div class="cards-clientes-number-stats">
-                            <h1>31</h1>
+                            <h1><?php echo $total_clientes; ?></h1>
                         </div>
                     </div>
                     <div class="cards-clientes-stats" id="cards-clientes-ativos">

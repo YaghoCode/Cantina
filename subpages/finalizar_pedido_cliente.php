@@ -9,6 +9,20 @@ if (!isset($_SESSION['cpf'])) {
     header("Location: /cantinarepositorio/subpages/login.php");
     exit;
 }
+
+if (isset($_SESSION['cpf'])) {
+    $cpf = $_SESSION['cpf'];
+
+    // Tenta buscar como cliente
+    $query = "SELECT nome, cpf, turma, email FROM cliente WHERE cpf = '$cpf'";
+    $result = mysqli_query($con, $query);
+    if ($result && mysqli_num_rows($result) > 0) {
+        $user_data = mysqli_fetch_assoc($result);
+    } else {
+        header("Location: /cantinarepositorio/subpages/login.php");
+        exit;
+    }
+}
 ?>
 
 
@@ -80,123 +94,8 @@ if (!isset($_SESSION['cpf'])) {
                         </div>
                     </div>
                     <div class="content-finalizar-pedido-left-bottom">
-                        <div class="tabela-pedidos-resumo">
-                            <div class="item-pedido-resumo">
-                                <div class="item-pedido-resumo-left">
-                                    <div class="imagem-produto">
-                                        <img src="/cantinarepositorio/main/assets/img/carousel-img-2.png" alt="">
-                                    </div>
-                                    <div class="info-produto">
-                                        <div class="info-produto-nome">
-                                            <h1>Esfiha de Calabresa Aberta</h1>
-                                        </div>
-                                        <div class="info-produto-preco">
-                                            <h5>R$ 23,00</h5>
-                                        </div>
-                                        <div class="info-produto-quantidade">
-                                            <button class="btn-quantidade" onclick="diminuirQuantidade(this)"> −
-                                            </button>
-                                            <input type="number" class="input-quantidade" value="1" min="1">
-                                            <button class="btn-quantidade" onclick="aumentarQuantidade(this)">+
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item-pedido-resumo-right">
-                                    <div class="deletar-item">
-                                        <button class="btn-deletar-item">
-                                            <i class="fa-regular fa-trash-can"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-pedido-resumo">
-                                <div class="item-pedido-resumo-left">
-                                    <div class="imagem-produto">
-                                        <img src="/cantinarepositorio/main/assets/img/carousel-img-2.png" alt="">
-                                    </div>
-                                    <div class="info-produto">
-                                        <div class="info-produto-nome">
-                                            <h1>Esfiha de Calabresa Aberta</h1>
-                                        </div>
-                                        <div class="info-produto-preco">
-                                            <h5>R$ 23,00</h5>
-                                        </div>
-                                        <div class="info-produto-quantidade">
-                                            <button class="btn-quantidade" onclick="diminuirQuantidade(this)"> −
-                                            </button>
-                                            <input type="number" class="input-quantidade" value="1" min="1">
-                                            <button class="btn-quantidade" onclick="aumentarQuantidade(this)">+
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item-pedido-resumo-right">
-                                    <div class="deletar-item">
-                                        <button class="btn-deletar-item">
-                                            <i class="fa-regular fa-trash-can"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-pedido-resumo">
-                                <div class="item-pedido-resumo-left">
-                                    <div class="imagem-produto">
-                                        <img src="/cantinarepositorio/main/assets/img/carousel-img-2.png" alt="">
-                                    </div>
-                                    <div class="info-produto">
-                                        <div class="info-produto-nome">
-                                            <h1>Esfiha de Calabresa Aberta</h1>
-                                        </div>
-                                        <div class="info-produto-preco">
-                                            <h5>R$ 23,00</h5>
-                                        </div>
-                                        <div class="info-produto-quantidade">
-                                            <button class="btn-quantidade" onclick="diminuirQuantidade(this)"> −
-                                            </button>
-                                            <input type="number" class="input-quantidade" value="1" min="1">
-                                            <button class="btn-quantidade" onclick="aumentarQuantidade(this)">+
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item-pedido-resumo-right">
-                                    <div class="deletar-item">
-                                        <button class="btn-deletar-item">
-                                            <i class="fa-regular fa-trash-can"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-pedido-resumo">
-                                <div class="item-pedido-resumo-left">
-                                    <div class="imagem-produto">
-                                        <img src="/cantinarepositorio/main/assets/img/carousel-img-2.png" alt="">
-                                    </div>
-                                    <div class="info-produto">
-                                        <div class="info-produto-nome">
-                                            <h1>Esfiha de Calabresa Aberta</h1>
-                                        </div>
-                                        <div class="info-produto-preco">
-                                            <h5>R$ 23,00</h5>
-                                        </div>
-                                        <div class="info-produto-quantidade">
-                                            <button class="btn-quantidade" onclick="diminuirQuantidade(this)"> −
-                                            </button>
-                                            <input type="number" class="input-quantidade" value="1" min="1">
-                                            <button class="btn-quantidade" onclick="aumentarQuantidade(this)">+
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item-pedido-resumo-right">
-                                    <div class="deletar-item">
-                                        <button class="btn-deletar-item">
-                                            <i class="fa-regular fa-trash-can"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="tabela-pedidos-resumo" id="tabela-pedidos-resumo">
+                            
                         </div>
                     </div>
                 </div>
@@ -209,7 +108,7 @@ if (!isset($_SESSION['cpf'])) {
                             <div class="resumo-pedido-info">
                                 <div class="resumo-pedido-info-aluno">
                                     <h2>Aluno:</h2>
-                                    <h3>Caio Picciarelli</h3>
+                                    <h3><?php echo $user_data['nome']; ?></h3>
                                 </div>
                                 <div class="resumo-pedido-info-itens">
                                     <h2>Total de Itens:</h2>
@@ -218,9 +117,9 @@ if (!isset($_SESSION['cpf'])) {
                             </div>
                         </div>
                         <div class="resumo-pedido-bottom">
-                            <div class="resumo-pedido-total">
-                                <h2>Total:</h2>
-                                <h3>R$ 32,00</h3>
+                            <div class="resumo-pedido-total" id="preco_total">
+                            <h2>Total:</h2>
+                            <h3 id="precopreco"></h3>
                             </div>
                             <div class="resumo-pedido-buttons">
                                 <button type="button" class="btn-ir-para-pagamento">
@@ -241,7 +140,6 @@ if (!isset($_SESSION['cpf'])) {
     </main>
 
     <script>
-
         document.addEventListener('DOMContentLoaded', () => {
             // Torna o botão inteiro clicável quando há um <a> dentro dele
             document.querySelectorAll('button').forEach(btn => {
@@ -260,18 +158,178 @@ if (!isset($_SESSION['cpf'])) {
             });
         });
 
-    </script>
+        document.addEventListener('DOMContentLoaded', () => {
+            atualizarTotal(); // Atualiza o total ao carregar a página
+        });
 
-    <script>
-        function aumentarQuantidade(btn) {
-            const input = btn.parentNode.querySelector('.input-quantidade');
-            input.value = parseInt(input.value) + 1;
+        function aumentarQuantidade(button) {
+            const input = button.previousElementSibling; // O input de quantidade
+            let quantidade = parseInt(input.value);
+
+            quantidade++;
+            input.value = quantidade;
+
+            atualizarSubtotal(button, quantidade);
         }
 
-        function diminuirQuantidade(btn) {
-            const input = btn.parentNode.querySelector('.input-quantidade');
-            if (parseInt(input.value) > parseInt(input.min)) {
-                input.value = parseInt(input.value) - 1;
+        function diminuirQuantidade(button) {
+            const input = button.nextElementSibling; // O input de quantidade
+            let quantidade = parseInt(input.value);
+
+            if (quantidade > 1) {
+                quantidade--;
+                input.value = quantidade;
+
+                atualizarSubtotal(button, quantidade);
+            }
+        }
+
+        function atualizarSubtotal(button, quantidade) {
+            const itemContainer = button.closest('.item-pedido-resumo'); // O contêiner do item
+            const precoEl = itemContainer.querySelector('.info-produto-preco h5'); // O elemento do preço
+            const precoUnitario = parseFloat(precoEl.getAttribute('data-preco')); // Preço unitário armazenado no atributo
+            const subtotalEl = itemContainer.querySelector('.subtotal-produto'); // O elemento do subtotal
+
+            // Atualizar o subtotal do item
+            const novoSubtotal = precoUnitario * quantidade;
+            subtotalEl.textContent = `R$ ${novoSubtotal.toFixed(2)}`;
+            
+            // Atualizar o total geral
+            atualizarTotal();
+        }
+
+        function atualizarTotal() {
+            const subtotais = document.querySelectorAll('.subtotal-produto');
+            let total = 0;
+
+            subtotais.forEach(subtotalEl => {
+                const subtotal = parseFloat(subtotalEl.textContent.replace('R$', '').trim());
+                total += subtotal;
+            });
+
+            const totalEl = document.getElementById("precopreco"); // Elemento onde o total é exibido
+        totalEl.textContent = `R$: ${total.toFixed(2)}`;
+        console.log(total)
+        }
+
+        function atualizarCarrinhoVisual() {
+            
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            const container = document.getElementById("tabela-pedidos-resumo");
+            const totalEl = document.querySelector(".cart-total-price h6");
+            const totalpreco = document.getElementById("preco_total");
+            const totalitens = carrinho.length;
+
+
+            container.innerHTML = ""; // Limpa itens antigos
+            let total_itens = 0;
+
+
+            carrinho.forEach(item => {
+                const subtotal = item.preco * item.quantidade;
+                total_itens += subtotal;
+
+                const slide = document.createElement("div");
+                slide.innerHTML = `
+           <div class="item-pedido-resumo">
+                                <div class="item-pedido-resumo-left">
+                                    <div class="imagem-produto">
+                                         <img src="${item.img}" alt="${item.nome}" >
+                                    </div>
+                                    <div class="info-produto">
+                                        <div class="info-produto-nome">
+                                            <h1>${item.nome}</h1>
+                                        </div>
+                                        <div class="info-produto-preco">
+                                            <h5 data-preco="${item.preco}" class="subtotal-produto">R$ ${subtotal.toFixed(2)}</h5>
+                                        </div>
+                                        <div class="info-produto-quantidade">
+                                            <button class="btn-quantidade" onclick="diminuirQuantidade(this)"> −
+                                            </button>
+                                            <input type="number" class="input-quantidade" value="1" min="1">
+                                            <button class="btn-quantidade" onclick="aumentarQuantidade(this)">+
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+        `;
+                container.appendChild(slide);
+            });
+
+            totalEl.textContent = `R$: ${total_itens.toFixed(2)}`;
+            addCarrinhoListeners();
+            
+            
+        }
+        
+        atualizarTotal();
+
+        function addCarrinhoListeners() {
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+            document.querySelectorAll('.btn-increment').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.dataset.id;
+                    const item = carrinho.find(i => i.id === id);
+                    if (item) {
+                        item.quantidade++;
+                        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+                        atualizarCarrinhoVisual();
+                    }
+                });
+            });
+
+            document.querySelectorAll('.btn-decrement').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.dataset.id;
+                    const item = carrinho.find(i => i.id === id);
+                    if (item && item.quantidade > 1) {
+                        item.quantidade--;
+                        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+                        atualizarCarrinhoVisual();
+                    }
+                });
+            });
+
+            document.querySelectorAll('.input-quantidade').forEach(input => {
+                input.addEventListener('change', () => {
+                    const id = input.dataset.id;
+                    const item = carrinho.find(i => i.id === id);
+                    let valor = parseInt(input.value);
+                    if (item) {
+                        if (isNaN(valor) || valor < 1) valor = 1;
+                        if (valor > 99) valor = 99;
+                        item.quantidade = valor;
+                        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+                        atualizarCarrinhoVisual();
+                    }
+                });
+            });
+        }
+
+        atualizarCarrinhoVisual();
+        
+
+        function atualizarResumoPedido() {
+            // Obter o carrinho do localStorage
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+            // Calcular a quantidade total de itens
+            const totalItens = carrinho.reduce((total, item) => total + item.quantidade, 0);
+
+            // Calcular o preço total
+            const precoTotal = carrinho.reduce((total, item) => total + item.preco * item.quantidade, 0);
+
+            // Atualizar o elemento de quantidade de itens
+            const resumoItensEl = document.querySelector('.resumo-pedido-info-itens');
+            if (resumoItensEl) {
+                resumoItensEl.textContent = `${totalItens} itens`;
+            }
+
+            // Atualizar o elemento de preço total
+            const resumoTotalEl = document.querySelector('.resumo-pedido-total');
+            if (resumoTotalEl) {
+                resumoTotalEl.textContent = `R$ ${precoTotal.toFixed(2)}`;
             }
         }
     </script>

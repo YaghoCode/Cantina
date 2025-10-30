@@ -72,15 +72,30 @@ if (!isset($_SESSION['cpf'])) {
           </ul>
         </div>
         <?php
+        $user_data = null;
+        $is_admin = false;
+
         if (isset($_SESSION['cpf'])) {
           $cpf = $_SESSION['cpf'];
+
+          // Tenta buscar como cliente
           $query = "SELECT nome, cpf, turma, email FROM cliente WHERE cpf = '$cpf'";
           $result = mysqli_query($con, $query);
-          $user_data = mysqli_fetch_assoc($result);
-
           if ($result && mysqli_num_rows($result) > 0) {
+            $user_data = mysqli_fetch_assoc($result);
+          } else {
+            // Tenta buscar como administrador
+            $query = "SELECT nome, cpf, email FROM administradores WHERE cpf = '$cpf'";
+            $result = mysqli_query($con, $query);
+            if ($result && mysqli_num_rows($result) > 0) {
+              $user_data = mysqli_fetch_assoc($result);
+              $is_admin = true;
+            }
+          }
+        }
+        if ($result && mysqli_num_rows($result) > 0) {
 
-            echo '<div class="nav-buttons" style="gap:3vh;">
+          echo '<div class="nav-buttons" style="gap:3vh;">
                   <div class="btn-user" id="btn-user-nav" >
                     <button>
                       <i class="fa-regular fa-user"></i> Perfil
@@ -90,7 +105,6 @@ if (!isset($_SESSION['cpf'])) {
                     <button><i class="fa-solid fa-cart-shopping"></i>Carrinho</button>
                   </div>
               </div>';
-          }
         } else {
           echo '  <div class="nav-buttons">
                 <div class="btn-cadastrar-se">
@@ -137,23 +151,44 @@ if (!isset($_SESSION['cpf'])) {
         </div>
       </div>
       <div class="content-mid-user">
-        <div class="content-mid-user-row">
-          <div class="content-mid-user-row-left">
-            <div class="content-mid-user-row-left-icon">
-              <i class="fa-solid fa-graduation-cap"></i>
+      <?php if (!$is_admin): ?>
+          <div class="content-mid-user-row">
+            <div class="content-mid-user-row-left">
+              <div class="content-mid-user-row-left-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+            </div>
+            <div class="content-mid-user-row-right">
+              <div class="content-mid-user-row-right-text">
+                <h1>
+                  Turma
+                </h1>
+                <h3>
+                  <?php echo $user_data ? $user_data['turma'] : ''; ?>
+                </h3>
+              </div>
             </div>
           </div>
-          <div class="content-mid-user-row-right">
-            <div class="content-mid-user-row-right-text">
-              <h1>
-                Turma
-              </h1>
-              <h3>
-                <?php echo $user_data['turma'] ?>
-              </h3>
+        <?php endif; ?>
+        <?php if ($is_admin): ?>
+          <div class="content-mid-user-row">
+            <div class="content-mid-user-row-left">
+              <div class="content-mid-user-row-left-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+            </div>
+            <div class="content-mid-user-row-right">
+              <div class="content-mid-user-row-right-text">
+                <h1>
+                  Tipo de conta:
+                </h1>
+                <h3>
+                  Administrador Principal
+                </h3>
+              </div>
             </div>
           </div>
-        </div>
+        <?php endif; ?>
         <div class="content-mid-user-row">
           <div class="content-mid-user-row-left">
             <div class="content-mid-user-row-left-icon">
@@ -795,7 +830,7 @@ if (!isset($_SESSION['cpf'])) {
         btnFinalizarActive.classList.add('active');
         ScrollbarActive.classList.add('active');
         return;
-      }else{
+      } else {
         const btnLimparActive = document.getElementById('btn-limpar-carrinho');
         const barraDivisaoActive = document.querySelector('.barra-divisao');
         const cartTitleh6Active = document.querySelector('.cart-title-h6');
