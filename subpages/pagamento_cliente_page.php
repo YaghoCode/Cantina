@@ -94,6 +94,35 @@
             });
         });
 
+        document.addEventListener('DOMContentLoaded', () => {
+            exibirTotalPagamento();
+        });
+
+        function exibirTotalPagamento() {
+            // Recupera o carrinho do localStorage
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+            // Calcula o total
+            let total = 0;
+            carrinho.forEach(item => {
+                total += item.preco * item.quantidade;
+            });
+
+            // Exibe o total no elemento valor-total-pagamento
+            const totalElement = document.querySelector('.valor-total-pagamento h2');
+            if (totalElement) {
+                totalElement.textContent = `R$ ${total.toFixed(2)}`;
+            }
+
+            // Opcional: salva o total em um input hidden para enviar ao servidor
+            const inputTotal = document.querySelector('input[name="total"]');
+            if (inputTotal) {
+                inputTotal.value = total.toFixed(2);
+            }
+
+            console.log('Total do pagamento:', total.toFixed(2));
+        }
+
     </script>
 
 

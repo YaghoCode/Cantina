@@ -88,9 +88,7 @@ if (isset($_SESSION['cpf'])) {
                 <div class="content-finalizar-pedido-left">
                     <div class="content-finalizar-pedido-left-top">
                         <div class="finalizar-pedido-left-top-title">
-                            <h1>
-                                Itens do Pedido <span>(3)</span> <!--numero de itens no pedido-->
-                            </h1>
+                            <h1></h1> <!--numero de itens no pedido-->
                         </div>
                     </div>
                     <div class="content-finalizar-pedido-left-bottom">
@@ -112,7 +110,7 @@ if (isset($_SESSION['cpf'])) {
                                 </div>
                                 <div class="resumo-pedido-info-itens">
                                     <h2>Total de Itens:</h2>
-                                    <h3>3 Itens</h3>
+                                    <h3 id="carrinhoitenstotal"></h3>
                                 </div>
                             </div>
                         </div>
@@ -170,6 +168,7 @@ if (isset($_SESSION['cpf'])) {
             input.value = quantidade;
 
             atualizarSubtotal(button, quantidade);
+            salvarCarrinhoNoLocalStorage(); // Salva no localStorage
         }
 
         function diminuirQuantidade(button) {
@@ -181,20 +180,39 @@ if (isset($_SESSION['cpf'])) {
                 input.value = quantidade;
 
                 atualizarSubtotal(button, quantidade);
+                salvarCarrinhoNoLocalStorage(); // Salva no localStorage
             }
         }
 
-        function atualizarSubtotal(button, quantidade) {
-            const itemContainer = button.closest('.item-pedido-resumo'); // O contêiner do item
-            const precoEl = itemContainer.querySelector('.info-produto-preco h5'); // O elemento do preço
-            const precoUnitario = parseFloat(precoEl.getAttribute('data-preco')); // Preço unitário armazenado no atributo
-            const subtotalEl = itemContainer.querySelector('.subtotal-produto'); // O elemento do subtotal
+        function salvarCarrinhoNoLocalStorage() {
+            const carrinho = [];
+            
+            document.querySelectorAll('.item-pedido-resumo').forEach(item => {
+                const nome = item.querySelector('.info-produto-nome h1').textContent;
+                const preco = parseFloat(item.querySelector('.info-produto-preco h5').getAttribute('data-preco'));
+                const quantidade = parseInt(item.querySelector('.input-quantidade').value);
+                const img = item.querySelector('img').src;
 
-            // Atualizar o subtotal do item
+                carrinho.push({
+                    nome: nome,
+                    preco: preco,
+                    quantidade: quantidade,
+                    img: img
+                });
+            });
+
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        }
+
+        function atualizarSubtotal(button, quantidade) {
+            const itemContainer = button.closest('.item-pedido-resumo');
+            const precoEl = itemContainer.querySelector('.info-produto-preco h5');
+            const precoUnitario = parseFloat(precoEl.getAttribute('data-preco'));
+            const subtotalEl = itemContainer.querySelector('.subtotal-produto');
+
             const novoSubtotal = precoUnitario * quantidade;
             subtotalEl.textContent = `R$ ${novoSubtotal.toFixed(2)}`;
             
-            // Atualizar o total geral
             atualizarTotal();
         }
 
@@ -218,48 +236,57 @@ if (isset($_SESSION['cpf'])) {
             const container = document.getElementById("tabela-pedidos-resumo");
             const totalEl = document.querySelector(".cart-total-price h6");
             const totalpreco = document.getElementById("preco_total");
-            const totalitens = carrinho.length;
-
+            
+            // Elementos para exibir quantidade total de itens
+            const totalItensH3 = document.querySelector(".resumo-pedido-info-itens h3"); // Itens do pedido
+            const totalItensH1 = document.querySelector(".finalizar-pedido-left-top-title h1"); // Total de itens
 
             container.innerHTML = ""; // Limpa itens antigos
             let total_itens = 0;
+            let totalQuantidade = 0; // Contador de quantidade total de itens
 
-
+            // Mostra itens do carrinho nos cards
             carrinho.forEach(item => {
                 const subtotal = item.preco * item.quantidade;
                 total_itens += subtotal;
+                totalQuantidade += item.quantidade; // Soma as quantidades
 
                 const slide = document.createElement("div");
                 slide.innerHTML = `
            <div class="item-pedido-resumo">
-                                <div class="item-pedido-resumo-left">
-                                    <div class="imagem-produto">
-                                         <img src="${item.img}" alt="${item.nome}" >
-                                    </div>
-                                    <div class="info-produto">
-                                        <div class="info-produto-nome">
-                                            <h1>${item.nome}</h1>
-                                        </div>
-                                        <div class="info-produto-preco">
-                                            <h5 data-preco="${item.preco}" class="subtotal-produto">R$ ${subtotal.toFixed(2)}</h5>
-                                        </div>
-                                        <div class="info-produto-quantidade">
-                                            <button class="btn-quantidade" onclick="diminuirQuantidade(this)"> −
-                                            </button>
-                                            <input type="number" class="input-quantidade" value="1" min="1">
-                                            <button class="btn-quantidade" onclick="aumentarQuantidade(this)">+
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="item-pedido-resumo-left">
+                    <div class="imagem-produto">
+                         <img src="${item.img}" alt="${item.nome}">
+                    </div>
+                    <div class="info-produto">
+                        <div class="info-produto-nome">
+                            <h1>${item.nome}</h1>
+                        </div>
+                        <div class="info-produto-preco">
+                            <h5 data-preco="${item.preco}" class="subtotal-produto">R$ ${subtotal.toFixed(2)}</h5>
+                        </div>
+                        <div class="info-produto-quantidade">
+                            <button class="btn-quantidade" onclick="diminuirQuantidade(this)">−</button>
+                            <input type="number" class="input-quantidade" value="${item.quantidade}" min="1">
+                            <button class="btn-quantidade" onclick="aumentarQuantidade(this)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         `;
                 container.appendChild(slide);
             });
 
+            // Atualiza os elementos com o total de itens
+            if (totalItensH3) {
+                totalItensH3.textContent =  `Total de itens: ${totalQuantidade}`;
+            }
+            if (totalItensH1) {
+                totalItensH1.textContent = `Total de itens: (${totalQuantidade})`;
+            }
+
             totalEl.textContent = `R$: ${total_itens.toFixed(2)}`;
             addCarrinhoListeners();
-            
-            
         }
         
         atualizarTotal();
@@ -302,12 +329,14 @@ if (isset($_SESSION['cpf'])) {
                         item.quantidade = valor;
                         localStorage.setItem('carrinho', JSON.stringify(carrinho));
                         atualizarCarrinhoVisual();
+                        atualizarResumoPedido()
                     }
                 });
             });
         }
 
         atualizarCarrinhoVisual();
+        
         
 
         function atualizarResumoPedido() {
@@ -321,17 +350,15 @@ if (isset($_SESSION['cpf'])) {
             const precoTotal = carrinho.reduce((total, item) => total + item.preco * item.quantidade, 0);
 
             // Atualizar o elemento de quantidade de itens
-            const resumoItensEl = document.querySelector('.resumo-pedido-info-itens');
+            const resumoItensEl = document.getElementById('carrinhoitenstotal');
             if (resumoItensEl) {
                 resumoItensEl.textContent = `${totalItens} itens`;
             }
 
             // Atualizar o elemento de preço total
-            const resumoTotalEl = document.querySelector('.resumo-pedido-total');
-            if (resumoTotalEl) {
-                resumoTotalEl.textContent = `R$ ${precoTotal.toFixed(2)}`;
-            }
+           
         }
+        
     </script>
 
 </body>
