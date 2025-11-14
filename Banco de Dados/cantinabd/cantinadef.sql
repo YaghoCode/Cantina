@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30/10/2025 às 13:16
+-- Tempo de geração: 14/11/2025 às 16:12
 -- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Versão do PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `cantinadef`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `administradores`
+--
+
+CREATE TABLE `administradores` (
+  `nome` varchar(255) NOT NULL,
+  `cpf` char(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `telefone` int(20) NOT NULL,
+  `senha` varchar(200) NOT NULL,
+  `adm` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `administradores`
+--
+
+INSERT INTO `administradores` (`nome`, `cpf`, `email`, `telefone`, `senha`, `adm`) VALUES
+('admin teste', '77777777777', 'caiopica@gmail.com', 11, '$2y$10$f.SpVyR30gawIMTwS/Cm3.ZWnn5JlglAvJ82dvtBi5Qsi9TyuZlIK', 0),
+('Admin', '99999999999', 'yaghochinaglia@gmail.com', 11, '$2y$10$f.SpVyR30gawIMTwS/Cm3.ZWnn5JlglAvJ82dvtBi5Qsi9TyuZlIK', 1);
 
 -- --------------------------------------------------------
 
@@ -41,10 +64,10 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`nome`, `cpf`, `email`, `turma`, `senha`, `admin`) VALUES
-('Davi', '12345678940', 'davi@gmail.com', '3DS', '$2y$10$pzHdSevPdleLT3RB1Syu7e7M/C0W3QQBSzBvlMUKd8tOYEZ2mTlIq', 0),
+('Davi', '12345678940', 'davifreitas@gmail.com', '3DS', '$2y$10$pzHdSevPdleLT3RB1Syu7e7M/C0W3QQBSzBvlMUKd8tOYEZ2mTlIq', 0),
 ('Lucas Nunes', '14356789741', 'lucasnunes23@gmail.com', '1DS', '$2y$10$Ah8phSo53QToDYmPVbx91ue//HDm6ai3dwv7AuhHSJUBjvGCJDkPK', 0),
 ('Yagho Chinaglia', '44444444442', 'yaghochinaglia@gmail.com', '2DS', '$2y$10$CSXOfcR/FgNDyNWe1zl2P.LVAl217eSe/XFHD338c1NTAtkEN9SkS', 0),
-('Yagho 2', '44444444454', 'yaghochinaglia@gmail.com', '1DS', '$2y$10$LvYim08e/zSZAICmNunLieaC.96eozyusaKSiA1D8Clv1g1fA4JXi', 0);
+('Mano', '77777777777', 'mano@gmail.com', '2DS', '$2y$10$ldGZDcb/KPh2/BOkg1d0f.VVS3EwDGJ8pqgEELPzjzn7joXtwz3bm', 0);
 
 -- --------------------------------------------------------
 
@@ -69,7 +92,7 @@ CREATE TABLE `estoque` (
 --
 
 INSERT INTO `estoque` (`Nome`, `Descricao`, `preco`, `Quantidade`, `Categoria`, `id`, `img`, `in_main`, `mais_pedido`) VALUES
-('Esfiha de Cliente', 'Massa leve e assada no forno, aberta em formato tradicional, com recheio de carne moída temperada com cebola e especiarias, dourada e suculenta.', 7.00, 15, 'Salgados', 53, 'Esfihas 1000px x 667px.png', 1, 0),
+('Esfiha de Carne', 'Massa leve e assada no forno, aberta em formato tradicional, com recheio de carne moída temperada com cebola e especiarias, dourada e suculenta.', 7.00, 15, 'Salgados', 53, 'Esfihas 1000px x 667px.png', 1, 0),
 ('Bauru', 'Pão macio recheado com presunto fatiado, queijo derretido, tomate fresco e orégano, servido quentinho.', 7.00, 15, 'Salgados', 54, 'Bauru Calabresa 1000px x 667px.png', 1, 0),
 ('Croissant de calabresa', 'Massa folhada leve e crocante, recheada com linguiça calabresa fatiada e queijo derretido, assada até ficar dourada.', 7.00, 12, 'Folhados', 58, '1000px x 667px - Croassaint.png', 1, 0),
 ('Croissant de frango', 'Massa folhada leve e dourada, recheada com frango desfiado temperado e queijo cremoso.', 7.00, 12, 'Folhados', 59, '1000px x 667px - Croassaint.png', 0, 0),
@@ -90,7 +113,7 @@ INSERT INTO `estoque` (`Nome`, `Descricao`, `preco`, `Quantidade`, `Categoria`, 
 ('X-Egg', 'Hambúrguer saboroso com queijo, ovo, alface, tomate, milho e maionese.', 12.00, 15, 'Salgados', 85, 'X-Egg 1000px x 677px.png', 0, 0),
 (' Pizza de Calabresa', ' Tradicional pizza com rodelas de calabresa, cebola fatiada e um toque de orégano.', 35.00, 10, 'Salgados', 86, 'Pizza C 1000px x 677px.png', 0, 0),
 ('Pizza Frango Catupiry', 'Massa leve coberta com frango desfiado, Catupiry cremoso e temperos especiais.', 35.00, 10, 'Salgados', 87, 'Pizza FC 1000px x 677px.png', 0, 0),
-('Halls Cereja', 'Bala refrescante com sabor marcante de cereja e sensação gelada prolongada.', 5.00, 30, 'Doces', 88, 'Halls 1000px x 677px.png', 0, 0),
+('Halls Cereja', 'Bala refrescante com sabor marcante de cereja e sensação gelada prolongada.', 5.00, 30, 'Salgados', 88, 'Halls 1000px x 677px.png', 0, 0),
 ('Trident Menta', 'Chiclete com sabor intenso de menta, que garante hálito fresco por mais tempo.', 4.00, 30, 'Doces', 89, 'Trident 1000px x 677px.png', 0, 0),
 ('Água', 'Natural e refrescante, ideal para acompanhar qualquer refeição.', 4.00, 30, 'Bebidas', 90, 'Agua.png', 0, 0),
 ('Del Valle Maracujá 290ml', 'Suco tropical com o sabor marcante e azedinho do maracujá.', 6.00, 20, 'Bebidas', 91, 'DelvalleMaracuja.png', 0, 0),
@@ -104,6 +127,12 @@ INSERT INTO `estoque` (`Nome`, `Descricao`, `preco`, `Quantidade`, `Categoria`, 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices de tabela `administradores`
+--
+ALTER TABLE `administradores`
+  ADD PRIMARY KEY (`cpf`);
 
 --
 -- Índices de tabela `cliente`

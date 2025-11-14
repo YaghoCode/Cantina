@@ -57,12 +57,12 @@
                 </div>
             </div>
             <div class="content-pagamento-page-bottom">
-                <button type="button" class="btn-confirmar-pagamento">
-                    <a href="">
-                        <i class="fa-regular fa-circle-check"></i>
+                <form method="POST" action="/cantinarepositorio/subpages/confirmar_pagamento.php">
+                    <button type="submit" class="btn-confirmar-pagamento">
+                        <i class="fa-solid fa-check"></i>
                         Confirmar Pagamento
-                    </a>
-                </button>
+                    </button>
+                </form>
                 <button type="button" class="btn-cancelar-pagamento">
                     <a href="/cantinarepositorio/subpages/finalizar_pedido_cliente.php">
                         <i class="fa-solid fa-arrow-left"></i>

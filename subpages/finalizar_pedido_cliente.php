@@ -120,14 +120,18 @@ if (isset($_SESSION['cpf'])) {
                             <h3 id="precopreco"></h3>
                             </div>
                             <div class="resumo-pedido-buttons">
-                                <button type="button" class="btn-ir-para-pagamento">
-                                    <a href="/cantinarepositorio/subpages/pagamento_cliente_page.php">
+                                <form id="form-criar-pedido" method="POST" action="/cantinarepositorio/subpages/criar_pedido.php">
+                                    <input type="hidden" name="nome_itens" id="nome_itens_input" value="">
+                                    <input type="hidden" name="quantidade_itens" id="quantidade_itens_input" value="">
+                                    <input type="hidden" name="preco_itens" id="preco_itens_input" value="">
+                                    <input type="hidden" name="preco_total" id="preco_total_input" value="">
+                                    <button type="submit" class="btn-ir-para-pagamento">
                                         <i class="fa-regular fa-credit-card"></i>
                                         Ir para Pagamento
-                                    </a>
-                                </button>
-                                <button type="button" class="btn-cancelar-finalizacao-pedido">
-                                    <a href="/cantinarepositorio/main/index.php">Cancelar Pedido</a>
+                                    </button>
+                                </form>
+                                <button type="button" class="btn-cancelar-finalizacao-pedido" data-href="/cantinarepositorio/main/index.php">
+                                    Cancelar Pedido
                                 </button>
                             </div>
                         </div>
@@ -136,7 +140,35 @@ if (isset($_SESSION['cpf'])) {
             </div>
         </div>
     </main>
+    <script>
+        // Preenche hidden inputs ao submeter o form
+        const formCriarPedido = document.getElementById('form-criar-pedido');
+        if (formCriarPedido) {
+            formCriarPedido.addEventListener('submit', (e) => {
+                const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+                if (!carrinho.length) {
+                    e.preventDefault();
+                    alert('Carrinho vazio');
+                    return;
+                }
 
+                const nomes = carrinho.map(i => i.nome);
+                const quantidades = carrinho.map(i => i.quantidade);
+                const precos = carrinho.map(i => parseFloat(i.preco) * parseInt(i.quantidade)); // Preço total do item
+                const precoTotal = carrinho.reduce((s, it) => s + (parseFloat(it.preco) * parseInt(it.quantidade || 1)), 0);
+
+                document.getElementById('nome_itens_input').value = JSON.stringify(nomes);
+                document.getElementById('quantidade_itens_input').value = JSON.stringify(quantidades);
+                document.getElementById('preco_itens_input').value = JSON.stringify(precos); // Agora com preço total de cada item
+                document.getElementById('preco_total_input').value = precoTotal.toFixed(2);
+            });
+        }
+
+        // Navegação simples para o botão cancelar (data-href)
+        document.querySelectorAll('button[data-href]').forEach(btn => {
+            btn.addEventListener('click', () => window.location.href = btn.dataset.href);
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Torna o botão inteiro clicável quando há um <a> dentro dele

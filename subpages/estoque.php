@@ -235,8 +235,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <li id="btn-clientes"><i class="fa-solid fa-users"></i> Clientes</li>
                     <li id="btn-pedidos"><i class="fa-solid fa-clipboard-list"></i> Pedidos</li>
                     <li id="btn-configuracoes" <?php if ($user_data['adm'] != 1) {
-                                                    echo 'style="display:none;"';
-                                                } ?>;>
+                        echo 'style="display:none;"';
+                    } ?>;>
                         <i class="fa-solid fa-gear"></i> Configurações
                     </li>
 
@@ -428,7 +428,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -462,7 +462,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -487,7 +487,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -518,7 +518,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -543,7 +543,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -577,7 +577,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -603,7 +603,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -634,7 +634,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -660,7 +660,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -694,7 +694,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -719,7 +719,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -753,7 +753,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -779,7 +779,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -813,7 +813,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                                 </tr>
                             </tbody>
@@ -835,7 +835,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             foreach ($query_run as $item) {
                 $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
                 $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-        ?>
+                ?>
                 <div class="modal-overlay-estoque" id="modal-<?= $item['id'] ?>">
                     <div class="modal-estoque-visualizar-item" id="modal-visualizar-item">
                         <div class="modal-estoque-top">
@@ -907,7 +907,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
 
-        <?php }
+            <?php }
         } ?>
 
         <script>
@@ -952,7 +952,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $query_run = mysqli_query($con, $query);
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $item) {
-        ?>
+                ?>
                 <div class="overlay-modal-estoque-deletar-item">
 
                 </div>
@@ -972,7 +972,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
 
-        <?php }
+            <?php }
         } ?>
 
         <script>
@@ -1012,12 +1012,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     const produtoId = button.getAttribute('data-id');
                     console.log('ID enviado:', produtoId);
                     fetch('/cantinarepositorio/subpages/delete_item.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            body: 'id=' + encodeURIComponent(produtoId)
-                        })
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'id=' + encodeURIComponent(produtoId)
+                    })
                         .then(response => response.json())
                         .then(data => {
                             if (data.success) {
@@ -1042,7 +1042,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             foreach ($query_run as $item) {
                 $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
                 $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-        ?>
+                ?>
                 <!-- MODAL EDITAR ITEM -->
                 <div class="overlay-editar-produto" id="overlayEditar-<?= $item['id'] ?>">
                     <div class="modal-editar-produto" id="modalEditar-<?= $item['id'] ?>">
@@ -1134,7 +1134,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </form>
                     </div>
                 </div>
-        <?php
+                <?php
             }
         }
         ?>
@@ -1367,13 +1367,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     <td>Ações:</td>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody> <!--Lista de clientes-->
                                 <?php
                                 $query = "SELECT * from cliente";
                                 $query_run = mysqli_query($con, $query);
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $cliente) {
-                                ?>
+                                        ?>
                                         <tr>
                                             <td>
                                                 <h6><?php echo $cliente['nome']; ?></h6>
@@ -1402,7 +1402,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 </button>
                                             </td>
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -1484,7 +1484,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
 
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("DOMContentLoaded", function () {
                 const botoesFiltro = document.querySelectorAll(".clientes-filtro-options button");
                 const contentClientes = document.querySelector(".content-clientes-bottom");
                 if (!contentClientes) return;
@@ -1528,8 +1528,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         const qtd = parseInt(linha.querySelector("td:nth-child(5) span")?.textContent || "0");
                         const deveMostrar =
                             tipo === "ativo" ? qtd >= 5 :
-                            tipo === "inativo" ? qtd < 5 :
-                            true;
+                                tipo === "inativo" ? qtd < 5 :
+                                    true;
 
                         if (deveMostrar) fadeIn(linha);
                         else fadeOut(linha);
@@ -1583,7 +1583,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $cliente) {
-        ?>
+                ?>
                 <!--Modal editar clientes-->
                 <div class="modal-overlay-clientes-editar" id="overlayEditarCliente-<?= $cliente['cpf'] ?>">
                     <div class="modal-clientes-editar" id="modalEditarCliente-<?= $cliente['cpf'] ?>">
@@ -1671,7 +1671,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
 
 
-        <?php
+                <?php
             }
         }
         ?>
@@ -1727,7 +1727,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $query_run = mysqli_query($con, $query);
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $cliente) {
-        ?>
+                ?>
                 <div class="modal-overlay-excluir-cliente-adm" id="overlay-deletar-cliente-<?= $cliente['cpf'] ?>"
                     data-id="<?= $cliente['cpf'] ?>">
                     <div class="modal-excluir-cliente-adm" id="modal-deletar-cliente-<?= $cliente['cpf'] ?>"
@@ -1743,12 +1743,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <form action="/cantinarepositorio/subpages/deletar_cliente.php" method="POST">
                                 <input type="hidden" name="cpf" value="<?= $cliente['cpf'] ?>">
                                 <button type="submit" class="btn-confirmar-deletar-cliente">Excluir</button>
-                                <button type="button" class="btn-cancelar-deletar-cliente" data-id="<?= $cliente['cpf'] ?>">Cancelar</button>
+                                <button type="button" class="btn-cancelar-deletar-cliente"
+                                    data-id="<?= $cliente['cpf'] ?>">Cancelar</button>
                             </form>
                         </div>
                     </div>
                 </div>
-        <?php }
+            <?php }
         } ?>
 
         <script>
@@ -1853,7 +1854,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <thead>
                                 <tr>
                                     <td>Pedido:</td>
-                                    <td>Cliente:</td>
+                                    <td>CPF Cliente:</td>
                                     <td>Itens:</td>
                                     <td>Total:</td>
                                     <td>Data:</td>
@@ -1861,243 +1862,48 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     <td>Ações:</td>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <h6>#12345</h6>
-                                    </td> <!--codigo pedido-->
-                                    <td>
-                                        <h6>Maria Eduardassaaaaaaaaaa</h6>
-                                    </td> <!--cliente pedido-->
-                                    <td>
-                                        <span>7</span>
-                                    </td> <!--numero de itens do pedido-->
-                                    <td>
-                                        <h6>R$ 45,00</h6>
-                                    </td> <!--Valor Pedido-->
-                                    <td>
-                                        <h6>R$ 45,00</h6>
-                                    </td> <!--Data do pedido-->
-                                    <td>
-                                        <strong> Preparando</strong>
-                                    </td> <!--Status e fase do pedido-->
-                                    <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
-                                    <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
-                                        <button class="btn-pedido-concluido-adm">
-                                            <i class="fa-solid fa-clipboard-check"></i>
-                                        </button>
-                                        <button class="btn-visualizar-pedido-adm">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </button>
-                                        <button class="btn-cancelar-pedido-adm">
-                                            <i class="fa-solid fa-xmark"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h6>#12346</h6>
-                                    </td> <!--codigo pedido-->
-                                    <td>
-                                        <h6>Maria Eduardassaaaaaaaaaa</h6>
-                                    </td> <!--cliente pedido-->
-                                    <td>
-                                        <span>7</span>
-                                    </td> <!--numero de itens do pedido-->
-                                    <td>
-                                        <h6>R$ 45,00</h6>
-                                    </td> <!--Valor Pedido-->
-                                    <td>
-                                        <h6>R$ 45,00</h6>
-                                    </td> <!--Data do pedido-->
-                                    <td>
-                                        <strong> Preparando</strong>
-                                    </td> <!--Status e fase do pedido-->
-                                    <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
-                                    <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
-                                        <button class="btn-pedido-concluido-adm">
-                                            <i class="fa-solid fa-clipboard-check"></i>
-                                        </button>
-                                        <button class="btn-visualizar-pedido-adm">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </button>
-                                        <button class="btn-cancelar-pedido-adm">
-                                            <i class="fa-solid fa-xmark"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h6>#12345</h6>
-                                    </td> <!--codigo pedido-->
-                                    <td>
-                                        <h6>Maria Eduardassaaaaaaaaaa</h6>
-                                    </td> <!--cliente pedido-->
-                                    <td>
-                                        <span>7</span>
-                                    </td> <!--numero de itens do pedido-->
-                                    <td>
-                                        <h6>R$ 45,00</h6>
-                                    </td> <!--Valor Pedido-->
-                                    <td>
-                                        <h6>R$ 45,00</h6>
-                                    </td> <!--Data do pedido-->
-                                    <td>
-                                        <strong> Preparando</strong>
-                                    </td> <!--Status e fase do pedido-->
-                                    <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
-                                    <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
-                                        <button class="btn-pedido-concluido-adm">
-                                            <i class="fa-solid fa-clipboard-check"></i>
-                                        </button>
-                                        <button class="btn-visualizar-pedido-adm">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </button>
-                                        <button class="btn-cancelar-pedido-adm">
-                                            <i class="fa-solid fa-xmark"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h6>#12344</h6>
-                                    </td> <!--codigo pedido-->
-                                    <td>
-                                        <h6>Maria Eduardassaaaaaaaaaa</h6>
-                                    </td> <!--cliente pedido-->
-                                    <td>
-                                        <h6><span>7</span></h6>
-                                    </td> <!--numero de itens do pedido-->
-                                    <td>
-                                        <h6>R$ 45,00</h6>
-                                    </td> <!--Valor Pedido-->
-                                    <td>
-                                        <h6>R$ 45,00</h6>
-                                    </td> <!--Data do pedido-->
-                                    <td>
-                                        <strong> Preparando</strong>
-                                    </td> <!--Status e fase do pedido-->
-                                    <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
-                                    <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
-                                        <button class="btn-pedido-concluido-adm">
-                                            <i class="fa-solid fa-clipboard-check"></i>
-                                        </button>
-                                        <button class="btn-visualizar-pedido-adm">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </button>
-                                        <button class="btn-cancelar-pedido-adm">
-                                            <i class="fa-solid fa-xmark"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="table-pedidos-hoje"> <!--display none-->
-                        <table>
-                            <thead>
-                                <tr>
-                                    <td>Pedido:</td>
-                                    <td>Cliente:</td>
-                                    <td>Itens:</td>
-                                    <td>Total:</td>
-                                    <td>Data:</td>
-                                    <td>Status:</td>
-                                    <td>Ações:</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>#12345</td> <!--codigo pedido-->
-                                    <td>Maria Eduarda</td> <!--cliente pedido-->
-                                    <td><span>7</span></td> <!--numero de itens do pedido-->
-                                    <td>R$ 45,00</td> <!--Valor Pedido-->
-                                    <td>17/10/25</td> <!--Data do pedido-->
-                                    <td><strong> Preparando</strong></td> <!--Status e fase do pedido-->
-                                    <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
-                                        <button class="btn-pedido-concluido-adm">
-                                            <i class="fa-solid fa-clipboard-check"></i>
-                                        </button>
-                                        <button class="btn-visualizar-pedido-adm">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </button>
-                                        <button class="btn-cancelar-pedido-adm">
-                                            <i class="fa-solid fa-xmark"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="table-pedidos-passados"> <!--display none-->
-                        <table>
-                            <thead>
-                                <tr>
-                                    <td>Pedido:</td>
-                                    <td>Cliente:</td>
-                                    <td>Itens:</td>
-                                    <td>Total:</td>
-                                    <td>Data:</td>
-                                    <td>Status:</td>
-                                    <td>Ações:</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>#12345</td> <!--codigo pedido-->
-                                    <td>Maria Eduarda</td> <!--cliente pedido-->
-                                    <td><span>7</span></td> <!--numero de itens do pedido-->
-                                    <td>R$ 45,00</td> <!--Valor Pedido-->
-                                    <td>17/10/25</td> <!--Data do pedido-->
-                                    <td><strong> Preparando</strong></td> <!--Status e fase do pedido-->
-                                    <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
-                                        <button class="btn-pedido-concluido-adm">
-                                            <i class="fa-solid fa-clipboard-check"></i>
-                                        </button>
-                                        <button class="btn-visualizar-pedido-adm">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </button>
-                                        <button class="btn-cancelar-pedido-adm">
-                                            <i class="fa-solid fa-xmark"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="table-pedidos-futuros"> <!--display none-->
-                        <table>
-                            <thead>
-                                <tr>
-                                    <td>Pedido:</td>
-                                    <td>Cliente:</td>
-                                    <td>Itens:</td>
-                                    <td>Total:</td>
-                                    <td>Data:</td>
-                                    <td>Status:</td>
-                                    <td>Ações:</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>#12345</td> <!--codigo pedido-->
-                                    <td>Maria Eduarda</td> <!--cliente pedido-->
-                                    <td><span>7</span></td> <!--numero de itens do pedido-->
-                                    <td>R$ 45,00</td> <!--Valor Pedido-->
-                                    <td>17/10/25</td> <!--Data do pedido-->
-                                    <td><strong> Preparando</strong></td> <!--Status e fase do pedido-->
-                                    <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
-                                        <button class="btn-pedido-concluido-adm">
-                                            <i class="fa-solid fa-clipboard-check"></i>
-                                        </button>
-                                        <button class="btn-visualizar-pedido-adm">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </button>
-                                        <button class="btn-cancelar-pedido-adm">
-                                            <i class="fa-solid fa-xmark"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                            <tbody> <!--lista de pedidos-->
+                                <?php
+                                $query = "SELECT * from pedido";
+                                $query_run = mysqli_query($con, $query);
+                                if (mysqli_num_rows($query_run) > 0) {
+                                    foreach ($query_run as $pedido) {
+                                        ?>
+                                        <tr>
+                                            <td>
+                                                <h6># <?php echo $pedido['id']; ?></h6>
+                                            </td> <!--codigo pedido-->
+                                            <td>
+                                                <h6><?php echo $pedido['cpf']; ?></h6>
+                                            </td> <!--cliente pedido-->
+                                            <td>
+                                                <span><?php echo $pedido['quantidade_itens']; ?></span>
+                                            </td> <!--numero de itens do pedido-->
+                                            <td>
+                                                <h6>R$ <?php echo $pedido['preco_total']; ?></h6>
+                                            </td> <!--Valor Pedido-->
+                                            <td>
+                                                <h6><?php echo $pedido['data_pedido']; ?></h6>
+                                            </td> <!--Data do pedido-->
+                                            <td>
+                                                <strong><?php echo $pedido['status']; ?></strong>
+                                            </td> <!--Status e fase do pedido-->
+
+                                            <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
+                                            <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
+                                                <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
+                                                    <i class="fa-solid fa-clipboard-check"></i>
+                                                </button>
+                                                <button class="btn-visualizar-pedido-adm" data-id="<?= $pedido['id'] ?>">
+                                                    <i class="fa-regular fa-eye"></i>
+                                                </button>
+                                                <button class="btn-cancelar-pedido-adm" data-id="<?= $pedido['id'] ?>">
+                                                    <i class="fa-solid fa-xmark"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php }
+                                } ?>
                             </tbody>
                         </table>
                     </div>
@@ -2107,7 +1913,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <!--JS QUE ORGANIZA A TABELA-->
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("DOMContentLoaded", function () {
                 function ordenarTabelaPedidos(tabelaSelector, ordem = "asc") {
                     const tabela = document.querySelector(tabelaSelector);
                     if (!tabela) return;
@@ -2133,220 +1939,289 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 // 🧩 Chama a função para a tabela principal (pode repetir para outras)
                 [".table-pedidos-todos table", ".table-pedidos-hoje table", ".table-pedidos-passados table", ".table-pedidos-futuros table"]
-                .forEach(selector => ordenarTabelaPedidos(selector, "desc"));
+                    .forEach(selector => ordenarTabelaPedidos(selector, "desc"));
             });
         </script>
 
-        <!--modal-pedidos-pedido-pronto-->
+        <!--modal-concluir-pedido-->
+        <?php
+        $query = "SELECT * from pedido";
+        $query_run = mysqli_query($con, $query);
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $pedido) {
+                // Nova consulta para obter informações do cliente
+                $cpf_cliente = $pedido['cpf']; // Supondo que o CPF do cliente está armazenado no pedido
+                $cliente_query = "SELECT * FROM cliente WHERE cpf = '$cpf_cliente'";
+                $cliente_query_run = mysqli_query($con, $cliente_query);
+                $cliente = mysqli_fetch_assoc($cliente_query_run); // Obtém os dados do cliente
+                ?>
 
-        <div class="modal-overlay-concluir-pedido-adm">
-            <div class="modal-concluir-pedido-adm">
-                <div class="modal-concluir-pedido-adm-top">
-                    <h1>Tem certeza?</h1>
-                    <p>Esta ação não pode ser desfeita. O Pedido:
-                        <span class="concluir-pedido-codigo">"#1234"</span>, do(a) cliente:
-                        <span class="concluir-pedido-cliente-nome">"Maria dos Santos"</span> será mudado para fase:
-                        "Concluído". E o cliente poderá retira-lo na cantina.
-                    </p>
+                <div class="modal-overlay-concluir-pedido-adm" id="overlay_concluir_pedido-<?= $pedido['id'] ?>">
+                    <div class="modal-concluir-pedido-adm" id="modal_concluir_pedido-<?= $pedido['id'] ?>">
+                        <div class="modal-concluir-pedido-adm-top">
+                            <h1>Tem certeza?</h1>
+                            <p>Esta ação não pode ser desfeita. O Pedido:
+                                <span class="concluir-pedido-codigo">"#<?php echo $pedido['id']; ?>"</span>, do(a) cliente:
+                                <span class="concluir-pedido-cliente-nome">"<?php echo $cliente['nome']; ?>"</span> será mudado para fase:
+                                "Concluído". E o cliente poderá retira-lo na cantina.
+                            </p>
+                        </div>
+                        <div class="modal-concluir-pedido-adm-bottom">
+                            <button type="button" class="btn-cancelar-concluir-pedido" data-id="<?= $pedido['id']?>">Cancelar</button>
+
+                            <button type="button" class="btn-concluir-pedido" data-id="<?= $pedido['id']?>">Concluir Pedido</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-concluir-pedido-adm-bottom">
-                    <button type="button" class="btn-cancelar-concluir-pedido">Cancelar</button>
-                    <button type="button" class="btn-concluir-pedido">Concluir Pedido</button>
-                </div>
-            </div>
-        </div>
+                <?php
+            }
+        }
+        ?>
 
         <script>
-            const btnConcluirPedidoAdm = document.querySelectorAll('.btn-pedido-concluido-adm');
-            const modalOverlayConcluirPedidoAdm = document.querySelector('.modal-overlay-concluir-pedido-adm');
-            const modalConcluirPedidoAdm = document.querySelector('.modal-concluir-pedido-adm');
-            const btnCancelarConcluirPedidoAdm = document.querySelector('.btn-cancelar-concluir-pedido');
+            //abrir modal concluir pedido
+            document.addEventListener('DOMContentLoaded', () => {
 
-            btnConcluirPedidoAdm.forEach((btn) => {
-                btn.addEventListener('click', () => {
-                    modalOverlayConcluirPedidoAdm.classList.add('active');
-                    modalConcluirPedidoAdm.classList.add('active');
+                document.querySelectorAll('.btn-pedido-concluido-adm').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const pedidoId = button.getAttribute('data-id');
+                        const overlay = document.getElementById(`overlay_concluir_pedido-${pedidoId}`);
+                        const modal = document.getElementById(`modal_concluir_pedido-${pedidoId}`);
+                        if (overlay && modal) {
+                            overlay.classList.add('active');
+                            modal.classList.add('active');
+                        }
+                    });
                 });
             });
 
-            btnCancelarConcluirPedidoAdm.addEventListener('click', () => {
-                modalOverlayConcluirPedidoAdm.classList.remove('active');
-                modalConcluirPedidoAdm.classList.remove('active');
-            });
+            //Fechar modal no X concluir pedido
+            document.querySelectorAll('.btn-cancelar-concluir-pedido').forEach(button => {
+                button.addEventListener('click', () => {
+                    const pedidoId = button.getAttribute('data-id');
+                    const overlay = document.getElementById(`overlay_concluir_pedido-${pedidoId}`);
+                    const modal = document.getElementById(`modal_concluir_pedido-${pedidoId}`);
+                    if (overlay && modal) {
+                        overlay.classList.remove('active');
+                        modal.classList.remove('active');
+                    }
+                });
+            }); 
         </script>
 
         <!--Modal Cancelar pedido adm-->
 
-        <div class="modal-overlay-cancelar-pedido-adm">
-            <div class="modal-cancelar-pedido-adm">
-                <div class="modal-cancelar-pedido-adm-top">
-                    <h1>Tem certeza?</h1>
-                    <p>Esta ação não pode ser desfeita. O Pedido:
-                        <span class="cancelar-pedido-codigo">"#1234"</span>, do(a) cliente:
-                        <span class="cancelar-pedido-cliente-nome">"Maria dos Santos"</span> será cancelado.
-                    </p>
+        <?php
+        $query = "SELECT * from pedido";
+        $query_run = mysqli_query($con, $query);
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $pedido) {
+                // Nova consulta para obter informações do cliente
+                $cpf_cliente = $pedido['cpf']; // Supondo que o CPF do cliente está armazenado no pedido
+                $cliente_query = "SELECT * FROM cliente WHERE cpf = '$cpf_cliente'";
+                $cliente_query_run = mysqli_query($con, $cliente_query);
+                $cliente = mysqli_fetch_assoc($cliente_query_run); // Obtém os dados do cliente
+                ?>
+
+                <div class="modal-overlay-cancelar-pedido-adm" id="overlay_cancelar_pedido-<?= $pedido['id'] ?>">
+                    <div class="modal-cancelar-pedido-adm" id="modal_cancelar_pedido-<?= $pedido['id'] ?>">
+                        <div class="modal-cancelar-pedido-adm-top">
+                            <h1>Tem certeza?</h1>
+                            <p>Esta ação não pode ser desfeita. O Pedido:
+                                <span class="cancelar-pedido-codigo">"#<?php echo $pedido['id']; ?>"</span>, do(a) cliente:
+                                <span class="cancelar-pedido-cliente-nome">"<?php echo $cliente['nome']; ?>"</span> será
+                                cancelado.
+                            </p>
+                        </div>
+                        <div class="modal-cancelar-pedido-adm-bottom">
+                            <button type="button" class="btn-cancelar-cancelamento-pedido"
+                                data-id="<?= $pedido['id'] ?>">Cancelar</button>
+
+                            <button type="button" class="btn-concluir-cancelamento-pedido"
+                                data-id="<?= $pedido['id'] ?>">Cancelar
+                                Pedido</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-cancelar-pedido-adm-bottom">
-                    <button type="button" class="btn-cancelar-cancelamento-pedido">Cancelar</button>
-                    <button type="button" class="btn-concluir-cancelamento-pedido">Cancelar Pedido</button>
-                </div>
-            </div>
-        </div>
+                <?php
+            }
+        }
+        ?>
 
         <script>
-            const btnCancelarPedidoAdm = document.querySelectorAll('.btn-cancelar-pedido-adm');
-            const modalOverlayCancelarPedidoAdm = document.querySelector('.modal-overlay-cancelar-pedido-adm');
-            const modalCancelarPedidoAdm = document.querySelector('.modal-cancelar-pedido-adm');
-            const btnCancelarCancelamentoPedidoAdm = document.querySelector('.btn-cancelar-cancelamento-pedido');
+            //abrir modal cancelar pedido
+            document.addEventListener('DOMContentLoaded', () => {
 
-            btnCancelarPedidoAdm.forEach((btn) => {
-                btn.addEventListener('click', () => {
-                    modalOverlayCancelarPedidoAdm.classList.add('active');
-                    modalCancelarPedidoAdm.classList.add('active');
+                document.querySelectorAll('.btn-cancelar-pedido-adm').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const pedidoId = button.getAttribute('data-id');
+                        const overlay = document.getElementById(`overlay_cancelar_pedido-${pedidoId}`);
+                        const modal = document.getElementById(`modal_cancelar_pedido-${pedidoId}`);
+                        if (overlay && modal) {
+                            overlay.classList.add('active');
+                            modal.classList.add('active');
+                        }
+                    });
                 });
             });
 
-            btnCancelarCancelamentoPedidoAdm.addEventListener('click', () => {
-                modalOverlayCancelarPedidoAdm.classList.remove('active');
-                modalCancelarPedidoAdm.classList.remove('active');
-            });
+            //Fechar modal no X visualizar pedido
+            document.querySelectorAll('.btn-cancelar-cancelamento-pedido').forEach(button => {
+                button.addEventListener('click', () => {
+                    const pedidoId = button.getAttribute('data-id');
+                    const overlay = document.getElementById(`overlay_cancelar_pedido-${pedidoId}`);
+                    const modal = document.getElementById(`modal_cancelar_pedido-${pedidoId}`);
+                    if (overlay && modal) {
+                        overlay.classList.remove('active');
+                        modal.classList.remove('active');
+                    }
+                });
+            }); 
         </script>
 
         <!--modal visualizar pedido-->
+        <?php
+        $query = "SELECT * from pedido";
+        $query_run = mysqli_query($con, $query);
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $pedido) {
+                // Nova consulta para obter informações do cliente
+                $cpf_cliente = $pedido['cpf']; // Supondo que o CPF do cliente está armazenado no pedido
+                $cliente_query = "SELECT * FROM cliente WHERE cpf = '$cpf_cliente'";
+                $cliente_query_run = mysqli_query($con, $cliente_query);
+                $cliente = mysqli_fetch_assoc($cliente_query_run); // Obtém os dados do cliente
+                ?>
 
-        <div class="modal-overlay-visualizar-pedido">
-            <div class="modal-visualizar-pedido">
-                <button class="btn-fechar-modal-visualizar">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <div class="content-modal-visualizar-pedido">
-                    <div class="content-modal-visualizar-top">
-                        <div class="content-modal-visualizar-top-title">
-                            <h1>Detalhes do Pedido:</h1>
-                        </div>
-                        <div class="content-modal-visualizar-top-tagFiltro">
-                            <h6>Sendo Preparado</h6> <!--php tag do pedido MUDA A COR DESGRAÇA-->
-                        </div>
-                    </div>
-                    <div class="content-modal-visualizar-mid">
-                        <div class="content-modal-visualizar-mid-row">
-                            <div class="content-modal-visualizar-mid-group">
-                                <div class="mid-group-numero-pedido">
-                                    <h1>Número do pedido:</h1>
-                                    <span>#1234</span><!--php number pedido-->
+                <div class="modal-overlay-visualizar-pedido" id="overlay_modal_pedido-<?= $pedido['id'] ?>">
+                    <div class="modal-visualizar-pedido" id="modal_pedido-<?= $pedido['id'] ?>">
+                        <button class="btn-fechar-modal-visualizar" data-id="<?= $pedido['id'] ?>">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <div class="content-modal-visualizar-pedido">
+                            <div class="content-modal-visualizar-top">
+                                <div class="content-modal-visualizar-top-title">
+                                    <h1>Detalhes do Pedido:</h1>
                                 </div>
-                                <div class="mid-group-data-pedido">
-                                    <h1>Data:</h1>
-                                    <span>17/02/2008</span><!--php data pedido-->
+                                <div class="content-modal-visualizar-top-tagFiltro">
+                                    <h6><?php echo $pedido['status']; ?></h6>
+                                    <!--php status pedido-->
                                 </div>
                             </div>
-                            <div class="content-modal-visualizar-mid-group">
-                                <div class="mid-group-turno-pedido">
-                                    <h1>Turno:</h1>
-                                    <span>Manhã</span><!--php turno pedido-->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content-modal-visualizar-mid-row">
-                            <div class="content-modal-visualizar-mid-group-user">
-                                <div class="mid-group-info-user">
-                                    <h1>Informações do Cliente:</h1>
-                                </div>
-                            </div>
-                            <div class="content-modal-visualizar-mid-group-user">
-                                <div class="mid-group-info">
-                                    <h1>Nome:</h1>
-                                    <span>Caio Silva</span>
-                                </div>
-                                <div class="mid-group-info">
-                                    <h1>Turma: </h1>
-                                    <span>2 DS</span>
-                                </div>
-                                <div class="mid-group-info">
-                                    <h1>CPF: </h1>
-                                    <span>55132867854</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content-modal-visualizar-mid-row" style="border: none;">
-                            <div class="content-modal-visualizar-mid-group-pedido" style="margin-bottom: 4vh;">
-                                <div class="mid-group-info-pedido">
-                                    <h1>Resumo do pedido:</h1>
-                                </div>
-                            </div>
-                            <div class="content-modal-visualizar-mid-group-pedido">
-                                <div class="mid-group-info-table-pedido">
-                                    <div class="tabela-scroll">
-                                        <div class="tabela-items-pedido">
-                                            <div class="tabela-items-pedido-produto">
-                                                <h3>2x</h3><!--quantidade produto-->
-                                                <h4>Esfiha de Carne</h4><!--nome do produto-->
-                                            </div>
-                                            <div class="tabela-items-pedido-preco">
-                                                <h5>R$ 6,00</h5><!--Preço produto-->
-                                            </div>
+                            <div class="content-modal-visualizar-mid">
+                                <div class="content-modal-visualizar-mid-row">
+                                    <div class="content-modal-visualizar-mid-group">
+                                        <div class="mid-group-numero-pedido">
+                                            <h1>Número do pedido:</h1>
+                                            <span># <?php echo $pedido['id']; ?></span>
+                                            <!--php number pedido-->
                                         </div>
-                                        <div class="tabela-items-pedido">
-                                            <div class="tabela-items-pedido-produto">
-                                                <h3>2x</h3><!--quantidade produto-->
-                                                <h4>Esfiha de Carne</h4><!--nome do produto-->
-                                            </div>
-                                            <div class="tabela-items-pedido-preco">
-                                                <h5>R$ 6,00</h5><!--Preço produto-->
-                                            </div>
+                                        <div class="mid-group-data-pedido">
+                                            <h1>Data:</h1>
+                                            <span><?php echo $pedido['data_pedido']; ?></span>
+                                            <!--php data pedido-->
                                         </div>
-                                        <div class="tabela-items-pedido">
-                                            <div class="tabela-items-pedido-produto">
-                                                <h3>2x</h3><!--quantidade produto-->
-                                                <h4>Esfiha de Carne</h4><!--nome do produto-->
-                                            </div>
-                                            <div class="tabela-items-pedido-preco">
-                                                <h5>R$ 6,00</h5><!--Preço produto-->
-                                            </div>
+                                    </div>
+                                    <div class="content-modal-visualizar-mid-group">
+                                        <div class="mid-group-turno-pedido">
+                                            <h1>Turno:</h1>
+                                            <span>Manhã</span><!--php turno pedido-->
                                         </div>
-                                        <div class="tabela-items-pedido">
-                                            <div class="tabela-items-pedido-produto">
-                                                <h3>2x</h3><!--quantidade produto-->
-                                                <h4>Esfiha de Carne</h4><!--nome do produto-->
-                                            </div>
-                                            <div class="tabela-items-pedido-preco">
-                                                <h5>R$ 6,00</h5><!--Preço produto-->
+                                    </div>
+                                </div>
+                                <div class="content-modal-visualizar-mid-row">
+                                    <div class="content-modal-visualizar-mid-group-user">
+                                        <div class="mid-group-info-user">
+                                            <h1>Informações do Cliente:</h1>
+                                        </div>
+                                    </div>
+                                    <div class="content-modal-visualizar-mid-group-user">
+                                        <div class="mid-group-info">
+                                            <h1>Nome:</h1>
+                                            <span><?php echo $cliente['nome']; ?></span>
+                                        </div>
+                                        <div class="mid-group-info">
+                                            <h1>Turma: </h1>
+                                            <span><?php echo $cliente['turma']; ?></span>
+                                        </div>
+                                        <div class="mid-group-info">
+                                            <h1>CPF: </h1>
+                                            <span><?php echo $pedido['cpf']; ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content-modal-visualizar-mid-row" style="border: none;">
+                                    <div class="content-modal-visualizar-mid-group-pedido" style="margin-bottom: 4vh;">
+                                        <div class="mid-group-info-pedido">
+                                            <h1>Resumo do pedido:</h1>
+                                        </div>
+                                    </div>
+                                    <div class="content-modal-visualizar-mid-group-pedido">
+                                        <div class="mid-group-info-table-pedido">
+                                            <div class="tabela-scroll">
+                                                <div class="tabela-items-pedido">
+                                                    <div class="tabela-items-pedido-produto">
+                                                        <h4><?php echo $pedido['nome_itens']; ?></h4><!--nome do produto-->
+                                                    </div>
+                                                </div>
+                                                <div class="tabela-items-pedido">
+                                                    <div class="tabela-items-pedido-produto">
+                                                        <h3><?php echo $pedido['quantidade_itens']; ?></h3>
+                                                        <!--quantidade produto-->
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="content-modal-visualizar-bottom">
-                        <div class="visualizar-bottom-preco">
-                            <h1>Total:</h1>
-                            <span>R$ 14,00</span>
+                            <div class="content-modal-visualizar-bottom">
+                                <div class="visualizar-bottom-preco">
+                                    <h1>Total:</h1>
+                                    <span>R$<?php echo $pedido['preco_total']; ?></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+
+                <?php
+            }
+        }
+        ?>
 
         <script>
-            const modalVisualizarPedido = document.querySelector('.modal-visualizar-pedido');
-            const modalOverlayVisualizarPedido = document.querySelector('.modal-overlay-visualizar-pedido');
-            const btnFecharModalPedido = document.querySelector('.btn-fechar-modal-visualizar');
-            const btnVisualizarPedido = document.querySelectorAll('.btn-visualizar-pedido-adm');
+            //abrir modal visualizar pedido
+            document.addEventListener('DOMContentLoaded', () => {
 
-            btnVisualizarPedido.forEach((btn) => {
-                btn.addEventListener('click', () => {
-                    modalVisualizarPedido.classList.add('active');
-                    modalOverlayVisualizarPedido.classList.add('active');
-                })
+                document.querySelectorAll('.btn-visualizar-pedido-adm').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const pedidoId = button.getAttribute('data-id');
+                        const overlay = document.getElementById(`overlay_modal_pedido-${pedidoId}`);
+                        const modal = document.getElementById(`modal_pedido-${pedidoId}`);
+                        if (overlay && modal) {
+                            overlay.classList.add('active');
+                            modal.classList.add('active');
+                        }
+                    });
+                });
             });
 
-            btnFecharModalPedido.addEventListener('click', () => {
-                modalVisualizarPedido.classList.remove('active');
-                modalOverlayVisualizarPedido.classList.remove('active');
-            });
+            //Fechar modal no X visualizar pedido
+            document.querySelectorAll('.btn-fechar-modal-visualizar').forEach(button => {
+                button.addEventListener('click', () => {
+                    const pedidoId = button.getAttribute('data-id');
+                    const overlay = document.getElementById(`overlay_modal_pedido-${pedidoId}`);
+                    const modal = document.getElementById(`modal_pedido-${pedidoId}`);
+                    if (overlay && modal) {
+                        overlay.classList.remove('active');
+                        modal.classList.remove('active');
+                    }
+                });
+            }); 
         </script>
 
+
+        <!--Configurações do ADM-->
         <div class="container-configuracoes" id="conteudo-configuracoes">
             <div class="title-configuracoes">
                 <div class="title-configuracoes-text">
@@ -2381,7 +2256,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $usuario) {
 
-                                ?>
+                                        ?>
                                         <tr>
                                             <td>
                                                 <h6><?php echo $usuario['nome'] ?></h6>
@@ -2394,10 +2269,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
                                             <td>
                                                 <h6><?php if ($usuario['adm'] == 1) {
-                                                        echo 'Administrador Principal';
-                                                    } else {
-                                                        echo 'Funcionário';
-                                                    } ?></h6>
+                                                    echo 'Administrador Principal';
+                                                } else {
+                                                    echo 'Funcionário';
+                                                } ?></h6>
                                             </td>
                                             <td>
                                                 <button class="btn-editar-senha-admin" data-id="<?= $usuario['cpf'] ?>">
@@ -2411,7 +2286,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 </button>
                                             </td>
                                         </tr>
-                                <?php
+                                        <?php
                                     }
                                 } ?>
                                 </tbody>
@@ -2504,7 +2379,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $usuario) {
-        ?>
+                ?>
                 <div class="modal-overlay-editar-admin" id="overlayEditarAdmin-<?= $usuario['cpf'] ?>">
                     <div class="modal-editar-admin" id="modaladm-<?= $usuario['cpf'] ?>">
                         <button class="btn-close-modal-editar-admin">
@@ -2637,7 +2512,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                 </div>
-        <?php
+                <?php
             }
         }
         ?>
@@ -2803,12 +2678,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     btnConfirmar.disabled = true;
                     fetch('/cantinarepositorio/subpages/deletar_admin.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            body: 'cpf=' + encodeURIComponent(cpf)
-                        })
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'cpf=' + encodeURIComponent(cpf)
+                    })
                         .then(r => r.json())
                         .then(res => {
                             btnConfirmar.disabled = false;
