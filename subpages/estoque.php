@@ -1018,6 +1018,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         },
                         body: 'id=' + encodeURIComponent(produtoId)
                     })
+                
                         .then(response => response.json())
                         .then data => {
                             if (data.success) {
@@ -1026,9 +1027,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             } else {
                                 alert('Erro ao remover produto!');
                             }
+                            }
                         });
                 });
-            });
+            
         </script>
 
 

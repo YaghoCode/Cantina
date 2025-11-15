@@ -277,8 +277,8 @@ if (!isset($_SESSION['cpf'])) {
       </div>
       <div class="finalizar-pedido">
         <button type="button" id="btn-finalizar-pedidos">
-          <a href="/cantinarepositorio/subpages/finalizar_pedido_cliente.php"></a>
-        Finalizar Pedido
+           <a href="/cantinarepositorio/subpages/finalizar_pedido_cliente.php"></a>
+          Finalizar Pedido
         </button>
       </div>
     </div>

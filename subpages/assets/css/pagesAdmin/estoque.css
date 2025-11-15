@@ -3969,7 +3969,8 @@ select:focus {
 .btn-concluir-pedido {
     background-color: var(--cor--botao-accept) !important;
     color: white !important;
-    width: 30% !important;
+    padding: 0.5rem;
+    min-width: 100%;
 }
 
 .btn-concluir-pedido:hover {
@@ -4078,7 +4079,8 @@ select:focus {
 .btn-concluir-cancelamento-pedido {
     background-color: var(--cor-primaria) !important;
     color: white !important;
-    width: 30% !important;
+    padding: 0.5rem;
+    min-width: 100%;
 }
 
 .btn-concluir-cancelamento-pedido:hover {
