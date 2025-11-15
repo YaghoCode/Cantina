@@ -1019,7 +1019,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         body: 'id=' + encodeURIComponent(produtoId)
                     })
                         .then(response => response.json())
-                        .then(data => {
+                        .then data => {
                             if (data.success) {
                                 alert('Produto removido!');
                                 location.reload();
@@ -1967,9 +1967,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </p>
                         </div>
                         <div class="modal-concluir-pedido-adm-bottom">
-                            <button type="button" class="btn-cancelar-concluir-pedido" data-id="<?= $pedido['id']?>">Cancelar</button>
+                            <button type="button" class="btn-cancelar-concluir-pedido" data-id="<?= $pedido['id'] ?>">Cancelar</button>
 
-                            <button type="button" class="btn-concluir-pedido" data-id="<?= $pedido['id']?>">Concluir Pedido</button>
+                            <form method="POST" action="/cantinarepositorio/subpages/atualizar_status_pedido.php" style="display:inline;">
+                                <input type="hidden" name="pedido_id" value="<?= $pedido['id'] ?>">
+                                <input type="hidden" name="status" value="Concluído">
+                                <button type="submit" class="btn-concluir-pedido">Concluir Pedido</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -2034,12 +2038,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </p>
                         </div>
                         <div class="modal-cancelar-pedido-adm-bottom">
-                            <button type="button" class="btn-cancelar-cancelamento-pedido"
-                                data-id="<?= $pedido['id'] ?>">Cancelar</button>
+                            <button type="button" class="btn-cancelar-cancelamento-pedido" data-id="<?= $pedido['id'] ?>">Cancelar</button>
 
-                            <button type="button" class="btn-concluir-cancelamento-pedido"
-                                data-id="<?= $pedido['id'] ?>">Cancelar
-                                Pedido</button>
+                            <form method="POST" action="/cantinarepositorio/subpages/atualizar_status_pedido.php" style="display:inline;">
+                                <input type="hidden" name="pedido_id" value="<?= $pedido['id'] ?>">
+                                <input type="hidden" name="status" value="Cancelado">
+                                <button type="submit" class="btn-concluir-cancelamento-pedido">Cancelar Pedido</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -2616,7 +2621,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </script>
 
 
-        <!-- Modal deletar admin -->
+        <!--Modal deletar admin -->
         <div class="modal-overlay-deletar-admin" id="overlayExcluirAdmin">
             <div class="modal-deletar-admin" id="modalExcluirAdmin">
                 <div class="modal-deletar-admin-top">

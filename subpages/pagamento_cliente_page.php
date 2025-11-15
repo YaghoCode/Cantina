@@ -36,8 +36,8 @@
                 </div>
             </div>
             <div class="content-pagamento-page-mid">
-                <div class="qr-code-pagamento">
-                    <img src="" alt="">
+                <div class="">
+                    <img id="pix-qrcode" alt="QR Code PIX" style="max-width:360px;">
                     <p>QR CODE</p>
                 </div>
                 <div class="valor-total-pagamento">
@@ -124,6 +124,86 @@
         }
 
     </script>
+
+    <?php
+// Exponha o order_id e total (substitua estas variáveis pelo seu valor real)
+$order_id = $order_id ?? ('PED' . time()); 
+$order_total = isset($total) ? number_format($total, 2, '.', '') : '0.00';
+?>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+
+  // retorna total a partir do localStorage (mesma lógica que você já usa)
+  function getCartTotal() {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    let total = 0;
+    carrinho.forEach(item => total += (item.preco || 0) * (item.quantidade || 0));
+    return Number(total) || 0;
+  }
+
+  // atualiza exibição do total na página
+  function showTotalOnPage(total) {
+    const totalElement = document.querySelector('.valor-total-pagamento h2');
+    if (totalElement) totalElement.textContent = `R$ ${total.toFixed(2)}`;
+    const inputTotal = document.querySelector('input[name="total"]');
+    if (inputTotal) inputTotal.value = total.toFixed(2);
+  }
+
+  const orderId = "<?php echo addslashes($order_id); ?>";
+  const total = getCartTotal();
+  showTotalOnPage(total);
+
+  // monta payload usando o total calculado no cliente
+  const payload = {
+    valor: total,
+    idPedido: orderId,
+    nomeLoja: 'FuraFila',
+    cidadeLoja: 'São Paulo'
+  };
+
+  // só tenta gerar PIX se total > 0
+  if (total <= 0) {
+    document.getElementById('pix-status').textContent = 'Total inválido (R$ 0.00)';
+    return;
+  }
+
+  fetch('/cantinarepositorio/subpages/pix_proxy.php', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(payload)
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.error) {
+      document.getElementById('pix-status').textContent = 'Erro ao gerar PIX: ' + (data.error || '');
+      console.error(data);
+      return;
+    }
+    if (data.qrcode) document.getElementById('pix-qrcode').src = data.qrcode;
+    if (data.codigo) document.getElementById('pix-codigo').value = data.codigo;
+    document.getElementById('pix-status').textContent = 'Escaneie o QR ou copie o código.';
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById('pix-status').textContent = 'Erro de rede ao gerar PIX';
+  });
+
+  // copiar código PIX
+  document.getElementById('btn-copiar-pix').addEventListener('click', () => {
+    const txt = document.getElementById('pix-codigo');
+    if (!txt) return;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(txt.value).then(()=> alert('Código PIX copiado!'));
+    } else {
+      txt.select();
+      document.execCommand('copy');
+      alert('Código PIX copiado!');
+    }
+  });
+
+});
+</script>
 
 
 </body>
