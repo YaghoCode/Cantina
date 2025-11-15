@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14/11/2025 às 16:12
+-- Tempo de geração: 15/11/2025 às 12:10
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -124,6 +124,32 @@ INSERT INTO `estoque` (`Nome`, `Descricao`, `preco`, `Quantidade`, `Categoria`, 
 ('Itubaína 300ml', 'Refrigerante tradicional com sabor levemente adocicado e nostálgico.', 7.00, 20, 'Bebidas', 96, 'ItubainaOriginal.png', 0, 0),
 ('Sukita de Laranja', 'Clássico refrigerante de laranja, doce e muito refrescante.', 6.00, 20, 'Bebidas', 97, 'SukitaLaranja.png', 0, 0);
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pedido`
+--
+
+CREATE TABLE `pedido` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `cpf` char(11) NOT NULL,
+  `nome_itens` text NOT NULL,
+  `quantidade_itens` text NOT NULL,
+  `preco_itens` text NOT NULL,
+  `preco_total` decimal(10,2) NOT NULL,
+  `status` enum('Sendo Preparado','Concluído','Cancelado') NOT NULL DEFAULT 'Sendo Preparado',
+  `data_pedido` date NOT NULL DEFAULT curdate(),
+  `hora_pedido` time NOT NULL DEFAULT curtime()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `pedido`
+--
+
+INSERT INTO `pedido` (`id`, `cpf`, `nome_itens`, `quantidade_itens`, `preco_itens`, `preco_total`, `status`, `data_pedido`, `hora_pedido`) VALUES
+(9, '12345678940', ' Pizza de Calabresa, X-Salada, Esfiha de Cliente', '1x, 1x, 1x', 'R$35,00, R$12,00, R$7,00', 54.00, 'Sendo Preparado', '2025-11-14', '11:34:32'),
+(10, '77777777777', 'Esfiha de Carne, Hamburguer Cheddar Bacon, X-Salada', '1x, 1x, 3x', 'R$7,00, R$7,00, R$36,00', 50.00, 'Sendo Preparado', '2025-11-14', '11:35:49');
+
 --
 -- Índices para tabelas despejadas
 --
@@ -147,6 +173,12 @@ ALTER TABLE `estoque`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices de tabela `pedido`
+--
+ALTER TABLE `pedido`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT para tabelas despejadas
 --
 
@@ -155,6 +187,12 @@ ALTER TABLE `estoque`
 --
 ALTER TABLE `estoque`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+
+--
+-- AUTO_INCREMENT de tabela `pedido`
+--
+ALTER TABLE `pedido`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
