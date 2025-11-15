@@ -120,7 +120,7 @@ if (isset($_SESSION['cpf'])) {
                             <h3 id="precopreco"></h3>
                             </div>
                             <div class="resumo-pedido-buttons">
-                                <form id="form-criar-pedido" method="POST" action="/cantinarepositorio/subpages/criar_pedido.php">
+                                <form id="form-criar-pedido" class="form_pagamento" method="POST" action="/cantinarepositorio/subpages/criar_pedido.php">
                                     <input type="hidden" name="nome_itens" id="nome_itens_input" value="">
                                     <input type="hidden" name="quantidade_itens" id="quantidade_itens_input" value="">
                                     <input type="hidden" name="preco_itens" id="preco_itens_input" value="">

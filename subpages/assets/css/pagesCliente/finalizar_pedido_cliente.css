@@ -508,6 +508,18 @@ a{
     gap: 0.8rem;
 }
 
+.resumo-pedido-buttons .form_pagamento {
+    display: flex;
+    width: 100%;
+    height: 40%;
+}
+
+.resumo-pedido-buttons .form_pagamento button {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
 .resumo-pedido-buttons button{
     display: flex;
     align-items: center;

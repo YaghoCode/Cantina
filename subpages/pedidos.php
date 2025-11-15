@@ -16,13 +16,11 @@ if (isset($_SESSION['cpf'])) {
     if ($result_user && mysqli_num_rows($result_user) > 0) {
         $user_data = mysqli_fetch_assoc($result_user);
         // Permite acesso
-    }
-    else {
+    } else {
         header("Location: ./login.php");
-    exit;
+        exit;
     }
-}
-else{
+} else {
     header("Location: ./login.php");
     exit;
 }
@@ -201,6 +199,222 @@ else{
 
                 <!-- Todos -->
                 <div class="content-pedidos-body active">
+                    <?php
+                    $query = "SELECT * FROM pedido WHERE cpf = '$cpf' ORDER BY data_pedido DESC";
+                    $result = mysqli_query($con, $query);
+                    if ($result && mysqli_num_rows($result) > 0) {
+                        foreach ($result as $pedido) {
+                            if ($pedido['status'] == 'Sendo Preparado') {
+                                $dataRaw = $pedido['data_pedido'] ?? '';
+                                if ($dataRaw && ($ts = strtotime($dataRaw)) !== false) {
+                                    $dataFmt = date('d/m/Y H:i');
+                                } else {
+                                    $dataFmt = $dataRaw ? htmlspecialchars($dataRaw) : '--';
+                                }
+                                $total = number_format((float)($pedido['preco_total'] ?? 0), 2, ',', '.');
+                                echo '<div class="card"> <!--CARD PLACEHOLDER PEDIDO EM ANDAMENTO-->
+                        <div class="card-top">
+                            <button class="tag-filtro-preparando">
+                                <i class="fa-solid fa-rotate-right"></i>
+                                Sendo Preparado
+                            </button>
+                            <button class="tag-pedido">
+                                Pedido: #' . $pedido['id'] . '
+                            </button>
+                        </div>
+                        <div class="card-mid">
+                            <div class="card-mid-dia-horario">
+                                <h1>Turno: <span>Manhã</span></h1>
+                                <h1>Dia: <span>' . $dataFmt . '</span></h1>
+                            </div>
+
+                            <div class="card-mid-detalhes-pedido">
+                            
+                                <div class="pedido-items"> <!--cada produto do pedido php-->
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="card-bottom-buttons">
+                                <button class="cancelar-pedido">
+                                    Cancelar Pedido
+                                </button>
+                                <button class="visualizar-pedido">
+                                    Visualizar Pedido
+                                </button>
+                            </div>
+                            <div class="card-bottom-preco-total">
+                                <p> R$ ' . $total  . '</p> <!--preco total pedido php-->
+                            </div>
+                        </div>
+                    </div>';
+                            }
+                            if ($pedido['status'] == 'Concluido') {
+                                $dataRaw = $pedido['data_pedido'] ?? '';
+                                if ($dataRaw && ($ts = strtotime($dataRaw)) !== false) {
+                                    $dataFmt = date('d/m/Y H:i');
+                                } else {
+                                    $dataFmt = $dataRaw ? htmlspecialchars($dataRaw) : '--';
+                                }
+                                $total = number_format((float)($pedido['preco_total'] ?? 0), 2, ',', '.');
+                                echo '<div class="card"> <!--CARD PLACEHOLDER PEDIDO CONCLUIDO-->
+                        <div class="card-top">
+                            <button class="tag-filtro-concluido">
+                                <i class="fa-solid fa-check"></i>
+                                Concluído
+                            </button>
+                            <button class="tag-pedido">
+                                Pedido: #1234
+                            </button>
+                        </div>
+                        <div class="card-mid">
+                            <div class="card-mid-dia-horario">
+                                <h1>Turno: <span>Manhã</span></h1>
+                                <h1>Dia: <span>18/06/25</span></h1>
+                            </div>
+
+                            <div class="card-mid-detalhes-pedido">
+                                <div class="pedido-items"> <!--cada produto do pedido php-->
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                <div class="pedido-items">
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                <div class="pedido-items">
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                <div class="pedido-items">
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                <!-- mais itens aqui -->
+                            </div>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="card-bottom-buttons">
+                                <button class="cancelar-pedido" style="display: none;">
+                                    Cancelar Pedido
+                                </button>
+                            </div>
+                            <div class="card-bottom-preco-total">
+                                <p>R$ 23,00</p> <!--preco total pedido php-->
+                            </div>
+                        </div>
+                    </div>';
+                            }
+                            if ($pedido['status'] == 'Cancelado') {
+                                $dataRaw = $pedido['data_pedido'] ?? '';
+                                if ($dataRaw && ($ts = strtotime($dataRaw)) !== false) {
+                                    $dataFmt = date('d/m/Y H:i');
+                                } else {
+                                    $dataFmt = $dataRaw ? htmlspecialchars($dataRaw) : '--';
+                                }
+                                $total = number_format((float)($pedido['preco_total'] ?? 0), 2, ',', '.');
+                                echo '<div class="card"> <!--CARD PLACEHOLDER PEDIDO EM CANCELADO-->
+                        <div class="card-top">
+                            <button class="tag-filtro-cancelado">
+                                <i class="fa-solid fa-xmark"></i>
+                                Cancelado
+                            </button>
+                            <button class="tag-pedido">
+                                Pedido: #'. $pedido['id'] .'
+                            </button>
+                        </div>
+                        <div class="card-mid">
+                            <div class="card-mid-dia-horario">
+                                <h1>Turno: <span>Manhã</span></h1>
+                                <h1>Dia: <span>'. $dataFmt .'</span></h1>
+                            </div>
+
+                            <div class="card-mid-detalhes-pedido">
+                                <div class="pedido-items"> <!--cada produto do pedido php-->
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                <div class="pedido-items">
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                <div class="pedido-items">
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                <div class="pedido-items">
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                <!-- mais itens aqui -->
+                            </div>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="card-bottom-buttons">
+                                <button class="cancelar-pedido" style="display: none;">
+                                    Cancelar Pedido
+                                </button>
+                            </div>
+                            <div class="card-bottom-preco-total">
+                                <p>R$ '. number_format($total, 2, ',', '.') .'</p> <!--preco total pedido php-->
+                            </div>
+                        </div>
+                    </div>';}
+                        }
+                    } else {
+                        echo '<p>Nenhum pedido encontrado.</p>';
+                    }
+
+                 
+                    ?>
                     <div class="card"> <!--CARD PLACEHOLDER PEDIDO EM ANDAMENTO-->
                         <div class="card-top">
                             <button class="tag-filtro-preparando">
@@ -271,8 +485,6 @@ else{
                             </div>
                         </div>
                     </div>
-
-
                     <div class="card"> <!--CARD PLACEHOLDER PEDIDO CONCLUIDO-->
                         <div class="card-top">
                             <button class="tag-filtro-concluido">
@@ -340,8 +552,6 @@ else{
                             </div>
                         </div>
                     </div>
-
-
                     <div class="card"> <!--CARD PLACEHOLDER PEDIDO EM CANCELADO-->
                         <div class="card-top">
                             <button class="tag-filtro-cancelado">
@@ -479,35 +689,248 @@ else{
                             </div>
                         </div>
                     </div>
-                    <div class="card">Pedido #005</div>
-                    <div class="card">Pedido #006</div>
-                    <div class="card">Pedido #007</div>
-                    <div class="card">Pedido #008</div>
-                    <div class="card">Pedido #009</div>
-                    <div class="card">Pedido #010</div>
-                    <div class="card">Pedido #011</div>
-                    <div class="card">Pedido #012</div>
+                
                 </div>
 
                 <!-- Preparando -->
                 <div class="content-pedidos-body">
-                    <div class="card">Pedido P-01</div>
-                    <div class="card">Pedido P-02</div>
-                    <div class="card">Pedido P-03</div>
-                    <div class="card">Pedido P-04</div>
+                    <?php
+                    $query = "SELECT * FROM pedido WHERE cpf = '$cpf' ORDER BY data_pedido DESC";
+                    $result = mysqli_query($con, $query);
+                    if ($result && mysqli_num_rows($result) > 0) {
+                        foreach ($result as $pedido) {
+                            if ($pedido['status'] == 'Sendo Preparado') {
+                                $dataRaw = $pedido['data_pedido'] ?? '';
+                                if ($dataRaw && ($ts = strtotime($dataRaw)) !== false) {
+                                    $dataFmt = date('d/m/Y H:i');
+                                } else {
+                                    $dataFmt = $dataRaw ? htmlspecialchars($dataRaw) : '--';
+                                }
+                                $total = number_format((float)($pedido['preco_total'] ?? 0), 2, ',', '.');
+                                echo '<div class="card"> <!--CARD PLACEHOLDER PEDIDO EM ANDAMENTO-->
+                        <div class="card-top">
+                            <button class="tag-filtro-preparando">
+                                <i class="fa-solid fa-rotate-right"></i>
+                                Sendo Preparado
+                            </button>
+                            <button class="tag-pedido">
+                                Pedido: #' . $pedido['id'] . '
+                            </button>
+                        </div>
+                        <div class="card-mid">
+                            <div class="card-mid-dia-horario">
+                                <h1>Turno: <span>Manhã</span></h1>
+                                <h1>Dia: <span>' . $dataFmt . '</span></h1>
+                            </div>
+
+                            <div class="card-mid-detalhes-pedido">
+                            
+                                <div class="pedido-items"> <!--cada produto do pedido php-->
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="card-bottom-buttons">
+                                <button class="cancelar-pedido">
+                                    Cancelar Pedido
+                                </button>
+                                <button class="visualizar-pedido">
+                                    Visualizar Pedido
+                                </button>
+                            </div>
+                            <div class="card-bottom-preco-total">
+                                <p> R$ ' . $total  . '</p> <!--preco total pedido php-->
+                            </div>
+                        </div>
+                    </div>';
+                            }
+                        }
+                    }
+                        ?>
                 </div>
 
                 <!-- Prontos -->
                 <div class="content-pedidos-body">
-                    <div class="card">Pedido PR-01</div>
-                    <div class="card">Pedido PR-02</div>
+                    <?php
+                    $query = "SELECT * FROM pedido WHERE cpf = '$cpf' ORDER BY data_pedido DESC";
+                    $result = mysqli_query($con, $query);
+                    if ($result && mysqli_num_rows($result) > 0) {
+                        foreach ($result as $pedido) {
+                           if ($pedido['status'] == 'Concluido') {
+                                $dataRaw = $pedido['data_pedido'] ?? '';
+                                if ($dataRaw && ($ts = strtotime($dataRaw)) !== false) {
+                                    $dataFmt = date('d/m/Y H:i');
+                                } else {
+                                    $dataFmt = $dataRaw ? htmlspecialchars($dataRaw) : '--';
+                                }
+                                $total = number_format((float)($pedido['preco_total'] ?? 0), 2, ',', '.');
+                                echo '<div class="card"> <!--CARD PLACEHOLDER PEDIDO CONCLUIDO-->
+                        <div class="card-top">
+                            <button class="tag-filtro-concluido">
+                                <i class="fa-solid fa-check"></i>
+                                Concluído
+                            </button>
+                            <button class="tag-pedido">
+                                Pedido: #1234
+                            </button>
+                        </div>
+                        <div class="card-mid">
+                            <div class="card-mid-dia-horario">
+                                <h1>Turno: <span>Manhã</span></h1>
+                                <h1>Dia: <span>18/06/25</span></h1>
+                            </div>
+
+                            <div class="card-mid-detalhes-pedido">
+                                <div class="pedido-items"> <!--cada produto do pedido php-->
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                <div class="pedido-items">
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                <div class="pedido-items">
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                <div class="pedido-items">
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                <!-- mais itens aqui -->
+                            </div>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="card-bottom-buttons">
+                                <button class="cancelar-pedido" style="display: none;">
+                                    Cancelar Pedido
+                                </button>
+                            </div>
+                            <div class="card-bottom-preco-total">
+                                <p>R$ 23,00</p> <!--preco total pedido php-->
+                            </div>
+                        </div>
+                    </div>';
+                            }
+                        }
+                    }
+                        ?>
                 </div>
 
                 <!-- Entregues -->
                 <div class="content-pedidos-body">
-                    <div class="card">Pedido E-01</div>
-                    <div class="card">Pedido E-02</div>
-                    <div class="card">Pedido E-03</div>
+                     <?php
+                    $query = "SELECT * FROM pedido WHERE cpf = '$cpf' ORDER BY data_pedido DESC";
+                    $result = mysqli_query($con, $query);
+                    if ($result && mysqli_num_rows($result) > 0) {
+                        foreach ($result as $pedido) {
+                           if ($pedido['status'] == 'Cancelado') {
+                                $dataRaw = $pedido['data_pedido'] ?? '';
+                                if ($dataRaw && ($ts = strtotime($dataRaw)) !== false) {
+                                    $dataFmt = date('d/m/Y H:i');
+                                } else {
+                                    $dataFmt = $dataRaw ? htmlspecialchars($dataRaw) : '--';
+                                }
+                                $total = number_format((float)($pedido['preco_total'] ?? 0), 2, ',', '.');
+                                echo '<div class="card"> <!--CARD PLACEHOLDER PEDIDO EM CANCELADO-->
+                        <div class="card-top">
+                            <button class="tag-filtro-cancelado">
+                                <i class="fa-solid fa-xmark"></i>
+                                Cancelado
+                            </button>
+                            <button class="tag-pedido">
+                                Pedido: #'. $pedido['id'] .'
+                            </button>
+                        </div>
+                        <div class="card-mid">
+                            <div class="card-mid-dia-horario">
+                                <h1>Turno: <span>Manhã</span></h1>
+                                <h1>Dia: <span>'. $dataFmt .'</span></h1>
+                            </div>
+
+                            <div class="card-mid-detalhes-pedido">
+                                <div class="pedido-items"> <!--cada produto do pedido php-->
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                <div class="pedido-items">
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                <div class="pedido-items">
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                <div class="pedido-items">
+                                    <div class="pedido-items-name">
+                                        <h1>1x</h1> <!--Quantidade do item php-->
+                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                    </div>
+                                    <div class="pedido-items-preco">
+                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                    </div>
+                                </div>
+                                <!-- mais itens aqui -->
+                            </div>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="card-bottom-buttons">
+                                <button class="cancelar-pedido" style="display: none;">
+                                    Cancelar Pedido
+                                </button>
+                            </div>
+                            <div class="card-bottom-preco-total">
+                                <p>R$ '. number_format($total, 2, ',', '.') .'</p> <!--preco total pedido php-->
+                            </div>
+                        </div>
+                    </div>';}
+                    
+                        }
+                    }
+                        ?>
                 </div>
 
             </div>
