@@ -1872,27 +1872,151 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     foreach ($query_run as $pedido) {
                                         ?>
                                         <tr>
-                                            <td>
-                                                <h6># <?php echo $pedido['id']; ?></h6>
-                                            </td> <!--codigo pedido-->
-                                            <td>
-                                                <h6><?php echo $pedido['cpf']; ?></h6>
-                                            </td> <!--cliente pedido-->
-                                            <td>
-                                                <span><?php echo $pedido['quantidade_itens']; ?></span>
-                                            </td> <!--numero de itens do pedido-->
-                                            <td>
-                                                <h6>R$ <?php echo $pedido['preco_total']; ?></h6>
-                                            </td> <!--Valor Pedido-->
-                                            <td>
-                                                <h6><?php echo $pedido['data_pedido']; ?></h6>
-                                            </td> <!--Data do pedido-->
-                                            <td>
-                                                <strong><?php echo $pedido['status']; ?></strong>
-                                            </td> <!--Status e fase do pedido-->
+                                            <td><h6># <?php echo $pedido['id']; ?></h6></td>
+                                            <td><h6><?php echo $pedido['cpf']; ?></h6></td>
+                                            <td><span><?php echo $pedido['quantidade_itens']; ?></span></td>
+                                            <td><h6>R$ <?php echo $pedido['preco_total']; ?></h6></td>
+                                            <td><h6><?php echo $pedido['data_pedido']; ?></h6></td>
+                                            <td><strong><?php echo $pedido['status']; ?></strong></td>
+                                            <td style="display: flex; gap:1vh;">
+                                                <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
+                                                    <i class="fa-solid fa-clipboard-check"></i>
+                                                </button>
+                                                <button class="btn-visualizar-pedido-adm" data-id="<?= $pedido['id'] ?>">
+                                                    <i class="fa-regular fa-eye"></i>
+                                                </button>
+                                                <button class="btn-cancelar-pedido-adm" data-id="<?= $pedido['id'] ?>">
+                                                    <i class="fa-solid fa-xmark"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php }
+                                } ?>
+                            </tbody>
+                        </table>
+                    </div>
 
-                                            <!--DEVE - SE MUDAR A PORRA DO ESTILO PARA CADA FASE DO PEDIDO-->
-                                            <td style="display: flex; gap:1vh;"> <!--Ações do pedido-->
+                    <!-- Tabela: Hoje -->
+                    <div class="table-pedidos-hoje" style="display:none;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Pedido:</td>
+                                    <td>CPF Cliente:</td>
+                                    <td>Itens:</td>
+                                    <td>Total:</td>
+                                    <td>Data:</td>
+                                    <td>Status:</td>
+                                    <td>Ações:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $query = "SELECT * FROM pedido WHERE data_pedido = CURDATE()";
+                                $query_run = mysqli_query($con, $query);
+                                if (mysqli_num_rows($query_run) > 0) {
+                                    foreach ($query_run as $pedido) {
+                                        ?>
+                                        <tr>
+                                            <td><h6># <?php echo $pedido['id']; ?></h6></td>
+                                            <td><h6><?php echo $pedido['cpf']; ?></h6></td>
+                                            <td><span><?php echo $pedido['quantidade_itens']; ?></span></td>
+                                            <td><h6>R$ <?php echo $pedido['preco_total']; ?></h6></td>
+                                            <td><h6><?php echo $pedido['data_pedido']; ?></h6></td>
+                                            <td><strong><?php echo $pedido['status']; ?></strong></td>
+                                            <td style="display: flex; gap:1vh;">
+                                                <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
+                                                    <i class="fa-solid fa-clipboard-check"></i>
+                                                </button>
+                                                <button class="btn-visualizar-pedido-adm" data-id="<?= $pedido['id'] ?>">
+                                                    <i class="fa-regular fa-eye"></i>
+                                                </button>
+                                                <button class="btn-cancelar-pedido-adm" data-id="<?= $pedido['id'] ?>">
+                                                    <i class="fa-solid fa-xmark"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php }
+                                } ?>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Tabela: Passados -->
+                    <div class="table-pedidos-passados" style="display:none;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Pedido:</td>
+                                    <td>CPF Cliente:</td>
+                                    <td>Itens:</td>
+                                    <td>Total:</td>
+                                    <td>Data:</td>
+                                    <td>Status:</td>
+                                    <td>Ações:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $query = "SELECT * FROM pedido WHERE data_pedido < CURDATE()";
+                                $query_run = mysqli_query($con, $query);
+                                if (mysqli_num_rows($query_run) > 0) {
+                                    foreach ($query_run as $pedido) {
+                                        ?>
+                                        <tr>
+                                            <td><h6># <?php echo $pedido['id']; ?></h6></td>
+                                            <td><h6><?php echo $pedido['cpf']; ?></h6></td>
+                                            <td><span><?php echo $pedido['quantidade_itens']; ?></span></td>
+                                            <td><h6>R$ <?php echo $pedido['preco_total']; ?></h6></td>
+                                            <td><h6><?php echo $pedido['data_pedido']; ?></h6></td>
+                                            <td><strong><?php echo $pedido['status']; ?></strong></td>
+                                            <td style="display: flex; gap:1vh;">
+                                                <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
+                                                    <i class="fa-solid fa-clipboard-check"></i>
+                                                </button>
+                                                <button class="btn-visualizar-pedido-adm" data-id="<?= $pedido['id'] ?>">
+                                                    <i class="fa-regular fa-eye"></i>
+                                                </button>
+                                                <button class="btn-cancelar-pedido-adm" data-id="<?= $pedido['id'] ?>">
+                                                    <i class="fa-solid fa-xmark"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php }
+                                } ?>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Tabela: Futuros -->
+                    <div class="table-pedidos-futuros" style="display:none;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Pedido:</td>
+                                    <td>CPF Cliente:</td>
+                                    <td>Itens:</td>
+                                    <td>Total:</td>
+                                    <td>Data:</td>
+                                    <td>Status:</td>
+                                    <td>Ações:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $query = "SELECT * FROM pedido WHERE data_pedido > CURDATE()";
+                                $query_run = mysqli_query($con, $query);
+                                if (mysqli_num_rows($query_run) > 0) {
+                                    foreach ($query_run as $pedido) {
+                                        ?>
+                                        <tr>
+                                            <td><h6># <?php echo $pedido['id']; ?></h6></td>
+                                            <td><h6><?php echo $pedido['cpf']; ?></h6></td>
+                                            <td><span><?php echo $pedido['quantidade_itens']; ?></span></td>
+                                            <td><h6>R$ <?php echo $pedido['preco_total']; ?></h6></td>
+                                            <td><h6><?php echo $pedido['data_pedido']; ?></h6></td>
+                                            <td><strong><?php echo $pedido['status']; ?></strong></td>
+                                            <td style="display: flex; gap:1vh;">
                                                 <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-solid fa-clipboard-check"></i>
                                                 </button>
@@ -1949,6 +2073,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <?php
         $query = "SELECT * from pedido";
         $query_run = mysqli_query($con, $query);
+
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $pedido) {
                 // Nova consulta para obter informações do cliente
@@ -2070,20 +2195,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         }
                     });
                 });
-            });
 
-            //Fechar modal no X visualizar pedido
-            document.querySelectorAll('.btn-cancelar-cancelamento-pedido').forEach(button => {
-                button.addEventListener('click', () => {
-                    const pedidoId = button.getAttribute('data-id');
-                    const overlay = document.getElementById(`overlay_cancelar_pedido-${pedidoId}`);
-                    const modal = document.getElementById(`modal_cancelar_pedido-${pedidoId}`);
-                    if (overlay && modal) {
-                        overlay.classList.remove('active');
-                        modal.classList.remove('active');
-                    }
-                });
-            }); 
+                //Fechar modal no X visualizar pedido
+                document.querySelectorAll('.btn-cancelar-cancelamento-pedido').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const pedidoId = button.getAttribute('data-id');
+                        const overlay = document.getElementById(`overlay_cancelar_pedido-${pedidoId}`);
+                        const modal = document.getElementById(`modal_cancelar_pedido-${pedidoId}`);
+                        if (overlay && modal) {
+                            overlay.classList.remove('active');
+                            modal.classList.remove('active');
+                        }
+                    });
+                }); 
+            });
         </script>
 
         <!--modal visualizar pedido-->

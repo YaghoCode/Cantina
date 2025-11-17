@@ -276,8 +276,8 @@ if (!isset($_SESSION['cpf'])) {
         <h6 class="cart-total-h6">R$ 00,00 <!--Price calculado--></h6>
       </div>
       <div class="finalizar-pedido">
-        <button type="button" id="btn-finalizar-pedidos">
-           <a href="/cantinarepositorio/subpages/finalizar_pedido_cliente.php"></a>
+        <button type="button" id="btn-finalizar-pedidos"
+                data-href="/cantinarepositorio/subpages/finalizar_pedido_cliente.php">
           Finalizar Pedido
         </button>
       </div>
@@ -1010,6 +1010,27 @@ if (!isset($_SESSION['cpf'])) {
     atualizarCarrinhoVisual();
 
     ////////////////////////////////////////
+
+    // Handler dedicado para o botão "Finalizar Pedido"
+    (function () {
+    const btnFinalizar = document.getElementById('btn-finalizar-pedidos');
+    if (!btnFinalizar) return;
+
+    btnFinalizar.addEventListener('click', (e) => {
+      // checa carrinho
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      if (!carrinho.length) {
+        alert('Carrinho vazio. Adicione itens antes de finalizar.');
+        return;
+      }
+
+      // opcional: salvar/update localStorage antes de redirecionar
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+      const href = btnFinalizar.dataset.href || '/cantinarepositorio/subpages/finalizar_pedido_cliente.php';
+      window.location.href = href;
+    });
+  })();
   </script>
 
 

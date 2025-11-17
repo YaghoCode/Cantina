@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15/11/2025 às 12:10
+-- Tempo de geração: 17/11/2025 às 23:55
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -148,7 +148,40 @@ CREATE TABLE `pedido` (
 
 INSERT INTO `pedido` (`id`, `cpf`, `nome_itens`, `quantidade_itens`, `preco_itens`, `preco_total`, `status`, `data_pedido`, `hora_pedido`) VALUES
 (9, '12345678940', ' Pizza de Calabresa, X-Salada, Esfiha de Cliente', '1x, 1x, 1x', 'R$35,00, R$12,00, R$7,00', 54.00, 'Sendo Preparado', '2025-11-14', '11:34:32'),
-(10, '77777777777', 'Esfiha de Carne, Hamburguer Cheddar Bacon, X-Salada', '1x, 1x, 3x', 'R$7,00, R$7,00, R$36,00', 50.00, 'Sendo Preparado', '2025-11-14', '11:35:49');
+(10, '77777777777', 'Esfiha de Carne, Hamburguer Cheddar Bacon, X-Salada', '1x, 1x, 3x', 'R$7,00, R$7,00, R$36,00', 50.00, 'Sendo Preparado', '2025-11-14', '11:35:49'),
+(12, '12345678940', 'Halls Cereja, Mousse de Limão, Trident Menta', '2x, 3x, 1x', 'R$10,00, R$9,00, R$4,00', 23.00, 'Cancelado', '2025-11-15', '10:05:36'),
+(13, '77777777777', 'Bauru, Halls Cereja, Mousse de Limão', '2x, 2x, 3x', 'R$14,00, R$10,00, R$9,00', 33.00, 'Concluído', '2025-11-15', '10:14:09'),
+(14, '12345678940', 'Pizza de Calabresa, Hamburguer Cheddar Bacon', '1x, 1x', 'R$35,00, R$7,00', 42.00, 'Sendo Preparado', '2025-11-17', '19:54:46');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pedido_itens`
+--
+
+CREATE TABLE `pedido_itens` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pedido_id` int(10) UNSIGNED NOT NULL,
+  `nome_item` varchar(255) NOT NULL,
+  `quantidade` int(10) UNSIGNED NOT NULL,
+  `preco_item` decimal(10,2) NOT NULL,
+  `data_pedido` date NOT NULL DEFAULT curdate(),
+  `hora_pedido` time NOT NULL DEFAULT curtime()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `pedido_itens`
+--
+
+INSERT INTO `pedido_itens` (`id`, `pedido_id`, `nome_item`, `quantidade`, `preco_item`, `data_pedido`, `hora_pedido`) VALUES
+(1, 12, 'Halls Cereja', 2, 10.00, '2025-11-15', '14:05:36'),
+(2, 12, 'Mousse de Limão', 3, 9.00, '2025-11-15', '14:05:36'),
+(3, 12, 'Trident Menta', 1, 4.00, '2025-11-15', '14:05:36'),
+(4, 13, 'Bauru', 2, 14.00, '2025-11-15', '14:14:09'),
+(5, 13, 'Halls Cereja', 2, 10.00, '2025-11-15', '14:14:09'),
+(6, 13, 'Mousse de Limão', 3, 9.00, '2025-11-15', '14:14:09'),
+(7, 14, 'Pizza de Calabresa', 1, 35.00, '2025-11-17', '23:54:46'),
+(8, 14, 'Hamburguer Cheddar Bacon', 1, 7.00, '2025-11-17', '23:54:46');
 
 --
 -- Índices para tabelas despejadas
@@ -179,6 +212,13 @@ ALTER TABLE `pedido`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices de tabela `pedido_itens`
+--
+ALTER TABLE `pedido_itens`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pedido_id` (`pedido_id`);
+
+--
 -- AUTO_INCREMENT para tabelas despejadas
 --
 
@@ -192,7 +232,23 @@ ALTER TABLE `estoque`
 -- AUTO_INCREMENT de tabela `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT de tabela `pedido_itens`
+--
+ALTER TABLE `pedido_itens`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para tabelas `pedido_itens`
+--
+ALTER TABLE `pedido_itens`
+  ADD CONSTRAINT `fk_pedidoitens_pedido` FOREIGN KEY (`pedido_id`) REFERENCES `pedido` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
