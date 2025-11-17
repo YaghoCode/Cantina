@@ -38,10 +38,9 @@
             <div class="content-pagamento-page-mid">
                 <div class="">
                     <img id="pix-qrcode" alt="QR Code PIX" style="max-width:360px;">
-                    <p>QR CODE</p>
                 </div>
                 <div class="valor-total-pagamento">
-                    <h1>Valor Total</h1>
+                    <h1>Valor Total:</h1>
                     <h2>R$ 32,00</h2>
                 </div>
                 <div class="aviso-pagamento">

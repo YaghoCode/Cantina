@@ -3240,6 +3240,10 @@ input:checked + .slider:before {
     font-weight: 600;
 }
 
+.cpf-cliente-editar{
+    cursor: not-allowed;
+}
+
 .form-editar-clientes-adm-group input,
 .form-editar-clientes-adm-row input,
 .form-editar-clientes-adm-group select {
@@ -3336,6 +3340,15 @@ select:focus {
     justify-content: flex-end;
     width: 95%;
     height: 25%;
+    gap: 2vh;
+}
+
+.modal-excluir-cliente-adm-bottom form{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 95%;
+    height: 100%;
     gap: 2vh;
 }
 
@@ -3666,10 +3679,11 @@ select:focus {
 .table-pedidos-todos table tbody tr td strong{
     padding: 0 0.4rem;
     border-radius: 0.5rem;
-    background-color:  var(--cor-secundaria);
-    color: white;
+    color: rgb(0, 0, 0);
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.90rem;
+    border-color: black;
+    border: 1px solid;
 }
 
 .table-pedidos-todos table tbody tr td button{
@@ -4195,7 +4209,7 @@ select:focus {
 
 .content-modal-visualizar-top-tagFiltro h6{
     border: 1px solid rgba(0, 0, 0, 0.148);
-    padding: 0.3rem 0.6rem;
+    padding: 0.3rem 0.6rem; 
     border-radius: 1rem;
     background-color: var(--cor-secundaria);
     color: white;
@@ -4425,8 +4439,8 @@ select:focus {
 
 .tabela-items-pedido h3{
     padding: 0.2rem 0.4rem;
-    background-color: #0000003d;
-    border-radius: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.657);
+    border-radius: 1rem
 }
 
 .tabela-items-pedido h3,h4,h5{

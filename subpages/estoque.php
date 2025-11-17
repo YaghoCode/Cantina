@@ -1626,7 +1626,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </div>
                                             <div class="form-editar-clientes-adm-group">
                                                 <label for="cpf">CPF:</label>
-                                                <input type="text" name="cpf"
+                                                <input class="cpf-cliente-editar" type="text" name="cpf"
                                                     id="cpf_editar_clientes_admin-<?= $cliente['cpf'] ?>"
                                                     value="<?= htmlspecialchars($cliente['cpf']) ?>" disabled>
                                                 <!--cpf usuario no value-->
