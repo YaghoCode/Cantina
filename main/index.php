@@ -424,7 +424,7 @@ if (isset($_SESSION['cpf'])) {
           </div>
           <div class="title-cards-info">
             <h1>
-              Igredientes frescos
+              Ingredientes frescos
             </h1>
           </div>
           <div class="description-cards-info">

@@ -1170,6 +1170,18 @@ a{
     height: 100%;
 }
 
+.mid-group-data-pedido button{
+    padding: 0.5rem;
+    width: 7vw;
+    border: 1px solid rgba(0, 0, 0, 0.164);
+    border-radius: 0.3rem;
+    transition: 0.3s ease;
+}
+
+.mid-group-data-pedido button:hover{
+    border-color: var(--cor-itemdesconto);
+}
+
 .mid-group-data-pedido h1{
     font-size: 1.1rem;
     font-family: var(--font-titulo);

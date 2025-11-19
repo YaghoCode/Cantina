@@ -1036,6 +1036,9 @@ if (isset($_SESSION['cpf'])) {
                                 <h1>Turno:</h1>
                                 <span>Manhã</span><!--php turno pedido-->
                             </div>
+                            <div class="mid-group-data-pedido">
+                                <button>Avaliar Pedido</button>
+                            </div>
                         </div>
                     </div>
                     <div class="content-modal-visualizar-mid-row">
