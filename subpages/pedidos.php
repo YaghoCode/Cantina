@@ -212,6 +212,10 @@ if (isset($_SESSION['cpf'])) {
                                     $dataFmt = $dataRaw ? htmlspecialchars($dataRaw) : '--';
                                 }
                                 $total = number_format((float)($pedido['preco_total'] ?? 0), 2, ',', '.');
+
+                                $query_items = "SELECT * FROM pedido_itens WHERE pedido_id = '" . $pedido['id'] . "'";
+                                $result_items = mysqli_query($con, $query_items);
+
                                 echo '<div class="card"> <!--CARD PLACEHOLDER PEDIDO EM ANDAMENTO-->
                         <div class="card-top">
                             <button class="tag-filtro-preparando">
@@ -230,15 +234,20 @@ if (isset($_SESSION['cpf'])) {
 
                             <div class="card-mid-detalhes-pedido">
                             
-                                <div class="pedido-items"> <!--cada produto do pedido php-->
+                          ';
+                                foreach ($result_items as $itens) {
+                                    echo '<div class="pedido-items"> <!--cada produto do pedido php-->
                                     <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                        <h1>' . $itens['quantidade'] . 'x</h1> <!--Quantidade do item php-->
+                                        <h2>' . $itens['nome_item'] . '</h2> <!--Nome do produto php--->
                                     </div>
                                     <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                        <p>R$' . $itens['preco_item'] . '</p> <!--preço produto php--->
                                     </div>
-                                </div>
+                                </div>';
+                                }
+
+                                echo '
                                 
                             </div>
                         </div>
@@ -265,6 +274,10 @@ if (isset($_SESSION['cpf'])) {
                                     $dataFmt = $dataRaw ? htmlspecialchars($dataRaw) : '--';
                                 }
                                 $total = number_format((float)($pedido['preco_total'] ?? 0), 2, ',', '.');
+
+                                $query_items = "SELECT * FROM pedido_itens WHERE pedido_id = '" . $pedido['id'] . "'";
+                                $result_items = mysqli_query($con, $query_items);
+
                                 echo '<div class="card"> <!--CARD PLACEHOLDER PEDIDO CONCLUIDO-->
                         <div class="card-top">
                             <button class="tag-filtro-concluido">
@@ -282,42 +295,20 @@ if (isset($_SESSION['cpf'])) {
                             </div>
 
                             <div class="card-mid-detalhes-pedido">
-                                <div class="pedido-items"> <!--cada produto do pedido php-->
+                                ';
+                                foreach ($result_items as $itens) {
+                                    echo '<div class="pedido-items"> <!--cada produto do pedido php-->
                                     <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                        <h1>' . $itens['quantidade'] . 'x</h1> <!--Quantidade do item php-->
+                                        <h2>' . $itens['nome_item'] . '</h2> <!--Nome do produto php--->
                                     </div>
                                     <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                        <p>R$' . $itens['preco_item'] . '</p> <!--preço produto php--->
                                     </div>
-                                </div>
-                                <div class="pedido-items">
-                                    <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
-                                    </div>
-                                    <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
-                                    </div>
-                                </div>
-                                <div class="pedido-items">
-                                    <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
-                                    </div>
-                                    <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
-                                    </div>
-                                </div>
-                                <div class="pedido-items">
-                                    <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
-                                    </div>
-                                    <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
-                                    </div>
-                                </div>
+                                </div>';
+                                }
+
+                                echo '
                                 <!-- mais itens aqui -->
                             </div>
                         </div>
@@ -341,6 +332,10 @@ if (isset($_SESSION['cpf'])) {
                                     $dataFmt = $dataRaw ? htmlspecialchars($dataRaw) : '--';
                                 }
                                 $total = number_format((float)($pedido['preco_total'] ?? 0), 2, ',', '.');
+
+                                $query_items = "SELECT * FROM pedido_itens WHERE pedido_id = '" . $pedido['id'] . "'";
+                                $result_items = mysqli_query($con, $query_items);
+
                                 echo '<div class="card"> <!--CARD PLACEHOLDER PEDIDO EM CANCELADO-->
                         <div class="card-top">
                             <button class="tag-filtro-cancelado">
@@ -348,52 +343,30 @@ if (isset($_SESSION['cpf'])) {
                                 Cancelado
                             </button>
                             <button class="tag-pedido">
-                                Pedido: #'. $pedido['id'] .'
+                                Pedido: #' . $pedido['id'] . '
                             </button>
                         </div>
                         <div class="card-mid">
                             <div class="card-mid-dia-horario">
                                 <h1>Turno: <span>Manhã</span></h1>
-                                <h1>Dia: <span>'. $dataFmt .'</span></h1>
+                                <h1>Dia: <span>' . $dataFmt . '</span></h1>
                             </div>
 
                             <div class="card-mid-detalhes-pedido">
-                                <div class="pedido-items"> <!--cada produto do pedido php-->
+                                   ';
+                                foreach ($result_items as $itens) {
+                                    echo '<div class="pedido-items"> <!--cada produto do pedido php-->
                                     <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
+                                        <h1>' . $itens['quantidade'] . 'x</h1> <!--Quantidade do item php-->
+                                        <h2>' . $itens['nome_item'] . '</h2> <!--Nome do produto php--->
                                     </div>
                                     <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
+                                        <p>R$' . $itens['preco_item'] . '</p> <!--preço produto php--->
                                     </div>
-                                </div>
-                                <div class="pedido-items">
-                                    <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
-                                    </div>
-                                    <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
-                                    </div>
-                                </div>
-                                <div class="pedido-items">
-                                    <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
-                                    </div>
-                                    <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
-                                    </div>
-                                </div>
-                                <div class="pedido-items">
-                                    <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
-                                    </div>
-                                    <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
-                                    </div>
-                                </div>
+                                </div>';
+                                }
+
+                                echo '
                                 <!-- mais itens aqui -->
                             </div>
                         </div>
@@ -404,16 +377,17 @@ if (isset($_SESSION['cpf'])) {
                                 </button>
                             </div>
                             <div class="card-bottom-preco-total">
-                                <p>R$ '. number_format($total, 2, ',', '.') .'</p> <!--preco total pedido php-->
+                                <p>R$ ' . $total . '</p> <!--preco total pedido php-->
                             </div>
                         </div>
-                    </div>';}
+                    </div>';
+                            }
                         }
                     } else {
                         echo '<p>Nenhum pedido encontrado.</p>';
                     }
 
-                 
+
                     ?>
                     <div class="card"> <!--CARD PLACEHOLDER PEDIDO EM ANDAMENTO-->
                         <div class="card-top">
@@ -689,7 +663,7 @@ if (isset($_SESSION['cpf'])) {
                             </div>
                         </div>
                     </div>
-                
+
                 </div>
 
                 <!-- Preparando -->
@@ -754,7 +728,7 @@ if (isset($_SESSION['cpf'])) {
                             }
                         }
                     }
-                        ?>
+                    ?>
                 </div>
 
                 <!-- Prontos -->
@@ -764,7 +738,7 @@ if (isset($_SESSION['cpf'])) {
                     $result = mysqli_query($con, $query);
                     if ($result && mysqli_num_rows($result) > 0) {
                         foreach ($result as $pedido) {
-                           if ($pedido['status'] == 'Concluido') {
+                            if ($pedido['status'] == 'Concluido') {
                                 $dataRaw = $pedido['data_pedido'] ?? '';
                                 if ($dataRaw && ($ts = strtotime($dataRaw)) !== false) {
                                     $dataFmt = date('d/m/Y H:i');
@@ -842,17 +816,17 @@ if (isset($_SESSION['cpf'])) {
                             }
                         }
                     }
-                        ?>
+                    ?>
                 </div>
 
                 <!-- Entregues -->
                 <div class="content-pedidos-body">
-                     <?php
+                    <?php
                     $query = "SELECT * FROM pedido WHERE cpf = '$cpf' ORDER BY data_pedido DESC";
                     $result = mysqli_query($con, $query);
                     if ($result && mysqli_num_rows($result) > 0) {
                         foreach ($result as $pedido) {
-                           if ($pedido['status'] == 'Cancelado') {
+                            if ($pedido['status'] == 'Cancelado') {
                                 $dataRaw = $pedido['data_pedido'] ?? '';
                                 if ($dataRaw && ($ts = strtotime($dataRaw)) !== false) {
                                     $dataFmt = date('d/m/Y H:i');
@@ -867,13 +841,13 @@ if (isset($_SESSION['cpf'])) {
                                 Cancelado
                             </button>
                             <button class="tag-pedido">
-                                Pedido: #'. $pedido['id'] .'
+                                Pedido: #' . $pedido['id'] . '
                             </button>
                         </div>
                         <div class="card-mid">
                             <div class="card-mid-dia-horario">
                                 <h1>Turno: <span>Manhã</span></h1>
-                                <h1>Dia: <span>'. $dataFmt .'</span></h1>
+                                <h1>Dia: <span>' . $dataFmt . '</span></h1>
                             </div>
 
                             <div class="card-mid-detalhes-pedido">
@@ -923,14 +897,14 @@ if (isset($_SESSION['cpf'])) {
                                 </button>
                             </div>
                             <div class="card-bottom-preco-total">
-                                <p>R$ '. number_format($total, 2, ',', '.') .'</p> <!--preco total pedido php-->
+                                <p>R$ ' . number_format($total, 2, ',', '.') . '</p> <!--preco total pedido php-->
                             </div>
                         </div>
-                    </div>';}
-                    
+                    </div>';
+                            }
                         }
                     }
-                        ?>
+                    ?>
                 </div>
 
             </div>
