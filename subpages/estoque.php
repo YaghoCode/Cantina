@@ -37,6 +37,12 @@ $total_value_result = 'R$ ' . number_format($total_value_row['total_value'], 2, 
 $query_users = "SELECT * from cliente";
 $query_run_user = mysqli_query($con, $query_users);
 $total_clientes = mysqli_num_rows($query_run_user);
+$query_users_ativos = "SELECT * from cliente where status = 1";
+$query_run_user_ativos = mysqli_query($con, $query_users_ativos);
+$total_clientes_ativos = mysqli_num_rows($query_run_user_ativos);
+$query_pedidos = "SELECT * from pedido";
+$query_run_pedidos = mysqli_query($con, $query_pedidos);
+$total_pedidos = mysqli_num_rows($query_run_pedidos);
 
 ?>
 
@@ -235,8 +241,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <li id="btn-clientes"><i class="fa-solid fa-users"></i> Clientes</li>
                     <li id="btn-pedidos"><i class="fa-solid fa-clipboard-list"></i> Pedidos</li>
                     <li id="btn-configuracoes" <?php if ($user_data['adm'] != 1) {
-                                                    echo 'style="display:none;"';
-                                                } ?>;>
+                        echo 'style="display:none;"';
+                    } ?>;>
                         <i class="fa-solid fa-gear"></i> Configurações
                     </li>
 
@@ -428,7 +434,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -462,7 +468,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -487,7 +493,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -518,7 +524,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -543,7 +549,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -577,7 +583,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -603,7 +609,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -634,7 +640,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -660,7 +666,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -694,7 +700,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -719,7 +725,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -753,7 +759,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -779,7 +785,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $item) {
                                         $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-                                ?>
+                                        ?>
                                         <tr>
                                             <td> <img src="./imgbd/<?php echo $item['img']; ?>" alt=""> </td> <!--Img Item-->
                                             <td>
@@ -813,7 +819,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
 
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                                 </tr>
                             </tbody>
@@ -835,7 +841,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             foreach ($query_run as $item) {
                 $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
                 $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-        ?>
+                ?>
                 <div class="modal-overlay-estoque" id="modal-<?= $item['id'] ?>">
                     <div class="modal-estoque-visualizar-item" id="modal-visualizar-item">
                         <div class="modal-estoque-top">
@@ -907,7 +913,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
 
-        <?php }
+            <?php }
         } ?>
 
         <script>
@@ -952,7 +958,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $query_run = mysqli_query($con, $query);
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $item) {
-        ?>
+                ?>
                 <div class="overlay-modal-estoque-deletar-item">
 
                 </div>
@@ -972,7 +978,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
 
-        <?php }
+            <?php }
         } ?>
 
         <script>
@@ -1012,12 +1018,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     const produtoId = button.getAttribute('data-id');
                     console.log('ID enviado:', produtoId);
                     fetch('/cantinarepositorio/subpages/delete_item.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            body: 'id=' + encodeURIComponent(produtoId)
-                        })
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'id=' + encodeURIComponent(produtoId)
+                    })
                         .then(response => response.json())
                         .then(data => { // Corrigido: Adicionado parênteses ao redor de "data"
                             if (data.success) {
@@ -1046,7 +1052,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             foreach ($query_run as $item) {
                 $preco = 'R$ ' . number_format($item['preco'], 2, ',', '.');
                 $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
-        ?>
+                ?>
                 <!-- MODAL EDITAR ITEM -->
                 <div class="overlay-editar-produto" id="overlayEditar-<?= $item['id'] ?>">
                     <div class="modal-editar-produto" id="modalEditar-<?= $item['id'] ?>">
@@ -1138,7 +1144,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </form>
                     </div>
                 </div>
-        <?php
+                <?php
             }
         }
         ?>
@@ -1321,7 +1327,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </div>
                         </div>
                         <div class="cards-clientes-number-stats">
-                            <h1>5</h1>
+                            <h1><?php echo $total_clientes_ativos; ?></h1>
                         </div>
                     </div>
                     <div class="cards-clientes-stats" id="cards-clientes-total-p">
@@ -1334,7 +1340,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </div>
                         </div>
                         <div class="cards-clientes-number-stats">
-                            <h1>109</h1>
+                            <h1><?php echo $total_pedidos; ?></h1>
                         </div>
                     </div>
                 </div>
@@ -1377,7 +1383,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 $query_run = mysqli_query($con, $query);
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $cliente) {
-                                ?>
+                                        $query_pedidos_clientes = "SELECT * FROM pedido WHERE cpf = '" . $cliente['cpf'] . "' ORDER BY data_pedido DESC";
+                                        $query_run_PD = mysqli_query($con, $query_pedidos_clientes);
+                                        $sql_stats = "SELECT MAX(data_pedido) AS last_order, COUNT(*) AS total_orders FROM pedido WHERE cpf = '" . $cliente['cpf'] . "'";
+                                        $res_stats = mysqli_query($con, $sql_stats);
+                                        $row_stats = mysqli_fetch_assoc($res_stats);
+                                        $last_order = $row_stats['last_order'] ?? null;
+
+                                        $status = 'Inativo';
+                                        if ($last_order) {
+                                            $last_ts = strtotime($last_order);
+                                            $threshold = strtotime('-30 days');
+                                            if ($last_ts >= $threshold) {
+                                                $status = 'Ativo';
+                                            }
+                                        }
+                                          if ($status === 'Ativo') {
+                                $update_sql = "UPDATE cliente SET status = 1 WHERE cpf = '".$cliente['cpf']."'";
+                                mysqli_query($con, $update_sql);
+                             }
+                             else {
+                                $update_sql = "UPDATE cliente SET status = 0 WHERE cpf = '".$cliente['cpf']."'";
+                                mysqli_query($con, $update_sql);
+                             }
+                                        ?>
                                         <tr>
                                             <td>
                                                 <h6><?php echo $cliente['nome']; ?></h6>
@@ -1392,10 +1421,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <h6><?php echo $cliente['turma']; ?></h6> <!--turma -->
                                             </td>
                                             <td>
-                                                <span>Ainda não fizemos</span>
+                                                <span><?php if (mysqli_num_rows($query_run_PD) > 0) {
+                                                    echo mysqli_num_rows($query_run_PD);
+                                                } else {
+                                                    echo 'Nenhum pedido';
+                                                } ?></span>
                                             </td> <!--numero de pedidos feito do cliente-->
                                             <td>
-                                                <strong>Ativo</strong>
+                                                <strong><?php echo $status; ?></strong>
                                             </td>
                                             <td style="display: flex;gap:1vh;">
                                                 <button class="editar-cliente-adm" data-id="<?= $cliente['cpf'] ?>">
@@ -1406,7 +1439,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 </button>
                                             </td>
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -1425,7 +1458,62 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                $query = "SELECT * from cliente";
+                                $query_run = mysqli_query($con, $query);
+                                if (mysqli_num_rows($query_run) > 0) {
+                                    foreach ($query_run as $cliente) {
+                                        $query_pedidos_clientes = "SELECT * FROM pedido WHERE cpf = '" . $cliente['cpf'] . "' ORDER BY data_pedido DESC";
+                                        $query_run_PD = mysqli_query($con, $query_pedidos_clientes);
+                                        $sql_stats = "SELECT MAX(data_pedido) AS last_order, COUNT(*) AS total_orders FROM pedido WHERE cpf = '" . $cliente['cpf'] . "'";
+                                        $res_stats = mysqli_query($con, $sql_stats);
+                                        $row_stats = mysqli_fetch_assoc($res_stats);
+                                        $last_order = $row_stats['last_order'] ?? null;
 
+                                        $status = 'Inativo';
+                                        if ($last_order) {
+                                            $last_ts = strtotime($last_order);
+                                            $threshold = strtotime('-30 days');
+                                            if ($last_ts >= $threshold) {
+                                                $status = 'Ativo';
+                                            }
+                                        }
+                                          
+                                        ?>
+                                        <tr>
+                                            <td>
+                                                <h6><?php echo $cliente['nome']; ?></h6>
+                                            </td> <!--nome cliente-->
+                                            <td>
+                                                <h6><?php echo $cliente['email']; ?></h6>
+                                            </td> <!--email cliente-->
+                                            <td>
+                                                <h6><?php echo $cliente['cpf']; ?></h6>
+                                            </td> <!--cpf cliente-->
+                                            <td>
+                                                <h6><?php echo $cliente['turma']; ?></h6> <!--turma -->
+                                            </td>
+                                            <td>
+                                                <span><?php if (mysqli_num_rows($query_run_PD) > 0) {
+                                                    echo mysqli_num_rows($query_run_PD);
+                                                } else {
+                                                    echo 'Nenhum pedido';
+                                                } ?></span>
+                                            </td> <!--numero de pedidos feito do cliente-->
+                                            <td>
+                                                <strong><?php echo $status; ?></strong>
+                                            </td>
+                                            <td style="display: flex;gap:1vh;">
+                                                <button class="editar-cliente-adm" data-id="<?= $cliente['cpf'] ?>">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                <button class="deletar-cliente-adm" data-id="<?= $cliente['cpf'] ?>">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php }
+                                } ?>
                             </tbody>
                         </table>
                     </div>
@@ -1443,7 +1531,62 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                $query = "SELECT * from cliente";
+                                $query_run = mysqli_query($con, $query);
+                                if (mysqli_num_rows($query_run) > 0) {
+                                    foreach ($query_run as $cliente) {
+                                        $query_pedidos_clientes = "SELECT * FROM pedido WHERE cpf = '" . $cliente['cpf'] . "' ORDER BY data_pedido DESC";
+                                        $query_run_PD = mysqli_query($con, $query_pedidos_clientes);
+                                        $sql_stats = "SELECT MAX(data_pedido) AS last_order, COUNT(*) AS total_orders FROM pedido WHERE cpf = '" . $cliente['cpf'] . "'";
+                                        $res_stats = mysqli_query($con, $sql_stats);
+                                        $row_stats = mysqli_fetch_assoc($res_stats);
+                                        $last_order = $row_stats['last_order'] ?? null;
 
+                                        $status = 'Inativo';
+                                        if ($last_order) {
+                                            $last_ts = strtotime($last_order);
+                                            $threshold = strtotime('-30 days');
+                                            if ($last_ts >= $threshold) {
+                                                $status = 'Ativo';
+                                            }
+                                        }
+                                          
+                                        ?>
+                                        <tr>
+                                            <td>
+                                                <h6><?php echo $cliente['nome']; ?></h6>
+                                            </td> <!--nome cliente-->
+                                            <td>
+                                                <h6><?php echo $cliente['email']; ?></h6>
+                                            </td> <!--email cliente-->
+                                            <td>
+                                                <h6><?php echo $cliente['cpf']; ?></h6>
+                                            </td> <!--cpf cliente-->
+                                            <td>
+                                                <h6><?php echo $cliente['turma']; ?></h6> <!--turma -->
+                                            </td>
+                                            <td>
+                                                <span><?php if (mysqli_num_rows($query_run_PD) > 0) {
+                                                    echo mysqli_num_rows($query_run_PD);
+                                                } else {
+                                                    echo 'Nenhum pedido';
+                                                } ?></span>
+                                            </td> <!--numero de pedidos feito do cliente-->
+                                            <td>
+                                                <strong><?php echo $status; ?></strong>
+                                            </td>
+                                            <td style="display: flex;gap:1vh;">
+                                                <button class="editar-cliente-adm" data-id="<?= $cliente['cpf'] ?>">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                <button class="deletar-cliente-adm" data-id="<?= $cliente['cpf'] ?>">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php }
+                                } ?>
                             </tbody>
                         </table>
                     </div>
@@ -1461,7 +1604,59 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 </tr>
                             </thead>
                             <tbody>
+                                
+                                <?php
+                                $query = "SELECT * from cliente WHERE status = 0";
+                                $query_run = mysqli_query($con, $query);
+                                if (mysqli_num_rows($query_run) > 0) {
+                                    foreach ($query_run as $cliente) {
+                                        $query_pedidos_clientes = "SELECT * FROM pedido WHERE cpf = '" . $cliente['cpf'] . "' ORDER BY data_pedido DESC";
+                                        $query_run_PD = mysqli_query($con, $query_pedidos_clientes);
 
+                                        $status = 'Inativo';
+                                        if ($last_order) {
+                                            $last_ts = strtotime($last_order);
+                                            $threshold = strtotime('-30 days');
+                                            if ($last_ts >= $threshold) {
+                                                $status = 'Ativo';
+                                            }
+                                        }
+                                          
+                                        ?>
+                                        <tr>
+                                            <td>
+                                                <h6><?php echo $cliente['nome']; ?></h6>
+                                            </td> <!--nome cliente-->
+                                            <td>
+                                                <h6><?php echo $cliente['email']; ?></h6>
+                                            </td> <!--email cliente-->
+                                            <td>
+                                                <h6><?php echo $cliente['cpf']; ?></h6>
+                                            </td> <!--cpf cliente-->
+                                            <td>
+                                                <h6><?php echo $cliente['turma']; ?></h6> <!--turma -->
+                                            </td>
+                                            <td>
+                                                <span><?php if (mysqli_num_rows($query_run_PD) > 0) {
+                                                    echo mysqli_num_rows($query_run_PD);
+                                                } else {
+                                                    echo 'Nenhum pedido';
+                                                } ?></span>
+                                            </td> <!--numero de pedidos feito do cliente-->
+                                            <td>
+                                                <strong><?php echo $status; ?></strong>
+                                            </td>
+                                            <td style="display: flex;gap:1vh;">
+                                                <button class="editar-cliente-adm" data-id="<?= $cliente['cpf'] ?>">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                <button class="deletar-cliente-adm" data-id="<?= $cliente['cpf'] ?>">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php }
+                                } ?>
                             </tbody>
                         </table>
                     </div>
@@ -1479,7 +1674,58 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                $query = "SELECT * from cliente WHERE status = 0";
+                                $query_run = mysqli_query($con, $query);
+                                if (mysqli_num_rows($query_run) > 0) {
+                                    foreach ($query_run as $cliente) {
+                                        $query_pedidos_clientes = "SELECT * FROM pedido WHERE cpf = '" . $cliente['cpf'] . "' ORDER BY data_pedido DESC";
+                                        $query_run_PD = mysqli_query($con, $query_pedidos_clientes);
 
+                                        $status = 'Inativo';
+                                        if ($last_order) {
+                                            $last_ts = strtotime($last_order);
+                                            $threshold = strtotime('-30 days');
+                                            if ($last_ts >= $threshold) {
+                                                $status = 'Ativo';
+                                            }
+                                        }
+                                         
+                                        ?>
+                                        <tr>
+                                            <td>
+                                                <h6><?php echo $cliente['nome']; ?></h6>
+                                            </td> <!--nome cliente-->
+                                            <td>
+                                                <h6><?php echo $cliente['email']; ?></h6>
+                                            </td> <!--email cliente-->
+                                            <td>
+                                                <h6><?php echo $cliente['cpf']; ?></h6>
+                                            </td> <!--cpf cliente-->
+                                            <td>
+                                                <h6><?php echo $cliente['turma']; ?></h6> <!--turma -->
+                                            </td>
+                                            <td>
+                                                <span><?php if (mysqli_num_rows($query_run_PD) > 0) {
+                                                    echo mysqli_num_rows($query_run_PD);
+                                                } else {
+                                                    echo 'Nenhum pedido';
+                                                } ?></span>
+                                            </td> <!--numero de pedidos feito do cliente-->
+                                            <td>
+                                                <strong><?php echo $status; ?></strong>
+                                            </td>
+                                            <td style="display: flex;gap:1vh;">
+                                                <button class="editar-cliente-adm" data-id="<?= $cliente['cpf'] ?>">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                <button class="deletar-cliente-adm" data-id="<?= $cliente['cpf'] ?>">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php }
+                                } ?>
                             </tbody>
                         </table>
                     </div>
@@ -1488,7 +1734,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
 
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("DOMContentLoaded", function () {
                 const botoesFiltro = document.querySelectorAll(".clientes-filtro-options button");
                 const contentClientes = document.querySelector(".content-clientes-bottom");
                 if (!contentClientes) return;
@@ -1532,8 +1778,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         const qtd = parseInt(linha.querySelector("td:nth-child(5) span")?.textContent || "0");
                         const deveMostrar =
                             tipo === "ativo" ? qtd >= 5 :
-                            tipo === "inativo" ? qtd < 5 :
-                            true;
+                                tipo === "inativo" ? qtd < 5 :
+                                    true;
 
                         if (deveMostrar) fadeIn(linha);
                         else fadeOut(linha);
@@ -1587,7 +1833,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $cliente) {
-        ?>
+                ?>
                 <!--Modal editar clientes-->
                 <div class="modal-overlay-clientes-editar" id="overlayEditarCliente-<?= $cliente['cpf'] ?>">
                     <div class="modal-clientes-editar" id="modalEditarCliente-<?= $cliente['cpf'] ?>">
@@ -1653,6 +1899,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                     </option>
                                                     <option value="3DS" <?= $cliente['turma'] == "3DS" ? 'selected' : '' ?>>3DS
                                                     </option>
+                                                    <option value="1ADM" <?= $cliente['turma'] == "1ADM" ? 'selected' : '' ?>> 1ADM
+                                                    </option>
+                                                    <option value="2ADM" <?= $cliente['turma'] == "2ADM" ? 'selected' : '' ?>> 2ADM
+                                                    </option>
+                                                    <option value="3ADM" <?= $cliente['turma'] == "3ADM" ? 'selected' : '' ?>>3ADM
+                                                    </option>
+                                                    <option value="1RH" <?= $cliente['turma'] == "1RH" ? 'selected' : '' ?>> 1RH
+                                                    </option>
+                                                    <option value="2RH" <?= $cliente['turma'] == "2RH" ? 'selected' : '' ?>> 2RH
+                                                    </option>
+                                                    <option value="3RH" <?= $cliente['turma'] == "3RH" ? 'selected' : '' ?>>3RH
+                                                    </option>
+                                                    <option value="1JD" <?= $cliente['turma'] == "1JD" ? 'selected' : '' ?>> 1JD
+                                                    </option>
+                                                    <option value="2JD" <?= $cliente['turma'] == "2JD" ? 'selected' : '' ?>> 2JD
+                                                    </option>
+                                                    <option value="3JD" <?= $cliente['turma'] == "3JD" ? 'selected' : '' ?>>3JD
+                                                    </option>
 
                                                 </select>
                                             </div>
@@ -1675,7 +1939,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
 
 
-        <?php
+                <?php
             }
         }
         ?>
@@ -1731,7 +1995,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $query_run = mysqli_query($con, $query);
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $cliente) {
-        ?>
+                ?>
                 <div class="modal-overlay-excluir-cliente-adm" id="overlay-deletar-cliente-<?= $cliente['cpf'] ?>"
                     data-id="<?= $cliente['cpf'] ?>">
                     <div class="modal-excluir-cliente-adm" id="modal-deletar-cliente-<?= $cliente['cpf'] ?>"
@@ -1753,7 +2017,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                 </div>
-        <?php }
+            <?php }
         } ?>
 
         <script>
@@ -1872,7 +2136,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 $query_run = mysqli_query($con, $query);
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $pedido) {
-                                ?>
+                                        ?>
                                         <tr>
                                             <td>
                                                 <h6># <?php echo $pedido['id']; ?></h6>
@@ -1887,20 +2151,46 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $pedido['data_pedido']; ?></h6>
                                             </td>
-                                            <td><strong><?php echo $pedido['status']; ?></strong></td>
+                                            <?php
+                                            switch ($pedido['status']) {
+                                                case 'Pendente':
+                                                    echo '<td><strong style="color: orange;">Pendente</strong></td>';
+                                                    break;
+                                                case 'Sendo Preparado':
+                                                    echo '<td><strong style="color: blue;">Sendo Preparado</strong></td>';
+                                                    break;
+                                                case 'Concluído':
+                                                    echo '<td><strong style="color: green;">Concluído</strong></td>';
+                                                    break;
+                                                case 'Cancelado':
+                                                    echo '<td><strong style="color: red;">Cancelado</strong></td>';
+                                                    break;
+                                                default:
+                                                    echo '<td><strong>' . htmlspecialchars($pedido['status']) . '</strong></td>';
+                                                    break;
+                                            }
+                                            ?>
                                             <td style="display: flex; gap:1vh;">
+                                                <?php 
+                                                if($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente'){
+                                                ?>
                                                 <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-solid fa-clipboard-check"></i>
                                                 </button>
+                                                <?php } ?>
                                                 <button class="btn-visualizar-pedido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-regular fa-eye"></i>
                                                 </button>
+                                                <?php 
+                                                if($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente'){
+                                                ?>
                                                 <button class="btn-cancelar-pedido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-solid fa-xmark"></i>
                                                 </button>
+                                                <?php } ?>
                                             </td>
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -1926,7 +2216,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 $query_run = mysqli_query($con, $query);
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $pedido) {
-                                ?>
+                                        ?>
                                         <tr>
                                             <td>
                                                 <h6># <?php echo $pedido['id']; ?></h6>
@@ -1941,20 +2231,46 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $pedido['data_pedido']; ?></h6>
                                             </td>
-                                            <td><strong><?php echo $pedido['status']; ?></strong></td>
+                                            <?php
+                                            switch ($pedido['status']) {
+                                                case 'Pendente':
+                                                    echo '<td><strong style="color: orange;">Pendente</strong></td>';
+                                                    break;
+                                                case 'Sendo Preparado':
+                                                    echo '<td><strong style="color: blue;">Sendo Preparado</strong></td>';
+                                                    break;
+                                                case 'Concluído':
+                                                    echo '<td><strong style="color: green;">Concluído</strong></td>';
+                                                    break;
+                                                case 'Cancelado':
+                                                    echo '<td><strong style="color: red;">Cancelado</strong></td>';
+                                                    break;
+                                                default:
+                                                    echo '<td><strong>' . htmlspecialchars($pedido['status']) . '</strong></td>';
+                                                    break;
+                                            }
+                                            ?>
                                             <td style="display: flex; gap:1vh;">
+                                               <?php 
+                                                if($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente'){
+                                                ?>
                                                 <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-solid fa-clipboard-check"></i>
                                                 </button>
+                                                <?php } ?>
                                                 <button class="btn-visualizar-pedido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-regular fa-eye"></i>
                                                 </button>
+                                                <?php 
+                                                if($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente'){
+                                                ?>
                                                 <button class="btn-cancelar-pedido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-solid fa-xmark"></i>
                                                 </button>
+                                                <?php } ?>
                                             </td>
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -1980,7 +2296,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 $query_run = mysqli_query($con, $query);
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $pedido) {
-                                ?>
+                                        ?>
                                         <tr>
                                             <td>
                                                 <h6># <?php echo $pedido['id']; ?></h6>
@@ -1995,20 +2311,46 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $pedido['data_pedido']; ?></h6>
                                             </td>
-                                            <td><strong><?php echo $pedido['status']; ?></strong></td>
+                                            <?php
+                                            switch ($pedido['status']) {
+                                                case 'Pendente':
+                                                    echo '<td><strong style="color: orange;">Pendente</strong></td>';
+                                                    break;
+                                                case 'Sendo Preparado':
+                                                    echo '<td><strong style="color: blue;">Sendo Preparado</strong></td>';
+                                                    break;
+                                                case 'Concluído':
+                                                    echo '<td><strong style="color: green;">Concluído</strong></td>';
+                                                    break;
+                                                case 'Cancelado':
+                                                    echo '<td><strong style="color: red;">Cancelado</strong></td>';
+                                                    break;
+                                                default:
+                                                    echo '<td><strong>' . htmlspecialchars($pedido['status']) . '</strong></td>';
+                                                    break;
+                                            }
+                                            ?>
                                             <td style="display: flex; gap:1vh;">
+                                               <?php 
+                                                if($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente'){
+                                                ?>
                                                 <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-solid fa-clipboard-check"></i>
                                                 </button>
+                                                <?php } ?>
                                                 <button class="btn-visualizar-pedido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-regular fa-eye"></i>
                                                 </button>
+                                                <?php 
+                                                if($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente'){
+                                                ?>
                                                 <button class="btn-cancelar-pedido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-solid fa-xmark"></i>
                                                 </button>
+                                                <?php } ?>
                                             </td>
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -2034,7 +2376,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 $query_run = mysqli_query($con, $query);
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $pedido) {
-                                ?>
+                                        ?>
                                         <tr>
                                             <td>
                                                 <h6># <?php echo $pedido['id']; ?></h6>
@@ -2049,20 +2391,46 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <td>
                                                 <h6><?php echo $pedido['data_pedido']; ?></h6>
                                             </td>
-                                            <td><strong><?php echo $pedido['status']; ?></strong></td>
+                                            <?php
+                                            switch ($pedido['status']) {
+                                                case 'Pendente':
+                                                    echo '<td><strong style="color: orange;">Pendente</strong></td>';
+                                                    break;
+                                                case 'Sendo Preparado':
+                                                    echo '<td><strong style="color: blue;">Sendo Preparado</strong></td>';
+                                                    break;
+                                                case 'Concluído':
+                                                    echo '<td><strong style="color: green;">Concluído</strong></td>';
+                                                    break;
+                                                case 'Cancelado':
+                                                    echo '<td><strong style="color: red;">Cancelado</strong></td>';
+                                                    break;
+                                                default:
+                                                    echo '<td><strong>' . htmlspecialchars($pedido['status']) . '</strong></td>';
+                                                    break;
+                                            }
+                                            ?>
                                             <td style="display: flex; gap:1vh;">
+                                                <?php 
+                                                if($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente'){
+                                                ?>
                                                 <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-solid fa-clipboard-check"></i>
                                                 </button>
+                                                <?php } ?>
                                                 <button class="btn-visualizar-pedido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-regular fa-eye"></i>
                                                 </button>
+                                                <?php 
+                                                if($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente'){
+                                                ?>
                                                 <button class="btn-cancelar-pedido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-solid fa-xmark"></i>
                                                 </button>
+                                                <?php } ?>
                                             </td>
                                         </tr>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </tbody>
                         </table>
@@ -2073,7 +2441,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <!--JS QUE ORGANIZA A TABELA-->
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("DOMContentLoaded", function () {
                 function ordenarTabelaPedidos(tabelaSelector, ordem = "asc") {
                     const tabela = document.querySelector(tabelaSelector);
                     if (!tabela) return;
@@ -2099,7 +2467,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 // 🧩 Chama a função para a tabela principal (pode repetir para outras)
                 [".table-pedidos-todos table", ".table-pedidos-hoje table", ".table-pedidos-passados table", ".table-pedidos-futuros table"]
-                .forEach(selector => ordenarTabelaPedidos(selector, "desc"));
+                    .forEach(selector => ordenarTabelaPedidos(selector, "desc"));
             });
         </script>
 
@@ -2115,7 +2483,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $cliente_query = "SELECT * FROM cliente WHERE cpf = '$cpf_cliente'";
                 $cliente_query_run = mysqli_query($con, $cliente_query);
                 $cliente = mysqli_fetch_assoc($cliente_query_run); // Obtém os dados do cliente
-        ?>
+                ?>
 
                 <div class="modal-overlay-concluir-pedido-adm" id="overlay_concluir_pedido-<?= $pedido['id'] ?>">
                     <div class="modal-concluir-pedido-adm" id="modal_concluir_pedido-<?= $pedido['id'] ?>">
@@ -2123,14 +2491,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <h1>Tem certeza?</h1>
                             <p>Esta ação não pode ser desfeita. O Pedido:
                                 <span class="concluir-pedido-codigo">"#<?php echo $pedido['id']; ?>"</span>, do(a) cliente:
-                                <span class="concluir-pedido-cliente-nome">"<?php echo $cliente['nome']; ?>"</span> será mudado para fase:
+                                <span class="concluir-pedido-cliente-nome">"<?php echo $cliente['nome']; ?>"</span> será mudado
+                                para fase:
                                 "Concluído". E o cliente poderá retira-lo na cantina.
                             </p>
                         </div>
                         <div class="modal-concluir-pedido-adm-bottom">
-                            <button type="button" class="btn-cancelar-concluir-pedido" data-id="<?= $pedido['id'] ?>">Cancelar</button>
+                            <button type="button" class="btn-cancelar-concluir-pedido"
+                                data-id="<?= $pedido['id'] ?>">Cancelar</button>
 
-                            <form method="POST" action="/cantinarepositorio/subpages/atualizar_status_pedido.php" style="display:inline;">
+                            <form method="POST" action="/cantinarepositorio/subpages/atualizar_status_pedido.php"
+                                style="display:inline;">
                                 <input type="hidden" name="pedido_id" value="<?= $pedido['id'] ?>">
                                 <input type="hidden" name="status" value="Concluído">
                                 <button type="submit" class="btn-concluir-pedido">Concluir Pedido</button>
@@ -2138,7 +2509,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                 </div>
-        <?php
+                <?php
             }
         }
         ?>
@@ -2186,7 +2557,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $cliente_query = "SELECT * FROM cliente WHERE cpf = '$cpf_cliente'";
                 $cliente_query_run = mysqli_query($con, $cliente_query);
                 $cliente = mysqli_fetch_assoc($cliente_query_run); // Obtém os dados do cliente
-        ?>
+                ?>
 
                 <div class="modal-overlay-cancelar-pedido-adm" id="overlay_cancelar_pedido-<?= $pedido['id'] ?>">
                     <div class="modal-cancelar-pedido-adm" id="modal_cancelar_pedido-<?= $pedido['id'] ?>">
@@ -2199,9 +2570,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </p>
                         </div>
                         <div class="modal-cancelar-pedido-adm-bottom">
-                            <button type="button" class="btn-cancelar-cancelamento-pedido" data-id="<?= $pedido['id'] ?>">Cancelar</button>
+                            <button type="button" class="btn-cancelar-cancelamento-pedido"
+                                data-id="<?= $pedido['id'] ?>">Cancelar</button>
 
-                            <form method="POST" action="/cantinarepositorio/subpages/atualizar_status_pedido.php" style="display:inline;">
+                            <form method="POST" action="/cantinarepositorio/subpages/atualizar_status_pedido.php"
+                                style="display:inline;">
                                 <input type="hidden" name="pedido_id" value="<?= $pedido['id'] ?>">
                                 <input type="hidden" name="status" value="Cancelado">
                                 <button type="submit" class="btn-concluir-cancelamento-pedido">Cancelar Pedido</button>
@@ -2209,7 +2582,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                 </div>
-        <?php
+                <?php
             }
         }
         ?>
@@ -2256,7 +2629,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $cliente_query = "SELECT * FROM cliente WHERE cpf = '$cpf_cliente'";
                 $cliente_query_run = mysqli_query($con, $cliente_query);
                 $cliente = mysqli_fetch_assoc($cliente_query_run); // Obtém os dados do cliente
-        ?>
+                ?>
 
                 <div class="modal-overlay-visualizar-pedido" id="overlay_modal_pedido-<?= $pedido['id'] ?>">
                     <div class="modal-visualizar-pedido" id="modal_pedido-<?= $pedido['id'] ?>">
@@ -2350,7 +2723,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
 
-        <?php
+                <?php
             }
         }
         ?>
@@ -2422,7 +2795,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $usuario) {
 
-                                ?>
+                                        ?>
                                         <tr>
                                             <td>
                                                 <h6><?php echo $usuario['nome'] ?></h6>
@@ -2435,10 +2808,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             </td>
                                             <td>
                                                 <h6><?php if ($usuario['adm'] == 1) {
-                                                        echo 'Administrador Principal';
-                                                    } else {
-                                                        echo 'Funcionário';
-                                                    } ?></h6>
+                                                    echo 'Administrador Principal';
+                                                } else {
+                                                    echo 'Funcionário';
+                                                } ?></h6>
                                             </td>
                                             <td>
                                                 <button class="btn-editar-senha-admin" data-id="<?= $usuario['cpf'] ?>">
@@ -2452,7 +2825,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 </button>
                                             </td>
                                         </tr>
-                                <?php
+                                        <?php
                                     }
                                 } ?>
                                 </tbody>
@@ -2545,7 +2918,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $usuario) {
-        ?>
+                ?>
                 <div class="modal-overlay-editar-admin" id="overlayEditarAdmin-<?= $usuario['cpf'] ?>">
                     <div class="modal-editar-admin" id="modaladm-<?= $usuario['cpf'] ?>">
                         <button class="btn-close-modal-editar-admin">
@@ -2678,7 +3051,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                 </div>
-        <?php
+                <?php
             }
         }
         ?>
@@ -2844,12 +3217,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     btnConfirmar.disabled = true;
                     fetch('/cantinarepositorio/subpages/deletar_admin.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            body: 'cpf=' + encodeURIComponent(cpf)
-                        })
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'cpf=' + encodeURIComponent(cpf)
+                    })
                         .then(r => r.json())
                         .then(res => {
                             btnConfirmar.disabled = false;

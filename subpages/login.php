@@ -141,6 +141,16 @@ mysqli_close($con);
                   <option value="1ds">1°DS</option>
                   <option value="2ds">2°DS</option>
                   <option value="3ds">3°DS</option>
+                  <option value="1adm">1°ADM</option>
+                  <option value="2adm">2°ADM</option>
+                  <option value="3adm">3°ADM</option>
+                  <option value="1rh">1°RH</option>
+                  <option value="2rh">2°RH</option>
+                  <option value="3rh">3°RH</option>
+                  <option value="1jd">1°JD</option>
+                  <option value="2jd">2°JD</option>
+                  <option value="3jd">3°JD</option>
+
                 </select>
                 
                 <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>

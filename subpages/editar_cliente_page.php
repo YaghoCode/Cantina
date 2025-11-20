@@ -228,12 +228,30 @@ if (isset($_SESSION['cpf'])) {
                                     <div class="form-group-editar-clientes">
                                         <label for="turma">Turma:</label>
                                         <select name="turma" id="turma_editar_cliente" class="form-control" required>
-                                            <option value="1DS" <?= $user_data['turma'] == "1DS" ? 'selected' : '' ?>>1DS
-                                            </option>
-                                            <option value="2DS" <?= $user_data['turma'] == "2DS" ? 'selected' : '' ?>>2DS
-                                            </option>
-                                            <option value="3DS" <?= $user_data['turma'] == "3DS" ? 'selected' : '' ?>>3DS</option>
-                                            
+                                           <option value="1DS" <?= $cliente['turma'] == "1DS" ? 'selected' : '' ?>> 1DS
+                                                    </option>
+                                                    <option value="2DS" <?= $cliente['turma'] == "2DS" ? 'selected' : '' ?>> 2DS
+                                                    </option>
+                                                    <option value="3DS" <?= $cliente['turma'] == "3DS" ? 'selected' : '' ?>>3DS
+                                                    </option>
+                                                    <option value="1ADM" <?= $cliente['turma'] == "1ADM" ? 'selected' : '' ?>> 1ADM
+                                                    </option>
+                                                    <option value="2ADM" <?= $cliente['turma'] == "2ADM" ? 'selected' : '' ?>> 2ADM
+                                                    </option>
+                                                    <option value="3ADM" <?= $cliente['turma'] == "3ADM" ? 'selected' : '' ?>>3ADM
+                                                    </option>
+                                                    <option value="1RH" <?= $cliente['turma'] == "1RH" ? 'selected' : '' ?>> 1RH
+                                                    </option>
+                                                    <option value="2RH" <?= $cliente['turma'] == "2RH" ? 'selected' : '' ?>> 2RH
+                                                    </option>
+                                                    <option value="3RH" <?= $cliente['turma'] == "3RH" ? 'selected' : '' ?>>3RH
+                                                    </option>
+                                                    <option value="1JD" <?= $cliente['turma'] == "1JD" ? 'selected' : '' ?>> 1JD
+                                                    </option>
+                                                    <option value="2JD" <?= $cliente['turma'] == "2JD" ? 'selected' : '' ?>> 2JD
+                                                    </option>
+                                                    <option value="3JD" <?= $cliente['turma'] == "3JD" ? 'selected' : '' ?>>3JD
+                                                    </option>
                                         </select>
                                     </div>
                                 </div>
