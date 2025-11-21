@@ -250,20 +250,22 @@ if (isset($_SESSION['cpf'])) {
                                 }
 
                                 echo '
-
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-bottom">
-                            <div class="card-bottom-buttons">
-                                <button class="cancelar-pedido" style="display: none;">
-                                    Cancelar Pedido
-                                </button>
+                            <div class="card-bottom">
+                                <div class="card-bottom-buttons">
+                                    <button class="cancelar-pedido"  data-id="' .$pedido['id'] . '">
+                                        Cancelar Pedido
+                                    </button>
+                                    <button class="visualizar-pedido" data-id="' .$pedido['id'] . '" >
+                                        Visualizar Pedido
+                                    </button>
+                                </div>
+                                <div class="card-bottom-preco-total">
+                                    <p> R$ ' . $total . '</p> <!--preco total pedido php-->
+                                </div>
                             </div>
-                            <div class="card-bottom-preco-total">
-                                <p>R$ ' . $total . ' </p> <!--preco total pedido php-->
-                            </div>
-                        </div>
-                    </div>';
+                        </div>';
                             }
                             if ($pedido['status'] == 'Cancelado') {
                                 $dataRaw = $pedido['data_pedido'] ?? '';
@@ -308,20 +310,22 @@ if (isset($_SESSION['cpf'])) {
                                 }
 
                                 echo '
-                    
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-bottom">
-                            <div class="card-bottom-buttons">
-                                <button class="cancelar-pedido" style="display: none;">
-                                    Cancelar Pedido
-                                </button>
+                            <div class="card-bottom">
+                                <div class="card-bottom-buttons">
+                                    <button class="cancelar-pedido" style="display: none;">
+                                        Cancelar Pedido
+                                    </button>
+                                    <button class="visualizar-pedido" data-id="' .$pedido['id'] . '">
+                                        Visualizar Pedido
+                                    </button>
+                                </div>
+                                <div class="card-bottom-preco-total">
+                                    <p> R$ ' . $total . '</p> <!--preco total pedido php-->
+                                </div>
                             </div>
-                            <div class="card-bottom-preco-total">
-                                <p>R$ ' . $total . '</p> <!--preco total pedido php-->
-                            </div>
-                        </div>
-                    </div>';
+                        </div>';
                             }
                             if ($pedido['status'] == 'Concluído') {
                                 $dataRaw = $pedido['data_pedido'] ?? '';
@@ -367,20 +371,22 @@ if (isset($_SESSION['cpf'])) {
                                 }
 
                                 echo '
-
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-bottom">
-                            <div class="card-bottom-buttons">
-                                <button class="cancelar-pedido" style="display: none;">
-                                    Cancelar Pedido
-                                </button>
+                            <div class="card-bottom">
+                                <div class="card-bottom-buttons">
+                                    <button class="cancelar-pedido" style="display: none;">
+                                        Cancelar Pedido
+                                    </button>
+                                    <button class="visualizar-pedido"  data-id="' .$pedido['id'] . '"   >
+                                        Visualizar Pedido
+                                    </button>
+                                </div>
+                                <div class="card-bottom-preco-total">
+                                    <p> R$ ' . $total . '</p> <!--preco total pedido php-->
+                                </div>
                             </div>
-                            <div class="card-bottom-preco-total">
-                                <p>R$ ' . $total . ' </p> <!--preco total pedido php-->
-                            </div>
-                        </div>
-                    </div>';
+                        </div>';
                             }
                         }
                     } else {
@@ -786,141 +792,145 @@ if (isset($_SESSION['cpf'])) {
 
     <!--modal visualizar pedido-->
 
-    <div class="modal-overlay-visualizar-pedido">
-        <div class="modal-visualizar-pedido">
-            <button class="btn-fechar-modal-visualizar">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="content-modal-visualizar-pedido">
-                <div class="content-modal-visualizar-top">
-                    <div class="content-modal-visualizar-top-title">
-                        <h1>Detalhes do Pedido:</h1>
-                    </div>
-                    <div class="content-modal-visualizar-top-tagFiltro">
-                        <h6>Sendo Preparado</h6> <!--php tag do pedido MUDA A COR DESGRAÇA-->
-                    </div>
-                </div>
-                <div class="content-modal-visualizar-mid">
-                    <div class="content-modal-visualizar-mid-row">
-                        <div class="content-modal-visualizar-mid-group">
-                            <div class="mid-group-numero-pedido">
-                                <h1>Número do pedido:</h1>
-                                <span>#1234</span><!--php number pedido-->
+    <?php
+        $query = "SELECT * from pedido";
+        $query_run = mysqli_query($con, $query);
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $pedido) {
+                // Nova consulta para obter informações do cliente
+                $cpf_cliente = $pedido['cpf']; // Supondo que o CPF do cliente está armazenado no pedido
+                $cliente_query = "SELECT * FROM cliente WHERE cpf = '$cpf_cliente'";
+                $cliente_query_run = mysqli_query($con, $cliente_query);
+                $cliente = mysqli_fetch_assoc($cliente_query_run); // Obtém os dados do cliente
+                ?>
+
+                <div class="modal-overlay-visualizar-pedido" id="overlay_modal_pedido-<?= $pedido['id'] ?>">
+                    <div class="modal-visualizar-pedido" id="modal_pedido-<?= $pedido['id'] ?>">
+                        <button class="btn-fechar-modal-visualizar" data-id="<?= $pedido['id'] ?>">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <div class="content-modal-visualizar-pedido">
+                            <div class="content-modal-visualizar-top">
+                                <div class="content-modal-visualizar-top-title">
+                                    <h1>Detalhes do Pedido:</h1>
+                                </div>
+                                <div class="content-modal-visualizar-top-tagFiltro">
+                                    <h6><?php echo $pedido['status']; ?></h6>
+                                    <!--php status pedido-->
+                                </div>
                             </div>
-                            <div class="mid-group-data-pedido">
-                                <h1>Data:</h1>
-                                <span>17/02/2008</span><!--php data pedido-->
-                            </div>
-                        </div>
-                        <div class="content-modal-visualizar-mid-group">
-                            <div class="mid-group-turno-pedido">
-                                <h1>Turno:</h1>
-                                <span>Manhã</span><!--php turno pedido-->
-                            </div>
-                            <div class="mid-group-data-pedido">
-                                <button class="btn-modal-avaliar-pedido">Avaliar Pedido</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content-modal-visualizar-mid-row">
-                        <div class="content-modal-visualizar-mid-group-user">
-                            <div class="mid-group-info-user">
-                                <h1>Informações do Cliente:</h1>
-                            </div>
-                        </div>
-                        <div class="content-modal-visualizar-mid-group-user">
-                            <div class="mid-group-info">
-                                <h1>Nome:</h1>
-                                <span>Caio Silva</span>
-                            </div>
-                            <div class="mid-group-info">
-                                <h1>Turma: </h1>
-                                <span>2 DS</span>
-                            </div>
-                            <div class="mid-group-info">
-                                <h1>CPF: </h1>
-                                <span>55132867854</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content-modal-visualizar-mid-row" style="border: none;">
-                        <div class="content-modal-visualizar-mid-group-pedido" style="margin-bottom: 4vh;">
-                            <div class="mid-group-info-pedido">
-                                <h1>Resumo do pedido:</h1>
-                            </div>
-                        </div>
-                        <div class="content-modal-visualizar-mid-group-pedido">
-                            <div class="mid-group-info-table-pedido">
-                                <div class="tabela-scroll">
-                                    <div class="tabela-items-pedido">
-                                        <div class="tabela-items-pedido-produto">
-                                            <h3>2x</h3><!--quantidade produto-->
-                                            <h4>Esfiha de Carne</h4><!--nome do produto-->
+                            <div class="content-modal-visualizar-mid">
+                                <div class="content-modal-visualizar-mid-row">
+                                    <div class="content-modal-visualizar-mid-group">
+                                        <div class="mid-group-numero-pedido">
+                                            <h1>Número do pedido:</h1>
+                                            <span># <?php echo $pedido['id']; ?></span>
+                                            <!--php number pedido-->
                                         </div>
-                                        <div class="tabela-items-pedido-preco">
-                                            <h5>R$ 6,00</h5><!--Preço produto-->
+                                        <div class="mid-group-data-pedido">
+                                            <h1>Data:</h1>
+                                            <span><?php echo $pedido['data_pedido']; ?></span>
+                                            <!--php data pedido-->
                                         </div>
                                     </div>
-                                    <div class="tabela-items-pedido">
-                                        <div class="tabela-items-pedido-produto">
-                                            <h3>2x</h3><!--quantidade produto-->
-                                            <h4>Esfiha de Carne</h4><!--nome do produto-->
-                                        </div>
-                                        <div class="tabela-items-pedido-preco">
-                                            <h5>R$ 6,00</h5><!--Preço produto-->
+                                    <div class="content-modal-visualizar-mid-group">
+                                        <div class="mid-group-turno-pedido">
+                                            <h1>Turno:</h1>
+                                            <span>Manhã</span><!--php turno pedido-->
                                         </div>
                                     </div>
-                                    <div class="tabela-items-pedido">
-                                        <div class="tabela-items-pedido-produto">
-                                            <h3>2x</h3><!--quantidade produto-->
-                                            <h4>Esfiha de Carne</h4><!--nome do produto-->
-                                        </div>
-                                        <div class="tabela-items-pedido-preco">
-                                            <h5>R$ 6,00</h5><!--Preço produto-->
+                                </div>
+                                <div class="content-modal-visualizar-mid-row">
+                                    <div class="content-modal-visualizar-mid-group-user">
+                                        <div class="mid-group-info-user">
+                                            <h1>Informações do Cliente:</h1>
                                         </div>
                                     </div>
-                                    <div class="tabela-items-pedido">
-                                        <div class="tabela-items-pedido-produto">
-                                            <h3>2x</h3><!--quantidade produto-->
-                                            <h4>Esfiha de Carne</h4><!--nome do produto-->
+                                    <div class="content-modal-visualizar-mid-group-user">
+                                        <div class="mid-group-info">
+                                            <h1>Nome:</h1>
+                                            <span><?php echo $cliente['nome']; ?></span>
                                         </div>
-                                        <div class="tabela-items-pedido-preco">
-                                            <h5>R$ 6,00</h5><!--Preço produto-->
+                                        <div class="mid-group-info">
+                                            <h1>Turma: </h1>
+                                            <span><?php echo $cliente['turma']; ?></span>
+                                        </div>
+                                        <div class="mid-group-info">
+                                            <h1>CPF: </h1>
+                                            <span><?php echo $pedido['cpf']; ?></span>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="content-modal-visualizar-mid-row" style="border: none;">
+                                    <div class="content-modal-visualizar-mid-group-pedido" style="margin-bottom: 4vh;">
+                                        <div class="mid-group-info-pedido">
+                                            <h1>Resumo do pedido:</h1>
+                                        </div>
+                                    </div>
+                                    <div class="content-modal-visualizar-mid-group-pedido">
+                                        <div class="mid-group-info-table-pedido">
+                                            <div class="tabela-scroll">
+                                                <div class="tabela-items-pedido">
+                                                    <div class="tabela-items-pedido-produto">
+                                                        <h4><?php echo $pedido['nome_itens']; ?></h4><!--nome do produto-->
+                                                    </div>
+                                                </div>
+                                                <div class="tabela-items-pedido">
+                                                    <div class="tabela-items-pedido-produto">
+                                                        <h3><?php echo $pedido['quantidade_itens']; ?></h3>
+                                                        <!--quantidade produto-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-modal-visualizar-bottom">
+                                <div class="visualizar-bottom-preco">
+                                    <h1>Total:</h1>
+                                    <span>R$<?php echo $pedido['preco_total']; ?></span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="content-modal-visualizar-bottom">
-                    <div class="visualizar-bottom-preco">
-                        <h1>Total:</h1>
-                        <span>R$ 14,00</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+                <?php
+            }
+        }
+        ?>
 
     <script>
-        const modalVisualizarPedido = document.querySelector('.modal-visualizar-pedido');
-        const modalOverlayVisualizarPedido = document.querySelector('.modal-overlay-visualizar-pedido');
-        const btnFecharModalPedido = document.querySelector('.btn-fechar-modal-visualizar');
-        const btnVisualizarPedido = document.querySelectorAll('.visualizar-pedido');
+            //abrir modal visualizar pedido
+            document.addEventListener('DOMContentLoaded', () => {
 
-        btnVisualizarPedido.forEach((btn) => {
-            btn.addEventListener('click', () => {
-                modalVisualizarPedido.classList.add('active');
-                modalOverlayVisualizarPedido.classList.add('active');
-            })
-        });
+                document.querySelectorAll('.visualizar-pedido').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const pedidoId = button.getAttribute('data-id');
+                        const overlay = document.getElementById(`overlay_modal_pedido-${pedidoId}`);
+                        const modal = document.getElementById(`modal_pedido-${pedidoId}`);
+                        if (overlay && modal) {
+                            overlay.classList.add('active');
+                            modal.classList.add('active');
+                        }
+                    });
+                });
+            });
 
-        btnFecharModalPedido.addEventListener('click', () => {
-            modalVisualizarPedido.classList.remove('active');
-            modalOverlayVisualizarPedido.classList.remove('active');
-        });
-    </script>
+            //Fechar modal no X visualizar pedido
+            document.querySelectorAll('.btn-fechar-modal-visualizar').forEach(button => {
+                button.addEventListener('click', () => {
+                    const pedidoId = button.getAttribute('data-id');
+                    const overlay = document.getElementById(`overlay_modal_pedido-${pedidoId}`);
+                    const modal = document.getElementById(`modal_pedido-${pedidoId}`);
+                    if (overlay && modal) {
+                        overlay.classList.remove('active');
+                        modal.classList.remove('active');
+                    }
+                });
+            });
+        </script>
 
     <!--Modal avaliar pedido cliente-->
 
