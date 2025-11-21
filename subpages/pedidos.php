@@ -198,7 +198,7 @@ if (isset($_SESSION['cpf'])) {
                 </div>
 
                 <!-- Todos -->
-                <div class="content-pedidos-body active">
+                <div class="content-pedidos-body" active>
                     <?php
                     $query = "SELECT * FROM pedido WHERE cpf = '$cpf' ORDER BY data_pedido DESC";
                     $result = mysqli_query($con, $query);
@@ -378,7 +378,7 @@ if (isset($_SESSION['cpf'])) {
                                     <button class="cancelar-pedido" style="display: none;">
                                         Cancelar Pedido
                                     </button>
-                                    <button class="visualizar-pedido"  data-id="' .$pedido['id'] . '"   >
+                                    <button class="visualizar-pedido" data-id="' .$pedido['id'] . '">
                                         Visualizar Pedido
                                     </button>
                                 </div>
@@ -472,7 +472,7 @@ if (isset($_SESSION['cpf'])) {
                 </div>
 
 
-                <!--SISTEMA DE FILTROS ABAIXO (acho)-->
+                <!--SISTEMA DE FILTROS ABAIXO-->
 
 
                 <!-- Preparando -->
@@ -526,10 +526,10 @@ if (isset($_SESSION['cpf'])) {
                             </div>
                             <div class="card-bottom">
                                 <div class="card-bottom-buttons">
-                                    <button class="cancelar-pedido">
+                                    <button class="cancelar-pedido" data-id="' .$pedido['id'] . '">
                                         Cancelar Pedido
                                     </button>
-                                    <button class="visualizar-pedido">
+                                    <button class="visualizar-pedido" data-id="' .$pedido['id'] . '">
                                         Visualizar Pedido
                                     </button>
                                 </div>
@@ -551,7 +551,7 @@ if (isset($_SESSION['cpf'])) {
                     $result = mysqli_query($con, $query);
                     if ($result && mysqli_num_rows($result) > 0) {
                         foreach ($result as $pedido) {
-                            if ($pedido['status'] == 'Concluido') {
+                            if ($pedido['status'] == 'Concluído') {
                                 $dataRaw = $pedido['data_pedido'] ?? '';
                                 if ($dataRaw && ($ts = strtotime($dataRaw)) !== false) {
                                     $dataFmt = date('d/m/Y H:i', $ts);
@@ -566,66 +566,47 @@ if (isset($_SESSION['cpf'])) {
                                 Concluído
                             </button>
                             <button class="tag-pedido">
-                                Pedido: #1234
+                                Pedido: #' . $pedido['id'] . '
                             </button>
                         </div>
                         <div class="card-mid">
                             <div class="card-mid-dia-horario">
                                 <h1>Turno: <span>Manhã</span></h1>
-                                <h1>Dia: <span>18/06/25</span></h1>
+                                <h1>Dia: <span>' . $dataFmt . '</span></h1>
                             </div>
 
                             <div class="card-mid-detalhes-pedido">
-                                <div class="pedido-items"> <!--cada produto do pedido php-->
-                                    <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
-                                    </div>
-                                    <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
-                                    </div>
+                            ';
+
+                                foreach ($result_items as $itens) {
+                                    echo '<div class="pedido-items"> <!--cada produto do pedido php-->
+                                        <div class="pedido-items-name">
+                                            <h1>' . $itens['quantidade'] . 'x</h1> <!--Quantidade do item php-->
+                                            <h2>' . $itens['nome_item'] . '</h2> <!--Nome do produto php--->
+                                        </div>
+                                        <div class="pedido-items-preco">
+                                            <p>R$' . $itens['preco_item'] . '</p> <!--preço produto php--->
+                                        </div>
+                                    </div>';
+                                }
+
+                                echo '
                                 </div>
-                                <div class="pedido-items">
-                                    <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
-                                    </div>
-                                    <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
-                                    </div>
-                                </div>
-                                <div class="pedido-items">
-                                    <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
-                                    </div>
-                                    <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
-                                    </div>
-                                </div>
-                                <div class="pedido-items">
-                                    <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
-                                    </div>
-                                    <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
-                                    </div>
-                                </div>
-                                <!-- mais itens aqui -->
                             </div>
-                        </div>
-                        <div class="card-bottom">
-                            <div class="card-bottom-buttons">
-                                <button class="cancelar-pedido" style="display: none;">
-                                    Cancelar Pedido
-                                </button>
+                            <div class="card-bottom">
+                                <div class="card-bottom-buttons">
+                                    <button class="cancelar-pedido" style="display: none;">
+                                        Cancelar Pedido
+                                    </button>
+                                    <button class="visualizar-pedido" data-id="' .$pedido['id'] . '">
+                                        Visualizar Pedido
+                                    </button>
+                                </div>
+                                <div class="card-bottom-preco-total">
+                                    <p> R$ ' . $total . '</p> <!--preco total pedido php-->
+                                </div>
                             </div>
-                            <div class="card-bottom-preco-total">
-                                <p>R$ 23,00</p> <!--preco total pedido php-->
-                            </div>
-                        </div>
-                    </div>';
+                        </div>';
                             }
                         }
                     }
@@ -646,7 +627,7 @@ if (isset($_SESSION['cpf'])) {
                                 } else {
                                     $dataFmt = $dataRaw ? htmlspecialchars($dataRaw) : '--';
                                 }
-                                $total = number_format((float) ($pedido['preco_total'] ?? 0), 2, ',', '.');
+                                $total = $pedido['preco_total'];
                                 echo '<div class="card"> <!--CARD PLACEHOLDER PEDIDO EM CANCELADO-->
                         <div class="card-top">
                             <button class="tag-filtro-cancelado">
@@ -664,56 +645,37 @@ if (isset($_SESSION['cpf'])) {
                             </div>
 
                             <div class="card-mid-detalhes-pedido">
-                                <div class="pedido-items"> <!--cada produto do pedido php-->
-                                    <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
-                                    </div>
-                                    <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
-                                    </div>
+                            ';
+
+                                foreach ($result_items as $itens) {
+                                    echo '<div class="pedido-items"> <!--cada produto do pedido php-->
+                                        <div class="pedido-items-name">
+                                            <h1>' . $itens['quantidade'] . 'x</h1> <!--Quantidade do item php-->
+                                            <h2>' . $itens['nome_item'] . '</h2> <!--Nome do produto php--->
+                                        </div>
+                                        <div class="pedido-items-preco">
+                                            <p>R$' . $itens['preco_item'] . '</p> <!--preço produto php--->
+                                        </div>
+                                    </div>';
+                                }
+
+                                echo '
                                 </div>
-                                <div class="pedido-items">
-                                    <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
-                                    </div>
-                                    <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
-                                    </div>
-                                </div>
-                                <div class="pedido-items">
-                                    <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
-                                    </div>
-                                    <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
-                                    </div>
-                                </div>
-                                <div class="pedido-items">
-                                    <div class="pedido-items-name">
-                                        <h1>1x</h1> <!--Quantidade do item php-->
-                                        <h2>Esfiha de carne</h2> <!--Nome do produto php--->
-                                    </div>
-                                    <div class="pedido-items-preco">
-                                        <p>R$ 7,00</p> <!--preço produto php--->
-                                    </div>
-                                </div>
-                                <!-- mais itens aqui -->
                             </div>
-                        </div>
-                        <div class="card-bottom">
-                            <div class="card-bottom-buttons">
-                                <button class="cancelar-pedido" style="display: none;">
-                                    Cancelar Pedido
-                                </button>
+                            <div class="card-bottom">
+                                <div class="card-bottom-buttons">
+                                    <button class="cancelar-pedido" style="display: none;">
+                                        Cancelar Pedido
+                                    </button>
+                                    <button class="visualizar-pedido" data-id="' .$pedido['id'] . '">
+                                        Visualizar Pedido
+                                    </button>
+                                </div>
+                                <div class="card-bottom-preco-total">
+                                    <p> R$ ' . $total . '</p> <!--preco total pedido php-->
+                                </div>
                             </div>
-                            <div class="card-bottom-preco-total">
-                                <p>R$ ' . number_format($total, 2, ',', '.') . '</p> <!--preco total pedido php-->
-                            </div>
-                        </div>
-                    </div>';
+                        </div>';
                             }
                         }
                     }
@@ -753,42 +715,76 @@ if (isset($_SESSION['cpf'])) {
 
     <!--Modal cancelar pedido-->
 
-    <div class="modal-overlay-cancelar-pedido">
-        <div class="modal-cancelar-pedido">
-            <div class="modal-cancelar-pedido-top">
-                <h1>Tem certeza?</h1>
-                <p>
-                    Esta ação não pode ser desfeita. O pedido de número:
-                    "<span class="cancelar-pedido-numero"></span>",
-                    do usuario: "<span class="cancelar-pedido-nome-cliente"></span>" será cancelado.
-                </p>
-            </div>
-            <div class="modal-cancelar-pedido-bottom">
-                <button type="button" class="btn-cancelar-cancelar-pedido">Desfazer</button>
-                <button type="button" class="btn-confirmar-cancelar-pedido">Cancelar Pedido</button>
-            </div>
-        </div>
-    </div>
+    <?php
+        $query = "SELECT * from pedido";
+        $query_run = mysqli_query($con, $query);
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $pedido) {
+                // Nova consulta para obter informações do cliente
+                $cpf_cliente = $pedido['cpf']; // Supondo que o CPF do cliente está armazenado no pedido
+                $cliente_query = "SELECT * FROM cliente WHERE cpf = '$cpf_cliente'";
+                $cliente_query_run = mysqli_query($con, $cliente_query);
+                $cliente = mysqli_fetch_assoc($cliente_query_run); // Obtém os dados do cliente
+                ?>
+
+                <div class="modal-overlay-cancelar-pedido" id="overlay_cancelar_pedido-<?= $pedido['id'] ?>">
+                    <div class="modal-cancelar-pedido" id="modal_cancelar_pedido-<?= $pedido['id'] ?>">
+                        <div class="modal-cancelar-pedido-top">
+                            <h1>Tem certeza?</h1>
+                            <p>Esta ação não pode ser desfeita. O pedido de número:
+                                <span class="cancelar-pedido-numero">"#<?php echo $pedido['id']; ?>"</span>, do(a) cliente:
+                                <span class="cancelar-pedido-nome-cliente">"<?php echo $cliente['nome']; ?>"</span> será
+                                cancelado.
+                            </p>
+                        </div>
+                        <div class="modal-cancelar-pedido-bottom">
+                            <button type="button" class="btn-cancelar-cancelar-pedido"
+                                data-id="<?= $pedido['id'] ?>">Cancelar</button>
+
+                            <form method="POST" action="/cantinarepositorio/subpages/atualizar_status_pedido.php"
+                                style="display:inline;">
+                                <input type="hidden" name="pedido_id" value="<?= $pedido['id'] ?>">
+                                <input type="hidden" name="status" value="Cancelado">
+                                <button type="submit" class="btn-confirmar-cancelamento-pedido">Cancelar Pedido</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <?php
+            }
+        }
+        ?>
 
     <script>
-        const modalCancelarPedido = document.querySelector('.modal-cancelar-pedido');
-        const modalOverlayCancelarPedido = document.querySelector('.modal-overlay-cancelar-pedido');
-        const btnCancelarCancelamentoPedido = document.querySelector('.btn-cancelar-cancelar-pedido');
-        const btnConfirmarCancelamentoPedido = document.querySelector('.btn-confirmar-cancelar-pedido');
-        const btnCancelarPedido = document.querySelectorAll('.cancelar-pedido');
+            //abrir modal cancelar pedido
+            document.addEventListener('DOMContentLoaded', () => {
 
-        btnCancelarPedido.forEach((btn) => {
-            btn.addEventListener('click', () => {
-                modalCancelarPedido.classList.add('active');
-                modalOverlayCancelarPedido.classList.add('active');
-            })
-        });
+                document.querySelectorAll('.cancelar-pedido').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const pedidoId = button.getAttribute('data-id');
+                        const overlay = document.getElementById(`overlay_cancelar_pedido-${pedidoId}`);
+                        const modal = document.getElementById(`modal_cancelar_pedido-${pedidoId}`);
+                        if (overlay && modal) {
+                            overlay.classList.add('active');
+                            modal.classList.add('active');
+                        }
+                    });
+                });
 
-        btnCancelarCancelamentoPedido.addEventListener('click', () => {
-            modalCancelarPedido.classList.remove('active');
-            modalOverlayCancelarPedido.classList.remove('active');
-        });
-    </script>
+                //Fechar modal no X visualizar pedido
+                document.querySelectorAll('.btn-cancelar-cancelar-pedido').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const pedidoId = button.getAttribute('data-id');
+                        const overlay = document.getElementById(`overlay_cancelar_pedido-${pedidoId}`);
+                        const modal = document.getElementById(`modal_cancelar_pedido-${pedidoId}`);
+                        if (overlay && modal) {
+                            overlay.classList.remove('active');
+                            modal.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        </script>
 
     <!--modal visualizar pedido-->
 
