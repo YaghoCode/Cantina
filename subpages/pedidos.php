@@ -391,7 +391,7 @@ if (isset($_SESSION['cpf'])) {
                     ?>
 
 
-                    
+
                     <div class="card"> <!--CARD PLACEHOLDER PEDIDO EM ANDAMENTO MAS JA FEITO POR PARTE DA CANTINA-->
                         <div class="card-top">
                             <button class="tag-filtro-preparado-parcialmente">
@@ -468,7 +468,7 @@ if (isset($_SESSION['cpf'])) {
 
                 <!--SISTEMA DE FILTROS ABAIXO (acho)-->
 
-                
+
                 <!-- Preparando -->
                 <div class="content-pedidos-body">
                     <?php
@@ -503,8 +503,8 @@ if (isset($_SESSION['cpf'])) {
                             <div class="card-mid-detalhes-pedido">
                             ';
 
-                                    foreach ($result_items as $itens) {
-                                        echo '<div class="pedido-items"> <!--cada produto do pedido php-->
+                                foreach ($result_items as $itens) {
+                                    echo '<div class="pedido-items"> <!--cada produto do pedido php-->
                                         <div class="pedido-items-name">
                                             <h1>' . $itens['quantidade'] . 'x</h1> <!--Quantidade do item php-->
                                             <h2>' . $itens['nome_item'] . '</h2> <!--Nome do produto php--->
@@ -513,9 +513,9 @@ if (isset($_SESSION['cpf'])) {
                                             <p>R$' . $itens['preco_item'] . '</p> <!--preço produto php--->
                                         </div>
                                     </div>';
-                                    }
+                                }
 
-                                    echo '
+                                echo '
                                 </div>
                             </div>
                             <div class="card-bottom">
@@ -818,7 +818,7 @@ if (isset($_SESSION['cpf'])) {
                                 <span>Manhã</span><!--php turno pedido-->
                             </div>
                             <div class="mid-group-data-pedido">
-                                <button>Avaliar Pedido</button>
+                                <button class="btn-modal-avaliar-pedido">Avaliar Pedido</button>
                             </div>
                         </div>
                     </div>
@@ -922,151 +922,186 @@ if (isset($_SESSION['cpf'])) {
         });
     </script>
 
-    <!--footer-->
+    <!--Modal avaliar pedido cliente-->
 
-    <footer>
-        <div class="container-footer">
-            <div class="content-footer">
-                <div class="content-top-footer">
-                    <div class="item-footer">
-                        <div class="info-cantina-img">
-                            <img src="/cantinarepositorio/main/assets/img/logo-footer.png" alt="">
+    <div class="modal-overlay-avaliar-pedido">
+        <div class="modal-avaliar-pedido">
+            <div class="container-form">
+                <form>
+                    <label for="avaliacao">Escreva sua avaliação:</label>
+                    <textarea id="avaliacao" placeholder="Digite aqui..."></textarea>
+
+
+                    <div class="buttons">
+                        <button class="enviar" type="submit">Enviar</button>
+                        <button class="cancelar" type="button">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+        <script>
+            const modalOverlayAvaliarPedido = document.querySelector('.modal-overlay-avaliar-pedido');
+            const modalAvaliarPedido = document.querySelector('.modal-avaliar-pedido');
+            const btnAvaliarPedido = document.querySelector('.btn-modal-avaliar-pedido');
+            const btnFecharAvaliarPedido = document.querySelector('.cancelar')
+
+            btnAvaliarPedido.addEventListener('click', () => {
+                modalOverlayAvaliarPedido.classList.add('active');
+                modalAvaliarPedido.classList.add('active');
+            });
+
+            btnFecharAvaliarPedido.addEventListener('click', ()=>{
+                modalOverlayAvaliarPedido.classList.remove('active');
+                modalAvaliarPedido.classList.remove('active');  
+            });
+        </script>
+        <!--footer-->
+
+        <footer>
+            <div class="container-footer">
+                <div class="content-footer">
+                    <div class="content-top-footer">
+                        <div class="item-footer">
+                            <div class="info-cantina-img">
+                                <img src="/cantinarepositorio/main/assets/img/logo-footer.png" alt="">
+                            </div>
+                            <div class="info-cantina-description">
+                                <p>Alimentando conhecimento e criando memórias através de sabores únicos há mais de 10 anos
+                                    na nossa
+                                    comunidade escolar.</p>
+                            </div>
+                            <div class="info-icon">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                <i class="fa-brands fa-instagram"></i>
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </div>
                         </div>
-                        <div class="info-cantina-description">
-                            <p>Alimentando conhecimento e criando memórias através de sabores únicos há mais de 10 anos
-                                na nossa
-                                comunidade escolar.</p>
+                        <div class="item-footer">
+                            <div class="title-footer-links">
+                                <h1>Links Rápidos</h1>
+                            </div>
+                            <div class="footer-links">
+                                <ul>
+                                    <li>
+                                        <h6>
+                                            <a href="/cantinarepositorio/main/index.php">Home</a>
+                                        </h6>
+                                    </li>
+                                    <li>
+                                        <h6>
+                                            <a href="#meuspedidos">Pedidos</a>
+                                        </h6>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="info-icon">
-                            <i class="fa-brands fa-whatsapp"></i>
-                            <i class="fa-brands fa-instagram"></i>
-                            <i class="fa-brands fa-x-twitter"></i>
+                        <div class="item-footer">
+                            <div class="title-footer-links">
+                                <h1>Contato</h1>
+                            </div>
+                            <div class="footer-links-local">
+                                <ul>
+                                    <li>
+                                        <h6>
+                                            <a
+                                                href="https://www.bing.com/search?q=maps%20Av%20Cruzeiro%20Do%20Sul%2C%202630%20-%20Carandiru&qs=n&form=QBRE&sp=-1&lq=0&pq=maps%20av%20cruzeiro%20do%20sul%2C%202630%20-%20carandiru&sc=0-41&sk=&cvid=08A936946DAF43F9B1FC74F782A823B6">
+                                                <i class="fa-solid fa-location-dot"></i>
+                                                Av Cruzeiro Do Sul, 2630 - Carandiru.
+                                            </a>
+                                        </h6>
+                                    </li>
+                                    <li>
+                                        <h6>
+                                            <a href="https://vestibulinho.etec.sp.gov.br/fale-conosco">
+                                                <i class="fa-solid fa-location-dot"></i>
+                                                (11) 3471-4071.
+                                            </a>
+                                        </h6>
+                                    </li>
+                                    <li>
+                                        <h6><i class="fa-solid fa-envelope"></i> Furafila@gmail.com</h6>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item-footer">
+                            <div class="title-footer-links">
+                                <h1>Horários de Funcionamento</h1>
+                            </div>
+                            <div class="footer-links">
+                                <ul>
+                                    <li>
+                                        <h6 style="width: 230%; display:flex; gap: 1vh;"><i class="fa-solid fa-clock"></i>
+                                            Manha: 10:00 -
+                                            10:20.</h6>
+                                    </li>
+                                    <li>
+                                        <h6 style="width: 230%; display:flex; gap: 1vh;"><i class="fa-solid fa-clock"></i>
+                                            Tarde: 16:00 -
+                                            16:20.</h6>
+                                    </li>
+                                    <li>
+                                        <h6 style="width: 235%; display:flex; gap: 1vh; padding-bottom:2vh;"><i
+                                                class="fa-solid fa-clock"></i>
+                                            Noite: 20:00 - 20:20.</h6>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="item-footer">
-                        <div class="title-footer-links">
-                            <h1>Links Rápidos</h1>
+                    <div class="content-bottom-footer">
+                        <div class="title-footer-bottom">
+                            <h1>
+                                © 2025 FURA-FILA. Todos os direitos reservados.
+                            </h1>
                         </div>
-                        <div class="footer-links">
-                            <ul>
-                                <li>
-                                    <h6>
-                                        <a href="/cantinarepositorio/main/index.php">Home</a>
-                                    </h6>
-                                </li>
-                                <li>
-                                    <h6>
-                                        <a href="#meuspedidos">Pedidos</a>
-                                    </h6>
-                                </li>
-                            </ul>
+                        <div class="title-footer-bottom-2">
+                            <h1>
+                                <a href="/cantinarepositorio/subpages/termos.php">
+                                    Política e Privacidade
+                                </a>
+                            </h1>
+                            <h1>
+                                <a href="/cantinarepositorio/subpages/termos.php">
+                                    Termos de uso
+                                </a>
+                            </h1>
                         </div>
-                    </div>
-                    <div class="item-footer">
-                        <div class="title-footer-links">
-                            <h1>Contato</h1>
-                        </div>
-                        <div class="footer-links-local">
-                            <ul>
-                                <li>
-                                    <h6>
-                                        <a
-                                            href="https://www.bing.com/search?q=maps%20Av%20Cruzeiro%20Do%20Sul%2C%202630%20-%20Carandiru&qs=n&form=QBRE&sp=-1&lq=0&pq=maps%20av%20cruzeiro%20do%20sul%2C%202630%20-%20carandiru&sc=0-41&sk=&cvid=08A936946DAF43F9B1FC74F782A823B6">
-                                            <i class="fa-solid fa-location-dot"></i>
-                                            Av Cruzeiro Do Sul, 2630 - Carandiru.
-                                        </a>
-                                    </h6>
-                                </li>
-                                <li>
-                                    <h6>
-                                        <a href="https://vestibulinho.etec.sp.gov.br/fale-conosco">
-                                            <i class="fa-solid fa-location-dot"></i>
-                                            (11) 3471-4071.
-                                        </a>
-                                    </h6>
-                                </li>
-                                <li>
-                                    <h6><i class="fa-solid fa-envelope"></i> Furafila@gmail.com</h6>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="item-footer">
-                        <div class="title-footer-links">
-                            <h1>Horários de Funcionamento</h1>
-                        </div>
-                        <div class="footer-links">
-                            <ul>
-                                <li>
-                                    <h6 style="width: 230%; display:flex; gap: 1vh;"><i class="fa-solid fa-clock"></i>
-                                        Manha: 10:00 -
-                                        10:20.</h6>
-                                </li>
-                                <li>
-                                    <h6 style="width: 230%; display:flex; gap: 1vh;"><i class="fa-solid fa-clock"></i>
-                                        Tarde: 16:00 -
-                                        16:20.</h6>
-                                </li>
-                                <li>
-                                    <h6 style="width: 235%; display:flex; gap: 1vh; padding-bottom:2vh;"><i
-                                            class="fa-solid fa-clock"></i>
-                                        Noite: 20:00 - 20:20.</h6>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="content-bottom-footer">
-                    <div class="title-footer-bottom">
-                        <h1>
-                            © 2025 FURA-FILA. Todos os direitos reservados.
-                        </h1>
-                    </div>
-                    <div class="title-footer-bottom-2">
-                        <h1>
-                            <a href="/cantinarepositorio/subpages/termos.php">
-                                Política e Privacidade
-                            </a>
-                        </h1>
-                        <h1>
-                            <a href="/cantinarepositorio/subpages/termos.php">
-                                Termos de uso
-                            </a>
-                        </h1>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Torna o botão inteiro clicável quando há um <a> dentro dele
-            document.querySelectorAll('button').forEach(btn => {
-                const a = btn.querySelector('a[href]');
-                if (!a) return;
-                // evita comportamento padrão do <a> quando clicado apenas no texto
-                a.style.pointerEvents = 'none';
-                // adiciona redirecionamento ao botão inteiro
-                btn.addEventListener('click', (e) => {
-                    // permite que botões tipo "submit" continuem funcionando em formulários
-                    if (btn.type && btn.type.toLowerCase() === 'submit') return;
-                    const href = a.getAttribute('href');
-                    if (!href) return;
-                    window.location.href = href;
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                // Torna o botão inteiro clicável quando há um <a> dentro dele
+                document.querySelectorAll('button').forEach(btn => {
+                    const a = btn.querySelector('a[href]');
+                    if (!a) return;
+                    // evita comportamento padrão do <a> quando clicado apenas no texto
+                    a.style.pointerEvents = 'none';
+                    // adiciona redirecionamento ao botão inteiro
+                    btn.addEventListener('click', (e) => {
+                        // permite que botões tipo "submit" continuem funcionando em formulários
+                        if (btn.type && btn.type.toLowerCase() === 'submit') return;
+                        const href = a.getAttribute('href');
+                        if (!href) return;
+                        window.location.href = href;
+                    });
                 });
             });
-        });
-    </script>
+        </script>
 
-    <script src="./assets/js/pageCliente/pedidos.js"></script>
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+        <script src="./assets/js/pageCliente/pedidos.js"></script>
+        <!-- Bootstrap 5 JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"></script>
 
-    <!-- Swiper.js JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <!-- Swiper.js JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 </body>
 

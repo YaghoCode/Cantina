@@ -3681,7 +3681,7 @@ select:focus {
     border-radius: 0.5rem;
     color: rgb(0, 0, 0);
     font-weight: 500;
-    font-size: 0.90rem;
+    font-size: 0.85rem;
     border-color: black;
     border: 1px solid;
 }
@@ -3842,10 +3842,11 @@ select:focus {
 {
     padding: 0 0.4rem;
     border-radius: 0.5rem;
-    background-color:  var(--cor-secundaria);
-    color: white;
+    color: rgb(0, 0, 0);
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    border-color: black;
+    border: 1px solid;
 }
 
 .table-pedidos-hoje table tbody tr td button,

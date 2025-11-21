@@ -2157,7 +2157,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                     echo '<td><strong style="color: orange;">Pendente</strong></td>';
                                                     break;
                                                 case 'Sendo Preparado':
-                                                    echo '<td><strong style="color: blue;">Sendo Preparado</strong></td>';
+                                                    echo '<td><strong style="color: #f0a956;">Sendo Preparado</strong></td>';
                                                     break;
                                                 case 'Concluído':
                                                     echo '<td><strong style="color: green;">Concluído</strong></td>';
@@ -2237,7 +2237,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                     echo '<td><strong style="color: orange;">Pendente</strong></td>';
                                                     break;
                                                 case 'Sendo Preparado':
-                                                    echo '<td><strong style="color: blue;">Sendo Preparado</strong></td>';
+                                                    echo '<td><strong style="color: #f0a956;">Sendo Preparado</strong></td>';
                                                     break;
                                                 case 'Concluído':
                                                     echo '<td><strong style="color: green;">Concluído</strong></td>';
@@ -2317,7 +2317,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                     echo '<td><strong style="color: orange;">Pendente</strong></td>';
                                                     break;
                                                 case 'Sendo Preparado':
-                                                    echo '<td><strong style="color: blue;">Sendo Preparado</strong></td>';
+                                                    echo '<td><strong style="color: #f0a956;">Sendo Preparado</strong></td>';
                                                     break;
                                                 case 'Concluído':
                                                     echo '<td><strong style="color: green;">Concluído</strong></td>';
@@ -2397,7 +2397,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                     echo '<td><strong style="color: orange;">Pendente</strong></td>';
                                                     break;
                                                 case 'Sendo Preparado':
-                                                    echo '<td><strong style="color: blue;">Sendo Preparado</strong></td>';
+                                                    echo '<td><strong style="color: #f0a956;">Sendo Preparado</strong></td>';
                                                     break;
                                                 case 'Concluído':
                                                     echo '<td><strong style="color: green;">Concluído</strong></td>';
