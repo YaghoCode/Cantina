@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17/11/2025 às 23:55
+-- Tempo de geração: 20/11/2025 às 21:20
 -- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.0.30
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,20 +54,21 @@ CREATE TABLE `cliente` (
   `nome` varchar(60) NOT NULL,
   `cpf` char(11) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `turma` enum('1DS','2DS','3DS','') NOT NULL,
+  `turma` enum('1DS','2DS','3DS','1ADM','2ADM','3ADM','1JD','2JD','3JD','1RH','2RH','3RH','') NOT NULL,
   `senha` varchar(200) NOT NULL,
-  `admin` tinyint(1) NOT NULL DEFAULT 0
+  `status` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `cliente`
 --
 
-INSERT INTO `cliente` (`nome`, `cpf`, `email`, `turma`, `senha`, `admin`) VALUES
-('Davi', '12345678940', 'davifreitas@gmail.com', '3DS', '$2y$10$pzHdSevPdleLT3RB1Syu7e7M/C0W3QQBSzBvlMUKd8tOYEZ2mTlIq', 0),
-('Lucas Nunes', '14356789741', 'lucasnunes23@gmail.com', '1DS', '$2y$10$Ah8phSo53QToDYmPVbx91ue//HDm6ai3dwv7AuhHSJUBjvGCJDkPK', 0),
+INSERT INTO `cliente` (`nome`, `cpf`, `email`, `turma`, `senha`, `status`) VALUES
+('Davi', '12345678940', 'davifreitas@gmail.com', '3DS', '$2y$10$pzHdSevPdleLT3RB1Syu7e7M/C0W3QQBSzBvlMUKd8tOYEZ2mTlIq', 1),
+('Lucas Nunes', '14356789741', 'lucasnunes23@gmail.com', '3RH', '$2y$10$Ah8phSo53QToDYmPVbx91ue//HDm6ai3dwv7AuhHSJUBjvGCJDkPK', 0),
+('yagho', '33333333333', 'yaghochinaglia@gmail.com', '1DS', '$2y$10$bvUgXJBXfpK67vrQQmIigeC1pO8XaSCpYteYZ4wYSobaWdfZ91EiG', 1),
 ('Yagho Chinaglia', '44444444442', 'yaghochinaglia@gmail.com', '2DS', '$2y$10$CSXOfcR/FgNDyNWe1zl2P.LVAl217eSe/XFHD338c1NTAtkEN9SkS', 0),
-('Mano', '77777777777', 'mano@gmail.com', '2DS', '$2y$10$ldGZDcb/KPh2/BOkg1d0f.VVS3EwDGJ8pqgEELPzjzn7joXtwz3bm', 0);
+('Mano', '77777777777', 'mano@gmail.com', '2DS', '$2y$10$ldGZDcb/KPh2/BOkg1d0f.VVS3EwDGJ8pqgEELPzjzn7joXtwz3bm', 1);
 
 -- --------------------------------------------------------
 
@@ -151,7 +152,9 @@ INSERT INTO `pedido` (`id`, `cpf`, `nome_itens`, `quantidade_itens`, `preco_iten
 (10, '77777777777', 'Esfiha de Carne, Hamburguer Cheddar Bacon, X-Salada', '1x, 1x, 3x', 'R$7,00, R$7,00, R$36,00', 50.00, 'Sendo Preparado', '2025-11-14', '11:35:49'),
 (12, '12345678940', 'Halls Cereja, Mousse de Limão, Trident Menta', '2x, 3x, 1x', 'R$10,00, R$9,00, R$4,00', 23.00, 'Cancelado', '2025-11-15', '10:05:36'),
 (13, '77777777777', 'Bauru, Halls Cereja, Mousse de Limão', '2x, 2x, 3x', 'R$14,00, R$10,00, R$9,00', 33.00, 'Concluído', '2025-11-15', '10:14:09'),
-(14, '12345678940', 'Pizza de Calabresa, Hamburguer Cheddar Bacon', '1x, 1x', 'R$35,00, R$7,00', 42.00, 'Sendo Preparado', '2025-11-17', '19:54:46');
+(14, '12345678940', 'Pizza de Calabresa, Hamburguer Cheddar Bacon', '1x, 1x', 'R$35,00, R$7,00', 42.00, 'Cancelado', '2025-11-17', '19:54:46'),
+(15, '33333333333', 'Coxinha de frango, Bauru', '7x, 1x', 'R$49,00, R$7,00', 56.00, 'Concluído', '2025-11-20', '13:58:30'),
+(16, '33333333333', 'Coxinha de frango, Bauru', '7x, 1x', 'R$49,00, R$7,00', 56.00, 'Concluído', '2025-11-20', '13:58:51');
 
 -- --------------------------------------------------------
 
@@ -181,7 +184,11 @@ INSERT INTO `pedido_itens` (`id`, `pedido_id`, `nome_item`, `quantidade`, `preco
 (5, 13, 'Halls Cereja', 2, 10.00, '2025-11-15', '14:14:09'),
 (6, 13, 'Mousse de Limão', 3, 9.00, '2025-11-15', '14:14:09'),
 (7, 14, 'Pizza de Calabresa', 1, 35.00, '2025-11-17', '23:54:46'),
-(8, 14, 'Hamburguer Cheddar Bacon', 1, 7.00, '2025-11-17', '23:54:46');
+(8, 14, 'Hamburguer Cheddar Bacon', 1, 7.00, '2025-11-17', '23:54:46'),
+(9, 15, 'Coxinha de frango', 7, 49.00, '2025-11-20', '17:58:30'),
+(10, 15, 'Bauru', 1, 7.00, '2025-11-20', '17:58:30'),
+(11, 16, 'Coxinha de frango', 7, 49.00, '2025-11-20', '17:58:51'),
+(12, 16, 'Bauru', 1, 7.00, '2025-11-20', '17:58:51');
 
 --
 -- Índices para tabelas despejadas
@@ -232,13 +239,13 @@ ALTER TABLE `estoque`
 -- AUTO_INCREMENT de tabela `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `pedido_itens`
 --
 ALTER TABLE `pedido_itens`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restrições para tabelas despejadas
