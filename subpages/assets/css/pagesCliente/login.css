@@ -46,6 +46,28 @@ body {
     padding: 1rem;
 }
 
+.nav-links button{
+    border: none;
+    color: black;
+    padding: 0.2rem 0.7rem;
+    border-radius: 0.3rem;
+    background-color: transparent;
+    transition: 0.3s ease;
+}
+
+.nav-links button:hover{
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.nav-links button a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav-links button a i{
+    padding-right: 0.3rem;
+}
 
 .container {
     background-color: #fff;
@@ -86,11 +108,22 @@ body {
     text-transform: uppercase;
     margin-top: 10px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.container button:hover{
+    background-color: #e3251bc2;
 }
 
 .container button.hidden {
     background-color: transparent;
     border-color: #fff;
+    transition: 0.3s ease;
+}
+
+.container button.hidden:hover{
+    background-color: white;
+    color: var(--cor-primaria);
 }
 
 .container form {

@@ -105,20 +105,11 @@ mysqli_close($con);
   <header>
     <nav class="navbar">
       <div class="nav-links">
-        <button style="display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    background-color: transparent;
-                                    color: var(--cor-primaria);
-                                    font-family: var(--font-titulo);
-                                    font-weight: 600;
-                                    border: none;
-                                    height: 6vh;
-                                    width: 8%;
-                                    font-size:1.5rem;
-                                    gap: 1.2vh;">
-          <a style="color: inherit;
-    text-decoration: none;" href="/cantinarepositorio/main/index.php"> <i class="fa-solid fa-caret-left"></i> Voltar</a>
+        <button type="button">
+          <a href="/cantinarepositorio/main/index.php">
+            <i class="fa-solid fa-angle-left"></i>
+            Voltar
+          </a>
         </button>
       </div>
     </nav>
