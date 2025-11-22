@@ -233,12 +233,18 @@ a {
     height: 6%;
     width: 6%;
     border-radius: 0.3rem;
+    color: #666;
+}
+
+.btn-fechar-pop-up-user i{
     transition: 0.3s ease;
     color: #666;
     border: none;
+    padding: 0.5rem 0.7rem;
+    border-radius: 0.2rem;
 }
 
-.btn-fechar-pop-up-user:hover {
+.btn-fechar-pop-up-user i:hover {
     color: white;
     background-color: var(--cor-primaria);
 }
@@ -1352,7 +1358,7 @@ a {
 .tabela-items-pedido h3 {
     padding: 0.2rem 0.4rem;
     background-color: #0000003d;
-    border-radius: 100%;
+    border-radius: 0.2rem;
 }
 
 .tabela-items-pedido h3,

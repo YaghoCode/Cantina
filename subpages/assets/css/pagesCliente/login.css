@@ -12,7 +12,7 @@
     --font-titulo: 'Poppins', sans-serif;
 }
 
-html{
+html {
     font-size: 1.4rem;
 }
 
@@ -47,7 +47,7 @@ body {
 }
 
 
-.container{
+.container {
     background-color: #fff;
     position: absolute;
     overflow: hidden;
@@ -56,25 +56,25 @@ body {
     max-width: 2200px;
 }
 
-.h1-sign{
+.h1-sign {
     font-family: var(--font-titulo);
     font-weight: 800;
 }
 
 
-.container p{
+.container p {
     font-size: 1rem;
     line-height: 20px;
     letter-spacing: 0.3px;
     font-family: var(--font-titulo);
 }
 
-.container span{
+.container span {
     font-size: 16px;
 }
 
 
-.container button{
+.container button {
     background-color: var(--cor-primaria);
     color: #fff;
     font-size: 0.9rem;
@@ -88,12 +88,12 @@ body {
     cursor: pointer;
 }
 
-.container button.hidden{
+.container button.hidden {
     background-color: transparent;
     border-color: #fff;
 }
 
-.container form{
+.container form {
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -104,7 +104,7 @@ body {
     gap: 1vh;
 }
 
-.container input{
+.container input {
     background-color: #eee;
     border: none;
     margin: 8px 0;
@@ -115,48 +115,77 @@ body {
     outline: none;
 }
 
-.form-container{
+.form-container {
     position: absolute;
     top: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
 }
 
-.form-container select{
-    background-color: #eee;
-    font-family: var(--font-titulo);
-    font-size: 0.7rem;
-    padding-left: 0.4rem;
-    border: none;
+.custom-select {
+    width: 80%;
+    position: relative;
+    font-family: Arial;
+}
+
+.selected {
+    background: #eee;
+    padding: 10px;
     border-radius: 8px;
-    height: 4.3vh;
-    width: 80%;        
-    color: rgba(0, 0, 0, 0.562);
-    margin: 0.2rem;
+    cursor: pointer;
+    font-size: 0.7rem;
+    color: #00000082;
+    font-family: var(--font-titulo);
 }
 
-.form-container option{
-    font-size: 0.6rem;
+.selected i{
+    padding-left: 74%;
 }
 
-.sign-in{
+.options {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    width: 100%;
+    display: none;
+    height: 20vh;
+    overflow-y: auto;
+}
+
+.options li {
+    padding: 0.2rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-family: var(--font-titulo);
+    background: #eee;
+}
+
+.options li:hover {
+    background: #ffffff;
+}
+
+.sign-in {
     left: 0;
     width: 50%;
     z-index: 2;
 }
 
-.container.active .sign-in{
+.container.active .sign-in {
     transform: translateX(100%);
 }
 
-.sign-up{
+.sign-up {
     left: 0;
     width: 50%;
     opacity: 0;
     z-index: 1;
 }
 
-.container.active .sign-up{
+.container.active .sign-up {
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
@@ -164,23 +193,27 @@ body {
 }
 
 
-@keyframes move{
-    0%, 49.99%{
+@keyframes move {
+
+    0%,
+    49.99% {
         opacity: 0;
         z-index: 1;
     }
-    50%, 100%{
+
+    50%,
+    100% {
         opacity: 1;
         z-index: 5;
     }
 }
 
-.social-icons{
+.social-icons {
     margin: 20px 0;
 }
 
 
-.toggle-container{
+.toggle-container {
     position: absolute;
     top: 0;
     left: 50%;
@@ -192,12 +225,12 @@ body {
     z-index: 1000;
 }
 
-.container.active .toggle-container{
+.container.active .toggle-container {
     transform: translateX(-100%);
     border-radius: 0 100px 100px 0;
 }
 
-.toggle{
+.toggle {
     background-color: var(--cor--botao-reject);
     height: 100%;
     color: #fff;
@@ -209,11 +242,11 @@ body {
     transition: all 0.6s ease-in-out;
 }
 
-.container.active .toggle{
+.container.active .toggle {
     transform: translateX(50%);
 }
 
-.toggle-panel{
+.toggle-panel {
     position: absolute;
     width: 50%;
     height: 100%;
@@ -228,19 +261,19 @@ body {
     transition: all 0.6s ease-in-out;
 }
 
-.toggle-left{
+.toggle-left {
     transform: translateX(-200%);
 }
 
-.container.active .toggle-left{
+.container.active .toggle-left {
     transform: translateX(0);
 }
 
-.toggle-right{
+.toggle-right {
     right: 0;
     transform: translateX(0);
 }
 
-.container.active .toggle-right{
+.container.active .toggle-right {
     transform: translateX(200%);
 }
