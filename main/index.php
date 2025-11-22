@@ -280,12 +280,12 @@ if (isset($_SESSION['cpf'])) {
 
       </div>
       <div class="cart-total-price">
-        <h5 class="cart-total-h5">Total:</h5 >
+        <h5 class="cart-total-h5">Total:</h5>
         <h6 class="cart-total-h6">R$ 00,00 <!--Price calculado--></h6>
       </div>
       <div class="finalizar-pedido">
         <button type="button" id="btn-finalizar-pedidos">
-           <a href="/cantinarepositorio/subpages/finalizar_pedido_cliente.php"></a>
+          <a href="/cantinarepositorio/subpages/finalizar_pedido_cliente.php"></a>
           Finalizar Pedido
         </button>
       </div>
@@ -641,50 +641,204 @@ if (isset($_SESSION['cpf'])) {
         </div>
         <div class="content-cardapio-options">
           <!--Outros-->
-          <div class="cards-outros">
-            <div class="cards-img">
-              <img src="./assets/img/combo1.png" alt="">
-            </div>
-            <div class="cards-title">
-              <h3>Pizza + Doly</h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4>R$ 25,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
+          <?php
+          $query = "SELECT * FROM estoque WHERE categoria = 'Outros' AND in_main = 1 LIMIT 3";
+          $result = mysqli_query($con, $query);
+          if ($result && mysqli_num_rows($result) > 0) {
+            foreach ($result as $row) {
+              ?>
+              <div class="cards-salgados">
+                <div class="cards-img">
+                  <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
+                </div>
+                <div class="cards-title">
+                  <h3><?php echo $row['Nome']; ?></h3>
+                </div>
+                <div class="cards-priceEbtn">
+                  <h4><?php echo $row['preco']; ?></h4>
+                  <button><i class="fa-solid fa-plus"></i></button>
+                </div>
+              </div>
+              <?php
+            }
+          }
+          ?>
 
-          <div class="cards-outros">
-            <div class="cards-img">
-              <img src="./assets/img/combo1.png" alt="">
-            </div>
-            <div class="cards-title">
-              <h3>Combo Lanche + Refri</h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4>R$ 10,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
 
-          <div class="cards-outros">
-            <div class="cards-img">
-              <img src="./assets/img/combo1.png" alt="">
-            </div>
-            <div class="cards-title">
-              <h3>Combo Lanche + Brigadeiro</h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4>R$ 8,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
 
         </div>
       </div>
     </div>
   </section>
 
+  <!--Funções Mais Pedidos php-->
+
+ <!-- <script>
+    const track = document.querySelector(".carrousel-track-mais-pedidos");
+    const leftBtn = document.querySelector(".botao-left-mp");
+    const rightBtn = document.querySelector(".botao-right-mp");
+
+    const itemsData = [
+      `
+  <?php
+  $query = "SELECT * FROM estoque AND mais_pedido = 1";
+  $result = mysqli_query($con, $query);
+  if ($result && mysqli_num_rows($result) > 0) {
+    foreach ($result as $row) {
+      ?>
+  <div class="cards-mp">
+            <div class="cards-img-mp">
+              <img src="./assets/img/esfihadecarne.jpg" alt="">
+            </div>
+            <div class="cards-title-mp">
+              <h3>Esfiha de Carne</h3>
+            </div>
+            <div class="cards-priceEbtn-mp">
+              <h4>R$ 6,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+    </div>
+    <?php
+    }
+  }
+  ?>
+`,
+
+
+    ]
+
+
+    const CYCLES = 3; // Quantas vezes a lista será repetida
+
+    let items = [];
+    let currentIndex = 0;
+    let itemWidth = 0;
+    let isAnimating = false;
+
+    function createItem(html) {
+      const div = document.createElement("div");
+      div.className = "carrousel-item-mp";
+      div.innerHTML = html; // permite HTML dentro do item
+      return div;
+    }
+
+
+    function calculateItemWidth() {
+      const item = items[0];
+      const trackStyle = window.getComputedStyle(track);
+      const gap = parseFloat(trackStyle.gap) || 0;
+      return item.offsetWidth + gap;
+    }
+
+
+    function renderItems() {
+      track.innerHTML = "";
+
+      const fullList = [];
+      for (let i = 0; i < CYCLES; i++) {
+        itemsData.forEach((text) => {
+          fullList.push(text);
+        });
+      }
+
+      fullList.forEach((text) => {
+        track.appendChild(createItem(text));
+      });
+
+      items = document.querySelectorAll(".carrousel-item-mp");
+
+      itemWidth = calculateItemWidth();
+
+      const itemsPerCycle = itemsData.length;
+      currentIndex = itemsPerCycle * Math.floor(CYCLES / 2) + 1;
+
+      updateCarousel(false);
+    }
+
+    function updateCarousel(animate = true) {
+      const offset = currentIndex * itemWidth - itemWidth;
+
+      if (animate) {
+        isAnimating = true;
+        track.style.transition = "transform 0.5s ease";
+      } else {
+        track.style.transition = "none";
+      }
+
+      track.style.transform = `translateX(-${offset}px)`;
+
+      items.forEach((item, idx) => {
+        item.classList.remove("active");
+        item.style.transition = "";
+        if (idx === currentIndex) {
+          item.classList.add("active");
+          if (animate) {
+            setTimeout(() => {
+              item.style.transition = "transform 0s ease, opacity 0s ease";
+            }, 50);
+          } else {
+            item.style.transition = "transform 0s ease, opacity 0s ease";
+          }
+        }
+      });
+
+      if (animate) {
+        setTimeout(() => {
+          isAnimating = false;
+        }, 500);
+      }
+    }
+
+    function resetToCenterIfNeeded() {
+      const itemsPerCycle = itemsData.length;
+      const totalItems = items.length;
+      const min = itemsPerCycle;
+      const max = totalItems - itemsPerCycle - 1;
+
+      if (currentIndex <= min) {
+        currentIndex += itemsPerCycle;
+        updateCarousel(false);
+      }
+
+      if (currentIndex >= max) {
+        currentIndex -= itemsPerCycle;
+        updateCarousel(false);
+      }
+    }
+
+    leftBtn.addEventListener("click", () => {
+      if (isAnimating) return;
+
+      currentIndex--;
+      updateCarousel(true);
+
+      setTimeout(() => {
+        resetToCenterIfNeeded();
+      }, 510);
+    });
+
+    rightBtn.addEventListener("click", () => {
+      if (isAnimating) return;
+
+      currentIndex++;
+      updateCarousel(true);
+
+      setTimeout(() => {
+        resetToCenterIfNeeded();
+      }, 510);
+    });
+
+    window.addEventListener("load", () => {
+      renderItems();
+    });
+
+    window.addEventListener("resize", () => {
+      itemWidth = calculateItemWidth();
+      updateCarousel(false);
+    });
+
+  </script>
+-->
 
   <!--Section Sobre Nós-->
 

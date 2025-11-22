@@ -195,6 +195,28 @@ mysqli_close($con);
   </div>
 
   <script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Torna o botão inteiro clicável quando há um <a> dentro dele
+      document.querySelectorAll('button').forEach(btn => {
+        const a = btn.querySelector('a[href]');
+        if (!a) return;
+        // evita comportamento padrão do <a> quando clicado apenas no texto
+        a.style.pointerEvents = 'none';
+        // adiciona redirecionamento ao botão inteiro
+        btn.addEventListener('click', (e) => {
+          // permite que botões tipo "submit" continuem funcionando em formulários
+          if (btn.type && btn.type.toLowerCase() === 'submit') return;
+          const href = a.getAttribute('href');
+          if (!href) return;
+          window.location.href = href;
+        });
+      });
+    });
+
+  </script>
+
+  <script>
     const selected = document.querySelector(".selected");
     const optionsList = document.querySelector(".options");
     const options = document.querySelectorAll(".options li");

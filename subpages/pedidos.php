@@ -737,7 +737,22 @@ if (isset($_SESSION['cpf'])) {
                                     <h1>Detalhes do Pedido:</h1>
                                 </div>
                                 <div class="content-modal-visualizar-top-tagFiltro">
-                                    <h6><?php echo $pedido['status']; ?></h6>
+                                    <?php
+                                            switch ($pedido['status']) {
+                                                case 'Sendo Preparado':
+                                                    echo '<h6 style="background-color: orange">Sendo Preparado</h6>';
+                                                    break;
+                                                case 'Concluído':
+                                                    echo '<h6 style="background-color: #00bf63">Concluído</h6>';
+                                                    break;
+                                                case 'Cancelado':
+                                                    echo '<h6 style="background-color: red">Cancelado</h6>';
+                                                    break;
+                                                default:
+                                                    echo '<td><strong>' . htmlspecialchars($pedido['status']) . '</strong></td>';
+                                                    break;
+                                            }
+                                            ?>
                                     <!--php status pedido-->
                                 </div>
                             </div>
