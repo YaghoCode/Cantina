@@ -724,6 +724,10 @@ if (isset($_SESSION['cpf'])) {
                 $cliente_query = "SELECT * FROM cliente WHERE cpf = '$cpf_cliente'";
                 $cliente_query_run = mysqli_query($con, $cliente_query);
                 $cliente = mysqli_fetch_assoc($cliente_query_run); // Obtém os dados do cliente
+
+                $idPedido = $pedido['id'];
+                $produtos_query = "SELECT * FROM pedido_itens WHERE pedido_id = $idPedido";
+                $produtos_query_run = mysqli_query($con, $produtos_query);
                 ?>
 
                 <div class="modal-overlay-visualizar-pedido" id="overlay_modal_pedido-<?= $pedido['id'] ?>">

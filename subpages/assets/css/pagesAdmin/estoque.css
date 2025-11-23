@@ -583,6 +583,7 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
 /*Aside*/
 
 .aside-options {
+    transform: translateX(-100%); /* <---- Botei agr se der ruim tira*/
     position: fixed;
     display: flex;
     align-items: center;
@@ -4440,7 +4441,7 @@ select:focus {
 .tabela-items-pedido h3{
     padding: 0.2rem 0.4rem;
     border: 1px solid rgba(0, 0, 0, 0.657);
-    border-radius: 1rem
+    border-radius: 1rem;
 }
 
 .tabela-items-pedido h3,h4,h5{

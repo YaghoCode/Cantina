@@ -131,7 +131,7 @@ if (isset($_SESSION['cpf'])) {
                                     </button>
                                 </form>
                                 <button type="button" class="btn-cancelar-finalizacao-pedido" data-href="/cantinarepositorio/main/index.php">
-                                    Cancelar Pedido
+                                    Voltar para a página inicial
                                 </button>
                             </div>
                         </div>
