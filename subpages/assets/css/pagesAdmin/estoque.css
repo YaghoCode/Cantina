@@ -2339,14 +2339,13 @@ input[type="file"] {
     padding: 1rem;
     width: 40%;
     height: 60%;
-    opacity: 0;
+    opacity: 1;
     visibility: hidden;
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
     z-index: 10000000000000001;
 }
 
-.overlay-modal-toggle-cardapio.active,
-.modal-toggle-cardapio.active {
+.overlay-modal-toggle-cardapio.active,.modal-toggle-cardapio.active{
     opacity: 1;
     visibility: visible;
 }

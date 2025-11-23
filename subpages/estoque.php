@@ -40,10 +40,20 @@ $total_clientes = mysqli_num_rows($query_run_user);
 $query_users_ativos = "SELECT * from cliente where status = 1";
 $query_run_user_ativos = mysqli_query($con, $query_users_ativos);
 $total_clientes_ativos = mysqli_num_rows($query_run_user_ativos);
-$query_pedidos = "SELECT * from pedido";
-$query_run_pedidos = mysqli_query($con, $query_pedidos);
-$total_pedidos = mysqli_num_rows($query_run_pedidos);
-
+$query_all_pedidos = "SELECT * from pedido";
+$query_run_all_pedidos = mysqli_query($con, $query_all_pedidos);    
+$total_pedidos = mysqli_num_rows($query_run_all_pedidos);
+$query_run_PD = mysqli_query($con, "SELECT * FROM pedido WHERE status = 'Sendo preparado' OR status = 'pendente'");
+$query_run_totaal = mysqli_query($con, "SELECT * FROM pedido WHERE DATE(data_pedido) = CURDATE()");
+$total_pedidos_hoje = mysqli_num_rows($query_run_totaal);
+$pedidos_pendentes = mysqli_num_rows($query_run_PD);
+$faturamento_hoje = 0.00;
+$res_fat = mysqli_query($con, "SELECT COALESCE(SUM(CAST(REPLACE(preco_total, ',', '.') AS DECIMAL(12,2))),0) AS faturamento_hoje FROM pedido WHERE status = 'Concluído' AND DATE(data_pedido) = CURDATE()");
+if ($res_fat) {
+    $row_fat = mysqli_fetch_assoc($res_fat);
+    $faturamento_hoje = floatval($row_fat['faturamento_hoje'] ?? 0);
+}
+$faturamento_hoje_fmt = 'R$ ' . number_format($faturamento_hoje, 2, ',', '.');
 ?>
 
 <?php
@@ -459,7 +469,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-editar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button class="btn-toggle-cardapio">
+                                                <button class="btn-toggle-cardapio" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-thumbtack"></i>
                                                 </button>
                                                 <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
@@ -518,6 +528,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-editar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
+                                                <button class="btn-toggle-cardapio" data-id="<?= $item['id'] ?>">
+                                                    <i class="fa-solid fa-thumbtack"></i>
+                                                </button>
                                                 <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </button>
@@ -574,7 +587,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-editar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button class="btn-toggle-cardapio">
+                                                <button class="btn-toggle-cardapio" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-thumbtack"></i>
                                                 </button>
                                                 <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
@@ -634,6 +647,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-editar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
+                                                <button class="btn-toggle-cardapio" data-id="<?= $item['id'] ?>">
+                                                    <i class="fa-solid fa-thumbtack"></i>
+                                                </button>
                                                 <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </button>
@@ -691,7 +707,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-editar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button class="btn-toggle-cardapio">
+                                                <button class="btn-toggle-cardapio" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-thumbtack"></i>
                                                 </button>
                                                 <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
@@ -750,7 +766,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-editar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button class="btn-toggle-cardapio">
+                                                <button class="btn-toggle-cardapio" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-thumbtack"></i>
                                                 </button>
                                                 <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
@@ -810,7 +826,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 <button class="btn-editar-item" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                                <button class="btn-toggle-cardapio">
+                                                <button class="btn-toggle-cardapio" data-id="<?= $item['id'] ?>">
                                                     <i class="fa-solid fa-thumbtack"></i>
                                                 </button>
                                                 <button class="btn-deletar-item" data-id="<?= $item['id'] ?>">
@@ -843,13 +859,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $item['valor_total'] = 'R$ ' . number_format($item['preco'] * $item['Quantidade'], 2, ',', '.');
                 ?>
                 <div class="modal-overlay-estoque" id="modal-<?= $item['id'] ?>">
-                    <div class="modal-estoque-visualizar-item" id="modal-visualizar-item">
+                    <div class="modal-estoque-visualizar-item" id="overlayvisu-<?= $item['id'] ?>">
                         <div class="modal-estoque-top">
                             <div class="modal-estoque-title">
                                 <h1>Detalhes do Produto:</h1>
                             </div>
                             <div class="modal-estoque-btn-close">
-                                <button class="btn-close-modal-estoque" id="btn-close-modal-estoque"><i
+                                <button class="btn-close-modal-estoque" id="btn-close-modal-estoque" data-id="<?= $item['id'] ?>"><i
                                         class="fa-solid fa-xmark"></i></button>
                             </div>
                         </div>
@@ -1220,10 +1236,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 });
             });
         </script>
+ <?php
+        $query = "SELECT * from estoque";
+        $query_run = mysqli_query($con, $query);
 
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $item) { 
+                ?>
         <!--Modal toggle cardapio-->
-        <div class="overlay-modal-toggle-cardapio">
-            <div class="modal-toggle-cardapio">
+        <div class="overlay-modal-toggle-cardapio" id="modaltoggle-<?= $item['id'] ?>">
+            <div class="modal-toggle-cardapio" id="overlaymodal-toggle-<?= $item['id'] ?>">
                 <div class="modal-toggle-cardapio-content">
                     <button class="btn-fechar-modal-toggle">
                         <i class="fa-solid fa-xmark"></i>
@@ -1234,7 +1256,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <div class="toggle-content-top">
                         <div class="toggle-content-top-left">
                             <div class="toggle-content-top-left-img"> <!--produto imagem-->
-                                <img src="./assets/img/CocaCola.png" alt="">
+                                <img src="./imgbd/<?php echo $item['img'] ?>" alt="">
                             </div>
                         </div>
                     </div>
@@ -1242,10 +1264,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <div class="toggle-content-bottom-left">
                             <div class="toggle-content-bottom-left-info">
                                 <h1>
-                                    Nome produto: <span>Esfiha de Carne</span>
+                                    Nome produto: <span><?= $item['Nome'] ?></span>
                                 </h1>
                                 <h1>
-                                    Tipo: <span>Salgados</span>
+                                    Tipo: <span><?= $item['Categoria'] ?></span>
                                 </h1>
                             </div>
                         </div>
@@ -1273,23 +1295,62 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
             </div>
         </div>
+        <?php
+            }
+        }
+        ?>
+        <script>
+             // modal estoque table produtos fixar main
+            document.addEventListener('DOMContentLoaded', () => {
+                const buttons = document.querySelectorAll('.btn-toggle-cardapio');
 
+                buttons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const modalId = button.getAttribute('data-id');
+                        const modal = document.getElementById('modaltoggle-' + modalId);
+                        const overlay = document.getElementById('overlaymodal-toggle-' + modalId);
+                        console.log(modal)
+
+                        if (modal && !modal.classList.contains('active')) {
+                            overlay.classList.add('active');
+                            modal.classList.add('active');
+                        }
+                    });
+                });
+                
+            document.querySelectorAll('.overlay-modal-toggle-cardapio').forEach(overlay => {
+                    const closeButton = overlay.querySelectorAll('.btn-fechar-modal-toggle');
+                    const modal = overlay.querySelectorAll('.modal-toggle-cardapio');
+
+                    closeButton.forEach(btnFechar => {
+                        console.log("foi");
+                        btnFechar.addEventListener('click', () => {
+                            overlay.classList.remove('active');
+                            modal.forEach(m => m.classList.remove('active'));
+                        })
+                    });
+
+                    overlay.addEventListener('click', (e) => {
+                        if (e.target === overlay) {
+                            modal.forEach(m => m.classList.remove('active'));
+                            overlay.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        </script>
         <script>
             const modalToggleCardapio = document.querySelector('.modal-toggle-cardapio');
             const overlayModalToggleCardapio = document.querySelector('.overlay-modal-toggle-cardapio');
             const btnFecharModalToggle = document.querySelector('.btn-fechar-modal-toggle');
             const btnToggleCardapio = document.querySelectorAll('.btn-toggle-cardapio');
 
-            btnToggleCardapio.forEach((btn) => {
-                btn.addEventListener('click', () => {
-                    modalToggleCardapio.classList.add('active');
-                    overlayModalToggleCardapio.classList.add('active');
-                });
-            });
+           
 
             btnFecharModalToggle.addEventListener('click', () => {
                 modalToggleCardapio.classList.remove('active');
                 overlayModalToggleCardapio.classList.remove('active');
+                console.log("foi");
             });
         </script>
 
@@ -1398,14 +1459,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 $status = 'Ativo';
                                             }
                                         }
-                                          if ($status === 'Ativo') {
-                                $update_sql = "UPDATE cliente SET status = 1 WHERE cpf = '".$cliente['cpf']."'";
-                                mysqli_query($con, $update_sql);
-                             }
-                             else {
-                                $update_sql = "UPDATE cliente SET status = 0 WHERE cpf = '".$cliente['cpf']."'";
-                                mysqli_query($con, $update_sql);
-                             }
+                                        if ($status === 'Ativo') {
+                                            $update_sql = "UPDATE cliente SET status = 1 WHERE cpf = '" . $cliente['cpf'] . "'";
+                                            mysqli_query($con, $update_sql);
+                                        } else {
+                                            $update_sql = "UPDATE cliente SET status = 0 WHERE cpf = '" . $cliente['cpf'] . "'";
+                                            mysqli_query($con, $update_sql);
+                                        }
                                         ?>
                                         <tr>
                                             <td>
@@ -1478,7 +1538,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 $status = 'Ativo';
                                             }
                                         }
-                                          
+
                                         ?>
                                         <tr>
                                             <td>
@@ -1551,7 +1611,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 $status = 'Ativo';
                                             }
                                         }
-                                          
+
                                         ?>
                                         <tr>
                                             <td>
@@ -1604,7 +1664,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 </tr>
                             </thead>
                             <tbody>
-                                
+
                                 <?php
                                 $query = "SELECT * from cliente WHERE status = 0";
                                 $query_run = mysqli_query($con, $query);
@@ -1621,7 +1681,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 $status = 'Ativo';
                                             }
                                         }
-                                          
+
                                         ?>
                                         <tr>
                                             <td>
@@ -1690,7 +1750,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 $status = 'Ativo';
                                             }
                                         }
-                                         
+
                                         ?>
                                         <tr>
                                             <td>
@@ -2069,7 +2129,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </div>
                         </div>
                         <div class="cards-pedidos-number-stats">
-                            <h1>23</h1>
+                            <h1><?php
+                            if (isset($total_pedidos_hoje)) {
+                                echo $total_pedidos_hoje;
+                            } else {
+                                echo '0';
+                            }
+                            ?></h1>
                         </div>
                     </div>
                     <div class="cards-pedidos-stats" id="cards-pedidos-pendentes">
@@ -2082,7 +2148,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </div>
                         </div>
                         <div class="cards-pedidos-number-stats">
-                            <h1>23</h1>
+                            <h1> <?php
+                            if (isset($pedidos_pendentes)) {
+                                echo $pedidos_pendentes;
+                            } else {
+                                echo '0';
+                            }
+                            ?> </h1>
                         </div>
                     </div>
                     <div class="cards-pedidos-stats" id="cards-pedidos-faturamento">
@@ -2095,7 +2167,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </div>
                         </div>
                         <div class="cards-pedidos-number-stats">
-                            <h1>R$ 1256,00</h1>
+                            <h1><?php echo $faturamento_hoje_fmt; ?></h1>
                         </div>
                     </div>
                 </div>
@@ -2171,22 +2243,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             }
                                             ?>
                                             <td style="display: flex; gap:1vh;">
-                                                <?php 
-                                                if($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente'){
-                                                ?>
-                                                <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
-                                                    <i class="fa-solid fa-clipboard-check"></i>
-                                                </button>
+                                                <?php
+                                                if ($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente') {
+                                                    ?>
+                                                    <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
+                                                        <i class="fa-solid fa-clipboard-check"></i>
+                                                    </button>
                                                 <?php } ?>
                                                 <button class="btn-visualizar-pedido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-regular fa-eye"></i>
                                                 </button>
-                                                <?php 
-                                                if($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente'){
-                                                ?>
-                                                <button class="btn-cancelar-pedido-adm" data-id="<?= $pedido['id'] ?>">
-                                                    <i class="fa-solid fa-xmark"></i>
-                                                </button>
+                                                <?php
+                                                if ($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente') {
+                                                    ?>
+                                                    <button class="btn-cancelar-pedido-adm" data-id="<?= $pedido['id'] ?>">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </button>
                                                 <?php } ?>
                                             </td>
                                         </tr>
@@ -2251,22 +2323,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             }
                                             ?>
                                             <td style="display: flex; gap:1vh;">
-                                               <?php 
-                                                if($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente'){
-                                                ?>
-                                                <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
-                                                    <i class="fa-solid fa-clipboard-check"></i>
-                                                </button>
+                                                <?php
+                                                if ($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente') {
+                                                    ?>
+                                                    <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
+                                                        <i class="fa-solid fa-clipboard-check"></i>
+                                                    </button>
                                                 <?php } ?>
                                                 <button class="btn-visualizar-pedido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-regular fa-eye"></i>
                                                 </button>
-                                                <?php 
-                                                if($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente'){
-                                                ?>
-                                                <button class="btn-cancelar-pedido-adm" data-id="<?= $pedido['id'] ?>">
-                                                    <i class="fa-solid fa-xmark"></i>
-                                                </button>
+                                                <?php
+                                                if ($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente') {
+                                                    ?>
+                                                    <button class="btn-cancelar-pedido-adm" data-id="<?= $pedido['id'] ?>">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </button>
                                                 <?php } ?>
                                             </td>
                                         </tr>
@@ -2331,22 +2403,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             }
                                             ?>
                                             <td style="display: flex; gap:1vh;">
-                                               <?php 
-                                                if($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente'){
-                                                ?>
-                                                <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
-                                                    <i class="fa-solid fa-clipboard-check"></i>
-                                                </button>
+                                                <?php
+                                                if ($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente') {
+                                                    ?>
+                                                    <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
+                                                        <i class="fa-solid fa-clipboard-check"></i>
+                                                    </button>
                                                 <?php } ?>
                                                 <button class="btn-visualizar-pedido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-regular fa-eye"></i>
                                                 </button>
-                                                <?php 
-                                                if($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente'){
-                                                ?>
-                                                <button class="btn-cancelar-pedido-adm" data-id="<?= $pedido['id'] ?>">
-                                                    <i class="fa-solid fa-xmark"></i>
-                                                </button>
+                                                <?php
+                                                if ($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente') {
+                                                    ?>
+                                                    <button class="btn-cancelar-pedido-adm" data-id="<?= $pedido['id'] ?>">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </button>
                                                 <?php } ?>
                                             </td>
                                         </tr>
@@ -2411,22 +2483,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             }
                                             ?>
                                             <td style="display: flex; gap:1vh;">
-                                                <?php 
-                                                if($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente'){
-                                                ?>
-                                                <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
-                                                    <i class="fa-solid fa-clipboard-check"></i>
-                                                </button>
+                                                <?php
+                                                if ($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente') {
+                                                    ?>
+                                                    <button class="btn-pedido-concluido-adm" data-id="<?= $pedido['id'] ?>">
+                                                        <i class="fa-solid fa-clipboard-check"></i>
+                                                    </button>
                                                 <?php } ?>
                                                 <button class="btn-visualizar-pedido-adm" data-id="<?= $pedido['id'] ?>">
                                                     <i class="fa-regular fa-eye"></i>
                                                 </button>
-                                                <?php 
-                                                if($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente'){
-                                                ?>
-                                                <button class="btn-cancelar-pedido-adm" data-id="<?= $pedido['id'] ?>">
-                                                    <i class="fa-solid fa-xmark"></i>
-                                                </button>
+                                                <?php
+                                                if ($pedido['status'] == 'Sendo Preparado' || $pedido['status'] == 'Pendente') {
+                                                    ?>
+                                                    <button class="btn-cancelar-pedido-adm" data-id="<?= $pedido['id'] ?>">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </button>
                                                 <?php } ?>
                                             </td>
                                         </tr>

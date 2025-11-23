@@ -34,13 +34,25 @@
                 <div class="title-pagamento">
                     <h1>Pagamento do Pedido:</h1>
                 </div>
+                <div id="pix-status">
+                    <!--ARRUMAR AQUI CAIO--><!--ARRUMAR AQUI CAIO--><!--ARRUMAR AQUI CAIO--><!--ARRUMAR AQUI CAIO-->
+                </div>
             </div>
             <div class="content-pagamento-page-mid">
                 <div class="">
                     <img id="pix-qrcode" alt="QR Code PIX" style="max-width:360px;">
                 </div>
-                    <div class="pix-cola">
+                    <div class="pix-cola"> <!--ARRUMAR AQUI CAIO--><!--ARRUMAR AQUI CAIO--><!--ARRUMAR AQUI CAIO-->
                         <!--Colocar pix cola aqui-->
+                        <div style="margin-bottom:8px;color:#444"></div>
+
+                        <!-- Texto com o código "copia e cola" do PIX --><!--ARRUMAR AQUI CAIO--><!--ARRUMAR AQUI CAIO--><!--ARRUMAR AQUI CAIO-->
+                        <textarea id="pix-codigo" readonly rows="4" style=" width: 100%; height: 100%;" 
+                            placeholder="O código copia e cola aparecerá aqui após gerar o PIX"></textarea>
+
+                        <div style="margin-top:8px;display:flex;gap:8px;">
+                            <button id="btn-copiar-pix" type="button" class="btn btn-sm btn-outline-secondary">Copiar PIX</button>
+                        </div>
                     </div>
                 <div class="valor-total-pagamento">
                     <h1>Valor Total:</h1>
