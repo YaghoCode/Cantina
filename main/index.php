@@ -28,6 +28,8 @@ if (isset($_SESSION['cpf'])) {
 }
 ?>
 
+<!--Comentario-->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
