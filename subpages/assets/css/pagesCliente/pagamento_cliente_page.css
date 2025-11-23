@@ -61,8 +61,10 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     height: 7%;
     width: 100%;
+    transform: translateY(20%);
 }
 
 .title-pagamento h1{
@@ -239,4 +241,17 @@ a{
     width: 85%;
     border: 1px solid rgba(0, 0, 0, 0.127);
     border-radius: 0.2rem;
+}
+
+.pix-cola textarea{
+    border: 1px solid rgba(0, 0, 0, 0.138);
+    border-radius: 0.2rem;
+}
+
+#btn-copiar-pix{
+    border: 1px solid rgba(0, 0, 0, 0.138);
+    transition: 0.3s ease;
+    font-family: var(--font-titulo);
+    font-weight: 600;
+    font-size: 1rem;
 }

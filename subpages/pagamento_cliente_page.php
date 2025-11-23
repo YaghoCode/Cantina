@@ -50,7 +50,7 @@
                         <textarea id="pix-codigo" readonly rows="4" style=" width: 100%; height: 100%;" 
                             placeholder="O código copia e cola aparecerá aqui após gerar o PIX"></textarea>
 
-                        <div style="margin-top:8px;display:flex;gap:8px;">
+                        <div style="display:flex;gap:8px;">
                             <button id="btn-copiar-pix" type="button" class="btn btn-sm btn-outline-secondary">Copiar PIX</button>
                         </div>
                     </div>
