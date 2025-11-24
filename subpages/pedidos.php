@@ -234,6 +234,7 @@ if (isset($_SESSION['cpf'])) {
                                 <h1>Turno: <span>Manhã</span></h1>
                                 <h1>Dia: <span>' . $dataFmt . '</span></h1>
                             </div>
+                            
 
                             <div class="card-mid-detalhes-pedido">
                                  ';
@@ -778,6 +779,9 @@ if (isset($_SESSION['cpf'])) {
                                         <div class="mid-group-turno-pedido">
                                             <h1>Turno:</h1>
                                             <span>Manhã</span><!--php turno pedido-->
+                                        </div>
+                                        <div class="mid-group-botao-avaliar">
+                                            <button class="btn-modal-avaliar-pedido">Avaliar Pedido</button>
                                         </div>
                                     </div>
                                 </div>

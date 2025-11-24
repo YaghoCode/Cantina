@@ -1158,6 +1158,7 @@ a {
     height: 100%;
 }
 
+
 .mid-group-numero-pedido h1 {
     font-size: 1.1rem;
     font-family: var(--font-titulo);
@@ -1180,7 +1181,7 @@ a {
     height: 100%;
 }
 
-.mid-group-data-pedido button {
+.mid-group-botao-avaliar button {
     padding: 0.5rem;
     width: 7vw;
     border: 1px solid rgba(0, 0, 0, 0.164);
@@ -1188,7 +1189,7 @@ a {
     transition: 0.3s ease;
 }
 
-.mid-group-data-pedido button:hover {
+.mid-group-botao-avaliar button:hover {
     border-color: var(--cor-itemdesconto);
 }
 

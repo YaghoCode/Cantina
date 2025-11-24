@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/11/2025 às 15:12
+-- Tempo de geração: 24/11/2025 às 00:52
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -165,7 +165,8 @@ INSERT INTO `pedido` (`id`, `cpf`, `nome_itens`, `quantidade_itens`, `preco_iten
 (24, '12345678940', 'Água, Del Valle Maracujá 290ml', '2x, 1x', 'R$8,00, R$6,00', 14.00, 'Concluído', '2025-11-23', '10:46:19'),
 (25, '12345678940', 'Mousse de Limão, Brigadeiro', '1x, 3x', 'R$3,00, R$9,00', 12.00, 'Cancelado', '2025-11-23', '10:46:36'),
 (26, '12345678940', 'Hamburgão Cheddar Bacon, Mousse de Limão, Sorvete açaí 300g', '3x, 1x, 1x', 'R$21,00, R$3,00, R$7,00', 31.00, 'Cancelado', '2025-11-23', '10:48:33'),
-(27, '12345678940', 'Hamburgão Cheddar Bacon, Mousse de Limão, Sorvete açaí 300g, Pão de queijo, X-Egg, X-Salada, Coxinha de frango, Bauru, Esfiha de Carne, Brigadeiro, Croissant de frango, Croissant de calabresa, Doce de Morango, Mousse de Maracujá, Brigadeiro de pote,', '4x, 2x, 2x, 8x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x', 'R$28,00, R$6,00, R$14,00, R$48,00, R$12,00, R$12,00, R$7,00, R$7,00, R$7,00, R$3,00, R$7,00, R$7,00, R$5,00, R$5,00, R$3,50, R$5,00, R$7,00, R$4,00, R$6,00, R$4,00, R$4,00, R$6,00, R$6,00, R$6,00, R$6,00, R$7,00, R$6,00, R$35,00, R$22,00, R$40,00, R$35,00', 370.50, 'Sendo Preparado', '2025-11-23', '10:49:57');
+(27, '12345678940', 'Hamburgão Cheddar Bacon, Mousse de Limão, Sorvete açaí 300g, Pão de queijo, X-Egg, X-Salada, Coxinha de frango, Bauru, Esfiha de Carne, Brigadeiro, Croissant de frango, Croissant de calabresa, Doce de Morango, Mousse de Maracujá, Brigadeiro de pote,', '4x, 2x, 2x, 8x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x', 'R$28,00, R$6,00, R$14,00, R$48,00, R$12,00, R$12,00, R$7,00, R$7,00, R$7,00, R$3,00, R$7,00, R$7,00, R$5,00, R$5,00, R$3,50, R$5,00, R$7,00, R$4,00, R$6,00, R$4,00, R$4,00, R$6,00, R$6,00, R$6,00, R$6,00, R$7,00, R$6,00, R$35,00, R$22,00, R$40,00, R$35,00', 370.50, 'Sendo Preparado', '2025-11-23', '10:49:57'),
+(28, '12345678940', 'Hamburgão Cheddar Bacon, Mousse de Limão, Sorvete açaí 300g, Pão de queijo, X-Egg, X-Salada, Coxinha de frango, Bauru, Esfiha de Carne, Brigadeiro, Croissant de frango, Croissant de calabresa, Doce de Morango, Mousse de Maracujá, Brigadeiro de pote,', '4x, 2x, 2x, 8x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x, 1x', 'R$28,00, R$6,00, R$14,00, R$48,00, R$12,00, R$12,00, R$7,00, R$7,00, R$7,00, R$3,00, R$7,00, R$7,00, R$5,00, R$5,00, R$3,50, R$5,00, R$7,00, R$4,00, R$6,00, R$4,00, R$4,00, R$6,00, R$6,00, R$6,00, R$6,00, R$7,00, R$6,00, R$35,00, R$22,00, R$40,00, R$35,00', 370.50, 'Cancelado', '2025-11-23', '19:12:09');
 
 -- --------------------------------------------------------
 
@@ -233,7 +234,38 @@ INSERT INTO `pedido_itens` (`id`, `pedido_id`, `nome_item`, `quantidade`, `preco
 (67, 27, 'Pizza de Calabresa', 1, 35.00, '2025-11-23', '14:49:57'),
 (68, 27, 'Dolly Acalabresado', 1, 22.00, '2025-11-23', '14:49:57'),
 (69, 27, 'Frango Adollyzado', 1, 40.00, '2025-11-23', '14:49:57'),
-(70, 27, 'Pizza Frango Catupiry', 1, 35.00, '2025-11-23', '14:49:57');
+(70, 27, 'Pizza Frango Catupiry', 1, 35.00, '2025-11-23', '14:49:57'),
+(71, 28, 'Hamburgão Cheddar Bacon', 4, 28.00, '2025-11-23', '23:12:09'),
+(72, 28, 'Mousse de Limão', 2, 6.00, '2025-11-23', '23:12:09'),
+(73, 28, 'Sorvete açaí 300g', 2, 14.00, '2025-11-23', '23:12:09'),
+(74, 28, 'Pão de queijo', 8, 48.00, '2025-11-23', '23:12:09'),
+(75, 28, 'X-Egg', 1, 12.00, '2025-11-23', '23:12:09'),
+(76, 28, 'X-Salada', 1, 12.00, '2025-11-23', '23:12:09'),
+(77, 28, 'Coxinha de frango', 1, 7.00, '2025-11-23', '23:12:09'),
+(78, 28, 'Bauru', 1, 7.00, '2025-11-23', '23:12:09'),
+(79, 28, 'Esfiha de Carne', 1, 7.00, '2025-11-23', '23:12:09'),
+(80, 28, 'Brigadeiro', 1, 3.00, '2025-11-23', '23:12:09'),
+(81, 28, 'Croissant de frango', 1, 7.00, '2025-11-23', '23:12:09'),
+(82, 28, 'Croissant de calabresa', 1, 7.00, '2025-11-23', '23:12:09'),
+(83, 28, 'Doce de Morango', 1, 5.00, '2025-11-23', '23:12:09'),
+(84, 28, 'Mousse de Maracujá', 1, 5.00, '2025-11-23', '23:12:09'),
+(85, 28, 'Brigadeiro de pote', 1, 3.50, '2025-11-23', '23:12:09'),
+(86, 28, 'Halls Cereja', 1, 5.00, '2025-11-23', '23:12:09'),
+(87, 28, 'Esfiha de Chocolate com M&Ms', 1, 7.00, '2025-11-23', '23:12:09'),
+(88, 28, 'Trident Menta', 1, 4.00, '2025-11-23', '23:12:09'),
+(89, 28, 'Del Valle Maracujá 290ml', 1, 6.00, '2025-11-23', '23:12:09'),
+(90, 28, 'Água', 1, 4.00, '2025-11-23', '23:12:09'),
+(91, 28, 'Coca-Cola 350ml', 1, 4.00, '2025-11-23', '23:12:09'),
+(92, 28, 'Del Valle Manga 290ml', 1, 6.00, '2025-11-23', '23:12:09'),
+(93, 28, 'Del Valle Pêssego 290ml', 1, 6.00, '2025-11-23', '23:12:09'),
+(94, 28, 'Del Valle Uva 290ml', 1, 6.00, '2025-11-23', '23:12:09'),
+(95, 28, 'Sukita de Laranja', 1, 6.00, '2025-11-23', '23:12:09'),
+(96, 28, 'Itubaína 300ml', 1, 7.00, '2025-11-23', '23:12:09'),
+(97, 28, 'Dolly Guaraná 600ml', 1, 6.00, '2025-11-23', '23:12:09'),
+(98, 28, 'Pizza de Calabresa', 1, 35.00, '2025-11-23', '23:12:09'),
+(99, 28, 'Dolly Acalabresado', 1, 22.00, '2025-11-23', '23:12:09'),
+(100, 28, 'Frango Adollyzado', 1, 40.00, '2025-11-23', '23:12:09'),
+(101, 28, 'Pizza Frango Catupiry', 1, 35.00, '2025-11-23', '23:12:09');
 
 --
 -- Índices para tabelas despejadas
@@ -284,13 +316,13 @@ ALTER TABLE `estoque`
 -- AUTO_INCREMENT de tabela `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de tabela `pedido_itens`
 --
 ALTER TABLE `pedido_itens`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- Restrições para tabelas despejadas
