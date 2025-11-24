@@ -780,9 +780,13 @@ if (isset($_SESSION['cpf'])) {
                                             <h1>Turno:</h1>
                                             <span>Manhã</span><!--php turno pedido-->
                                         </div>
-                                        <div class="mid-group-botao-avaliar">
+                                        <?php 
+                                        if ($pedido['status'] == "Sendo Preparado"){
+                                        echo '<div class="mid-group-botao-avaliar">
                                             <button class="btn-modal-avaliar-pedido">Avaliar Pedido</button>
-                                        </div>
+                                        </div>';
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="content-modal-visualizar-mid-row">

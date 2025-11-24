@@ -282,12 +282,12 @@ if (isset($_SESSION['cpf'])) {
 
       </div>
       <div class="cart-total-price">
-        <h5 class="cart-total-h5">Total:</h5 >
+        <h5 class="cart-total-h5">Total:</h5>
         <h6 class="cart-total-h6">R$ 00,00 <!--Price calculado--></h6>
       </div>
       <div class="finalizar-pedido">
         <button type="button" id="btn-finalizar-pedidos">
-           <a href="/cantinarepositorio/subpages/finalizar_pedido_cliente.php"></a>
+          <a href="/cantinarepositorio/subpages/finalizar_pedido_cliente.php"></a>
           Finalizar Pedido
         </button>
       </div>
@@ -539,32 +539,7 @@ if (isset($_SESSION['cpf'])) {
               <?php
             }
           }
-          ?><!--
-          <div class="cards-salgados">
-            <div class="cards-img">
-              <img src="./assets/img/coxinha2.webp" alt="">
-            </div>
-            <div class="cards-title">
-              <h3>Esfiha de Frango</h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4>R$ 6,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
-
-          <div class="cards-salgados">
-            <div class="cards-img">
-              <img src="./assets/img/esfihadefrango.jfif" alt="">
-            </div>
-            <div class="cards-title">
-              <h3>Esfiha de Frango</h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4>R$ 6,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>-->
+          ?>
         </div>
         <div class="content-cardapio-options">
           <!--FOLHADOS-->
@@ -643,49 +618,33 @@ if (isset($_SESSION['cpf'])) {
         </div>
         <div class="content-cardapio-options">
           <!--Outros-->
-          <div class="cards-outros">
-            <div class="cards-img">
-              <img src="./assets/img/combo1.png" alt="">
-            </div>
-            <div class="cards-title">
-              <h3>Pizza + Doly</h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4>R$ 25,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
-
-          <div class="cards-outros">
-            <div class="cards-img">
-              <img src="./assets/img/combo1.png" alt="">
-            </div>
-            <div class="cards-title">
-              <h3>Combo Lanche + Refri</h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4>R$ 10,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
-
-          <div class="cards-outros">
-            <div class="cards-img">
-              <img src="./assets/img/combo1.png" alt="">
-            </div>
-            <div class="cards-title">
-              <h3>Combo Lanche + Brigadeiro</h3>
-            </div>
-            <div class="cards-priceEbtn">
-              <h4>R$ 8,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-          </div>
+          <?php
+          $query = "SELECT * FROM estoque WHERE categoria = 'Outros' AND in_main = 1 LIMIT 3";
+          $result = mysqli_query($con, $query);
+          if ($result && mysqli_num_rows($result) > 0) {
+            foreach ($result as $row) {
+              ?>
+              <div class="cards-salgados">
+                <div class="cards-img">
+                  <img src="/cantinarepositorio/subpages/imgbd/<?php echo $row['img']; ?>" alt="">
+                </div>
+                <div class="cards-title">
+                  <h3><?php echo $row['Nome']; ?></h3>
+                </div>
+                <div class="cards-priceEbtn">
+                  <h4><?php echo $row['preco']; ?></h4>
+                  <button><i class="fa-solid fa-plus"></i></button>
+                </div>
+              </div>
+              <?php
+            }
+          }
+          ?>
 
         </div>
       </div>
     </div>
-  </section>
+  </section> <img src="./assets/img/combo1.png" alt="">
 
 
   <!--Section Sobre Nós-->
@@ -717,7 +676,7 @@ if (isset($_SESSION['cpf'])) {
             </p>
           </div>
           <div class="content-left-btn">
-            <button>
+            <button type="button">
               <a href="/cantinarepositorio/subpages/termos.php" style="color: inherit; text-decoration: none;">Saiba
                 Mais</a>
             </button>
@@ -794,10 +753,10 @@ if (isset($_SESSION['cpf'])) {
                 </div>
                 <div class="title-user-info">
                   <h1>
-                    Maria Silva
+                    Miguel Rodrigues Altoe
                   </h1>
                   <p>
-                    Estudante do 3º ano ADM
+                    Estudante do 3º ano DS
                   </p>
                 </div>
                 <div class="icon-avaliacao">
@@ -816,7 +775,7 @@ if (isset($_SESSION['cpf'])) {
               <div class="cards-avaliacao-bottom">
                 <div class="description-avaliacao">
                   <p>
-                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A
+                    "A comida da cantina é incrível! O hamburgão é o meu favorito e sempre muito gostoso. A
                     equipe é super simpática e o atendimento é rápido."
                   </p>
                 </div>
@@ -829,10 +788,10 @@ if (isset($_SESSION['cpf'])) {
                 </div>
                 <div class="title-user-info">
                   <h1>
-                    Maria Silva
+                    Nicolas Silva Oliveira
                   </h1>
                   <p>
-                    Estudante do 3º ano ADM
+                    Estudante do 3º ano DS
                   </p>
                 </div>
                 <div class="icon-avaliacao">
@@ -845,14 +804,13 @@ if (isset($_SESSION['cpf'])) {
                   <i class="fa-solid fa-star"></i>
                   <i class="fa-solid fa-star"></i>
                   <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star-half"></i>
                 </div>
               </div>
               <div class="cards-avaliacao-bottom">
                 <div class="description-avaliacao">
                   <p>
-                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A
-                    equipe é super simpática e o atendimento é rápido."
+                    “Atendimento rápido, educado e muito organizado. Pedi um x-egg e veio caprichado, do jeitinho que eu gosto.”
                   </p>
                 </div>
               </div>
@@ -864,10 +822,10 @@ if (isset($_SESSION['cpf'])) {
                 </div>
                 <div class="title-user-info">
                   <h1>
-                    Maria Silva
+                    Nilson Cardoso Neto
                   </h1>
                   <p>
-                    Estudante do 3º ano ADM
+                    Estudante do 3º ano DS
                   </p>
                 </div>
                 <div class="icon-avaliacao">
@@ -886,8 +844,7 @@ if (isset($_SESSION['cpf'])) {
               <div class="cards-avaliacao-bottom">
                 <div class="description-avaliacao">
                   <p>
-                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A
-                    equipe é super simpática e o atendimento é rápido."
+                    “A Sukita de laranja estava geladinha e o lanche veio montado com carinho. Dá pra ver que eles se preocupam com o cliente.”
                   </p>
                 </div>
               </div>
@@ -901,10 +858,10 @@ if (isset($_SESSION['cpf'])) {
                 </div>
                 <div class="title-user-info">
                   <h1>
-                    Maria Silva
+                    Juan Dias de Lima Delgado 
                   </h1>
                   <p>
-                    Estudante do 3º ano ADM
+                    Estudante do 3º ano DS
                   </p>
                 </div>
                 <div class="icon-avaliacao">
@@ -917,14 +874,12 @@ if (isset($_SESSION['cpf'])) {
                   <i class="fa-solid fa-star"></i>
                   <i class="fa-solid fa-star"></i>
                   <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
                 </div>
               </div>
               <div class="cards-avaliacao-bottom">
                 <div class="description-avaliacao">
                   <p>
-                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A
-                    equipe é super simpática e o atendimento é rápido."
+                    Pedi a pizza de calabresa e adorei o sabor! Recheio bem feito, massa gostosa e tudo chegou quentinho. Experiência muito boa, com certeza volto pra experimentar outros itens.
                   </p>
                 </div>
               </div>
@@ -936,10 +891,10 @@ if (isset($_SESSION['cpf'])) {
                 </div>
                 <div class="title-user-info">
                   <h1>
-                    Maria Silva
+                    Renato Estevam Garcia
                   </h1>
                   <p>
-                    Estudante do 3º ano ADM
+                    Estudante do 3º ano DS
                   </p>
                 </div>
                 <div class="icon-avaliacao">
@@ -952,14 +907,13 @@ if (isset($_SESSION['cpf'])) {
                   <i class="fa-solid fa-star"></i>
                   <i class="fa-solid fa-star"></i>
                   <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star-half"></i>
                 </div>
               </div>
               <div class="cards-avaliacao-bottom">
                 <div class="description-avaliacao">
                   <p>
-                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A
-                    equipe é super simpática e o atendimento é rápido."
+                    “Os combos com Dolly 2L são excelentes! Ótimo custo-benefício e tudo vem muito bem embalado. WOW”
                   </p>
                 </div>
               </div>
@@ -971,10 +925,10 @@ if (isset($_SESSION['cpf'])) {
                 </div>
                 <div class="title-user-info">
                   <h1>
-                    Maria Silva
+                    Pedro Henrique Cerqueira PH
                   </h1>
                   <p>
-                    Estudante do 3º ano ADM
+                    Estudante do 3º ano DS
                   </p>
                 </div>
                 <div class="icon-avaliacao">
@@ -987,14 +941,13 @@ if (isset($_SESSION['cpf'])) {
                   <i class="fa-solid fa-star"></i>
                   <i class="fa-solid fa-star"></i>
                   <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star-half"></i>
                 </div>
               </div>
               <div class="cards-avaliacao-bottom">
                 <div class="description-avaliacao">
                   <p>
-                    "A comida da cantina é incrível! O sanduíche natural é o meu favorito e sempre muito fresco. A
-                    equipe é super simpática e o atendimento é rápido."
+                    “A pizza de frango com catupiry é simplesmente maravilhosa. Recheio generoso e sabor impecável. Recomendo demais!”
                   </p>
                 </div>
               </div>

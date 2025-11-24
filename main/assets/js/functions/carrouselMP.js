@@ -3,13 +3,55 @@ const leftBtn = document.querySelector(".botao-left-mp");
 const rightBtn = document.querySelector(".botao-right-mp");
 
 const itemsData = [
+   `
+   <div class="cards-mp">
+            <div class="cards-img-mp">
+              <img src="./assets/img/Hamburguer Cheddar.bacon 1000px x 667px.png" alt="">
+            </div>
+            <div class="cards-title-mp">
+              <h3>Hamburgão cheddar e bacon</h3>
+            </div>
+            <div class="cards-priceEbtn-mp">
+              <h4>R$ 7,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+    </div>
+  `,
   `
   <div class="cards-mp">
             <div class="cards-img-mp">
-              <img src="./assets/img/esfihadecarne.jpg" alt="">
+              <img src="./assets/img/Esfihas 1000px x 667px.png" alt="">
             </div>
             <div class="cards-title-mp">
               <h3>Esfiha de Carne</h3>
+            </div>
+            <div class="cards-priceEbtn-mp">
+              <h4>R$ 7,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+    </div>
+  `,
+  `
+   <div class="cards-mp">
+            <div class="cards-img-mp">
+              <img src="./assets/img/Coxinha 1000px  x 677px.png" alt="">
+            </div>
+            <div class="cards-title-mp">
+              <h3>Coxinha de frango</h3>
+            </div>
+            <div class="cards-priceEbtn-mp">
+              <h4>R$ 7,00</h4>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+    </div>
+  `,
+  `
+   <div class="cards-mp">
+            <div class="cards-img-mp">
+              <img src="./assets/img/CocaCola.png" alt="">
+            </div>
+            <div class="cards-title-mp">
+              <h3>Coca-Cola 350ml</h3>
             </div>
             <div class="cards-priceEbtn-mp">
               <h4>R$ 6,00</h4>
@@ -20,59 +62,18 @@ const itemsData = [
   `
    <div class="cards-mp">
             <div class="cards-img-mp">
-              <img src="./assets/img/esfihadecarne.jpg" alt="">
+              <img src="./assets/img/Mousse de Maracujá.png" alt="">
             </div>
             <div class="cards-title-mp">
-              <h3>Esfiha de Carne</h3>
+              <h3>Mousse de maracujá</h3>
             </div>
             <div class="cards-priceEbtn-mp">
-              <h4>R$ 6,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-    </div>
-  `,
-  `
-   <div class="cards-mp">
-            <div class="cards-img-mp">
-              <img src="./assets/img/esfihadecarne.jpg" alt="">
-            </div>
-            <div class="cards-title-mp">
-              <h3>Esfiha de Carne</h3>
-            </div>
-            <div class="cards-priceEbtn-mp">
-              <h4>R$ 6,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-    </div>
-  `,
-  `
-   <div class="cards-mp">
-            <div class="cards-img-mp">
-              <img src="./assets/img/esfihadecarne.jpg" alt="">
-            </div>
-            <div class="cards-title-mp">
-              <h3>Esfiha de Carne</h3>
-            </div>
-            <div class="cards-priceEbtn-mp">
-              <h4>R$ 6,00</h4>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-    </div>
-  `,
-  `
-   <div class="cards-mp">
-            <div class="cards-img-mp">
-              <img src="./assets/img/esfihadecarne.jpg" alt="">
-            </div>
-            <div class="cards-title-mp">
-              <h3>Esfiha de Carne</h3>
-            </div>
-            <div class="cards-priceEbtn-mp">
-              <h4>R$ 6,00</h4>
+              <h4>R$ 5,00</h4>
               <button><i class="fa-solid fa-plus"></i></button>
             </div>
     </div>
   `
+ 
 ];
 
 const CYCLES = 3; // Quantas vezes a lista será repetida
